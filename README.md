@@ -8,19 +8,10 @@ On-device AI should be fast, private, and free from cloud dependencies. These mo
 
 ## Projects
 
-### Speech & Voice
-
 | Project | Description | Status |
 |---------|-------------|--------|
-| **whisper_mlx** | Whisper speech-to-text (MLX) | Planned |
-| **kokoro** | Kokoro TTS synthesis (38x realtime) | Planned |
-| **voice** | Streaming voice I/O integration | Planned |
-
-### Translation
-
-| Project | Description | Status |
-|---------|-------------|--------|
-| **nllb** | NLLB-200 neural translation (200 languages) | Planned |
+| **model_mlx_migration** | MLX models: Whisper (STT), Kokoro (TTS 38x RT), LLaMA, NLLB, Wake Word | Planned |
+| **voice** | Streaming voice I/O (14 languages, P50 48-107ms) | Planned |
 
 ## Status
 
