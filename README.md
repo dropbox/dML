@@ -10,12 +10,19 @@ On-device AI should be fast, private, and free from cloud dependencies. These mo
 
 | Project | Description | Status |
 |---------|-------------|--------|
-| **model_mlx_migration** | MLX models: Whisper (STT), Kokoro (TTS 38x RT), LLaMA, NLLB, Wake Word | Planned |
-| **voice** | Streaming voice I/O (14 languages, P50 48-107ms) | Planned |
+| **model_mlx_migration** | MLX model collection for Apple Silicon | Planned |
+| **voice** | Streaming voice I/O. 14 languages, P50 48-107ms latency. | Planned |
+| **metal_mps_parallel** | Metal/MPS GPU threading. | Planned |
 
-## Status
+### Models in model_mlx_migration
 
-These projects are in **preview** status. APIs may change.
+| Model | Type | Description |
+|-------|------|-------------|
+| **whisper_mlx** | STT | Whisper speech-to-text (C++ MLX) |
+| **kokoro** | TTS | Kokoro text-to-speech (38x realtime) |
+| **llama** | LLM | LLaMA language model |
+| **nllb** | Translation | NLLB-200 neural translation (200 languages) |
+| **wake_word** | Audio | Wake word detection |
 
 ## License
 
