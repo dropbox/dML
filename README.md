@@ -39,3 +39,4 @@ ML and NN training and inference optimized for Apple Silicon via MLX. Currently 
 ## License
 
 Apache 2.0
+
