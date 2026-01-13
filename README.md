@@ -3,34 +3,39 @@
 ![Status](https://img.shields.io/badge/status-preview-orange)
 ![License](https://img.shields.io/badge/license-Apache%202.0-blue)
 
-Machine learning inference engines optimized for Apple Silicon via MLX.
+ML and NN training and inference optimized for Apple Silicon via MLX. Currently focused on voice.
 
-## Thesis
+## Structure
 
-**Your AI should live on your machine.** Cloud inference means latency, cost, and your data leaving your control. These models run locally on Apple Silicon at speeds that make real-time voice interaction feel instant—Whisper transcribing as you speak, Kokoro responding before you finish listening, translation happening in the pause between sentences. Privacy and performance, not a tradeoff.
+| Directory | Description | Status |
+|-----------|-------------|--------|
+| **model_mlx_migration** | MLX models for Apple Silicon | Usable |
+| **voice** | Streaming voice I/O, 14 languages | Preview |
+| **metal_mps_parallel** | Metal/MPS GPU threading | Preview |
 
-## Projects
+> **Note:** `model_mlx_migration` will be split into separate TTS, STT, and tooling repos.
 
-| Project | Description | Status |
-|---------|-------------|--------|
-| **model_mlx_migration** | MLX model collection for Apple Silicon | Usable |
-| **voice** | Streaming voice I/O. 14 languages, P50 48-107ms latency. | Preview |
-| **metal_mps_parallel** | Metal/MPS GPU threading. | Preview |
+## Models
 
-### Models in model_mlx_migration
+### Speech-to-Text (STT)
 
-| Model | Type | Description |
-|-------|------|-------------|
-| **whisper_mlx** | STT | Whisper speech-to-text (C++ MLX) |
-| **kokoro** | TTS | Kokoro text-to-speech (38x realtime) |
-| **llama** | LLM | LLaMA language model |
-| **nllb** | Translation | NLLB-200 neural translation (200 languages) |
-| **wake_word** | Audio | Wake word detection |
+| Model | Description |
+|-------|-------------|
+| **ZipFormer** | Streaming ASR encoder (k2/icefall), 2.85% WER |
+| **Whisper large-v3-turbo** | Non-streaming fallback, 1.8% WER |
+| **Silero VAD** | Voice activity detection |
+
+### Text-to-Speech (TTS)
+
+| Model | Description |
+|-------|-------------|
+| **CosyVoice3** | Alibaba TTS with voice cloning, DiT flow-matching |
+| **Kokoro** | Lightweight TTS, 38x realtime |
+
+### Rich Audio
+
+9 classification heads: emotion (92% acc), paralinguistics (97% acc), language ID (99% acc), pitch, singing detection, punctuation.
 
 ## License
 
-Apache 2.0 - See [LICENSE](LICENSE) for details.
-
-## Release History
-
-See [RELEASES.md](RELEASES.md) for version history.
+Apache 2.0
