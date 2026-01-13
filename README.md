@@ -1,10 +1,13 @@
 # dML - Machine Learning Models
 
+![Status](https://img.shields.io/badge/status-preview-orange)
+![License](https://img.shields.io/badge/license-Apache%202.0-blue)
+
 Machine learning inference engines optimized for Apple Silicon via MLX.
 
 ## Thesis
 
-On-device AI should be fast, private, and free from cloud dependencies. These models run locally on Apple Silicon, enabling real-time speech recognition, text-to-speech, and translation without network latency or data leaving your machine.
+**Your AI should live on your machine.** Cloud inference means latency, cost, and your data leaving your control. These models run locally on Apple Silicon at speeds that make real-time voice interaction feel instant—Whisper transcribing as you speak, Kokoro responding before you finish listening, translation happening in the pause between sentences. Privacy and performance, not a tradeoff.
 
 ## Projects
 
