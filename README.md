@@ -13,9 +13,9 @@ Machine learning inference engines optimized for Apple Silicon via MLX.
 
 | Project | Description | Status |
 |---------|-------------|--------|
-| **model_mlx_migration** | MLX model collection for Apple Silicon | Planned |
-| **voice** | Streaming voice I/O. 14 languages, P50 48-107ms latency. | Planned |
-| **metal_mps_parallel** | Metal/MPS GPU threading. | Planned |
+| **model_mlx_migration** | MLX model collection for Apple Silicon | Preview |
+| **voice** | Streaming voice I/O. 14 languages, P50 48-107ms latency. | Preview |
+| **metal_mps_parallel** | Metal/MPS GPU threading. | Preview |
 
 ### Models in model_mlx_migration
 
