@@ -1,0 +1,27 @@
+/opt/homebrew/lib/python3.14/site-packages/webrtcvad.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+======================================================================
+RichDecoder Training
+======================================================================
+Output: checkpoints/rich_decoder_v1
+Model: mlx-community/whisper-large-v3-mlx
+LoRA: rank=8, alpha=16
+
+1. Loading Whisper model...
+Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 15887.52it/s]
+/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-u4ub_1fu'}
+  warnings.warn(
+2025-12-30 18:11:00 | Para training monitoring: step 17450/21460 (81.3%), epoch 9/10
+2025-12-30 18:23:00 | Para training monitoring: step 17800/21460 (82.9%), epoch 9/10
+2025-12-30 18:38:00 | Para training monitoring: step 18250/21460 (85.0%), epoch 9/10
+2025-12-30 18:54:00 | Para training monitoring: step 18700/21460 (87.1%), epoch 9/10
+2025-12-30 19:15:00 | Para training monitoring: step 19250/21460 (89.7%), epoch 9/10
+2025-12-30 19:29:00 | Para training milestone: Epoch 9 complete, val accuracy 95.33% (best remains 96.96% from epoch 8). Starting final epoch 10.
+2025-12-30 19:57:00 | Para training monitoring: step 20200/21460 (94.1%), final epoch 10/10
+2025-12-30 20:52:06 | PARA TRAINING COMPLETE! Final accuracy: 96.96%, saved as final.npz
+2025-12-30 21:05:00 | RichDecoder training resumed, currently at step 350
+2025-12-30 21:15:00 | RichDecoder training: step 700/64030 (1.1%)
+2025-12-30 21:29:00 | RichDecoder training: step 1200/64030 (1.9%)
+2025-12-30 21:38:00 | RichDecoder training: step 1550/64030 (2.4%), checkpoint at step 1500
+2025-12-30 21:50:00 | RichDecoder training: step 2000/64030 (3.1%), checkpoint saved
+2025-12-30 22:04:00 | RichDecoder training: step 2500/64030 (3.9%), checkpoint saved, loss stable ~0.6-0.8

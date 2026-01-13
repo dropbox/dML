@@ -1,0 +1,5 @@
+/opt/homebrew/lib/python3.14/site-packages/huggingface_hub/utils/_validators.py:186: UserWarning: The `resume_download` argument is deprecated and ignored in `snapshot_download`. Downloads always resume whenever possible.
+  warnings.warn(
+Downloading full People's Speech dataset...
+Fetching ... files: 0it [00:00, ?it/s]Fetching ... files: 4it [01:31, 23.00s/it]Fetching ... files: 5it [03:04, 41.19s/it]Fetching ... files: 6it [03:26, 36.14s/it]Fetching ... files: 7it [04:23, 41.93s/it]Fetching ... files: 8it [04:35, 33.35s/it]Fetching ... files: 12it [04:49, 14.77s/it]Fetching ... files: 36it [05:37,  4.02s/it]Fetching ... files: 37it [06:42,  6.97s/it]Fetching ... files: 38it [06:58,  7.52s/it]Fetching ... files: 39it [07:11,  7.96s/it]Fetching ... files: 42it [07:47,  9.03s/it]Fetching ... files: 44it [07:50,  7.49s/it]/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-zfoke05h'}
+  warnings.warn(

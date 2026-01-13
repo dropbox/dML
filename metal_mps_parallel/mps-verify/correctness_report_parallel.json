@@ -1,0 +1,115 @@
+{
+  "timestamp": "2025-12-19 00:20:50",
+  "pytorch_version": "2.9.1a0+git9a4518e",
+  "device": "mps",
+  "thread_counts": [
+    4
+  ],
+  "total_tests": 10,
+  "passed": 9,
+  "failed": 1,
+  "results": [
+    {
+      "name": "Linear_16x512x256_torch.float32",
+      "num_threads": 4,
+      "passed": true,
+      "all_threads_identical": true,
+      "all_match_reference": true,
+      "max_inter_thread_diff": 0.0,
+      "max_vs_reference_diff": 0.0,
+      "errors": []
+    },
+    {
+      "name": "Linear_64x2048x2048_torch.float32",
+      "num_threads": 4,
+      "passed": true,
+      "all_threads_identical": true,
+      "all_match_reference": true,
+      "max_inter_thread_diff": 0.0,
+      "max_vs_reference_diff": 0.0,
+      "errors": []
+    },
+    {
+      "name": "Matmul_256x512x256_torch.float32",
+      "num_threads": 4,
+      "passed": true,
+      "all_threads_identical": true,
+      "all_match_reference": true,
+      "max_inter_thread_diff": 0.0,
+      "max_vs_reference_diff": 0.0,
+      "errors": []
+    },
+    {
+      "name": "Matmul_1024x1024x1024_torch.float32",
+      "num_threads": 4,
+      "passed": true,
+      "all_threads_identical": true,
+      "all_match_reference": true,
+      "max_inter_thread_diff": 0.0,
+      "max_vs_reference_diff": 0.0,
+      "errors": []
+    },
+    {
+      "name": "BMM_8x64x64x64_torch.float32",
+      "num_threads": 4,
+      "passed": true,
+      "all_threads_identical": true,
+      "all_match_reference": true,
+      "max_inter_thread_diff": 0.0,
+      "max_vs_reference_diff": 0.0,
+      "errors": []
+    },
+    {
+      "name": "LayerNorm_16x512x768_torch.float32",
+      "num_threads": 4,
+      "passed": true,
+      "all_threads_identical": true,
+      "all_match_reference": true,
+      "max_inter_thread_diff": 0.0,
+      "max_vs_reference_diff": 0.0,
+      "errors": []
+    },
+    {
+      "name": "Softmax_4x128x32000_torch.float32",
+      "num_threads": 4,
+      "passed": true,
+      "all_threads_identical": true,
+      "all_match_reference": true,
+      "max_inter_thread_diff": 0.0,
+      "max_vs_reference_diff": 0.0,
+      "errors": []
+    },
+    {
+      "name": "Conv2d_4x3x224x224_k3_torch.float32",
+      "num_threads": 4,
+      "passed": true,
+      "all_threads_identical": true,
+      "all_match_reference": true,
+      "max_inter_thread_diff": 0.0,
+      "max_vs_reference_diff": 0.0,
+      "errors": []
+    },
+    {
+      "name": "GELU_16x512x768_torch.float32",
+      "num_threads": 4,
+      "passed": true,
+      "all_threads_identical": true,
+      "all_match_reference": true,
+      "max_inter_thread_diff": 0.0,
+      "max_vs_reference_diff": 0.0,
+      "errors": []
+    },
+    {
+      "name": "TransformerBlock_4x128x256_h4_torch.float32",
+      "num_threads": 4,
+      "passed": false,
+      "all_threads_identical": false,
+      "all_match_reference": false,
+      "max_inter_thread_diff": 0.23467472195625305,
+      "max_vs_reference_diff": 0.23467472195625305,
+      "errors": [
+        "Iter 5 thread 1: output differs from sequential golden (max_abs=2.35e-01)"
+      ]
+    }
+  ]
+}

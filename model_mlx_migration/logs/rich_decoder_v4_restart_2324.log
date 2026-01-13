@@ -1,0 +1,42 @@
+/opt/homebrew/lib/python3.14/site-packages/webrtcvad.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/ayates/model_mlx_migration/tools/whisper_mlx/train_rich_decoder_v4.py", line 956, in <module>
+    main()
+    ~~~~^^
+  File "/Users/ayates/model_mlx_migration/tools/whisper_mlx/train_rich_decoder_v4.py", line 952, in main
+    trainer.train(train_loader, val_loader)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ayates/model_mlx_migration/tools/whisper_mlx/train_rich_decoder_v4.py", line 752, in train
+    self.optimizer.update(self.model, accumulated_grads)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ayates/Library/Python/3.14/lib/python/site-packages/mlx/optimizers/optimizers.py", line 29, in update
+    model.update(self.apply_gradients(gradients, model))
+                 ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/ayates/Library/Python/3.14/lib/python/site-packages/mlx/optimizers/optimizers.py", line 109, in apply_gradients
+    return tree_map(self.apply_single, gradients, parameters, self.state)
+  File "/Users/ayates/Library/Python/3.14/lib/python/site-packages/mlx/utils.py", line 54, in tree_map
+    k: tree_map(fn, child, *(r[k] for r in rest), is_leaf=is_leaf)
+       ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ayates/Library/Python/3.14/lib/python/site-packages/mlx/utils.py", line 54, in tree_map
+    k: tree_map(fn, child, *(r[k] for r in rest), is_leaf=is_leaf)
+       ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ayates/Library/Python/3.14/lib/python/site-packages/mlx/utils.py", line 54, in tree_map
+    k: tree_map(fn, child, *(r[k] for r in rest), is_leaf=is_leaf)
+       ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  [Previous line repeated 2 more times]
+  File "/Users/ayates/Library/Python/3.14/lib/python/site-packages/mlx/utils.py", line 58, in tree_map
+    return fn(tree, *rest)
+  File "/Users/ayates/Library/Python/3.14/lib/python/site-packages/mlx/optimizers/optimizers.py", line 586, in apply_single
+    return super().apply_single(
+           ~~~~~~~~~~~~~~~~~~~~^
+        gradient, parameter * (1 - lr * self.weight_decay), state
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ayates/Library/Python/3.14/lib/python/site-packages/mlx/optimizers/optimizers.py", line 524, in apply_single
+    v = b2 * v + (1 - b2) * mx.square(gradient)
+        ~~~^~~
+RuntimeError: [metal::malloc] Resource limit (499000) exceeded.

@@ -1,0 +1,67 @@
+/opt/homebrew/lib/python3.14/site-packages/webrtcvad.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+Loading LibriSpeech from: /Users/ayates/model_mlx_migration/data/benchmarks/librispeech/LibriSpeech/train-clean-360
+Found 2097 transcript files
+Total samples: 104014
+Train: 93613, Val: 10401
+Loading Whisper encoder: large-v3
+Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 9000.65it/s]
+  Encoder dimension: 1280
+Creating Kokoro Phoneme Head (d_model=1280, hidden=512)
+Loading checkpoint: checkpoints/kokoro_phoneme_head_v1/kokoro_phoneme_head_1400_best.npz
+  Loaded weights from checkpoint
+  Kokoro phoneme vocab size: 178
+  Encoder cache: /tmp/phoneme_encoder_cache_v2
+
+Starting training:
+  Train samples: 93613
+  Val samples: 10401
+  Epochs: 5
+  Batch size: 8
+  Learning rate: 0.0005
+  Length-sorted batching: True
+
+Populating durations for 93613 samples...
+  10000/93613 (25838 samples/sec)
+  20000/93613 (25768 samples/sec)
+  30000/93613 (25684 samples/sec)
+  40000/93613 (25726 samples/sec)
+  50000/93613 (25725 samples/sec)
+  60000/93613 (25709 samples/sec)
+  70000/93613 (25708 samples/sec)
+  80000/93613 (25699 samples/sec)
+  90000/93613 (25712 samples/sec)
+Duration population complete in 3.6s
+Populating durations for 10401 samples...
+  10000/10401 (25409 samples/sec)
+Duration population complete in 0.4s
+Duration stats: min=1.1s, max=29.7s, mean=12.6s
+Epoch 1/5
+  Step 1450: loss=0.7318, samples/s=0.9, cache=400 files (96% hits), pad_eff=99.2%
+  Step 1500: loss=0.6941, samples/s=0.8, cache=800 files (48% hits), pad_eff=99.4%
+  Saved checkpoint: checkpoints/kokoro_phoneme_head_v2/kokoro_phoneme_head_1500.npz
+  Step 1550: loss=0.6774, samples/s=0.8, cache=1200 files (32% hits), pad_eff=99.5%
+  Step 1600: loss=0.6727, samples/s=0.8, cache=1600 files (24% hits), pad_eff=99.5%
+  [Eval] val_loss=0.6446, PER=0.153
+  Saved checkpoint: checkpoints/kokoro_phoneme_head_v2/kokoro_phoneme_head_1600_best.npz
+  Step 1650: loss=0.6665, samples/s=0.8, cache=2000 files (19% hits), pad_eff=99.5%
+  Step 1700: loss=0.6578, samples/s=0.8, cache=2400 files (16% hits), pad_eff=99.5%
+  Step 1750: loss=0.6556, samples/s=0.8, cache=2800 files (14% hits), pad_eff=99.5%
+  Step 1800: loss=0.6553, samples/s=0.8, cache=3200 files (12% hits), pad_eff=99.5%
+  [Eval] val_loss=0.6221, PER=0.148
+  Saved checkpoint: checkpoints/kokoro_phoneme_head_v2/kokoro_phoneme_head_1800_best.npz
+  Step 1850: loss=0.6527, samples/s=0.8, cache=3600 files (11% hits), pad_eff=99.5%
+  Step 1900: loss=0.6501, samples/s=0.8, cache=4000 files (10% hits), pad_eff=99.5%
+  Step 1950: loss=0.6460, samples/s=0.8, cache=4400 files (9% hits), pad_eff=99.5%
+  Step 2000: loss=0.6457, samples/s=0.8, cache=4800 files (8% hits), pad_eff=99.5%
+  [Eval] val_loss=0.6117, PER=0.148
+  Saved checkpoint: checkpoints/kokoro_phoneme_head_v2/kokoro_phoneme_head_2000_best.npz
+  Saved checkpoint: checkpoints/kokoro_phoneme_head_v2/kokoro_phoneme_head_2000.npz
+  Step 2050: loss=0.6443, samples/s=0.7, cache=5200 files (7% hits), pad_eff=99.5%
+  Step 2100: loss=0.6431, samples/s=0.6, cache=5600 files (7% hits), pad_eff=99.5%
+  Step 2150: loss=0.6389, samples/s=0.6, cache=6000 files (6% hits), pad_eff=99.5%
+  Step 2200: loss=0.6360, samples/s=0.6, cache=6400 files (6% hits), pad_eff=99.5%
+  [Eval] val_loss=0.6073, PER=0.148
+  Saved checkpoint: checkpoints/kokoro_phoneme_head_v2/kokoro_phoneme_head_2200_best.npz
+/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-wbpxxuqk'}
+  warnings.warn(

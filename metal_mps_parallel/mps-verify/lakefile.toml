@@ -1,0 +1,10 @@
+name = "MPSVerify"
+version = "0.1.0"
+defaultTargets = ["mpsverify"]
+
+[[lean_lib]]
+name = "MPSVerify"
+
+[[lean_exe]]
+name = "mpsverify"
+root = "Main"

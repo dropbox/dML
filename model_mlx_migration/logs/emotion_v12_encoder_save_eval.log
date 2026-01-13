@@ -1,0 +1,44 @@
+2026-01-07 22:15:31,676 [INFO] Loading encoder from checkpoints/zipformer/en-streaming/exp/pretrained.pt
+2026-01-07 22:15:31,757 [INFO] Encoder loaded: output_dim=512
+2026-01-07 22:15:31,777 [INFO] Loaded fine-tuned encoder weights from checkpoints/emotion_v12_encoder_save/encoder_best.npz (254 arrays)
+2026-01-07 22:15:32,174 [INFO] Test set batches: 26
+2026-01-07 22:15:32,176 [INFO] Loaded head checkpoint from checkpoints/emotion_v12_encoder_save/head_best.npz
+2026-01-07 22:15:32,176 [INFO] Starting evaluation...
+2026-01-07 22:15:33,895 [INFO] Processed 10 batches (320 samples)
+2026-01-07 22:15:35,245 [INFO] Processed 20 batches (640 samples)
+
+============================================================
+EVALUATION RESULTS
+============================================================
+
+Overall Accuracy: 0.3762 (37.62%)
+Total Samples: 832
+Correct: 313
+
+Macro-averaged Metrics:
+  Precision: 0.3657
+  Recall: 0.3740
+  F1-Score: 0.3425
+
+Per-Class Metrics:
+------------------------------------------------------------
+Class                Prec     Recall   F1       Support 
+------------------------------------------------------------
+anger                0.4578   0.7755   0.5758   147     
+disgust              0.2994   0.3788   0.3344   132     
+fear                 0.3889   0.1029   0.1628   136     
+happy                0.3506   0.1709   0.2298   158     
+neutral              0.2857   0.3363   0.3089   113     
+sad                  0.4118   0.4795   0.4430   146     
+
+Confusion Matrix:
+------------------------------------------------------------
+True\Pred       anger   disgus  fear    happy   neutra  sad     
+------------------------------------------------------------
+anger           114     12      1       11      9       0       
+disgust         26      50      4       9       15      28      
+fear            23      24      14      4       16      55      
+happy           64      30      8       27      24      5       
+neutral         16      26      3       18      38      12      
+sad             6       25      6       8       31      70      
+============================================================

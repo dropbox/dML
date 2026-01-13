@@ -1,0 +1,67 @@
+{
+  "generated_at": "2025-12-20T22:24:28.509091+00:00",
+  "summaries": [
+    {
+      "command": {
+        "arguments": "tests/profile_metal_trace.py --threads 1 --iters 1500 --warmup-iters 50 --size 2048 --dtype float16 --op matmul",
+        "exit_status": "0",
+        "name": "python3",
+        "path": null,
+        "pid": "16126"
+      },
+      "command_buffer_submissions": {
+        "count": 1550,
+        "duration_ms_sum": 63.749129,
+        "encoder_time_ms_mean": 0.00926952,
+        "encoder_time_ms_p50": 0.007833,
+        "encoder_time_ms_p95": 0.012083,
+        "encoder_time_ms_sum": 14.367756,
+        "submissions_per_second": 509.97444205505883,
+        "thread_counts": {
+          "Main Thread  0x1d75ef (python3, pid: 16126)": 50,
+          "thread_run  0x1d75f5 (python3, pid: 16126)": 1500
+        },
+        "top_thread": "thread_run  0x1d75f5 (python3, pid: 16126)",
+        "top_thread_fraction": 0.967741935483871,
+        "unique_threads": 2
+      },
+      "duration_s": 3.039368,
+      "path": "reports/traces/mps_matmul_2048_fp16_1t.trace"
+    },
+    {
+      "command": {
+        "arguments": "tests/profile_metal_trace.py --threads 8 --iters 200 --warmup-iters 20 --size 2048 --dtype float16 --op matmul",
+        "exit_status": "0",
+        "name": "python3",
+        "path": null,
+        "pid": "16211"
+      },
+      "command_buffer_submissions": {
+        "count": 1762,
+        "duration_ms_sum": 80.086452,
+        "encoder_time_ms_mean": 0.010182181044267876,
+        "encoder_time_ms_p50": 0.008667,
+        "encoder_time_ms_p95": 0.013125,
+        "encoder_time_ms_sum": 17.941003,
+        "submissions_per_second": 526.0895009016971,
+        "thread_counts": {
+          "Main Thread  0x1d7acb (python3, pid: 16211)": 162,
+          "thread_run  0x1d7ad0 (python3, pid: 16211)": 200,
+          "thread_run  0x1d7ad1 (python3, pid: 16211)": 200,
+          "thread_run  0x1d7ad2 (python3, pid: 16211)": 200,
+          "thread_run  0x1d7ad3 (python3, pid: 16211)": 200,
+          "thread_run  0x1d7ad4 (python3, pid: 16211)": 200,
+          "thread_run  0x1d7ad5 (python3, pid: 16211)": 200,
+          "thread_run  0x1d7ad6 (python3, pid: 16211)": 200,
+          "thread_run  0x1d7ad7 (python3, pid: 16211)": 200
+        },
+        "top_thread": "thread_run  0x1d7ad7 (python3, pid: 16211)",
+        "top_thread_fraction": 0.11350737797956867,
+        "unique_threads": 9
+      },
+      "duration_s": 3.34924,
+      "path": "reports/traces/mps_matmul_2048_fp16_8t.trace"
+    }
+  ],
+  "xctrace": "/Applications/Xcode.app/Contents/Developer/usr/bin/xctrace"
+}

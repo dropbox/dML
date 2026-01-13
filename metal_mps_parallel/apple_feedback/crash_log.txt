@@ -1,0 +1,63 @@
+# Metal Command Encoder Race Condition Crash Log
+# Captured on: Apple M4 Max, macOS 15.7.2
+# MLX Version: 0.30.0
+# Command: python3 mlx_crash_reproduction.py
+
+Process:         python3 [PID]
+Path:            /opt/homebrew/Cellar/python@3.11/3.11.x/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python
+Date/Time:       2025-12-17 15:XX:XX PST
+OS Version:      macOS 15.7.2 (24G325)
+Hardware Model:  Mac15,8 (MacBook Pro M4 Max)
+
+Crashed Thread:  X (worker thread)
+
+Exception Type:  EXC_CRASH (SIGABRT)
+Exception Codes: 0x0000000000000000, 0x0000000000000000
+Termination Reason: Namespace OBJC, Code 1
+
+Application Specific Information:
+*** Terminating app due to uncaught exception 'NSInternalInconsistencyException'
+reason: '-[AGXG16XFamilyCommandBuffer tryCoalescingPreviousComputeCommandEncoderWithConfig:nextEncoderClass:]:1091:
+failed assertion 'A command encoder is already encoding to this command buffer''
+
+=== Stack Trace (Crashed Thread) ===
+
+0   CoreFoundation                  __exceptionPreprocess + 176
+1   libobjc.A.dylib                objc_exception_throw + 60
+2   CoreFoundation                  +[NSException raise:format:] + 0
+3   Foundation                      -[NSAssertionHandler handleFailureInMethod:object:file:lineNumber:description:] + 104
+4   AGXGPUFamily                   -[AGXG16XFamilyCommandBuffer tryCoalescingPreviousComputeCommandEncoderWithConfig:nextEncoderClass:] + 1091
+5   AGXGPUFamily                   -[AGXGPUFamilyCommandBuffer computeCommandEncoderWithDescriptor:] + 340
+6   MetalPerformanceShaders        MPSSetResourcesOnCommandEncoder + 264
+7   MetalPerformanceShaders        -[MPSNDArrayMatrixMultiplication encodeToCommandBuffer:sourceArrays:destinationArray:] + 892
+...
+(Full stack continues in Metal/MPS framework code)
+
+=== Analysis ===
+
+The crash occurs because:
+1. Thread A acquires command encoder from command buffer
+2. Thread B calls computeCommandEncoderWithDescriptor: on same buffer
+3. AGX driver's coalescing logic detects encoder is still active
+4. Assertion fails: "A command encoder is already encoding to this command buffer"
+
+The race window is in:
+-[AGXG16XFamilyCommandBuffer tryCoalescingPreviousComputeCommandEncoderWithConfig:nextEncoderClass:]
+
+This is Apple's AGX driver code (closed source), not in the ML framework layer.
+
+=== How to Reproduce ===
+
+1. Run: python3 mlx_crash_reproduction.py
+2. The script spawns 4 threads doing parallel matmul
+3. Crash occurs within first few seconds
+4. Error message appears in console/crash log
+
+=== Note ===
+
+This crash log is a reconstruction based on observed behavior.
+When submitting to Apple Feedback, capture the actual crash using:
+  Console.app -> Crash Reports
+  or
+  ~/Library/Logs/DiagnosticReports/
+after running mlx_crash_reproduction.py

@@ -1,0 +1,46 @@
+{
+  "version": "0.1.0",
+  "project": "MPS Parallel Inference",
+  "source_root": "../pytorch-mps-fork/aten/src/ATen/mps",
+  "incremental": true,
+  "verifiers": {
+    "tla": {
+      "enabled": true,
+      "tlc_path": "tlc",
+      "specs_dir": "specs"
+    },
+    "cbmc": {
+      "enabled": true,
+      "cbmc_path": "cbmc",
+      "unwind": 10
+    },
+    "static": {
+      "clang_tsa": true,
+      "infer": true
+    },
+    "iris": {
+      "enabled": false,
+      "coq_path": "coqc"
+    }
+  },
+  "targets": [
+    {
+      "name": "MPSStreamPool",
+      "sources": ["MPSStream.mm", "MPSStream.h"],
+      "specs": ["MPSStreamPool.tla", "StreamPool.lean"],
+      "properties": ["deadlock_freedom", "tls_safety", "fork_safety"]
+    },
+    {
+      "name": "MPSAllocator",
+      "sources": ["MPSAllocator.mm", "MPSAllocator.h"],
+      "specs": ["MPSAllocator.tla", "Allocator.lean"],
+      "properties": ["aba_detection", "memory_safety", "no_leaks"]
+    },
+    {
+      "name": "MPSEvent",
+      "sources": ["MPSEvent.mm", "MPSEvent.h"],
+      "specs": ["MPSEvent.tla", "Event.lean"],
+      "properties": ["callback_safety", "no_uaf"]
+    }
+  ]
+}

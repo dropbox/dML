@@ -1,0 +1,87 @@
+{
+  "specification": "MPSStreamSlotAllocator.tla",
+  "config": "MPSStreamSlotAllocator.cfg",
+  "opportunity_map_item": "B1.4",
+  "description": "Stream slot allocator + backpressure protocol verification",
+  "reference": {
+    "file": "pytorch-mps-fork/aten/src/ATen/mps/MPSStream.mm",
+    "functions": [
+      "acquireSlot() (lines 581-646)",
+      "releaseStreamSlot() (lines 648-666)",
+      "ThreadStreamSlot TLS destructor (lines 489-509)"
+    ]
+  },
+  "verification_date": "2025-12-19",
+  "worker_iteration": 1307,
+  "tlc_version": "2.20",
+  "java_version": "21.0.2",
+  "constants": {
+    "NumSlots": 5,
+    "NumThreads": 3,
+    "MaxOperations": 20,
+    "BackpressureEnabled": true
+  },
+  "results": {
+    "status": "PASS",
+    "states_generated": 59133,
+    "distinct_states": 15264,
+    "depth": 28,
+    "errors": 0,
+    "duration_seconds": 1
+  },
+  "invariants_verified": [
+    "SafetyInvariant (TypeOK + SA.001-SA.006)",
+    "SA_DeadlockFree (SA.009)"
+  ],
+  "properties": {
+    "SA.001": {
+      "name": "MutualExclusion",
+      "description": "No two threads own the same slot",
+      "status": "VERIFIED"
+    },
+    "SA.002": {
+      "name": "SlotConsistency",
+      "description": "Free mask correctly reflects slot ownership",
+      "status": "VERIFIED"
+    },
+    "SA.003": {
+      "name": "MutexExclusivity",
+      "description": "CV mutex held by at most one thread",
+      "status": "VERIFIED"
+    },
+    "SA.004": {
+      "name": "WaiterConsistency",
+      "description": "Waiters are threads without slots",
+      "status": "VERIFIED"
+    },
+    "SA.005": {
+      "name": "CASExclusivity",
+      "description": "At most one thread in CAS critical section",
+      "status": "VERIFIED"
+    },
+    "SA.006": {
+      "name": "NoDoubleOwnership",
+      "description": "A slot is owned by at most one thread",
+      "status": "VERIFIED"
+    },
+    "SA.009": {
+      "name": "DeadlockFree",
+      "description": "System can always make progress (no deadlock)",
+      "status": "VERIFIED"
+    }
+  },
+  "liveness_properties": {
+    "SA.007": {
+      "name": "BackpressureNoLostWakeup",
+      "description": "If waiters and free slots, eventually a waiter gets a slot",
+      "status": "NOT_CHECKED",
+      "note": "Liveness checking available but disabled for performance"
+    },
+    "SA.008": {
+      "name": "SlotEventuallyAvailable",
+      "description": "If thread releases slot, waiters eventually wake up",
+      "status": "NOT_CHECKED",
+      "note": "Liveness checking available but disabled for performance"
+    }
+  }
+}

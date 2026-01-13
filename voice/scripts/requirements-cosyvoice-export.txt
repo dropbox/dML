@@ -1,0 +1,34 @@
+# Requirements for CosyVoice2 model export
+# These versions are tested and verified to work together
+#
+# Usage:
+#   python -m venv .venv-cosyvoice-export
+#   source .venv-cosyvoice-export/bin/activate
+#   pip install -r scripts/requirements-cosyvoice-export.txt
+#   python scripts/export_cosyvoice_components.py
+
+# Core PyTorch - CosyVoice officially requires 2.3.1, but 2.5.1 works
+# Using 2.5.1 for better MPS support while maintaining compatibility
+torch==2.5.1
+torchaudio==2.5.1
+
+# HuggingFace transformers - CosyVoice uses Qwen2 model
+transformers>=4.40.0,<4.52.0
+
+# Model loading
+huggingface-hub>=0.20.0
+safetensors>=0.4.0
+
+# CosyVoice dependencies
+conformer==0.3.2
+HyperPyYAML==1.2.2
+inflect==7.3.1
+librosa==0.10.2
+omegaconf==2.3.0
+pydantic>=2.0.0
+soundfile==0.12.1
+wetext==0.0.4
+
+# Other dependencies
+numpy>=1.24.0,<2.0.0
+loguru>=0.7.0

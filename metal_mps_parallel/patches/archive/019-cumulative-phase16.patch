@@ -1,0 +1,1050 @@
+diff --git a/aten/src/ATen/mps/MPSAllocator.mm b/aten/src/ATen/mps/MPSAllocator.mm
+index c8b3453f..79f3ea01 100644
+--- a/aten/src/ATen/mps/MPSAllocator.mm
++++ b/aten/src/ATen/mps/MPSAllocator.mm
+@@ -366,7 +366,9 @@ bool MPSHeapAllocatorImpl::release_buffer(BufferBlock* buffer_block, bool remove
+     if (retainCount > 1) {
+       pool.heaps_pending_update.insert(heap_block);
+       m_mutex.unlock();
+-      m_stream->addCompletedHandler(^(id<MTLCommandBuffer>) {
++      // Use getCurrentMPSStream() to add handler to the calling thread's stream
++      // This prevents race conditions when multiple threads use different streams
++      getCurrentMPSStream()->addCompletedHandler(^(id<MTLCommandBuffer>) {
+         std::lock_guard<std::recursive_mutex> lock(m_mutex);
+         // check if the heap block still exists
+         if (pool.heaps_pending_update.find(heap_block) != pool.heaps_pending_update.end()) {
+@@ -556,12 +558,17 @@ bool MPSHeapAllocatorImpl::recordEvents(c10::ArrayRef<const void*> buffers) {
+   bool recordedEvent = false;
+   std::lock_guard<std::recursive_mutex> lock(m_mutex);
+ 
++  // THREAD-SAFETY FIX: Get the current thread's stream instead of using nullptr
++  // which would default to stream 0 and cause cross-stream race conditions.
++  // Each thread should record events on its own stream.
++  MPSStream* currentStream = getCurrentMPSStream();
++
+   for (const auto& buffer : buffers) {
+     BufferBlock* buffer_block = get_allocated_buffer_block(buffer);
+     // return if buffer was not allocated on MPSAllocator or isn't a Shared buffer
+     if (buffer_block && (buffer_block->heap->pool->usage & UsageFlags::SHARED)) {
+       if (!buffer_block->event) {
+-        buffer_block->event = m_event_pool->acquireEvent(false, nullptr);
++        buffer_block->event = m_event_pool->acquireEvent(false, currentStream);
+         TORCH_INTERNAL_ASSERT_DEBUG_ONLY(buffer_block->event);
+       }
+       buffer_block->event->record(/*needsLock*/ false);
+@@ -659,8 +666,9 @@ void MPSHeapAllocatorImpl::free(void* ptr) {
+     }
+   }
+   // we sync the scalar pool manually with completion handler at the time buffer is
+-  // freed when the MPSScalar instance goes our of scope
+-  m_stream->addCompletedHandler(^(id<MTLCommandBuffer>) {
++  // freed when the MPSScalar instance goes out of scope
++  // Use getCurrentMPSStream() to add handler to the calling thread's stream
++  getCurrentMPSStream()->addCompletedHandler(^(id<MTLCommandBuffer>) {
+     std::lock_guard<std::recursive_mutex> lock(m_mutex);
+     free_buffer(buffer_block);
+   });
+diff --git a/aten/src/ATen/mps/MPSEvent.mm b/aten/src/ATen/mps/MPSEvent.mm
+index ac464614..3f518dbd 100644
+--- a/aten/src/ATen/mps/MPSEvent.mm
++++ b/aten/src/ATen/mps/MPSEvent.mm
+@@ -160,7 +160,8 @@ MPSEventPool::~MPSEventPool() {
+ 
+ MPSEventPtr MPSEventPool::acquireEvent(bool enable_timing, MPSStream* stream) {
+   if (!stream) {
+-    stream = m_default_stream;
++    // Use thread's current stream, not default stream, for proper multi-thread support
++    stream = getCurrentMPSStream();
+   }
+   {
+     std::lock_guard<std::recursive_mutex> lock(m_mutex);
+diff --git a/aten/src/ATen/mps/MPSGuardImpl.h b/aten/src/ATen/mps/MPSGuardImpl.h
+index 008a8d57..bfcf213a 100644
+--- a/aten/src/ATen/mps/MPSGuardImpl.h
++++ b/aten/src/ATen/mps/MPSGuardImpl.h
+@@ -68,21 +68,38 @@ struct TORCH_API MPSGuardImpl final
+   }
+ 
+   Stream getStream(Device d) const override {
+-    return Stream(Stream::DEFAULT, Device(c10::DeviceType::MPS, 0));
++    // Return the thread-local current stream (or default if not set)
++    MPSStream* current = getCurrentMPSStream();
++    return current->unwrap();
+   }
+ 
+   Stream getNewStream(Device, int priority = 0) const override {
+     (void)priority;
+-    return Stream(Stream::DEFAULT, Device(c10::DeviceType::MPS, 0));
++    // Acquire a stream from the pool for parallel execution
++    MPSStream* stream = getStreamFromPool();
++    return stream->unwrap();
+   }
+ 
+   Stream getDefaultStream(Device d) const override {
+-    return Stream(Stream::DEFAULT, Device(c10::DeviceType::MPS, 0));
++    // Return stream 0 (the default stream)
++    MPSStream* defaultStream = getDefaultMPSStream();
++    return defaultStream->unwrap();
+   }
+ 
+   // NB: These do NOT set the current device
+   Stream exchangeStream(Stream s) const override {
+-    return Stream(Stream::DEFAULT, Device(c10::DeviceType::MPS, 0));
++    // Get the current stream before setting new one
++    MPSStream* prev = getCurrentMPSStream();
++    Stream prevStream = prev->unwrap();
++
++    // Set the new stream as current for this thread
++    // Note: We need to map from Stream to MPSStream*
++    // For now, if the stream ID matches, use it from pool
++    MPSStream* newStream = MPSStreamPool::instance().getStream(
++        static_cast<size_t>(s.id()));
++    setCurrentMPSStream(newStream);
++
++    return prevStream;
+   }
+   DeviceIndex deviceCount() const noexcept override {
+     if (at::hasMPS()) {
+diff --git a/aten/src/ATen/mps/MPSGuardImpl.mm b/aten/src/ATen/mps/MPSGuardImpl.mm
+index a267b40f..873c8032 100644
+--- a/aten/src/ATen/mps/MPSGuardImpl.mm
++++ b/aten/src/ATen/mps/MPSGuardImpl.mm
+@@ -63,7 +63,8 @@ double MPSGuardImpl::elapsedTime(void* event1, void* event2, const DeviceIndex d
+ }
+ 
+ void MPSGuardImpl::synchronizeDevice(const DeviceIndex device_index) const {
+-  at::mps::getDefaultMPSStream()->synchronize(SyncType::COMMIT_AND_WAIT);
++  // THREAD-SAFETY FIX: Use current thread's stream for proper parallel execution
++  at::mps::getCurrentMPSStream()->synchronize(SyncType::COMMIT_AND_WAIT);
+ }
+ 
+ } // namespace at::mps
+diff --git a/aten/src/ATen/mps/MPSHooks.mm b/aten/src/ATen/mps/MPSHooks.mm
+index 34fbd31a..14aebbb9 100644
+--- a/aten/src/ATen/mps/MPSHooks.mm
++++ b/aten/src/ATen/mps/MPSHooks.mm
+@@ -62,22 +62,28 @@ Generator MPSHooks::getNewGenerator([[maybe_unused]] DeviceIndex device_index) c
+ }
+ 
+ void MPSHooks::deviceSynchronize() const {
+-  at::mps::getDefaultMPSStream()->synchronize(SyncType::COMMIT_AND_WAIT);
++  // DEVICE-WIDE SYNC: Synchronize ALL streams in the pool, not just current thread's stream.
++  // This matches CUDA semantics where cudaDeviceSynchronize() waits for all streams.
++  // Python docs promise: "Waits for all kernels in all streams on a MPS device to complete."
++  at::mps::MPSStreamPool::instance().synchronizeAllStreams();
+ }
+ 
+ void MPSHooks::commitStream() const {
+-  at::mps::getDefaultMPSStream()->synchronize(SyncType::COMMIT);
++  // THREAD-SAFETY FIX: Use current thread's stream for proper parallel execution
++  at::mps::getCurrentMPSStream()->synchronize(SyncType::COMMIT);
+ }
+ 
+ void* MPSHooks::getCommandBuffer() const {
+-  auto stream = at::mps::getDefaultMPSStream();
++  // THREAD-SAFETY FIX: Use current thread's stream for proper parallel execution
++  auto stream = at::mps::getCurrentMPSStream();
+   // Release pending computeCommandEncoder, as extensions is likely to allocate new one
+   stream->endKernelCoalescing();
+   return stream->commandBuffer();
+ }
+ 
+ void* MPSHooks::getDispatchQueue() const {
+-  return at::mps::getDefaultMPSStream()->queue();
++  // THREAD-SAFETY FIX: Use current thread's stream for proper parallel execution
++  return at::mps::getCurrentMPSStream()->queue();
+ }
+ 
+ void MPSHooks::emptyCache() const {
+diff --git a/aten/src/ATen/mps/MPSProfiler.mm b/aten/src/ATen/mps/MPSProfiler.mm
+index a91574c5..72cec639 100644
+--- a/aten/src/ATen/mps/MPSProfiler.mm
++++ b/aten/src/ATen/mps/MPSProfiler.mm
+@@ -432,9 +432,10 @@ void MPSProfiler::addProfilerScheduledHandler(BaseInfo& info) {
+   const SignpostTypes signpostType = getSignpostType(info.type);
+   const os_signpost_id_t intervalSignpostId = info.intervalSignpostId;
+ 
+-  auto m_stream = getDefaultMPSStream();
+-  // NOTE: the following block isn't thread-safe
+-  [m_stream->commandBuffer() addScheduledHandler:^(id<MTLCommandBuffer> cb) {
++  // Use getCurrentMPSStream() to add handler to the calling thread's stream
++  // This ensures thread-safe profiling when using the stream pool
++  auto current_stream = getCurrentMPSStream();
++  [current_stream->commandBuffer() addScheduledHandler:^(id<MTLCommandBuffer> cb) {
+     // begin the interval once scheduling has completed (if INCLUDE_SCHEDULE_INTERVAL flag is disabled)
+     beginSignpostInterval(signpostType, intervalSignpostId, info.toString());
+     info.completed = false;
+@@ -471,9 +472,10 @@ void MPSProfiler::addProfilerCompletedHandler(BaseInfo& info, SyncType syncType)
+   info.eventSignpostId = 0;
+   hasPendingCompletionHandlers = true;
+ 
+-  auto m_stream = getDefaultMPSStream();
+-  // NOTE: the following block isn't thread-safe
+-  [m_stream->commandBuffer() addCompletedHandler:^(id<MTLCommandBuffer> cb) {
++  // Use getCurrentMPSStream() to add handler to the calling thread's stream
++  // This ensures thread-safe profiling when using the stream pool
++  auto current_stream = getCurrentMPSStream();
++  [current_stream->commandBuffer() addCompletedHandler:^(id<MTLCommandBuffer> cb) {
+     CFTimeInterval gpuTime = cb.GPUEndTime > cb.GPUStartTime ? (cb.GPUEndTime - cb.GPUStartTime) * 1000.0 : 0.;
+     CFTimeInterval schedulingTime =
+         cb.kernelEndTime > cb.kernelStartTime ? (cb.kernelEndTime - cb.kernelStartTime) * 1000.0 : 0.;
+@@ -482,8 +484,8 @@ void MPSProfiler::addProfilerCompletedHandler(BaseInfo& info, SyncType syncType)
+     hasPendingCompletionHandlers = false;
+   }];
+ 
+-  m_stream->synchronize((m_profile_options & ProfileOptions::WAIT_UNTIL_COMPLETED) ? SyncType::COMMIT_AND_WAIT
+-                                                                                   : syncType);
++  current_stream->synchronize((m_profile_options & ProfileOptions::WAIT_UNTIL_COMPLETED) ? SyncType::COMMIT_AND_WAIT
++                                                                                          : syncType);
+ }
+ 
+ void MPSProfiler::logOperationsProfilingStats(std::FILE* f) const {
+@@ -821,11 +823,9 @@ void MPSProfiler::stopCapture(MPSStream* stream) {
+ } // namespace Profiler
+ 
+ Profiler::MPSProfiler& getMPSProfiler() {
+-  static std::unique_ptr<Profiler::MPSProfiler> mps_profiler;
+-  if (mps_profiler == nullptr) {
+-    mps_profiler = std::make_unique<Profiler::MPSProfiler>();
+-  }
+-  return *mps_profiler;
++  // C++11 guarantees thread-safe initialization of function-local statics
++  static Profiler::MPSProfiler mps_profiler;
++  return mps_profiler;
+ }
+ 
+ } // namespace at::mps
+diff --git a/aten/src/ATen/mps/MPSStream.h b/aten/src/ATen/mps/MPSStream.h
+index 10627cfc..683f07e3 100644
+--- a/aten/src/ATen/mps/MPSStream.h
++++ b/aten/src/ATen/mps/MPSStream.h
+@@ -4,6 +4,11 @@
+ 
+ #include <cstdint>
+ #include <utility>
++#include <array>
++#include <atomic>
++#include <memory>
++#include <mutex>
++#include <vector>
+ 
+ #include <ATen/mps/MPSDevice.h>
+ #include <c10/core/DeviceGuard.h>
+@@ -119,8 +124,10 @@ class TORCH_API MPSStream {
+   MPSGraphExecutionDescriptor* _executionDescriptor = nil;
+   MPSGraphCompilationDescriptor* _compilationDescriptor = nil;
+   dispatch_queue_t _serialQueue = nullptr;
+-  // CommitAndContinue is enabled by default
+-  bool _enableCommitAndContinue = true;
++  // CommitAndContinue is disabled for thread safety
++  bool _enableCommitAndContinue = false;
++  // Mutex to serialize all operations on this stream from multiple threads
++  mutable std::recursive_mutex _streamMutex;
+ 
+   // use synchronize() to access any of these commit functions outside MPSStream
+   void commit();
+@@ -130,28 +137,156 @@ class TORCH_API MPSStream {
+ };
+ 
+ /**
+- * Get the current MPS stream
++ * Get the current MPS stream for the calling thread.
++ * Returns the thread-local current stream, or default stream if not set.
+  */
+ TORCH_API MPSStream* getCurrentMPSStream();
+ 
+ /**
+- * Get the default MPS stream
++ * Get the default MPS stream (stream 0).
++ * This is the stream used by single-threaded code and is always available.
+  */
+ TORCH_API MPSStream* getDefaultMPSStream();
+ 
++/**
++ * Get a stream from the MPS stream pool.
++ *
++ * This allocates a stream slot from the freelist. Slots are recycled
++ * when worker threads exit, allowing unlimited thread churn as long as
++ * concurrent thread count stays below 31.
++ *
++ * Typical usage: Call getCurrentMPSStream() from worker threads, which
++ * automatically acquires and caches a stream per thread.
++ */
++TORCH_API MPSStream* getStreamFromPool();
++
++/**
++ * Set the current stream for the calling thread.
++ * This affects subsequent getCurrentMPSStream() calls from this thread.
++ */
++TORCH_API void setCurrentMPSStream(MPSStream* stream);
++
++//-----------------------------------------------------------------
++//  MPSStreamPool
++//-----------------------------------------------------------------
++// Stream pool for enabling parallel MPS inference.
++// Modeled after c10::cuda::CUDAStream pool design.
++//
++// Key design principles:
++// - 32 streams per pool (matching CUDA's kStreamsPerPool)
++// - Freelist-based allocation with slot recycling on thread exit
++// - Thread-local current stream tracking with RAII cleanup
++// - Lazy initialization on first use
++// - Default stream (index 0) always available for backward compatibility
++
++static constexpr int kMPSStreamsPerPoolBits = 5;
++static constexpr int kMPSStreamsPerPool = 1 << kMPSStreamsPerPoolBits;  // 32 streams
++
++class TORCH_API MPSStreamPool {
++ public:
++  /**
++   * Get the singleton MPSStreamPool instance.
++   * Thread-safe via static initialization.
++   */
++  static MPSStreamPool& instance();
++
++  /**
++   * Acquire a stream slot from the freelist.
++   * Returns streams 1 through kMPSStreamsPerPool-1 (stream 0 is default).
++   * Slots are recycled when threads exit via TLS destructor.
++   */
++  MPSStream* acquireStream();
++
++  /**
++   * Release a stream slot back to the freelist.
++   * Called automatically by TLS destructor when worker threads exit.
++   */
++  void releaseStreamSlot(size_t slot);
++
++  /**
++   * Safely release a stream slot if the pool is still alive.
++   * Used by TLS destructor to handle static destruction order.
++   */
++  static void releaseSlotIfPoolAlive(size_t slot);
++
++  /**
++   * Get the default stream (stream 0).
++   * This is always the same stream, used for single-threaded code.
++   */
++  MPSStream* getDefaultStream();
++
++  /**
++   * Get stream by index (0 to kMPSStreamsPerPool-1).
++   * Used internally and for advanced use cases.
++   */
++  MPSStream* getStream(size_t index);
++
++  /**
++   * Get the thread-local current stream.
++   * Returns default stream if no stream has been set for this thread.
++   */
++  static MPSStream* getCurrentStream();
++
++  /**
++   * Set the thread-local current stream.
++   */
++  static void setCurrentStream(MPSStream* stream);
++
++  /**
++   * Get number of streams in the pool.
++   */
++  static constexpr size_t poolSize() { return kMPSStreamsPerPool; }
++
++  /**
++   * Synchronize ALL active streams in the pool.
++   * This is used by torch.mps.synchronize() to implement true device-wide sync.
++   * Matches CUDA semantics where cudaDeviceSynchronize() waits for all streams.
++   */
++  void synchronizeAllStreams();
++
++ private:
++  MPSStreamPool();
++  ~MPSStreamPool();
++
++  // Non-copyable, non-movable
++  MPSStreamPool(const MPSStreamPool&) = delete;
++  MPSStreamPool& operator=(const MPSStreamPool&) = delete;
++  MPSStreamPool(MPSStreamPool&&) = delete;
++  MPSStreamPool& operator=(MPSStreamPool&&) = delete;
++
++  // Stream storage - lazily initialized
++  std::array<std::unique_ptr<MPSStream>, kMPSStreamsPerPool> streams_;
++
++  // Freelist of available worker stream slots [1, kMPSStreamsPerPool-1]
++  std::vector<size_t> free_slots_;
++  std::mutex slot_mutex_;
++
++  // Initialization flag for lazy stream creation
++  std::atomic<bool> initialized_{false};
++
++  // Mutex for thread-safe stream creation
++  std::mutex stream_creation_mutex_;
++
++  void ensureInitialized();
++  MPSStream* createStream(size_t index);
++  size_t acquireSlot();  // Internal: get slot from freelist
++};
++
+ //-----------------------------------------------------------------
+-//  MPSStreamImpl
++//  MPSStreamImpl (DEPRECATED - for backward compatibility)
+ //-----------------------------------------------------------------
++// NOTE: MPSStreamImpl is kept for backward compatibility with existing code.
++// New code should use MPSStreamPool directly.
+ 
+ class TORCH_API MPSStreamImpl {
+  public:
+   /**
+    * Gets single instance of the MPSStream.
++   * DEPRECATED: Use getDefaultMPSStream() or MPSStreamPool instead.
+    */
+   static MPSStream* getInstance();
+ 
+  private:
+-  static MPSStream* _stream;
+   MPSStreamImpl();
+ };
+ 
+diff --git a/aten/src/ATen/mps/MPSStream.mm b/aten/src/ATen/mps/MPSStream.mm
+index 71325bd6..3a822415 100644
+--- a/aten/src/ATen/mps/MPSStream.mm
++++ b/aten/src/ATen/mps/MPSStream.mm
+@@ -3,6 +3,8 @@
+ #include <ATen/mps/MPSAllocatorInterface.h>
+ #include <ATen/mps/MPSProfiler.h>
+ #include <ATen/mps/MPSStream.h>
++#include <mutex>
++#include <thread>
+ 
+ @interface MPSGraphExecutionDescriptor ()
+ @property(readwrite, atomic) BOOL enableCommitAndContinue;
+@@ -10,6 +12,11 @@
+ 
+ namespace at::mps {
+ 
++// Global mutex to serialize MPSGraph encoding across all threads
++// This is needed because Apple's MPSGraph may have internal global state that
++// is not thread-safe when encoding to different command buffers simultaneously
++static std::mutex g_mpsgraph_encode_mutex;
++
+ //-----------------------------------------------------------------
+ //  MPSStream
+ //-----------------------------------------------------------------
+@@ -21,10 +28,11 @@ MPSStream::MPSStream(Stream stream) : _stream(stream) {
+   _executionDescriptor = [MPSGraphExecutionDescriptor new];
+   _compilationDescriptor = [MPSGraphCompilationDescriptor new];
+ 
+-  // disable commitAndContinue if Signpost tracing is enabled
+-  if (getMPSProfiler().isSignpostTracingEnabled() || getMPSProfiler().isCaptureEnabled()) {
+-    _enableCommitAndContinue = false;
+-  }
++  // WORKAROUND: Disable commitAndContinue for thread safety
++  // When multiple streams are used concurrently, commitAndContinue can cause
++  // Metal command buffer state corruption. Disabling it ensures clean commit/wait
++  // semantics at the cost of some pipelining efficiency.
++  _enableCommitAndContinue = false;
+   _executionDescriptor.enableCommitAndContinue = _enableCommitAndContinue;
+ 
+   // Choose level which optimizes for GPU
+@@ -39,11 +47,16 @@ MPSStream::~MPSStream() {
+   [_compilationDescriptor release];
+   _executionDescriptor = nil;
+   _compilationDescriptor = nil;
++  if (_serialQueue) {
++    dispatch_release(_serialQueue);
++    _serialQueue = nullptr;
++  }
+ 
+   assert(_commandBuffer == nil);
+ }
+ 
+ MPSCommandBuffer* MPSStream::commandBuffer() {
++  std::lock_guard<std::recursive_mutex> lock(_streamMutex);
+   if (!_commandBuffer) {
+     _commandBuffer = [MPSCommandBuffer commandBufferFromCommandQueue:_commandQueue].retain;
+   }
+@@ -56,6 +69,7 @@ id<MTLDevice> MPSStream::device() const {
+ }
+ 
+ id<MTLComputeCommandEncoder> MPSStream::commandEncoder() {
++  std::lock_guard<std::recursive_mutex> lock(_streamMutex);
+   if (!_commandEncoder) {
+     _commandEncoder = [commandBuffer() computeCommandEncoder].retain;
+   }
+@@ -64,6 +78,7 @@ id<MTLComputeCommandEncoder> MPSStream::commandEncoder() {
+ }
+ 
+ void MPSStream::synchronize(SyncType syncType) {
++  std::lock_guard<std::recursive_mutex> lock(_streamMutex);
+   endKernelCoalescing();
+   switch (syncType) {
+     case SyncType::NONE:
+@@ -142,6 +157,7 @@ void MPSStream::flush() {
+ }
+ 
+ void MPSStream::addCompletedHandler(MTLCommandBufferHandler block) {
++  std::lock_guard<std::recursive_mutex> lock(_streamMutex);
+   dispatch_sync(_serialQueue, ^() {
+     @autoreleasepool {
+       [commandBuffer() addCompletedHandler:block];
+@@ -153,6 +169,7 @@ void MPSStream::fill(id<MTLBuffer> buffer, uint8_t value, size_t length, size_t
+   if (length == 0) {
+     return;
+   }
++  std::lock_guard<std::recursive_mutex> lock(_streamMutex);
+   dispatch_sync(_serialQueue, ^() {
+     @autoreleasepool {
+       endKernelCoalescing();
+@@ -183,6 +200,7 @@ void MPSStream::copy(id<MTLBuffer> srcBuffer,
+                      size_t dstOffset,
+                      uint64_t profileId,
+                      SyncType syncType) {
++  std::lock_guard<std::recursive_mutex> lock(_streamMutex);
+   dispatch_sync(_serialQueue, ^() {
+     @autoreleasepool {
+       endKernelCoalescing();
+@@ -236,6 +254,14 @@ void MPSStream::executeMPSGraph(MPSGraph* mpsGraph, NSDictionary* feeds, NSDicti
+   auto& profiler = getMPSProfiler();
+   const bool isGraphProfilingEnabled = profiler.isOperationProfilingEnabled();
+ 
++  // Acquire per-stream mutex to serialize operations on this stream
++  std::lock_guard<std::recursive_mutex> stream_lock(_streamMutex);
++
++  // Acquire global mutex to serialize MPSGraph encoding across all streams
++  // This is needed because Apple's MPSGraph may have internal global state that
++  // is not thread-safe when encoding to different command buffers simultaneously
++  std::lock_guard<std::mutex> encode_lock(g_mpsgraph_encode_mutex);
++
+   dispatch_sync(_serialQueue, ^() {
+     endKernelCoalescing();
+     if (isGraphProfilingEnabled) {
+@@ -267,26 +293,215 @@ void MPSStream::executeMPSGraph(MPSGraph* mpsGraph, NSDictionary* feeds, NSDicti
+ }
+ 
+ //-----------------------------------------------------------------
+-//  MPSStreamImpl
++//  MPSStreamPool
+ //-----------------------------------------------------------------
+ 
+-MPSStream* MPSStreamImpl::_stream = nullptr;
++// Global flag to track if pool is still alive (for safe TLS destruction)
++static std::atomic<bool> g_pool_alive{false};
+ 
+-MPSStream* MPSStreamImpl::getInstance() {
+-  if (_stream == nullptr) {
+-    _stream = new MPSStream(Stream(Stream::UNSAFE, c10::Device(DeviceType::MPS, 0), 0));
++// TLS RAII wrapper that returns stream slot to freelist on thread exit
++struct ThreadStreamSlot {
++  size_t slot_index = 0;  // 0 = default stream (not recyclable), >0 = worker slot
++  MPSStream* stream = nullptr;
++
++  ~ThreadStreamSlot() {
++    if (slot_index > 0) {
++      // CRITICAL: Synchronize stream before recycling to avoid dirty state
++      // Next thread inheriting this slot must get a clean stream
++      if (stream != nullptr && g_pool_alive.load(std::memory_order_acquire)) {
++        stream->synchronize(SyncType::COMMIT_AND_WAIT);
++      }
++      MPSStreamPool::releaseSlotIfPoolAlive(slot_index);
++    }
++  }
++};
++
++static thread_local ThreadStreamSlot tls_stream_slot;
++
++MPSStreamPool& MPSStreamPool::instance() {
++  static MPSStreamPool pool;
++  return pool;
++}
++
++MPSStreamPool::MPSStreamPool() {
++  // Initialize freelist with all worker stream slots [1, 31]
++  free_slots_.reserve(kMPSStreamsPerPool - 1);
++  for (size_t i = 1; i < kMPSStreamsPerPool; ++i) {
++    free_slots_.push_back(i);
++  }
++  g_pool_alive.store(true, std::memory_order_release);
++}
++
++MPSStreamPool::~MPSStreamPool() {
++  g_pool_alive.store(false, std::memory_order_release);
++}
++
++void MPSStreamPool::ensureInitialized() {
++  if (!initialized_.load(std::memory_order_acquire)) {
++    std::lock_guard<std::mutex> lock(stream_creation_mutex_);
++    if (!initialized_.load(std::memory_order_relaxed)) {
++      if (streams_[0] == nullptr) {
++        streams_[0] = std::unique_ptr<MPSStream>(
++            new MPSStream(Stream(Stream::UNSAFE, c10::Device(DeviceType::MPS, 0), 0)));
++      }
++      initialized_.store(true, std::memory_order_release);
++    }
++  }
++}
++
++MPSStream* MPSStreamPool::createStream(size_t index) {
++  TORCH_CHECK(index < kMPSStreamsPerPool,
++              "Stream index ", index, " out of range [0, ", kMPSStreamsPerPool, ")");
++
++  // Always lock to avoid data race on unique_ptr read/write
++  // The lock is lightweight and stream creation is infrequent
++  std::lock_guard<std::mutex> lock(stream_creation_mutex_);
++  if (streams_[index] == nullptr) {
++    streams_[index] = std::unique_ptr<MPSStream>(
++        new MPSStream(Stream(Stream::UNSAFE, c10::Device(DeviceType::MPS, 0),
++                            static_cast<StreamId>(index))));
++  }
++  return streams_[index].get();
++}
++
++MPSStream* MPSStreamPool::getDefaultStream() {
++  ensureInitialized();
++  return streams_[0].get();
++}
++
++MPSStream* MPSStreamPool::getStream(size_t index) {
++  ensureInitialized();
++  TORCH_CHECK(index < kMPSStreamsPerPool,
++              "Invalid MPS stream index ", index, " >= ", kMPSStreamsPerPool);
++  // Always lock to avoid data race on unique_ptr read/write
++  std::lock_guard<std::mutex> lock(stream_creation_mutex_);
++  if (streams_[index] == nullptr) {
++    streams_[index] = std::unique_ptr<MPSStream>(
++        new MPSStream(Stream(Stream::UNSAFE, c10::Device(DeviceType::MPS, 0),
++                            static_cast<StreamId>(index))));
++  }
++  return streams_[index].get();
++}
++
++void MPSStreamPool::synchronizeAllStreams() {
++  ensureInitialized();
++  for (size_t i = 0; i < kMPSStreamsPerPool; ++i) {
++    if (streams_[i] != nullptr) {
++      streams_[i]->synchronize(SyncType::COMMIT_AND_WAIT);
++    }
++  }
++}
++
++size_t MPSStreamPool::acquireSlot() {
++  std::lock_guard<std::mutex> lock(slot_mutex_);
++  TORCH_CHECK(!free_slots_.empty(),
++              "MPS stream pool exhausted: all ", kMPSStreamsPerPool - 1,
++              " worker streams are in use. Maximum concurrent MPS threads is ",
++              kMPSStreamsPerPool, " (1 main + ", kMPSStreamsPerPool - 1,
++              " workers). Wait for threads to exit or use a thread pool.");
++  size_t slot = free_slots_.back();
++  free_slots_.pop_back();
++  return slot;
++}
++
++void MPSStreamPool::releaseStreamSlot(size_t slot) {
++  if (slot == 0 || slot >= kMPSStreamsPerPool) {
++    return;  // Invalid or default stream slot
+   }
+-  return _stream;
++  std::lock_guard<std::mutex> lock(slot_mutex_);
++  free_slots_.push_back(slot);
++}
++
++void MPSStreamPool::releaseSlotIfPoolAlive(size_t slot) {
++  if (g_pool_alive.load(std::memory_order_acquire)) {
++    instance().releaseStreamSlot(slot);
++  }
++}
++
++MPSStream* MPSStreamPool::acquireStream() {
++  ensureInitialized();
++  size_t slot = acquireSlot();
++  return getStream(slot);
++}
++
++// Track which thread is the "main" thread (first to use MPS)
++static std::once_flag main_thread_init_flag;
++static std::thread::id main_thread_id;
++
++MPSStream* MPSStreamPool::getCurrentStream() {
++  if (tls_stream_slot.stream != nullptr) {
++    return tls_stream_slot.stream;
++  }
++
++  std::call_once(main_thread_init_flag, []() {
++    main_thread_id = std::this_thread::get_id();
++  });
++
++  if (std::this_thread::get_id() == main_thread_id) {
++    // Main thread uses default stream (slot 0, not recyclable)
++    tls_stream_slot.stream = MPSStreamPool::instance().getDefaultStream();
++  } else {
++    // Worker thread: acquire slot from freelist (recycled on thread exit)
++    size_t slot = MPSStreamPool::instance().acquireSlot();
++    tls_stream_slot.slot_index = slot;
++    tls_stream_slot.stream = MPSStreamPool::instance().getStream(slot);
++  }
++
++  return tls_stream_slot.stream;
++}
++
++void MPSStreamPool::setCurrentStream(MPSStream* stream) {
++  // Find slot index for this stream (or 0 if it's the default stream or not found)
++  size_t new_slot_index = 0;
++  for (size_t i = 0; i < kMPSStreamsPerPool; ++i) {
++    if (instance().streams_[i].get() == stream) {
++      new_slot_index = i;
++      break;
++    }
++  }
++
++  // If previous slot was a worker slot (>0) and differs from new, release it
++  if (tls_stream_slot.slot_index > 0 && tls_stream_slot.slot_index != new_slot_index) {
++    // Sync old stream before releasing to avoid dirty state
++    if (tls_stream_slot.stream != nullptr && g_pool_alive.load(std::memory_order_acquire)) {
++      tls_stream_slot.stream->synchronize(SyncType::COMMIT_AND_WAIT);
++    }
++    instance().releaseStreamSlot(tls_stream_slot.slot_index);
++  }
++
++  tls_stream_slot.stream = stream;
++  tls_stream_slot.slot_index = new_slot_index;
++}
++
++//-----------------------------------------------------------------
++//  MPSStreamImpl (DEPRECATED - for backward compatibility)
++//-----------------------------------------------------------------
++
++MPSStream* MPSStreamImpl::getInstance() {
++  // Redirect to the pool's default stream for backward compatibility
++  return MPSStreamPool::instance().getDefaultStream();
+ }
+ 
+ MPSStreamImpl::MPSStreamImpl() {}
+ 
++//-----------------------------------------------------------------
++//  Public API Functions
++//-----------------------------------------------------------------
++
+ MPSStream* getCurrentMPSStream() {
+-  return getDefaultMPSStream();
++  return MPSStreamPool::getCurrentStream();
+ }
+ 
+ MPSStream* getDefaultMPSStream() {
+-  return MPSStreamImpl::getInstance();
++  return MPSStreamPool::instance().getDefaultStream();
++}
++
++MPSStream* getStreamFromPool() {
++  return MPSStreamPool::instance().acquireStream();
++}
++
++void setCurrentMPSStream(MPSStream* stream) {
++  MPSStreamPool::setCurrentStream(stream);
+ }
+ 
+ } // namespace at::mps
+diff --git a/aten/src/ATen/native/mps/MetalShaderLibrary.h b/aten/src/ATen/native/mps/MetalShaderLibrary.h
+index 535edd29..80402f39 100644
+--- a/aten/src/ATen/native/mps/MetalShaderLibrary.h
++++ b/aten/src/ATen/native/mps/MetalShaderLibrary.h
+@@ -16,6 +16,7 @@ typedef void* MTLComputeCommandEncoder_t;
+ #include <c10/core/Scalar.h>
+ #include <c10/util/OptionalArrayRef.h>
+ #include <functional>
++#include <mutex>
+ #include <optional>
+ #include <type_traits>
+ #include <unordered_map>
+@@ -164,6 +165,10 @@ class MetalShaderLibrary {
+       std::string,
+       std::pair<MTLComputePipelineState_t, MTLFunction_t>>
+       cplMap;
++  // Mutex to protect libMap and cplMap for thread-safe access
++  mutable std::mutex cacheMutex_;
++  // Thread-safe one-time initialization flag for the no-params library
++  mutable std::once_flag libraryOnceFlag_;
+ };
+ 
+ class DynamicMetalShaderLibrary : public MetalShaderLibrary {
+diff --git a/aten/src/ATen/native/mps/OperationUtils.h b/aten/src/ATen/native/mps/OperationUtils.h
+index f9cd28ca..d7c6328a 100644
+--- a/aten/src/ATen/native/mps/OperationUtils.h
++++ b/aten/src/ATen/native/mps/OperationUtils.h
+@@ -3,6 +3,7 @@
+ #pragma once
+ 
+ #include <initializer_list>
++#include <memory>
+ #define TORCH_ASSERT_ONLY_METHOD_OPERATORS
+ #include <ATen/Tensor.h>
+ #include <ATen/TensorIterator.h>
+@@ -236,9 +237,10 @@ struct MPSKernelCache {
+  public:
+   static MPSKernelCache* getInstance() {
+     if (_instance_cache == nullptr) {
+-      _instance_cache = new MPSKernelCache();
++      // Use unique_ptr(new T()) instead of make_unique because constructor is private
++      _instance_cache = std::unique_ptr<MPSKernelCache>(new MPSKernelCache());
+     }
+-    return _instance_cache;
++    return _instance_cache.get();
+   }
+ 
+   ~MPSKernelCache() {
+@@ -297,7 +299,10 @@ struct MPSKernelCache {
+     serialQueue_ = dispatch_queue_create("kernel cache queue", DISPATCH_QUEUE_SERIAL);
+   }
+ 
+-  static MPSKernelCache* _instance_cache;
++  // THREAD-SAFETY FIX: Each thread gets its own kernel cache to prevent
++  // concurrent encoding of shared kernel objects which may not be thread-safe.
++  // Using unique_ptr for RAII to ensure proper cleanup when thread exits.
++  static thread_local std::unique_ptr<MPSKernelCache> _instance_cache;
+   std::unordered_map<MPSCacheKey, CacheEntry> cache_;
+   dispatch_queue_t serialQueue_ = nullptr;
+ };
+@@ -330,9 +335,10 @@ struct MPSGraphCache {
+  public:
+   static MPSGraphCache* getInstance() {
+     if (_instance_cache == nullptr) {
+-      _instance_cache = new MPSGraphCache();
++      // Use unique_ptr(new T()) instead of make_unique because constructor is private
++      _instance_cache = std::unique_ptr<MPSGraphCache>(new MPSGraphCache());
+     }
+-    return _instance_cache;
++    return _instance_cache.get();
+   }
+ 
+   ~MPSGraphCache() {
+@@ -402,7 +408,11 @@ struct MPSGraphCache {
+   // MPSProfiler.h in header OperationUtils.h
+   void profileCachedGraph(const CacheEntry& cacheEntry) const;
+ 
+-  static MPSGraphCache* _instance_cache;
++  // THREAD-SAFETY FIX: Each thread gets its own graph cache to prevent
++  // concurrent encoding of shared MPSGraph objects which is not thread-safe.
++  // This enables true parallel nn.Module inference across multiple threads.
++  // Using unique_ptr for RAII to ensure proper cleanup when thread exits.
++  static thread_local std::unique_ptr<MPSGraphCache> _instance_cache;
+   std::unordered_map<MPSCacheKey, CacheEntry> cache_;
+   dispatch_queue_t serialQueue_ = nullptr;
+ };
+diff --git a/aten/src/ATen/native/mps/OperationUtils.mm b/aten/src/ATen/native/mps/OperationUtils.mm
+index bf3e9420..518f5a1b 100644
+--- a/aten/src/ATen/native/mps/OperationUtils.mm
++++ b/aten/src/ATen/native/mps/OperationUtils.mm
+@@ -769,9 +769,13 @@ std::string get_mem_format_string(c10::MemoryFormat memory_format) {
+   return mem_format_key;
+ }
+ 
+-MPSGraphCache* MPSGraphCache::_instance_cache = nullptr;
++// THREAD-SAFETY FIX: Per-thread graph cache for parallel nn.Module inference
++// Using unique_ptr for RAII to ensure proper cleanup when thread exits (fixes memory leak).
++thread_local std::unique_ptr<MPSGraphCache> MPSGraphCache::_instance_cache = nullptr;
+ 
+-MPSKernelCache* MPSKernelCache::_instance_cache = nullptr;
++// THREAD-SAFETY FIX: Per-thread kernel cache for parallel inference
++// Using unique_ptr for RAII to ensure proper cleanup when thread exits (fixes memory leak).
++thread_local std::unique_ptr<MPSKernelCache> MPSKernelCache::_instance_cache = nullptr;
+ 
+ void MPSGraphCache::profileCachedGraph(const CacheEntry& cacheEntry) const {
+   auto& profiler = getMPSProfiler();
+@@ -806,10 +810,15 @@ MetalShaderLibrary::~MetalShaderLibrary() {
+ }
+ 
+ id<MTLLibrary> MetalShaderLibrary::getLibrary() {
+-  if (C10_UNLIKELY(!library)) {
++  // THREAD-SAFETY FIX: Use std::call_once for proper thread-safe initialization.
++  // The previous double-checked locking pattern had a race condition:
++  // fast path reads `library` without synchronization while slow path writes it.
++  // std::call_once guarantees that initialization happens exactly once and
++  // is visible to all threads with proper memory ordering.
++  std::call_once(libraryOnceFlag_, [this]() {
+     TORCH_INTERNAL_ASSERT(nparams == 0);
+     library = compileLibrary(shaderSource);
+-  }
++  });
+   return library;
+ }
+ 
+@@ -819,10 +828,18 @@ id<MTLLibrary> MetalShaderLibrary::getLibrary(const std::initializer_list<std::s
+   for (auto p : params) {
+     key += ":" + p;
+   }
+-  auto lib = libMap[key];
+-  if (lib) {
+-    return lib;
++
++  // Fast path: check cache without lock
++  {
++    std::lock_guard<std::mutex> lock(cacheMutex_);
++    auto lib = libMap[key];
++    if (lib) {
++      return lib;
++    }
+   }
++
++  // Slow path: compile the library (outside lock to allow parallelism)
++  id<MTLLibrary> lib = nil;
+   auto it = params.begin();
+   switch (nparams) {
+     case 1:
+@@ -844,6 +861,13 @@ id<MTLLibrary> MetalShaderLibrary::getLibrary(const std::initializer_list<std::s
+     default:
+       TORCH_INTERNAL_ASSERT(false, "Unsupported number of paramaters ", nparams);
+   }
++
++  // Store in cache under lock
++  std::lock_guard<std::mutex> lock(cacheMutex_);
++  // Another thread might have compiled it while we were compiling
++  if (auto existing = libMap[key]) {
++    return existing;
++  }
+   return libMap[key] = lib;
+ }
+ 
+@@ -870,20 +894,23 @@ id<MTLLibrary> MetalShaderLibrary::compileLibrary(const std::string& src) {
+ 
+   const auto str = [NSString stringWithCString:src.c_str() encoding:NSASCIIStringEncoding];
+   auto device = MPSDevice::getInstance()->device();
+-  library = [device newLibraryWithSource:str options:options error:&error];
+-  if (library == nil) {
++  // Use local variable to avoid race condition when called from getLibrary(params)
++  // The member 'library' is only used by parameterless getLibrary() which assigns the return value
++  id<MTLLibrary> lib = [device newLibraryWithSource:str options:options error:&error];
++  if (lib == nil) {
+     if ([error domain] == MTLLibraryErrorDomain && [error code] == MTLLibraryErrorCompileFailure) {
+       throw c10::SyntaxError([[error localizedDescription] UTF8String]);
+     }
+     TORCH_CHECK(false, "Failed to create metal library, error: ", [[error description] UTF8String]);
+   }
+-  return library;
++  return lib;
+ }
+ 
+ std::pair<id<MTLComputePipelineState>, id<MTLFunction>> MetalShaderLibrary::getLibraryPipelineState(
+     id<MTLLibrary> lib,
+     const std::string& fname) {
+   const auto key = fmt::format("{}:{}", reinterpret_cast<void*>(lib), fname);
++  std::lock_guard<std::mutex> lock(cacheMutex_);
+   auto found_cpl = cplMap.find(key);
+   if (found_cpl != cplMap.end()) {
+     return found_cpl->second;
+@@ -925,12 +952,15 @@ class BundledShaderLibary : public MetalShaderLibrary {
+ 
+  protected:
+   id<MTLLibrary> getLibrary() override {
+-    if (C10_UNLIKELY(!library)) {
++    // THREAD-SAFETY FIX: Use std::call_once for proper thread-safe initialization.
++    // The previous double-checked locking pattern had a race condition:
++    // multiple threads could see !library and race to initialize it.
++    std::call_once(bundledLibraryOnceFlag_, [this]() {
+       auto device = MPSDevice::getInstance()->device();
+       NSError* error = nil;
+       library = [device newLibraryWithData:getSectionData("metal_basic") error:&error];
+       TORCH_CHECK(library, "Failed to create metal library, error: ", [[error description] UTF8String]);
+-    }
++    });
+     return library;
+   }
+ 
+@@ -939,6 +969,7 @@ class BundledShaderLibary : public MetalShaderLibrary {
+   }
+ 
+  private:
++  std::once_flag bundledLibraryOnceFlag_;
+   static dispatch_data_t getSectionData(const std::string& name) {
+     uint32_t idx = 0;
+     for (const auto cnt : c10::irange(_dyld_image_count())) {
+diff --git a/aten/src/ATen/native/mps/operations/Linear.mm b/aten/src/ATen/native/mps/operations/Linear.mm
+index 219086ed..11adfca9 100644
+--- a/aten/src/ATen/native/mps/operations/Linear.mm
++++ b/aten/src/ATen/native/mps/operations/Linear.mm
+@@ -6,18 +6,41 @@
+ #include <ATen/native/mps/OperationUtils.h>
+ #include <ATen/ops/linear_backward_native.h>
+ #include <ATen/ops/linear_native.h>
++#include <mutex>
+ 
+ namespace at::native {
+ 
+ using namespace mps;
+ 
++// THREAD-SAFETY: Global mutex for MPSNDArrayMatrixMultiplication encoding.
++// Apple's MPS framework has internal shared state that makes concurrent encoding
++// of MPSNDArrayMatrixMultiplication kernels unsafe, even with per-thread instances.
++// This mutex serializes the no-graph linear path to prevent crashes.
++static std::mutex s_linear_nograph_mutex;
++
+ static void _mps_linear_nograph(const Tensor& input, const Tensor& weight, const Tensor& bias, Tensor& output) {
+   bool is_bias_defined = bias.defined();
+ 
+   MPSStream* mpsStream = getCurrentMPSStream();
+   id<MTLDevice> device = MPSDevice::getInstance()->device();
+ 
++  // Build cache key and look up kernel on calling thread (thread_local cache)
++  // This MUST happen before dispatch_sync since the cache is thread_local
+   const std::string key = "mps_linear" + getTensorsStringKey({input, weight, bias}, true, true);
++
++  // Get or create kernel on calling thread
++  MPSCachedKernel* cachedKernel;
++  if (is_bias_defined) {
++    cachedKernel = LookUpOrCreateCachedKernel<MPSCachedKernel>(key, [&]() {
++      return [[[MPSNDArrayMatrixMultiplication alloc] initWithDevice:device sourceCount:3] autorelease];
++    });
++  } else {
++    cachedKernel = LookUpOrCreateCachedKernel<MPSCachedKernel>(key, [&]() {
++      return [[[MPSNDArrayMatrixMultiplication alloc] initWithDevice:device sourceCount:2] autorelease];
++    });
++  }
++  auto kernel = cachedKernel->kernel<MPSNDArrayMatrixMultiplication>();
++
+   dispatch_sync_with_rethrow(mpsStream->queue(), ^() {
+     @autoreleasepool {
+       mpsStream->endKernelCoalescing();
+@@ -39,13 +62,13 @@ static void _mps_linear_nograph(const Tensor& input, const Tensor& weight, const
+                                                                offset:weight.storage_offset() * weight.element_size()
+                                                            descriptor:weightDesc] autorelease];
+ 
++      // THREAD-SAFETY: Serialize only the kernel encoding.
++      // Apple's MPSNDArrayMatrixMultiplication has internal shared state that is not thread-safe.
++      // We minimize the critical section to just the encoding call.
++      std::lock_guard<std::mutex> lock(s_linear_nograph_mutex);
++
+       if (is_bias_defined) {
+         auto biasNDArray = getMPSNDArray(bias, bias.sizes(), bias.strides());
+-        auto cachedKernel = LookUpOrCreateCachedKernel<MPSCachedKernel>(key, [&]() {
+-          return [[[MPSNDArrayMatrixMultiplication alloc] initWithDevice:device sourceCount:3] autorelease];
+-        });
+-        auto kernel = cachedKernel->kernel<MPSNDArrayMatrixMultiplication>();
+-
+         getMPSProfiler().beginProfileKernel(kernel, "mps_linear", {input, weight, bias});
+         [kernel encodeToCommandEncoder:computeEncoder
+                          commandBuffer:commandBuffer
+@@ -53,10 +76,6 @@ static void _mps_linear_nograph(const Tensor& input, const Tensor& weight, const
+                       destinationArray:outNDArray];
+         getMPSProfiler().endProfileKernel(kernel);
+       } else {
+-        auto cachedKernel = LookUpOrCreateCachedKernel<MPSCachedKernel>(key, [&]() {
+-          return [[[MPSNDArrayMatrixMultiplication alloc] initWithDevice:device sourceCount:2] autorelease];
+-        });
+-        auto kernel = cachedKernel->kernel<MPSNDArrayMatrixMultiplication>();
+         getMPSProfiler().beginProfileKernel(kernel, "mps_linear", {input, weight, bias});
+         [kernel encodeToCommandEncoder:computeEncoder
+                          commandBuffer:commandBuffer
+@@ -118,7 +137,16 @@ Tensor _mps_linear(const Tensor& input, const Tensor& weight_arg, const std::opt
+   // No-graph execution causes nonsense if these are non-contiguous.
+   const bool is_contiguous = input.is_contiguous() && weight.is_contiguous() && bias.is_contiguous();
+ 
+-  if (is_macos_13_or_newer(MacOSVersion::MACOS_VER_15_0_PLUS) && is_contiguous) {
++  // THREAD-SAFETY: Check environment variable for forcing graph path.
++  // The no-graph path requires a global mutex due to Apple's internal thread-safety issues.
++  // Set MPS_FORCE_GRAPH_PATH=1 to always use the graph path, avoiding the mutex.
++  // Trade-off: Graph path has compilation overhead but better parallelism.
++  static const bool force_graph_path = []() {
++    auto val = c10::utils::get_env("MPS_FORCE_GRAPH_PATH");
++    return val.has_value() && val.value() == "1";
++  }();
++
++  if (!force_graph_path && is_macos_13_or_newer(MacOSVersion::MACOS_VER_15_0_PLUS) && is_contiguous) {
+     _mps_linear_nograph(input, weight, bias, output);
+     // Squeeze last dim of 1D linear
+     return weight_arg.dim() != 1 ? output : output.squeeze(-1);

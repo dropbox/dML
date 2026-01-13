@@ -1,0 +1,15 @@
+/opt/homebrew/lib/python3.14/site-packages/webrtcvad.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/ayates/model_mlx_migration/tools/whisper_mlx/train_rich_decoder_v4.py", line 915, in <module>
+    main()
+    ~~~~^^
+  File "/Users/ayates/model_mlx_migration/tools/whisper_mlx/train_rich_decoder_v4.py", line 911, in main
+    trainer.train(train_loader, val_loader)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ayates/model_mlx_migration/tools/whisper_mlx/train_rich_decoder_v4.py", line 719, in train
+    accumulated_grads = mx.tree_map(
+                        ^^^^^^^^^^^
+AttributeError: module 'mlx.core' has no attribute 'tree_map'

@@ -1,0 +1,10 @@
+{"success":true,"error":"","results":[
+{"file":"aten/src/ATen/mps/MPSStream.mm","status":"pass","warnings":0,"errors":0,"output":""}
+,
+{"file":"aten/src/ATen/mps/MPSAllocator.mm","status":"pass","warnings":0,"errors":0,"output":""}
+,
+{"file":"aten/src/ATen/mps/MPSEvent.mm","status":"pass","warnings":0,"errors":0,"output":""}
+,
+{"file":"aten/src/ATen/mps/MPSDevice.mm","status":"pass","warnings":0,"errors":0,"output":""}
+],
+"summary":{"total_warnings":0,"total_errors":0,"files_analyzed":4}}

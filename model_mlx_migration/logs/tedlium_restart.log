@@ -1,0 +1,5 @@
+/opt/homebrew/lib/python3.14/site-packages/huggingface_hub/utils/_validators.py:186: UserWarning: The `resume_download` argument is deprecated and ignored in `snapshot_download`. Downloads always resume whenever possible.
+  warnings.warn(
+Downloading TEDLIUM from sanchit-gandhi/tedlium-data...
+Fetching 109 files:   0%|          | 0/109 [00:00<?, ?it/s]Fetching 109 files:   1%|          | 1/109 [00:00<00:31,  3.44it/s]/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-xv3nf0js'}
+  warnings.warn(

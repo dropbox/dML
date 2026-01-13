@@ -1,0 +1,128 @@
+Setting up evaluation...
+  Loading Whisper model: mlx-community/whisper-large-v3-mlx
+/opt/homebrew/lib/python3.14/site-packages/webrtcvad.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 35848.75it/s]
+  Setting up prosody beam search...
+    Loading pitch head from checkpoints/pitch_combined_v4/best.npz
+    Pitch head loaded (26 params)
+    Loading emotion head from checkpoints/emotion_unified_v2/best.npz
+    Emotion head loaded (6 params)
+Setup complete
+Loading test set: meld
+  Loading MELD test from data/emotion_punctuation/MELD.Raw/test_sent_emo.csv
+  Found 2747 audio files
+Loaded 500 samples
+
+Evaluating baseline (greedy decoding)...
+  Processing sample 1/500
+Using cache found in /Users/ayates/.cache/torch/hub/snakers4_silero-vad_master
+  Processing sample 11/500
+  Processing sample 21/500
+  Processing sample 31/500
+  Processing sample 41/500
+  Processing sample 51/500
+  Processing sample 61/500
+  Processing sample 71/500
+  Processing sample 81/500
+  Processing sample 91/500
+  Processing sample 101/500
+  Processing sample 111/500
+  Processing sample 121/500
+  Processing sample 131/500
+  Processing sample 141/500
+  Processing sample 151/500
+  Processing sample 161/500
+  Processing sample 171/500
+  Processing sample 181/500
+  Processing sample 191/500
+  Processing sample 201/500
+  Processing sample 211/500
+  Processing sample 221/500
+  Processing sample 231/500
+  Processing sample 241/500
+  Processing sample 251/500
+  Processing sample 261/500
+  Processing sample 271/500
+  Processing sample 281/500
+  Processing sample 291/500
+  Processing sample 301/500
+  Processing sample 311/500
+  Processing sample 321/500
+  Processing sample 331/500
+  Processing sample 341/500
+  Processing sample 351/500
+  Processing sample 361/500
+  Processing sample 371/500
+  Processing sample 381/500
+  Processing sample 391/500
+  Processing sample 401/500
+  Processing sample 411/500
+  Processing sample 421/500
+  Processing sample 431/500
+  Processing sample 441/500
+  Processing sample 451/500
+  Processing sample 461/500
+  Processing sample 471/500
+  Processing sample 481/500
+  Processing sample 491/500
+  Baseline RTF: 0.454
+  Baseline Punct Macro F1: 0.509
+
+Evaluating prosody beam search...
+  Processing sample 1/500
+  Processing sample 11/500
+  Processing sample 21/500
+  Processing sample 31/500
+  Processing sample 41/500
+  Processing sample 51/500
+  Processing sample 61/500
+  Processing sample 71/500
+  Processing sample 81/500
+  Processing sample 91/500
+  Processing sample 101/500
+  Processing sample 111/500
+  Processing sample 121/500
+  Processing sample 131/500
+  Processing sample 141/500
+  Processing sample 151/500
+  Processing sample 161/500
+  Processing sample 171/500
+  Processing sample 181/500
+  Processing sample 191/500
+  Processing sample 201/500
+  Processing sample 211/500
+  Processing sample 221/500
+  Processing sample 231/500
+  Processing sample 241/500
+  Processing sample 251/500
+  Processing sample 261/500
+  Processing sample 271/500
+  Processing sample 281/500
+  Processing sample 291/500
+  Processing sample 301/500
+  Processing sample 311/500
+  Processing sample 321/500
+  Processing sample 331/500
+  Processing sample 341/500
+  Error processing dia38_utt4: Input shape mismatch: got 15248, expected 1500. Use variable_length=True for non-30s audio.
+  Processing sample 351/500
+  Processing sample 361/500
+  Processing sample 371/500
+  Processing sample 381/500
+  Processing sample 391/500
+  Processing sample 401/500
+  Processing sample 411/500
+  Processing sample 421/500
+  Processing sample 431/500
+  Processing sample 441/500
+  Processing sample 451/500
+  Processing sample 461/500
+  Processing sample 471/500
+  Processing sample 481/500
+  Processing sample 491/500
+  Prosody Beam RTF: 0.660
+  Prosody Beam Punct Macro F1: 0.614
+  Prosody boosts applied: 653
+
+Report saved to: reports/main/PROSODY_BEAM_EVALUATION_500.md

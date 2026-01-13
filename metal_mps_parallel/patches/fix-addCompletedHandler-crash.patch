@@ -1,0 +1,41 @@
+diff --git a/aten/src/ATen/mps/MPSStream.mm b/aten/src/ATen/mps/MPSStream.mm
+index 3383338a..27139c60 100644
+--- a/aten/src/ATen/mps/MPSStream.mm
++++ b/aten/src/ATen/mps/MPSStream.mm
+@@ -371,10 +371,35 @@ void MPSStream::addCompletedHandler(MTLCommandBufferHandler block) {
+       // different thread, and stream helpers (e.g. commandBuffer()) take the same
+       // mutex. Holding it here would deadlock.
+       std::lock_guard<std::recursive_mutex> lock(_streamMutex);
+-      MPSCommandBuffer* cb = _commandBuffer ? _commandBuffer : _prevCommandBuffer;
++
++      // FIX (crash in parallel inference): Metal requires completion handlers be
++      // added BEFORE the command buffer is committed. After commit(), Metal throws
++      // assertion: "-[_MTLCommandBuffer addCompletedHandler:] ... not valid".
++      //
++      // Previous code used: _commandBuffer ? _commandBuffer : _prevCommandBuffer
++      // BUG: _prevCommandBuffer is ALWAYS committed (see flush() line 345).
++      // When _enableCommitAndContinue=false (parallel streams), flush() commits
++      // _commandBuffer and moves it to _prevCommandBuffer. Adding handlers to
++      // _prevCommandBuffer always crashes.
++      //
++      // Fix: Only use command buffers in NotEnqueued state. If _commandBuffer is
++      // nil or already committed, create a new one. Never use _prevCommandBuffer.
++      MPSCommandBuffer* cb = _commandBuffer;
++
++      // Check if existing buffer is in a valid state for adding handlers
++      if (cb) {
++        MTLCommandBufferStatus status = [cb status];
++        if (status != MTLCommandBufferStatusNotEnqueued) {
++          // Buffer already committed - need a fresh one
++          cb = nil;
++        }
++      }
++
+       if (!cb) {
++        // Create new command buffer (commandBuffer() handles _commandBuffer assignment)
+         cb = commandBuffer();
+       }
++
+       [cb addCompletedHandler:block];
+     }
+   };

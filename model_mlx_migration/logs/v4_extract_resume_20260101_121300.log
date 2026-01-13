@@ -1,0 +1,21 @@
+Manifest: 78449 samples
+/opt/homebrew/lib/python3.14/site-packages/webrtcvad.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+Loading mlx-community/whisper-large-v3-mlx...
+Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 1512.55it/s]
+Extracting features:   0%|          | 0/78449 [00:00<?, ?it/s][wav @ 0x133018ab0] Cannot check for SPDIF
+Error processing /Users/ayates/model_mlx_migration/data/paralinguistics/vocalsound_labeled/audio_16k/m2077_0_sniff.wav: Shape of array too small to calculate a numerical gradient, at least (edge_order + 1) elements are required.
+Extracting features:   7%|▋         | 5851/78449 [00:00<00:07, 9272.95it/s][wav @ 0x41a3ffdb0] Cannot check for SPDIF
+Error processing /Users/ayates/model_mlx_migration/data/paralinguistics/vocalsound_labeled/audio_16k/f3310_0_sniff.wav: Shape of array too small to calculate a numerical gradient, at least (edge_order + 1) elements are required.
+[wav @ 0x41a3ffdb0] Cannot check for SPDIF
+Error processing /Users/ayates/model_mlx_migration/data/paralinguistics/vocalsound_labeled/audio_16k/m0600_0_throatclearing.wav: Shape of array too small to calculate a numerical gradient, at least (edge_order + 1) elements are required.
+[wav @ 0x10f7bf550] Cannot check for SPDIF
+Error processing /Users/ayates/model_mlx_migration/data/paralinguistics/vocalsound_labeled/audio_16k/m0600_0_sneeze.wav: Shape of array too small to calculate a numerical gradient, at least (edge_order + 1) elements are required.
+[wav @ 0x10f7bf550] Cannot check for SPDIF
+Error processing /Users/ayates/model_mlx_migration/data/paralinguistics/vocalsound_labeled/audio_16k/f3310_0_cough.wav: Shape of array too small to calculate a numerical gradient, at least (edge_order + 1) elements are required.
+[wav @ 0x41a3ffdb0] Cannot check for SPDIF
+Error processing /Users/ayates/model_mlx_migration/data/paralinguistics/vocalsound_labeled/audio_16k/f3310_0_sigh.wav: Shape of array too small to calculate a numerical gradient, at least (edge_order + 1) elements are required.
+[wav @ 0x41a3ffdb0] Cannot check for SPDIF
+Error processing /Users/ayates/model_mlx_migration/data/paralinguistics/vocalsound_labeled/audio_16k/f2298_0_cough.wav: Shape of array too small to calculate a numerical gradient, at least (edge_order + 1) elements are required.
+Extracting features:  18%|█▊        | 14120/78449 [00:01<00:06, 9862.78it/s]Extracting features:  18%|█▊        | 14120/78449 [00:18<00:06, 9862.78it/s]Extracting features:  18%|█▊        | 14144/78449 [00:18<02:16, 471.89it/s] Extracting features:  18%|█▊        | 14145/78449 [00:19<02:24, 445.31it/s]Extracting features:  18%|█▊        | 14145/78449 [00:30<02:24, 445.31it/s]Extracting features:  18%|█▊        | 14159/78449 [00:30<05:02, 212.62it/s]Extracting features:  18%|█▊        | 14160/78449 [00:30<05:17, 202.54it/s]/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-9jdmkln8'}
+  warnings.warn(

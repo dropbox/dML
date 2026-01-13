@@ -1,0 +1,16 @@
+# Build outputs
+test_engine
+*.o
+*.a
+*.so
+*.dylib
+
+# CMake build directory
+build/
+
+# Audio outputs
+*.wav
+
+# IDE files
+.vscode/
+.idea/

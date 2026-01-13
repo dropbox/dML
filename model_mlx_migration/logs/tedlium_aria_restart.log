@@ -1,0 +1,13 @@
+Downloading TEDLIUM...
+Fetching 109 files:   0%|          | 0/109 [00:00<?, ?it/s]Fetching 109 files:   3%|▎         | 3/109 [05:11<3:03:37, 103.94s/it]Fetching 109 files:   5%|▍         | 5/109 [06:42<2:10:40, 75.39s/it] Fetching 109 files:   6%|▋         | 7/109 [07:25<1:30:22, 53.16s/it]'[Errno 8] nodename nor servname provided, or not known' thrown while requesting HEAD https://huggingface.co/datasets/sanchit-gandhi/tedlium-data/resolve/8083dbe64f82e17b6be070a02b9239e9b847b6ce/data/train-00008-of-00105-99c9fb6b0ce292c7.parquet
+Retrying in 1s [Retry 1/5].
+'[Errno 8] nodename nor servname provided, or not known' thrown while requesting HEAD https://huggingface.co/datasets/sanchit-gandhi/tedlium-data/resolve/8083dbe64f82e17b6be070a02b9239e9b847b6ce/data/train-00009-of-00105-128e79ed61388685.parquet
+Retrying in 1s [Retry 1/5].
+'[Errno 8] nodename nor servname provided, or not known' thrown while requesting HEAD https://huggingface.co/datasets/sanchit-gandhi/tedlium-data/resolve/8083dbe64f82e17b6be070a02b9239e9b847b6ce/data/train-00010-of-00105-fb8ed543b80fef32.parquet
+Retrying in 1s [Retry 1/5].
+'[Errno 8] nodename nor servname provided, or not known' thrown while requesting HEAD https://huggingface.co/datasets/sanchit-gandhi/tedlium-data/resolve/8083dbe64f82e17b6be070a02b9239e9b847b6ce/data/train-00011-of-00105-fc772e5a7f9dd78f.parquet
+Retrying in 1s [Retry 1/5].
+'[Errno 8] nodename nor servname provided, or not known' thrown while requesting HEAD https://huggingface.co/datasets/sanchit-gandhi/tedlium-data/resolve/8083dbe64f82e17b6be070a02b9239e9b847b6ce/data/train-00012-of-00105-23eee28cb06a6a07.parquet
+Retrying in 1s [Retry 1/5].
+Fetching 109 files:   7%|▋         | 8/109 [13:59:12<318:43:27, 11360.47s/it]/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-j0mjmukp'}
+  warnings.warn(

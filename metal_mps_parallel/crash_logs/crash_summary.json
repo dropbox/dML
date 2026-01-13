@@ -1,0 +1,2681 @@
+{
+  "crashes": [
+    {
+      "timestamp": "2025-12-25T00:03:06.443394Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251224_160306_python3.14-2025-12-24-160305.ips",
+      "info": {
+        "process": "python3.14",
+        "exception": "EXC_CRASH",
+        "fault_address": "0x0000000000000000",
+        "crashed_in": "[1] __abort_with_payload + 8"
+      }
+    },
+    {
+      "timestamp": "2025-12-25T00:00:50.443285Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251224_160050_python3.14-2025-12-24-160048.ips",
+      "info": {
+        "process": "python3.14",
+        "exception": "EXC_CRASH",
+        "fault_address": "0x0000000000000000",
+        "crashed_in": "[1] __abort_with_payload + 8"
+      }
+    },
+    {
+      "timestamp": "2025-12-25T00:00:48.978157Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251224_160048_python3.14-2025-12-24-160048.ips",
+      "info": {
+        "process": "python3.14",
+        "exception": "EXC_CRASH",
+        "fault_address": "0x0000000000000000",
+        "crashed_in": "[1] __abort_with_payload + 8"
+      }
+    },
+    {
+      "timestamp": "2025-12-24T23:58:19.306795Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251224_155819_python3.14-2025-12-24-155815.ips",
+      "info": {
+        "process": "python3.14",
+        "exception": "EXC_CRASH",
+        "fault_address": "0x0000000000000000",
+        "crashed_in": "[1] __abort_with_payload + 8"
+      }
+    },
+    {
+      "timestamp": "2025-12-24T18:59:37.173307Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251224_105937_Python-2025-12-24-105553.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_CRASH",
+        "fault_address": "0x0000000000000000",
+        "crashed_in": "[54] __pthread_kill + 8"
+      }
+    },
+    {
+      "timestamp": "2025-12-24T18:59:11.932605Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251224_105911_Python-2025-12-24-105553.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_CRASH",
+        "fault_address": "0x0000000000000000",
+        "crashed_in": "[54] __pthread_kill + 8"
+      }
+    },
+    {
+      "timestamp": "2025-12-24T18:57:00.922372Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251224_105700_Python-2025-12-24-105700.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_CRASH",
+        "fault_address": "0x0000000000000000",
+        "crashed_in": "[54] __pthread_kill + 8"
+      }
+    },
+    {
+      "timestamp": "2025-12-24T18:57:00.818044Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251224_105700_Python-2025-12-24-105553.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_CRASH",
+        "fault_address": "0x0000000000000000",
+        "crashed_in": "[54] __pthread_kill + 8"
+      }
+    },
+    {
+      "timestamp": "2025-12-24T18:56:55.675625Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251224_105655_Python-2025-12-24-105553.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_CRASH",
+        "fault_address": "0x0000000000000000",
+        "crashed_in": "[54] __pthread_kill + 8"
+      }
+    },
+    {
+      "timestamp": "2025-12-24T18:56:45.554216Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251224_105645_Python-2025-12-24-105553.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_CRASH",
+        "fault_address": "0x0000000000000000",
+        "crashed_in": "[54] __pthread_kill + 8"
+      }
+    },
+    {
+      "timestamp": "2025-12-24T18:56:40.408267Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251224_105640_Python-2025-12-24-105553.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_CRASH",
+        "fault_address": "0x0000000000000000",
+        "crashed_in": "[54] __pthread_kill + 8"
+      }
+    },
+    {
+      "timestamp": "2025-12-24T18:56:30.223304Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251224_105630_Python-2025-12-24-105553.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_CRASH",
+        "fault_address": "0x0000000000000000",
+        "crashed_in": "[54] __pthread_kill + 8"
+      }
+    },
+    {
+      "timestamp": "2025-12-24T18:56:09.976887Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251224_105609_Python-2025-12-24-105553.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_CRASH",
+        "fault_address": "0x0000000000000000",
+        "crashed_in": "[54] __pthread_kill + 8"
+      }
+    },
+    {
+      "timestamp": "2025-12-24T18:55:54.674965Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251224_105554_Python-2025-12-24-105553.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_CRASH",
+        "fault_address": "0x0000000000000000",
+        "crashed_in": "[54] __pthread_kill + 8"
+      }
+    },
+    {
+      "timestamp": "2025-12-24T08:26:11.602818Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251224_002611_Python-2025-12-24-002607.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_CRASH",
+        "fault_address": "0x0000000000000000",
+        "crashed_in": "[51] __pthread_kill + 8"
+      }
+    },
+    {
+      "timestamp": "2025-12-24T01:21:05.512928Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_172105_Python-2025-12-23-134347.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009a9f08b63730 -> 0x00001a9f08b63730 (possible pointer authentication failure)",
+        "fault_address": "0x00009a9f08b63730",
+        "crashed_in": "[55] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-24T01:20:30.078507Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_172030_Python-2025-12-23-134347.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009a9f08b63730 -> 0x00001a9f08b63730 (possible pointer authentication failure)",
+        "fault_address": "0x00009a9f08b63730",
+        "crashed_in": "[55] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-24T01:18:59.147929Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_171859_Python-2025-12-23-133344.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000cbecd7f5d4e0 -> 0x00004becd7f5d4e0 (possible pointer authentication failure)",
+        "fault_address": "0x0000cbecd7f5d4e0",
+        "crashed_in": "[62] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-24T01:09:49.001241Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_170948_Python-2025-12-23-133344.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000cbecd7f5d4e0 -> 0x00004becd7f5d4e0 (possible pointer authentication failure)",
+        "fault_address": "0x0000cbecd7f5d4e0",
+        "crashed_in": "[62] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-24T01:01:45.314761Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_170145_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-24T00:59:13.820057Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_165913_Python-2025-12-23-133947.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000d93ceacd4880 -> 0x0000593ceacd4880 (possible pointer authentication failure)",
+        "fault_address": "0x0000d93ceacd4880",
+        "crashed_in": "[61] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-24T00:54:01.419080Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_165401_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-24T00:45:07.542336Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_164507_Python-2025-12-23-133344.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000cbecd7f5d4e0 -> 0x00004becd7f5d4e0 (possible pointer authentication failure)",
+        "fault_address": "0x0000cbecd7f5d4e0",
+        "crashed_in": "[62] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-24T00:43:36.801400Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_164336_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-24T00:43:26.624294Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_164326_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-24T00:20:18.297644Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_162018_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-24T00:17:36.713639Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_161736_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T23:55:32.470533Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_155532_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T23:55:32.383939Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_155532_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T23:55:32.288903Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_155532_Python-2025-12-23-134347.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009a9f08b63730 -> 0x00001a9f08b63730 (possible pointer authentication failure)",
+        "fault_address": "0x00009a9f08b63730",
+        "crashed_in": "[55] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T23:55:32.200046Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_155532_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T23:55:32.111238Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_155532_Python-2025-12-23-103435.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00008c552432c370 -> 0x00000c552432c370 (possible pointer authentication failure)",
+        "fault_address": "0x00008c552432c370",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T23:55:32.019504Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_155532_Python-2025-12-23-133551.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x000045a04081c5b0",
+        "fault_address": "0x000045a04081c5b0",
+        "crashed_in": "[62] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T23:55:31.915167Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_155531_Python-2025-12-23-133344.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000cbecd7f5d4e0 -> 0x00004becd7f5d4e0 (possible pointer authentication failure)",
+        "fault_address": "0x0000cbecd7f5d4e0",
+        "crashed_in": "[62] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T23:35:32.591355Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_153532_Python-2025-12-23-133551.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x000045a04081c5b0",
+        "fault_address": "0x000045a04081c5b0",
+        "crashed_in": "[62] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T23:31:19.989931Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_153119_Python-2025-12-23-133344.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000cbecd7f5d4e0 -> 0x00004becd7f5d4e0 (possible pointer authentication failure)",
+        "fault_address": "0x0000cbecd7f5d4e0",
+        "crashed_in": "[62] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T23:26:37.201456Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_152637_Python-2025-12-23-134347.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009a9f08b63730 -> 0x00001a9f08b63730 (possible pointer authentication failure)",
+        "fault_address": "0x00009a9f08b63730",
+        "crashed_in": "[55] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T23:20:23.575809Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_152023_Python-2025-12-23-134347.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009a9f08b63730 -> 0x00001a9f08b63730 (possible pointer authentication failure)",
+        "fault_address": "0x00009a9f08b63730",
+        "crashed_in": "[55] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T23:20:18.438867Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_152018_Python-2025-12-23-133344.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000cbecd7f5d4e0 -> 0x00004becd7f5d4e0 (possible pointer authentication failure)",
+        "fault_address": "0x0000cbecd7f5d4e0",
+        "crashed_in": "[62] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T23:15:10.454028Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_151510_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T23:15:05.298385Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_151505_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T23:15:05.213362Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_151505_Python-2025-12-23-103435.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00008c552432c370 -> 0x00000c552432c370 (possible pointer authentication failure)",
+        "fault_address": "0x00008c552432c370",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T23:15:00.098221Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_151500_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T23:14:59.997908Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_151459_Python-2025-12-23-103435.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00008c552432c370 -> 0x00000c552432c370 (possible pointer authentication failure)",
+        "fault_address": "0x00008c552432c370",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T23:14:24.533147Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_151424_Python-2025-12-23-133344.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000cbecd7f5d4e0 -> 0x00004becd7f5d4e0 (possible pointer authentication failure)",
+        "fault_address": "0x0000cbecd7f5d4e0",
+        "crashed_in": "[62] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T23:08:10.895644Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_150810_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T23:08:05.765274Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_150805_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T23:07:40.449830Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_150740_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T23:06:44.872810Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_150644_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T23:03:38.000919Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_150337_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T23:03:27.858491Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_150327_Python-2025-12-23-133344.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000cbecd7f5d4e0 -> 0x00004becd7f5d4e0 (possible pointer authentication failure)",
+        "fault_address": "0x0000cbecd7f5d4e0",
+        "crashed_in": "[62] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T23:03:12.658361Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_150312_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T23:03:12.568986Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_150312_Python-2025-12-23-103435.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00008c552432c370 -> 0x00000c552432c370 (possible pointer authentication failure)",
+        "fault_address": "0x00008c552432c370",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T23:03:07.440369Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_150307_Python-2025-12-23-103435.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00008c552432c370 -> 0x00000c552432c370 (possible pointer authentication failure)",
+        "fault_address": "0x00008c552432c370",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T23:00:46.010345Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_150046_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T22:57:29.102150Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_145729_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T22:57:23.852781Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_145723_Python-2025-12-23-103435.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00008c552432c370 -> 0x00000c552432c370 (possible pointer authentication failure)",
+        "fault_address": "0x00008c552432c370",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T22:33:04.005505Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_143303_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T22:32:03.310315Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_143203_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T22:31:17.801933Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_143117_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T22:29:11.492847Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_142911_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T22:19:51.166975Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_141951_gpuEvent-Python-2025-12-23-141948.ips",
+      "info": {}
+    },
+    {
+      "timestamp": "2025-12-23T22:19:05.615555Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_141905_python3.14-2025-12-23-141901.ips",
+      "info": {
+        "process": "python3.14",
+        "exception": "EXC_CRASH",
+        "fault_address": "0x0000000000000000",
+        "crashed_in": "[1] __abort_with_payload + 8"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T22:11:36.190305Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_141136_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T22:09:04.689484Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_140904_Python-2025-12-23-133344.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000cbecd7f5d4e0 -> 0x00004becd7f5d4e0 (possible pointer authentication failure)",
+        "fault_address": "0x0000cbecd7f5d4e0",
+        "crashed_in": "[62] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T22:08:59.562927Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_140859_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T22:08:49.388237Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_140849_Python-2025-12-23-134347.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009a9f08b63730 -> 0x00001a9f08b63730 (possible pointer authentication failure)",
+        "fault_address": "0x00009a9f08b63730",
+        "crashed_in": "[55] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T22:07:33.597290Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_140733_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T22:07:28.438914Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_140728_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:46:26.964242Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_134626_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:46:21.828016Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_134621_Python-2025-12-23-133947.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000d93ceacd4880 -> 0x0000593ceacd4880 (possible pointer authentication failure)",
+        "fault_address": "0x0000d93ceacd4880",
+        "crashed_in": "[61] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:45:56.584003Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_134556_Python-2025-12-23-133947.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000d93ceacd4880 -> 0x0000593ceacd4880 (possible pointer authentication failure)",
+        "fault_address": "0x0000d93ceacd4880",
+        "crashed_in": "[61] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:45:56.483409Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_134556_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:45:51.353599Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_134551_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:45:41.212537Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_134541_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:45:36.086332Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_134536_Python-2025-12-23-134535.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00000000000001e0",
+        "fault_address": "0x00000000000001e0",
+        "crashed_in": "[49] AGX::ResourceGroupUsage<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses>::bindResource(_IOGPUMetalResource const*, ResourceGroupBindingType, unsigned int, unsigned int) + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:45:25.938976Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_134525_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:45:15.781160Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_134515_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:45:15.674053Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_134515_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:45:15.562544Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_134515_Python-2025-12-23-134510.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[49] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:44:55.351506Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_134455_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:44:45.204955Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_134445_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:44:30.032363Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_134430_Python-2025-12-23-103435.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00008c552432c370 -> 0x00000c552432c370 (possible pointer authentication failure)",
+        "fault_address": "0x00008c552432c370",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:44:24.898592Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_134424_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:44:09.698990Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_134409_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:43:49.477131Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_134349_Python-2025-12-23-134347.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009a9f08b63730 -> 0x00001a9f08b63730 (possible pointer authentication failure)",
+        "fault_address": "0x00009a9f08b63730",
+        "crashed_in": "[55] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:42:18.723787Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_134218_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:42:08.572078Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_134208_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:41:43.318999Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_134143_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:41:38.189717Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_134138_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:41:33.057111Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_134133_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:41:27.930801Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_134127_Python-2025-12-23-103435.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00008c552432c370 -> 0x00000c552432c370 (possible pointer authentication failure)",
+        "fault_address": "0x00008c552432c370",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:41:22.816450Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_134122_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:39:57.125658Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_133957_Python-2025-12-23-103435.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00008c552432c370 -> 0x00000c552432c370 (possible pointer authentication failure)",
+        "fault_address": "0x00008c552432c370",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:39:57.025590Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_133957_Python-2025-12-23-133344.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000cbecd7f5d4e0 -> 0x00004becd7f5d4e0 (possible pointer authentication failure)",
+        "fault_address": "0x0000cbecd7f5d4e0",
+        "crashed_in": "[62] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:39:51.894890Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_133951_Python-2025-12-23-133947.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000d93ceacd4880 -> 0x0000593ceacd4880 (possible pointer authentication failure)",
+        "fault_address": "0x0000d93ceacd4880",
+        "crashed_in": "[61] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:39:26.642359Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_133926_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:39:21.516749Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_133921_Python-2025-12-23-133920.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00006e4c4dbc66e0",
+        "fault_address": "0x00006e4c4dbc66e0",
+        "crashed_in": "[62] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:39:21.417495Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_133921_Python-2025-12-23-133344.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000cbecd7f5d4e0 -> 0x00004becd7f5d4e0 (possible pointer authentication failure)",
+        "fault_address": "0x0000cbecd7f5d4e0",
+        "crashed_in": "[62] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:38:56.122948Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_133856_Python-2025-12-23-133344.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000cbecd7f5d4e0 -> 0x00004becd7f5d4e0 (possible pointer authentication failure)",
+        "fault_address": "0x0000cbecd7f5d4e0",
+        "crashed_in": "[62] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:38:51.003551Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_133850_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:38:30.798722Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_133830_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:38:15.635519Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_133815_Python-2025-12-23-103435.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00008c552432c370 -> 0x00000c552432c370 (possible pointer authentication failure)",
+        "fault_address": "0x00008c552432c370",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:36:14.612450Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_133614_Python-2025-12-23-133344.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000cbecd7f5d4e0 -> 0x00004becd7f5d4e0 (possible pointer authentication failure)",
+        "fault_address": "0x0000cbecd7f5d4e0",
+        "crashed_in": "[62] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:36:09.498254Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_133609_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:36:04.379631Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_133604_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:35:59.246060Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_133559_Python-2025-12-23-133558.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x000014a45037f580",
+        "fault_address": "0x000014a45037f580",
+        "crashed_in": "[62] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:35:59.148106Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_133559_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:35:54.034604Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_133554_Python-2025-12-23-133551.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x000045a04081c5b0",
+        "fault_address": "0x000045a04081c5b0",
+        "crashed_in": "[62] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:35:28.762578Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_133528_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:35:18.616176Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_133518_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:34:28.149137Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_133428_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:34:12.930715Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_133412_Python-2025-12-23-103435.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00008c552432c370 -> 0x00000c552432c370 (possible pointer authentication failure)",
+        "fault_address": "0x00008c552432c370",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:34:07.808506Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_133407_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:33:47.569809Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_133347_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:33:47.470068Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_133347_Python-2025-12-23-133344.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000cbecd7f5d4e0 -> 0x00004becd7f5d4e0 (possible pointer authentication failure)",
+        "fault_address": "0x0000cbecd7f5d4e0",
+        "crashed_in": "[62] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:32:57.038800Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_133257_python3.14-2025-12-23-133255.ips",
+      "info": {
+        "process": "python3.14",
+        "exception": "EXC_CRASH",
+        "fault_address": "0x0000000000000000",
+        "crashed_in": "[1] __abort_with_payload + 8"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:32:31.679159Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_133231_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:05:15.918595Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_130515_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:05:15.821850Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_130515_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:05:10.706634Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_130510_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:05:05.578280Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_130505_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:05:05.479104Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_130505_Python-2025-12-23-101946.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00000000000005f4",
+        "fault_address": "0x00000000000005f4",
+        "crashed_in": "[52] -[AGXG16XFamilyComputeContext dispatchThreads:threadsPerThreadgroup:] + 296"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:05:00.353929Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_130500_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:04:55.220142Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_130455_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:04:45.082169Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_130445_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:04:39.974186Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_130439_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:04:19.738338Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_130419_gpuEvent-Python-2025-12-23-130419.ips",
+      "info": {}
+    },
+    {
+      "timestamp": "2025-12-23T21:04:19.650711Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_130419_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:04:14.538928Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_130414_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:04:09.426149Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_130409_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:03:59.285939Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_130359_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:03:54.180435Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_130354_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:03:49.051112Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_130349_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:03:43.917879Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_130343_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:03:23.632222Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_130323_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:03:23.520642Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_130323_Python-2025-12-23-101946.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00000000000005f4",
+        "fault_address": "0x00000000000005f4",
+        "crashed_in": "[52] -[AGXG16XFamilyComputeContext dispatchThreads:threadsPerThreadgroup:] + 296"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:03:18.376584Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_130318_gpuEvent-Python-2025-12-23-130317.ips",
+      "info": {}
+    },
+    {
+      "timestamp": "2025-12-23T21:03:18.291919Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_130318_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:03:13.181956Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_130313_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:03:08.061879Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_130308_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:02:57.928598Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_130257_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:02:52.819112Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_130252_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T21:02:47.695297Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_130247_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T20:02:07.360368Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_120207_python3.14-2025-12-23-120206.ips",
+      "info": {
+        "process": "python3.14",
+        "exception": "EXC_CRASH",
+        "fault_address": "0x0000000000000000",
+        "crashed_in": "[1] __abort_with_payload + 8"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:57:34.938591Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_115734_Python-2025-12-23-103435.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00008c552432c370 -> 0x00000c552432c370 (possible pointer authentication failure)",
+        "fault_address": "0x00008c552432c370",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:57:29.823653Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_115729_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:56:54.453590Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_115654_Python-2025-12-23-103435.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00008c552432c370 -> 0x00000c552432c370 (possible pointer authentication failure)",
+        "fault_address": "0x00008c552432c370",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:49:46.286111Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_114946_Python-2025-12-23-114432.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x000044cbdd93fce0",
+        "fault_address": "0x000044cbdd93fce0",
+        "crashed_in": "[58] objc_retain + 16"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:49:21.026974Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_114921_Python-2025-12-23-114432.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x000044cbdd93fce0",
+        "fault_address": "0x000044cbdd93fce0",
+        "crashed_in": "[58] objc_retain + 16"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:49:05.842226Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_114905_Python-2025-12-23-114432.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x000044cbdd93fce0",
+        "fault_address": "0x000044cbdd93fce0",
+        "crashed_in": "[58] objc_retain + 16"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:48:00.323344Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_114800_Python-2025-12-23-112446.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00004c266d050640",
+        "fault_address": "0x00004c266d050640",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:47:14.923282Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_114714_Python-2025-12-23-114711.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BREAKPOINT",
+        "fault_address": "0x0000000000000001",
+        "crashed_in": "[58] CF_IS_OBJC + 64"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:47:04.778009Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_114704_Python-2025-12-23-114613.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x000026641ba2f080",
+        "fault_address": "0x000026641ba2f080",
+        "crashed_in": "[58] objc_retain + 16"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:46:59.639930Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_114659_Python-2025-12-23-114613.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x000026641ba2f080",
+        "fault_address": "0x000026641ba2f080",
+        "crashed_in": "[58] objc_retain + 16"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:46:54.501751Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_114654_Python-2025-12-23-114650.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000163d36db5730",
+        "fault_address": "0x0000163d36db5730",
+        "crashed_in": "[58] objc_retain + 16"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:46:54.418221Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_114654_Python-2025-12-23-114613.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x000026641ba2f080",
+        "fault_address": "0x000026641ba2f080",
+        "crashed_in": "[58] objc_retain + 16"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:46:14.037008Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_114614_Python-2025-12-23-114613.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x000026641ba2f080",
+        "fault_address": "0x000026641ba2f080",
+        "crashed_in": "[58] objc_retain + 16"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:45:53.813129Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_114553_Python-2025-12-23-114432.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x000044cbdd93fce0",
+        "fault_address": "0x000044cbdd93fce0",
+        "crashed_in": "[58] objc_retain + 16"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:45:23.529311Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_114523_Python-2025-12-23-114432.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x000044cbdd93fce0",
+        "fault_address": "0x000044cbdd93fce0",
+        "crashed_in": "[58] objc_retain + 16"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:45:18.395973Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_114518_Python-2025-12-23-114432.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x000044cbdd93fce0",
+        "fault_address": "0x000044cbdd93fce0",
+        "crashed_in": "[58] objc_retain + 16"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:44:48.110871Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_114448_Python-2025-12-23-114432.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x000044cbdd93fce0",
+        "fault_address": "0x000044cbdd93fce0",
+        "crashed_in": "[58] objc_retain + 16"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:44:32.928576Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_114432_Python-2025-12-23-114432.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x000044cbdd93fce0",
+        "fault_address": "0x000044cbdd93fce0",
+        "crashed_in": "[58] objc_retain + 16"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:42:26.994962Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_114226_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:39:50.961412Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_113950_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:39:40.811879Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_113940_gpuEvent-Python-2025-12-23-113936.ips",
+      "info": {}
+    },
+    {
+      "timestamp": "2025-12-23T19:39:35.682885Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_113935_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:39:30.577170Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_113930_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:39:25.474794Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_113925_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:39:20.343997Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_113920_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:39:15.208787Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_113915_Python-2025-12-23-104214.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00000000000005c8",
+        "fault_address": "0x00000000000005c8",
+        "crashed_in": "[52] -[AGXG16XFamilyComputeContext setComputePipelineState:] + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:39:05.047220Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_113905_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:38:59.939837Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_113859_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:38:54.823397Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_113854_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:38:44.675889Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_113844_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:38:29.490716Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_113829_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:38:24.381473Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_113824_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:38:19.262658Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_113819_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:38:19.179433Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_113819_Python-2025-12-23-113816.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:38:14.065121Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_113814_gpuEvent-Python-2025-12-23-113809.ips",
+      "info": {}
+    },
+    {
+      "timestamp": "2025-12-23T19:38:13.955805Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_113813_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:38:03.775109Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_113803_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:37:58.636721Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_113758_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:25:47.033887Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_112547_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:25:16.751028Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_112516_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:25:06.586226Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_112506_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:24:56.403491Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_112456_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:24:51.287742Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_112451_Python-2025-12-23-112446.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00004c266d050640",
+        "fault_address": "0x00004c266d050640",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:09:27.122823Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_110927_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:09:21.978983Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_110921_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:09:16.839344Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_110916_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:08:51.532018Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_110851_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:08:46.394266Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_110846_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:08:31.198151Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_110831_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:08:26.073206Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_110826_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:05:54.699212Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_110554_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:05:49.553460Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_110549_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:05:49.455538Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_110549_Python-2025-12-23-104214.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00000000000005c8",
+        "fault_address": "0x00000000000005c8",
+        "crashed_in": "[52] -[AGXG16XFamilyComputeContext setComputePipelineState:] + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:05:49.339670Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_110549_Python-2025-12-23-110549.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:05:39.200632Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_110539_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:05:24.010773Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_110523_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:05:18.846327Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_110518_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:04:38.400125Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_110438_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:04:33.254152Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_110433_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:04:28.114415Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_110428_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:04:12.897880Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_110412_gpuEvent-Python-2025-12-23-110410.ips",
+      "info": {}
+    },
+    {
+      "timestamp": "2025-12-23T19:04:12.779769Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_110412_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:03:57.556954Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_110357_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:03:47.367775Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_110347_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:03:47.266220Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_110347_Python-2025-12-23-110345.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:03:47.157258Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_110347_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:03:01.649054Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_110301_gpuEvent-Python-2025-12-23-110259.ips",
+      "info": {}
+    },
+    {
+      "timestamp": "2025-12-23T19:01:15.586451Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_110115_Python-2025-12-23-103435.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00008c552432c370 -> 0x00000c552432c370 (possible pointer authentication failure)",
+        "fault_address": "0x00008c552432c370",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T19:01:00.371736Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_110100_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:57:43.725893Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_105743_Python-2025-12-23-103435.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00008c552432c370 -> 0x00000c552432c370 (possible pointer authentication failure)",
+        "fault_address": "0x00008c552432c370",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:57:03.361305Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_105703_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:56:58.240480Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_105658_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:56:53.095378Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_105653_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:55:37.362900Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_105537_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:55:27.185873Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_105527_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:55:22.032997Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_105522_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:55:21.916005Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_105521_Python-2025-12-23-105520.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000dc0e10e5db10 -> 0x00005c0e10e5db10 (possible pointer authentication failure)",
+        "fault_address": "0x0000dc0e10e5db10",
+        "crashed_in": "[62] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:52:35.370760Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_105235_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:49:18.414495Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_104918_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:49:13.260623Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_104913_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:49:03.053560Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_104903_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:48:37.808499Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_104837_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:48:02.500341Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_104802_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:47:57.365290Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_104757_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:47:52.218298Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_104752_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:47:47.063230Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_104747_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:47:46.953520Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_104746_Python-2025-12-23-104745.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00001f72d6c0ceb0",
+        "fault_address": "0x00001f72d6c0ceb0",
+        "crashed_in": "[59] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:47:31.756064Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_104731_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:47:01.440944Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_104701_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:46:56.301608Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_104656_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:46:51.177674Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_104651_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:46:41.021651Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_104641_Python-2025-12-23-104640.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00009ba36e2f2650 -> 0x00001ba36e2f2650 (possible pointer authentication failure)",
+        "fault_address": "0x00009ba36e2f2650",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:44:24.746833Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_104424_Python-2025-12-23-104419.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000790480cdd960",
+        "fault_address": "0x0000790480cdd960",
+        "crashed_in": "[59] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:44:24.660254Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_104424_Python-2025-12-23-103435.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00008c552432c370 -> 0x00000c552432c370 (possible pointer authentication failure)",
+        "fault_address": "0x00008c552432c370",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:42:18.432597Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_104218_Python-2025-12-23-104214.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00000000000005c8",
+        "fault_address": "0x00000000000005c8",
+        "crashed_in": "[52] -[AGXG16XFamilyComputeContext setComputePipelineState:] + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:38:51.500502Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_103851_gpuEvent-Python-2025-12-23-103851.ips",
+      "info": {}
+    },
+    {
+      "timestamp": "2025-12-23T18:38:51.411693Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_103851_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:38:41.230822Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_103841_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:38:31.024280Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_103831_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:38:20.853679Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_103820_gpuEvent-Python-2025-12-23-103816.ips",
+      "info": {}
+    },
+    {
+      "timestamp": "2025-12-23T18:38:00.560676Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_103800_gpuEvent-Python-2025-12-23-103757.ips",
+      "info": {}
+    },
+    {
+      "timestamp": "2025-12-23T18:37:55.420171Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_103755_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:37:50.290820Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_103750_gpuEvent-Python-2025-12-23-103746.ips",
+      "info": {}
+    },
+    {
+      "timestamp": "2025-12-23T18:37:20.032487Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_103720_Python-2025-12-23-101946.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00000000000005f4",
+        "fault_address": "0x00000000000005f4",
+        "crashed_in": "[52] -[AGXG16XFamilyComputeContext dispatchThreads:threadsPerThreadgroup:] + 296"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:37:04.838769Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_103704_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:36:59.698646Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_103659_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:36:54.552339Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_103654_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:36:49.404617Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_103649_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:36:34.192196Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_103634_Python-2025-12-23-103630.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000003b90",
+        "fault_address": "0x0000000000003b90",
+        "crashed_in": "[52] -[AGXG16XFamilyComputeContext setBuffer:offset:atIndex:] + 56"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:36:19.028675Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_103619_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:34:38.418371Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_103438_Python-2025-12-23-103435.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00008c552432c370 -> 0x00000c552432c370 (possible pointer authentication failure)",
+        "fault_address": "0x00008c552432c370",
+        "crashed_in": "[58] objc_msgSend + 32"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:22:49.467649Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_102249_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:22:39.325066Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_102239_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:21:13.805212Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_102113_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:20:58.656662Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_102058_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:19:58.292338Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_101958_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:19:48.170563Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_101948_Python-2025-12-23-101946.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x00000000000005f4",
+        "fault_address": "0x00000000000005f4",
+        "crashed_in": "[52] -[AGXG16XFamilyComputeContext dispatchThreads:threadsPerThreadgroup:] + 296"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:19:22.991802Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_101922_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:18:57.775132Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_101857_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:18:42.594898Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_101842_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:17:57.246735Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_101757_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:17:27.001209Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_101726_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:17:06.694204Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_101706_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:13:10.250678Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_101310_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:12:55.051359Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_101255_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:12:44.902813Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_101244_gpuEvent-Python-2025-12-23-101241.ips",
+      "info": {}
+    },
+    {
+      "timestamp": "2025-12-23T18:12:14.598777Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_101214_Python-2025-12-23-092750.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:12:14.518625Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_101214_Python-2025-12-23-094754.ips",
+      "info": {
+        "process": "Python",
+        "exception": "EXC_BAD_ACCESS - KERN_INVALID_ADDRESS at 0x0000000000000098",
+        "fault_address": "0x0000000000000098",
+        "crashed_in": "[52] AGX::ComputeContext<AGX::HAL200::Encoders, AGX::HAL200::Classes, AGX::HAL200::ObjClasses, AGX::HAL200::EncoderComputeServiceClasses>::prepareForEnqueue(bool) + 1268"
+      }
+    },
+    {
+      "timestamp": "2025-12-23T18:12:04.389051Z",
+      "file": "/Users/ayates/metal_mps_parallel/crash_logs/20251223_101204_gpuEvent-Python-2025-12-23-101201.ips",
+      "info": {}
+    }
+  ],
+  "last_check": "2025-12-26T16:00:35.491450Z",
+  "total_files": 274
+}

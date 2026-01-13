@@ -1,0 +1,210 @@
+# Dataset Registry for Data QA
+# Each dataset entry defines quality thresholds and expected properties
+# Used by pytest QA gates to validate data before training
+
+version: "1.0"
+date: "2026-01-02"
+
+# Default thresholds (can be overridden per dataset)
+defaults:
+  sample_rate: 16000
+  channels: 1
+  duration_min_sec: 0.5
+  duration_max_sec: 30.0
+  snr_min_db: 10
+  silence_max_ratio: 0.2
+  silence_max_ms: 300
+  transcript_chars_per_sec_min: 2
+  transcript_chars_per_sec_max: 25
+  dedup_exact_max_ratio: 0.0
+  dedup_near_max_ratio: 0.001
+
+datasets:
+  # =============================================================================
+  # ASR / CTC Datasets
+  # =============================================================================
+  librispeech:
+    path: "data/LibriSpeech"
+    label_type: "text"
+    languages: ["en"]
+    mapping_spec: null  # No emotion/para mapping needed
+    snr_min_db: 15  # LibriSpeech is very clean
+    notes: "Clean read English speech"
+
+  librispeech_other:
+    path: "data/LibriSpeech/train-other-500"
+    label_type: "text"
+    languages: ["en"]
+    snr_min_db: 10  # Slightly noisier subset
+
+  common_voice_en:
+    path: "data/CommonVoice/en"
+    label_type: "text"
+    languages: ["en"]
+    snr_min_db: 8  # More varied recording conditions
+
+  common_voice_multilingual:
+    path: "data/CommonVoice"
+    label_type: "text"
+    languages: ["en", "de", "fr", "es", "it", "pt", "nl", "pl", "ru", "zh", "ja", "ko", "ar", "hi"]
+    snr_min_db: 8
+
+  reazonspeech:
+    path: "data/multilingual/japanese"
+    label_type: "text"
+    languages: ["ja"]
+    snr_min_db: 8
+    duration_max_sec: 30.0
+    notes: "324G Japanese ASR corpus from ReazonSpeech"
+
+  gramvaani:
+    path: "data/multilingual/hindi"
+    label_type: "text"
+    languages: ["hi"]
+    snr_min_db: 6  # Field recordings, more variable quality
+    duration_max_sec: 30.0
+    notes: "30G Hindi speech from Gramvaani (crowd-sourced)"
+
+  # =============================================================================
+  # Emotion Datasets
+  # =============================================================================
+  ravdess:
+    path: "data/prosody/ravdess"
+    label_type: "emotion"
+    languages: ["en"]
+    mapping_spec: "label_taxonomy.RAVDESS_TO_EMOTION_9"
+    num_classes: 8  # RAVDESS doesn't have contempt
+    notes: "Professional actors, 8 emotions"
+
+  crema_d:
+    path: "data/emotion/CREMA-D"
+    label_type: "emotion"
+    languages: ["en"]
+    mapping_spec: "label_taxonomy.CREMA_D_TO_EMOTION_9"
+    num_classes: 6
+    notes: "Crowd-sourced emotion labels"
+
+  meld:
+    path: "data/emotion/MELD"
+    label_type: "emotion"
+    languages: ["en"]
+    mapping_spec: "label_taxonomy.MELD_TO_EMOTION_9"
+    num_classes: 7
+    notes: "Friends TV show clips"
+
+  emov_db:
+    path: "data/emotion/EmoV-DB"
+    label_type: "emotion"
+    languages: ["en"]
+    mapping_spec: "label_taxonomy.EMOV_DB_TO_EMOTION_9"
+    snr_min_db: 12
+    notes: "Emotional voice database"
+
+  # =============================================================================
+  # Paralinguistics Datasets
+  # =============================================================================
+  vocalsound:
+    path: "data/paralinguistics/VocalSound"
+    label_type: "paralinguistics"
+    languages: ["en"]
+    mapping_spec: "label_taxonomy.VOCALSOUND_TO_PARA_50"
+    duration_max_sec: 10.0
+    notes: "Non-speech vocalizations"
+
+  esc50:
+    path: "data/paralinguistics/ESC-50"
+    label_type: "paralinguistics"
+    languages: null  # Non-speech
+    mapping_spec: "label_taxonomy.ESC50_TO_PARA_50"
+    duration_max_sec: 5.0
+    notes: "Environmental sounds including human sounds"
+
+  coughvid:
+    path: "data/paralinguistics/CoughVID"
+    label_type: "paralinguistics"
+    languages: null
+    mapping_spec: "label_taxonomy.COUGHVID_TO_PARA_50"
+    duration_max_sec: 10.0
+    notes: "Cough detection dataset"
+
+  # =============================================================================
+  # Singing Datasets
+  # =============================================================================
+  vocalset:
+    path: "data/singing/vocalset"
+    label_type: "singing"
+    languages: null
+    snr_min_db: 15
+    notes: "Professional vocal techniques, 20 singers"
+
+  opensinger:
+    path: "data/singing/OpenSinger"
+    label_type: "singing"
+    languages: ["zh"]
+    snr_min_db: 12
+    duration_max_sec: 30.0
+    notes: "16G Chinese singing voice corpus"
+
+  m4singer:
+    path: "data/singing/m4singer"
+    label_type: "singing"
+    languages: ["zh"]
+    snr_min_db: 12
+    duration_max_sec: 30.0
+    notes: "Multi-style multi-singer Chinese singing dataset"
+
+  ace_opencpop:
+    path: "data/singing/ace_opencpop"
+    label_type: "singing"
+    languages: ["zh"]
+    snr_min_db: 12
+    duration_max_sec: 60.0  # Singing clips can be longer
+    notes: "83G Chinese singing voice synthesis corpus"
+
+  # =============================================================================
+  # Source Separation Datasets
+  # =============================================================================
+  librimix:
+    path: "data/librimix/LibriMix"
+    label_type: "separation"
+    languages: ["en"]
+    snr_min_db: 0  # Mixed audio - no SNR minimum (intentionally noisy)
+    notes: "Generated 2-3 speaker mixtures for source separation"
+
+  libri2mix:
+    path: "data/librimix/Libri2Mix"
+    label_type: "separation"
+    languages: ["en"]
+    snr_min_db: 0  # Mixed audio - no SNR minimum
+    notes: "2-speaker mixtures from LibriSpeech"
+
+  libri3mix:
+    path: "data/librimix/Libri3Mix"
+    label_type: "separation"
+    languages: ["en"]
+    snr_min_db: 0  # Mixed audio - no SNR minimum
+    notes: "3-speaker mixtures from LibriSpeech"
+
+  # =============================================================================
+  # Disfluency / Fillers
+  # =============================================================================
+  switchboard_disfluency:
+    path: "data/disfluency/Switchboard"
+    label_type: "disfluency"
+    languages: ["en"]
+    snr_min_db: 8
+    notes: "Telephone speech with disfluency annotations"
+
+# Quality gate configuration
+gates:
+  # Required gates - must pass for training to start
+  required:
+    - label_consistency
+    - file_integrity
+
+  # Optional gates - run on schedule, not blocking
+  optional:
+    - language_id
+    - snr_check
+    - silence_check
+    - dedup_check

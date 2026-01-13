@@ -1,0 +1,67 @@
+From: Worker N=1336 <worker@metal-mps-parallel>
+Date: Fri, 19 Dec 2025
+Subject: [PATCH] Extend MPSEncodingLock to gatherViewTensor/scatterViewTensor
+
+EXPERIMENTAL PATCH: Addresses residual 4% race condition in .contiguous()
+
+Root Cause Analysis (N=1335):
+The race condition in parallel .contiguous() occurs because gatherViewTensor()
+and scatterViewTensor() in View.mm trigger Metal encoding operations that are
+NOT protected by MPSEncodingLock.
+
+These functions:
+1. Allocate buffers via at::empty()
+2. Get command encoder via mpsStream->commandEncoder()
+3. Encode Metal compute kernels
+
+The MPSEncodingLock was added to protect executeMPSGraphOnSerialQueue() but
+these pre-graph-execution tensor binding paths were not covered.
+
+This patch extends MPSEncodingLock to cover these functions, potentially
+eliminating the residual 4% failure rate seen in aggressive parallel tests.
+
+Performance Note:
+This adds lock contention to gather/scatter operations. The lock is recursive
+so nested calls are safe, but throughput may decrease. Benchmarking needed.
+
+---
+ aten/src/ATen/native/mps/operations/View.mm | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+
+diff --git a/aten/src/ATen/native/mps/operations/View.mm b/aten/src/ATen/native/mps/operations/View.mm
+index abcdef123..456789abc 100644
+--- a/aten/src/ATen/native/mps/operations/View.mm
++++ b/aten/src/ATen/native/mps/operations/View.mm
+@@ -5,6 +5,7 @@
+ #include <ATen/mps/MPSProfiler.h>
+ #include <ATen/native/Resize.h>
+ // For MTLLanguageVersion_3_1
++#include <ATen/mps/MPSStream.h>  // For MPSEncodingLock
+ #include <ATen/native/mps/MPSGraphSonomaOps.h>
+ #include <ATen/native/mps/OperationUtils.h>
+ #include <fmt/format.h>
+@@ -82,6 +83,10 @@ static id<MTLComputePipelineState> getPipelineState(const std::string& kernel,
+ }
+
+ Tensor gatherViewTensor(const at::Tensor& src, at::Tensor& dst) {
++  // Acquire global encoding lock to prevent race conditions when multiple
++  // threads call .contiguous() concurrently. See race_root_cause_analysis_N1335.md
++  at::mps::MPSEncodingLock encodingLock;
++
+   Tensor output = dst;
+   if (!dst.has_storage()) {
+     output = at::empty(src.sizes(), src.scalar_type(), std::nullopt, kMPS, std::nullopt, std::nullopt);
+@@ -133,6 +138,10 @@ Tensor gatherViewTensor(const at::Tensor& src, at::Tensor& dst) {
+ }
+
+ Tensor& scatterViewTensor(const at::Tensor& src, at::Tensor& output) {
++  // Acquire global encoding lock to prevent race conditions when multiple
++  // threads scatter to tensors concurrently. See race_root_cause_analysis_N1335.md
++  at::mps::MPSEncodingLock encodingLock;
++
+   if (src.numel() == 0 || output.numel() == 0) {
+     return output;
+   }
+--
+2.39.0
+

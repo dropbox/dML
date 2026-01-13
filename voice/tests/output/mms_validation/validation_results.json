@@ -1,0 +1,29 @@
+{
+  "timestamp": "2025-12-10 12:05:32",
+  "engine": "MMS-TTS (Meta)",
+  "threshold": 7,
+  "all_pass": true,
+  "results": {
+    "ar": {
+      "pronunciation": 9,
+      "intonation": 8,
+      "quality": 8,
+      "overall": 8,
+      "issues": "The pronunciation is very accurate with only very slight deviations, the intonation and rhythm sound mostly natural, and the clarity is good. Overall, it sounds quite natural to native speakers."
+    },
+    "tr": {
+      "pronunciation": 9,
+      "intonation": 8,
+      "quality": 8,
+      "overall": 8,
+      "issues": "The pronunciation is very accurate, especially with vowel harmony and consonant clarity. The intonation is quite natural but could use a bit more emotional expression. Overall, this is high quality and would impress native Turkish speakers."
+    },
+    "fa": {
+      "pronunciation": 7,
+      "intonation": 7,
+      "quality": 7,
+      "overall": 7,
+      "issues": "The pronunciation is mostly clear but slightly off in the word 'بسیار' and 'امیدوارم'. Intonation is somewhat artificial, though still obviously Persian. The clarity is good but lacks the natural fluidity a native speaker would exhibit."
+    }
+  }
+}

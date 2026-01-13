@@ -1,0 +1,77 @@
+{
+  "start_time": "2025-12-20T02:54:39.433235+00:00",
+  "end_time": "2025-12-20T02:55:39.540390+00:00",
+  "duration_seconds": 60.10715627670288,
+  "total_iterations": 3,
+  "total_successful_ops": 196997,
+  "total_failed_ops": 0,
+  "memory": {
+    "cpu": {
+      "initial_mb": 206.046875,
+      "final_mb": 227.375,
+      "peak_mb": 227.578125,
+      "growth_mb": 21.328125
+    },
+    "gpu": {
+      "initial_mb": 1.1025390625,
+      "final_mb": 1.1025390625,
+      "peak_mb": 1.6962890625,
+      "growth_mb": 0.0
+    }
+  },
+  "performance": {
+    "average_ops_per_second": 3277.4300466507793
+  },
+  "hardware_info": {
+    "timestamp": "2025-12-20T02:54:39.391663Z",
+    "python_version": "3.14.0",
+    "pytorch_version": "2.9.1a0+git9a4518e",
+    "mps_available": true
+  },
+  "passed": true,
+  "failure_reason": null,
+  "metrics_history": [
+    {
+      "timestamp": "2025-12-20T02:54:54.457264+00:00",
+      "elapsed_seconds": 15.023877143859863,
+      "iteration": 1,
+      "cpu_memory_mb": 227.515625,
+      "cpu_memory_peak_mb": 227.515625,
+      "gpu_memory_allocated_mb": 1.6962890625,
+      "gpu_memory_reserved_mb": 8.90625,
+      "successful_ops": 49059,
+      "failed_ops": 0,
+      "threads_alive": 4,
+      "ops_per_second": 3270.6,
+      "errors": []
+    },
+    {
+      "timestamp": "2025-12-20T02:55:09.477875+00:00",
+      "elapsed_seconds": 30.044488191604614,
+      "iteration": 2,
+      "cpu_memory_mb": 227.515625,
+      "cpu_memory_peak_mb": 227.515625,
+      "gpu_memory_allocated_mb": 1.6962890625,
+      "gpu_memory_reserved_mb": 8.90625,
+      "successful_ops": 98364,
+      "failed_ops": 0,
+      "threads_alive": 4,
+      "ops_per_second": 3287.0,
+      "errors": []
+    },
+    {
+      "timestamp": "2025-12-20T02:55:24.578280+00:00",
+      "elapsed_seconds": 45.14490222930908,
+      "iteration": 3,
+      "cpu_memory_mb": 227.578125,
+      "cpu_memory_peak_mb": 227.578125,
+      "gpu_memory_allocated_mb": 1.6650390625,
+      "gpu_memory_reserved_mb": 8.90625,
+      "successful_ops": 147889,
+      "failed_ops": 0,
+      "threads_alive": 4,
+      "ops_per_second": 3301.6666666666665,
+      "errors": []
+    }
+  ]
+}

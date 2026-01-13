@@ -1,0 +1,18 @@
+test_mlx_load
+test_model
+test_pipeline
+test_pipeline_debug
+test_token_input
+test_voice_switching
+test_language_switching
+test_tokenizer
+test_g2p
+test_integration
+*.dSYM
+
+# Test outputs
+*.wav
+*.srt
+*.tsv
+*.vtt
+output.txt

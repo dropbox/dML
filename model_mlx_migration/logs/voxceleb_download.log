@@ -1,0 +1,89 @@
+/opt/homebrew/lib/python3.14/site-packages/huggingface_hub/utils/_validators.py:186: UserWarning: The `resume_download` argument is deprecated and ignored in `snapshot_download`. Downloads always resume whenever possible.
+  warnings.warn(
+[18:08:36] [INFO] === Downloading VoxCeleb from HuggingFace ===
+[18:08:36] [INFO] Repo: ProgramComputer/voxceleb
+[18:08:36] [INFO] Output: /Users/ayates/model_mlx_migration/data
+[18:08:36] [INFO] Starting download (this may take several hours)...
+Fetching 41 files:   0%|          | 0/41 [00:00<?, ?it/s]Fetching 41 files:   2%|▏         | 1/41 [00:02<01:53,  2.84s/it]Fetching 41 files:   7%|▋         | 3/41 [02:02<28:25, 44.88s/it]/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-2loeh5c3'}
+  warnings.warn(
+/opt/homebrew/lib/python3.14/site-packages/huggingface_hub/utils/_validators.py:186: UserWarning: The `resume_download` argument is deprecated and ignored in `snapshot_download`. Downloads always resume whenever possible.
+  warnings.warn(
+[18:17:32] [INFO] === Downloading VoxCeleb from HuggingFace ===
+[18:17:32] [INFO] Repo: ProgramComputer/voxceleb
+[18:17:32] [INFO] Output: /Users/ayates/model_mlx_migration/data
+[18:17:32] [INFO] Starting download (this may take several hours)...
+Fetching 41 files:   0%|          | 0/41 [00:00<?, ?it/s]Couldn't access the Hub to check for update but local file already exists. Defaulting to existing file. (error: The read operation timed out)
+Fetching 41 files:  10%|▉         | 4/41 [50:27<7:46:47, 756.97s/it]Fetching 41 files:  29%|██▉       | 12/41 [1:07:27<2:20:29, 290.68s/it]Fetching 41 files:  32%|███▏      | 13/41 [2:00:29<4:53:16, 628.43s/it]Fetching 41 files:  56%|█████▌    | 23/41 [2:07:35<1:18:37, 262.08s/it]Fetching 41 files:  59%|█████▊    | 24/41 [2:33:44<1:44:38, 369.30s/it]Fetching 41 files:  61%|██████    | 25/41 [2:50:36<1:56:27, 436.70s/it]Fetching 41 files:  63%|██████▎   | 26/41 [2:51:17<1:36:17, 385.16s/it]Fetching 41 files:  66%|██████▌   | 27/41 [2:57:56<1:30:21, 387.26s/it]/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-vvvacugs'}
+  warnings.warn(
+/opt/homebrew/lib/python3.14/site-packages/huggingface_hub/utils/_validators.py:186: UserWarning: The `resume_download` argument is deprecated and ignored in `snapshot_download`. Downloads always resume whenever possible.
+  warnings.warn(
+[21:34:50] [INFO] === Downloading VoxCeleb from HuggingFace ===
+[21:34:50] [INFO] Repo: ProgramComputer/voxceleb
+[21:34:50] [INFO] Output: /Users/ayates/model_mlx_migration/data
+[21:34:50] [INFO] Starting download (this may take several hours)...
+Fetching 41 files:   0%|          | 0/41 [00:00<?, ?it/s]Fetching 41 files:  20%|█▉        | 8/41 [00:00<00:01, 28.00it/s]Fetching 41 files:  20%|█▉        | 8/41 [00:19<00:01, 28.00it/s]/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-q2p4pyo8'}
+  warnings.warn(
+/opt/homebrew/lib/python3.14/site-packages/huggingface_hub/utils/_validators.py:186: UserWarning: The `resume_download` argument is deprecated and ignored in `snapshot_download`. Downloads always resume whenever possible.
+  warnings.warn(
+[22:34:01] [INFO] === Downloading VoxCeleb from HuggingFace ===
+[22:34:01] [INFO] Repo: ProgramComputer/voxceleb
+[22:34:01] [INFO] Output: /Users/ayates/model_mlx_migration/data
+[22:34:01] [INFO] Starting download (this may take several hours)...
+Fetching 41 files:   0%|          | 0/41 [00:00<?, ?it/s]/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-s9suxrtm'}
+  warnings.warn(
+/opt/homebrew/lib/python3.14/site-packages/huggingface_hub/utils/_validators.py:186: UserWarning: The `resume_download` argument is deprecated and ignored in `snapshot_download`. Downloads always resume whenever possible.
+  warnings.warn(
+[22:39:08] [INFO] === Downloading VoxCeleb from HuggingFace ===
+[22:39:08] [INFO] Repo: ProgramComputer/voxceleb
+[22:39:08] [INFO] Output: /Users/ayates/model_mlx_migration/data
+[22:39:08] [INFO] Starting download (this may take several hours)...
+Fetching 41 files:   0%|          | 0/41 [00:00<?, ?it/s]/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-l3jxuydf'}
+  warnings.warn(
+/opt/homebrew/lib/python3.14/site-packages/huggingface_hub/utils/_validators.py:186: UserWarning: The `resume_download` argument is deprecated and ignored in `snapshot_download`. Downloads always resume whenever possible.
+  warnings.warn(
+[22:44:16] [INFO] === Downloading VoxCeleb from HuggingFace ===
+[22:44:16] [INFO] Repo: ProgramComputer/voxceleb
+[22:44:16] [INFO] Output: /Users/ayates/model_mlx_migration/data
+[22:44:16] [INFO] Starting download (this may take several hours)...
+Fetching 41 files:   0%|          | 0/41 [00:00<?, ?it/s]/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-6_pae72g'}
+  warnings.warn(
+/opt/homebrew/lib/python3.14/site-packages/huggingface_hub/utils/_validators.py:186: UserWarning: The `resume_download` argument is deprecated and ignored in `snapshot_download`. Downloads always resume whenever possible.
+  warnings.warn(
+[22:49:23] [INFO] === Downloading VoxCeleb from HuggingFace ===
+[22:49:23] [INFO] Repo: ProgramComputer/voxceleb
+[22:49:23] [INFO] Output: /Users/ayates/model_mlx_migration/data
+[22:49:23] [INFO] Starting download (this may take several hours)...
+Fetching 41 files:   0%|          | 0/41 [00:00<?, ?it/s]/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-if9zqvtn'}
+  warnings.warn(
+/opt/homebrew/lib/python3.14/site-packages/huggingface_hub/utils/_validators.py:186: UserWarning: The `resume_download` argument is deprecated and ignored in `snapshot_download`. Downloads always resume whenever possible.
+  warnings.warn(
+[22:54:31] [INFO] === Downloading VoxCeleb from HuggingFace ===
+[22:54:31] [INFO] Repo: ProgramComputer/voxceleb
+[22:54:31] [INFO] Output: /Users/ayates/model_mlx_migration/data
+[22:54:31] [INFO] Starting download (this may take several hours)...
+Fetching 41 files:   0%|          | 0/41 [00:00<?, ?it/s]/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-b9dtayjf'}
+  warnings.warn(
+/opt/homebrew/lib/python3.14/site-packages/huggingface_hub/utils/_validators.py:186: UserWarning: The `resume_download` argument is deprecated and ignored in `snapshot_download`. Downloads always resume whenever possible.
+  warnings.warn(
+[22:59:38] [INFO] === Downloading VoxCeleb from HuggingFace ===
+[22:59:38] [INFO] Repo: ProgramComputer/voxceleb
+[22:59:38] [INFO] Output: /Users/ayates/model_mlx_migration/data
+[22:59:38] [INFO] Starting download (this may take several hours)...
+Fetching 41 files:   0%|          | 0/41 [00:00<?, ?it/s]/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-f46c57oe'}
+  warnings.warn(
+/opt/homebrew/lib/python3.14/site-packages/huggingface_hub/utils/_validators.py:186: UserWarning: The `resume_download` argument is deprecated and ignored in `snapshot_download`. Downloads always resume whenever possible.
+  warnings.warn(
+[23:04:45] [INFO] === Downloading VoxCeleb from HuggingFace ===
+[23:04:45] [INFO] Repo: ProgramComputer/voxceleb
+[23:04:45] [INFO] Output: /Users/ayates/model_mlx_migration/data
+[23:04:45] [INFO] Starting download (this may take several hours)...
+Fetching 41 files:   0%|          | 0/41 [00:00<?, ?it/s]/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-yhw3cwjp'}
+  warnings.warn(
+/opt/homebrew/lib/python3.14/site-packages/huggingface_hub/utils/_validators.py:186: UserWarning: The `resume_download` argument is deprecated and ignored in `snapshot_download`. Downloads always resume whenever possible.
+  warnings.warn(
+[23:09:53] [INFO] === Downloading VoxCeleb from HuggingFace ===
+[23:09:53] [INFO] Repo: ProgramComputer/voxceleb
+[23:09:53] [INFO] Output: /Users/ayates/model_mlx_migration/data
+[23:09:53] [INFO] Starting download (this may take several hours)...
+Fetching 41 files:   0%|          | 0/41 [00:00<?, ?it/s]/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-5fx5a8sn'}
+  warnings.warn(

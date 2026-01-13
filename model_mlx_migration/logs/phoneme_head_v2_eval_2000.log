@@ -1,0 +1,26 @@
+/opt/homebrew/lib/python3.14/site-packages/webrtcvad.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+Loading checkpoint: checkpoints/kokoro_phoneme_head_v2/kokoro_phoneme_head_2000_best.npz
+  Head: d_model=1280, vocab=200
+Loading Whisper encoder: large-v3
+Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 37117.73it/s]
+/Users/ayates/model_mlx_migration/tools/pytorch_to_mlx/converters/models/kokoro_phonemizer.py:415: UserWarning: Unknown phoneme characters (mapped to PAD): ['̩']. This may affect voice quality. Consider updating vocabulary.
+  phonemes, token_ids = _phonemize_with_espeak(text, espeak_lang)
+  Encoder loaded
+
+Loading samples from: data/LibriSpeech/dev-clean
+  Loaded 50 samples
+
+=== Discrimination Test ===
+  Error on sample 47: Input sequence length 1607 exceeds maximum context 1500
+  Evaluated 50/50: Discrimination=100.0%
+
+Discrimination Results:
+  Samples: 49
+  Comparisons: 245
+  Correct: 245
+  Accuracy: 100.0%
+  Cohen's d: 8.78
+
+  Correct similarity: mean=0.799, std=0.100
+  Wrong similarity: mean=0.222, std=0.056

@@ -1,0 +1,585 @@
+
+01/06 17:18:01 [[1;32mNOTICE[0m] Downloading 1 item(s)
+[#f1cc9c 0B/0B CN:1 DL:0B]
+[#f1cc9c 0B/0B CN:1 DL:0B]
+[#f1cc9c 0B/0B CN:1 DL:0B]
+[#f1cc9c 0B/0B CN:1 DL:0B]
+[#f1cc9c 0B/0B CN:1 DL:0B]
+
+01/06 17:18:07 [[1;32mNOTICE[0m] CUID#7 - Redirecting to https://cas-bridge.xethub.hf.co/xet-bridge-us/64de6da13d3a7519f17c623c/a0181aef767cacb314531e53e3877abb64512da649a9b9cdbd23a0c6ef12090b?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cas%2F20260107%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260107T011806Z&X-Amz-Expires=3600&X-Amz-Signature=44650fde7c0e44426b8502bc8a21714fb81c4e59c433507af907d7ebb86a58de&X-Amz-SignedHeaders=host&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27vox2_test_txt.zip%3B+filename%3D%22vox2_test_txt.zip%22%3B&response-content-type=application%2Fzip&x-id=GetObject&Expires=1767752286&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2Nzc1MjI4Nn19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2FzLWJyaWRnZS54ZXRodWIuaGYuY28veGV0LWJyaWRnZS11cy82NGRlNmRhMTNkM2E3NTE5ZjE3YzYyM2MvYTAxODFhZWY3NjdjYWNiMzE0NTMxZTUzZTM4NzdhYmI2NDUxMmRhNjQ5YTliOWNkYmQyM2EwYzZlZjEyMDkwYioifV19&Signature=ln5zqdi2uJjlrFQYpZG1M651Vs9qp5ISHaocj0AjQ1dth9OezFLnL6RwaTVgOKX-ib293LKwyGJZF9EBemYBiKFiZTBeGbDlq4LeQ3612e8DAgz96qsfYl-4AsqsPS%7E6voma3TFUl7YCH1Xk1a8sBP8wy5V50tVaAub01lNM2e8Oio8fgzfh7QQYnVsiMJFBBLvTW%7EpvzJFQKNcjEKdzDc4pmOI4fL96Y74Rz6G8VApCBona4fCwy8p7y%7E5KGAYd7D-A8GqOkcfTZJkn7zPsqJXPDg0iinzCg7NLNqdWt-gzaBbhx-yn7WEMCM3o2qjbtmpxo9j2w77-k%7Evg1mvOHA__&Key-Pair-Id=K2L8F4GPSG1IFC
+[#f1cc9c 0B/0B CN:1 DL:0B]
+[#f1cc9c 0B/0B CN:1 DL:0B]
+[#f1cc9c 0B/0B CN:1 DL:0B]
+[#f1cc9c 0B/0B CN:1 DL:0B]
+[#f1cc9c 0B/0B CN:1 DL:0B]
+
+01/06 17:18:14 [[1;32mNOTICE[0m] CUID#8 - Redirecting to https://cas-bridge.xethub.hf.co/xet-bridge-us/64de6da13d3a7519f17c623c/a0181aef767cacb314531e53e3877abb64512da649a9b9cdbd23a0c6ef12090b?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cas%2F20260107%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260107T011814Z&X-Amz-Expires=3600&X-Amz-Signature=89c68b1775515f457ea9c31474303fe41bb710a03e28223add375c2559b15860&X-Amz-SignedHeaders=host&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27vox2_test_txt.zip%3B+filename%3D%22vox2_test_txt.zip%22%3B&response-content-type=application%2Fzip&x-id=GetObject&Expires=1767752294&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2Nzc1MjI5NH19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2FzLWJyaWRnZS54ZXRodWIuaGYuY28veGV0LWJyaWRnZS11cy82NGRlNmRhMTNkM2E3NTE5ZjE3YzYyM2MvYTAxODFhZWY3NjdjYWNiMzE0NTMxZTUzZTM4NzdhYmI2NDUxMmRhNjQ5YTliOWNkYmQyM2EwYzZlZjEyMDkwYioifV19&Signature=DHvUE2gVLnh3qV7ujZJynSQzzms3Ve0zrAziDWyyRMR5W%7EBY8nckKqgR5iD0bMeskjkDlRRtaH7ZvgmsoJYiG9-UpXQ8wh%7EU4XOAIfuOv1UiQNacgselBzpokc4Oc494Q04C6khAo1zTOSF2hYdkzhJaS-m0Gv-tOBvBUR5t0oK%7E53etrZFgKgaWHHOIrZUd5gU25UBU22Fr-O0f5IKHyxRc1HJCPU%7EBx%7Exha6fTQeaBX8p-PPszTH4HR7mdCC4EicxIOCS7I%7EBa4IdNhYcJ32i445rcNajvyzN14ymQclsEA3wYV7%7EUyBayFFtgC0Rq17EuGxC4WRoX7OEahghBYw__&Key-Pair-Id=K2L8F4GPSG1IFC
+[#f1cc9c 0B/50MiB(0%) CN:4 DL:10KiB ETA:1h22m54s]
+[#f1cc9c 32KiB/50MiB(0%) CN:4 DL:16KiB ETA:52m3s]
+[#f1cc9c 80KiB/50MiB(0%) CN:4 DL:20KiB ETA:42m13s]
+
+01/06 17:18:19 [[1;32mNOTICE[0m] CUID#10 - Redirecting to https://cas-bridge.xethub.hf.co/xet-bridge-us/64de6da13d3a7519f17c623c/a0181aef767cacb314531e53e3877abb64512da649a9b9cdbd23a0c6ef12090b?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cas%2F20260107%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260107T011818Z&X-Amz-Expires=3600&X-Amz-Signature=b73a21dcd882728655ffcb742d2b4256d795c23108d5b3eb4f39efafb1151bbb&X-Amz-SignedHeaders=host&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27vox2_test_txt.zip%3B+filename%3D%22vox2_test_txt.zip%22%3B&response-content-type=application%2Fzip&x-id=GetObject&Expires=1767752298&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2Nzc1MjI5OH19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2FzLWJyaWRnZS54ZXRodWIuaGYuY28veGV0LWJyaWRnZS11cy82NGRlNmRhMTNkM2E3NTE5ZjE3YzYyM2MvYTAxODFhZWY3NjdjYWNiMzE0NTMxZTUzZTM4NzdhYmI2NDUxMmRhNjQ5YTliOWNkYmQyM2EwYzZlZjEyMDkwYioifV19&Signature=pv5xvdFm93ccilhG3G6BnnrwLNoy1rrYjuPe6bHxzJewGjK084sli1JBhJ%7E-oI18RWwXwgQSpmMnZigngTlratwbqbeCt2n96n%7E8sJ6vTkKn-YFkMAIuYNVP0qr3rZcqLyQEi1vwg299Z6J6pFYeq1uVaIO2Y%7E2bW7DIwG2DhssQZVrmJygAmscOYkrsOau2KjBPy1qq65phFdI7nFdsaKfqXZ5oshcEmM4GAdIwzLHXn24dDaUFGDuMg7N8ox2HC%7E9cpTGcojKoKFB6P4HShOfjeuD3ZUVvksqf8dLddvyqEPQQ4ejyZgy54VeKvUd79OM7LgzmskIEeAsu7BfaZw__&Key-Pair-Id=K2L8F4GPSG1IFC
+
+01/06 17:18:19 [[1;32mNOTICE[0m] CUID#9 - Redirecting to https://cas-bridge.xethub.hf.co/xet-bridge-us/64de6da13d3a7519f17c623c/a0181aef767cacb314531e53e3877abb64512da649a9b9cdbd23a0c6ef12090b?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cas%2F20260107%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260107T011818Z&X-Amz-Expires=3600&X-Amz-Signature=b73a21dcd882728655ffcb742d2b4256d795c23108d5b3eb4f39efafb1151bbb&X-Amz-SignedHeaders=host&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27vox2_test_txt.zip%3B+filename%3D%22vox2_test_txt.zip%22%3B&response-content-type=application%2Fzip&x-id=GetObject&Expires=1767752298&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2Nzc1MjI5OH19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2FzLWJyaWRnZS54ZXRodWIuaGYuY28veGV0LWJyaWRnZS11cy82NGRlNmRhMTNkM2E3NTE5ZjE3YzYyM2MvYTAxODFhZWY3NjdjYWNiMzE0NTMxZTUzZTM4NzdhYmI2NDUxMmRhNjQ5YTliOWNkYmQyM2EwYzZlZjEyMDkwYioifV19&Signature=pv5xvdFm93ccilhG3G6BnnrwLNoy1rrYjuPe6bHxzJewGjK084sli1JBhJ%7E-oI18RWwXwgQSpmMnZigngTlratwbqbeCt2n96n%7E8sJ6vTkKn-YFkMAIuYNVP0qr3rZcqLyQEi1vwg299Z6J6pFYeq1uVaIO2Y%7E2bW7DIwG2DhssQZVrmJygAmscOYkrsOau2KjBPy1qq65phFdI7nFdsaKfqXZ5oshcEmM4GAdIwzLHXn24dDaUFGDuMg7N8ox2HC%7E9cpTGcojKoKFB6P4HShOfjeuD3ZUVvksqf8dLddvyqEPQQ4ejyZgy54VeKvUd79OM7LgzmskIEeAsu7BfaZw__&Key-Pair-Id=K2L8F4GPSG1IFC
+[#f1cc9c 288KiB/50MiB(0%) CN:4 DL:57KiB ETA:15m3s]
+[#f1cc9c 1.2MiB/50MiB(2%) CN:4 DL:214KiB ETA:3m56s]
+[#f1cc9c 3.0MiB/50MiB(5%) CN:4 DL:432KiB ETA:1m53s]
+[#f1cc9c 3.2MiB/50MiB(6%) CN:4 DL:386KiB ETA:2m6s]
+[#f1cc9c 4.9MiB/50MiB(9%) CN:4 DL:512KiB ETA:1m31s]
+[#f1cc9c 4.9MiB/50MiB(9%) CN:4 DL:631KiB ETA:1m14s]
+[#f1cc9c 4.9MiB/50MiB(9%) CN:4 DL:561KiB ETA:1m23s]
+[#f1cc9c 4.9MiB/50MiB(9%) CN:4 DL:563KiB ETA:1m23s]
+[#f1cc9c 6.8MiB/50MiB(13%) CN:4 DL:700KiB ETA:1m4s]
+[#f1cc9c 10MiB/50MiB(20%) CN:4 DL:1.0MiB ETA:40s]
+[#f1cc9c 14MiB/50MiB(28%) CN:4 DL:1.3MiB ETA:27s]
+[#f1cc9c 16MiB/50MiB(31%) CN:4 DL:1.3MiB ETA:26s]
+[#f1cc9c 21MiB/50MiB(41%) CN:4 DL:1.8MiB ETA:15s]
+[#f1cc9c 21MiB/50MiB(42%) CN:4 DL:1.7MiB ETA:16s]
+[#f1cc9c 25MiB/50MiB(50%) CN:4 DL:2.1MiB ETA:11s]
+[#f1cc9c 29MiB/50MiB(57%) CN:4 DL:2.7MiB ETA:7s]
+[#f1cc9c 33MiB/50MiB(64%) CN:4 DL:2.9MiB ETA:6s]
+[#f1cc9c 34MiB/50MiB(67%) CN:4 DL:2.8MiB ETA:5s]
+[#f1cc9c 35MiB/50MiB(70%) CN:3 DL:2.6MiB ETA:5s]
+[#f1cc9c 38MiB/50MiB(76%) CN:2 DL:2.4MiB ETA:4s]
+[#f1cc9c 41MiB/50MiB(82%) CN:2 DL:2.5MiB ETA:3s]
+[#f1cc9c 43MiB/50MiB(86%) CN:1 DL:2.4MiB ETA:2s]
+[#f1cc9c 46MiB/50MiB(90%) CN:1 DL:2.6MiB ETA:1s]
+[#f1cc9c 47MiB/50MiB(93%) CN:1 DL:2.2MiB ETA:1s]
+[#f1cc9c 49MiB/50MiB(96%) CN:1 DL:1.9MiB]
+[#f1cc9c 50MiB/50MiB(99%) CN:1 DL:1.7MiB]
+
+01/06 17:18:46 [[1;32mNOTICE[0m] Download complete: data/voxceleb_hf/vox2/vox2_test_txt.zip
+
+Download Results:
+gid   |stat|avg speed  |path/URI
+======+====+===========+=======================================================
+f1cc9c|OK  |   1.5MiB/s|data/voxceleb_hf/vox2/vox2_test_txt.zip
+
+Status Legend:
+(OK):download completed.
+
+01/06 17:18:46 [[1;32mNOTICE[0m] Downloading 1 item(s)
+[#6cc878 0B/0B CN:1 DL:0B]
+[#6cc878 0B/0B CN:1 DL:0B]
+[#6cc878 0B/0B CN:1 DL:0B]
+[#6cc878 0B/0B CN:1 DL:0B]
+
+01/06 17:18:52 [[1;32mNOTICE[0m] CUID#7 - Redirecting to https://cas-bridge.xethub.hf.co/xet-bridge-us/64de6da13d3a7519f17c623c/19781ad78a0ee1b1aff6c972139c5e32e6d130345a389bc76daf50fd80a43c4d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cas%2F20260107%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260107T011851Z&X-Amz-Expires=3600&X-Amz-Signature=9af7dcda6486d567bb9cb18a2cd8d2d32eb84db8a02fb3a1980513aa501f1ca6&X-Amz-SignedHeaders=host&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27vox2_dev_mp4_partag%3B+filename%3D%22vox2_dev_mp4_partag%22%3B&x-id=GetObject&Expires=1767752331&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2Nzc1MjMzMX19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2FzLWJyaWRnZS54ZXRodWIuaGYuY28veGV0LWJyaWRnZS11cy82NGRlNmRhMTNkM2E3NTE5ZjE3YzYyM2MvMTk3ODFhZDc4YTBlZTFiMWFmZjZjOTcyMTM5YzVlMzJlNmQxMzAzNDVhMzg5YmM3NmRhZjUwZmQ4MGE0M2M0ZCoifV19&Signature=IFGOruU6lg68C0utX2xTsahF1z2kZq8uu2eltQykfQBVeYn4MbQKLkzJ7e47xT-R5xOsk9jByAm0HCS7awhHbrNVRG5sNPUFAlZN3RPjNidzA16%7Em9w95qpNpsG-HUxf-U0vI2lWWh0szmnRM2O4Urhx1YRfta6f0ndqDEtyyL94rtqIXxMTVDVOmTHekzkl7VRhqOGdNyFX46z7%7Eefqmw1X0jmAu5hiymiQcGBQHhmwVgITjamPMjiK4IgWOSAk9KY-Hx5m3jSjbv2j7kiItj%7Ee-BRwmIrxYnkYBuwMz-pcrVIrxf4iQU07koLbRaY-umW8teWsntMa4e1SbpWyBQ__&Key-Pair-Id=K2L8F4GPSG1IFC
+[#6cc878 0B/0B CN:1 DL:0B]
+[#6cc878 0B/0B CN:1 DL:0B]
+[#6cc878 0B/0B CN:1 DL:0B]
+[#6cc878 0B/0B CN:1 DL:0B]
+[#6cc878 0B/30GiB(0%) CN:16 DL:0B]
+
+01/06 17:18:58 [[1;32mNOTICE[0m] CUID#8 - Redirecting to https://cas-bridge.xethub.hf.co/xet-bridge-us/64de6da13d3a7519f17c623c/19781ad78a0ee1b1aff6c972139c5e32e6d130345a389bc76daf50fd80a43c4d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cas%2F20260107%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260107T011857Z&X-Amz-Expires=3600&X-Amz-Signature=5ae0ee2eb8557864ba6e2ae2876ffdffcb95803d8974d1109ab857fcd1e51b74&X-Amz-SignedHeaders=host&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27vox2_dev_mp4_partag%3B+filename%3D%22vox2_dev_mp4_partag%22%3B&x-id=GetObject&Expires=1767752337&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2Nzc1MjMzN319LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2FzLWJyaWRnZS54ZXRodWIuaGYuY28veGV0LWJyaWRnZS11cy82NGRlNmRhMTNkM2E3NTE5ZjE3YzYyM2MvMTk3ODFhZDc4YTBlZTFiMWFmZjZjOTcyMTM5YzVlMzJlNmQxMzAzNDVhMzg5YmM3NmRhZjUwZmQ4MGE0M2M0ZCoifV19&Signature=LHmJbY9uMowtpA3KqYuSTv7OXkxbeNDFXEkyMeP4SED3cYkXfKH71YyofTdBJXXXTXvUEKeU4ocPXxym7gJcjuwky5BpUfufxStPjl6cr1VSUMvKUuUqoMCmfNMSwhhHKFim7hUoJMFZZloQ9Sn%7Enm3uesawqOmjHAYACOewOlSY3PpEkuOUsDX3fcWfHJlt2540fvUQBjNKRJ-cJm6fWWyZvAVIo2Rz6IhKz36BAZ31GiY-eIyaLiFlMMVfKEQwk1oOgoxG3jujj-eA1pviSE3f5iORWpER1imbEVz6UK%7ESXtSZr0eBq0AHRTToNPbAj%7ElRyJ1w8vWymTXigAOuFg__&Key-Pair-Id=K2L8F4GPSG1IFC
+[#6cc878 16KiB/30GiB(0%) CN:16 DL:10KiB ETA:853h13m55s]
+[#6cc878 128KiB/30GiB(0%) CN:16 DL:48KiB ETA:178h50m17s]
+[#6cc878 240KiB/30GiB(0%) CN:16 DL:64KiB ETA:135h34m20s]
+[#6cc878 752KiB/30GiB(0%) CN:16 DL:159KiB ETA:54h37m34s]
+[#6cc878 1.2MiB/30GiB(0%) CN:16 DL:218KiB ETA:40h4m37s]
+
+01/06 17:19:03 [[1;32mNOTICE[0m] CUID#9 - Redirecting to https://cas-bridge.xethub.hf.co/xet-bridge-us/64de6da13d3a7519f17c623c/19781ad78a0ee1b1aff6c972139c5e32e6d130345a389bc76daf50fd80a43c4d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cas%2F20260107%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260107T011902Z&X-Amz-Expires=3600&X-Amz-Signature=2d3c543ee41fc8c2ce8f34fb5a8dba85335237971d521fedc9ecbc8e315b2ec3&X-Amz-SignedHeaders=host&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27vox2_dev_mp4_partag%3B+filename%3D%22vox2_dev_mp4_partag%22%3B&x-id=GetObject&Expires=1767752342&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2Nzc1MjM0Mn19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2FzLWJyaWRnZS54ZXRodWIuaGYuY28veGV0LWJyaWRnZS11cy82NGRlNmRhMTNkM2E3NTE5ZjE3YzYyM2MvMTk3ODFhZDc4YTBlZTFiMWFmZjZjOTcyMTM5YzVlMzJlNmQxMzAzNDVhMzg5YmM3NmRhZjUwZmQ4MGE0M2M0ZCoifV19&Signature=je4rwUZVr3dPriQ2u39mZSRhCS4WG3NFBsyTvq6kHSyh%7Eytx2fgF-ktSO6p7XPEITg-mvxGa4ltyndwYBesoCaf6fSN0Za2ArSNEMsfCKmI%7E28PUMGYiBgJ7DIZWTvgfzGDfV4h5Rj0S0VJhKLlgSEMzRRyJDYNVXnA10kPz9HNOa2z5yGD7xwDv0vsBv7K9sfFyDO58hQWNWt0mTPpj6vjkeNiaSQmH6ClLU4E4%7EIioFylPdMbJkpjGWKuNq27Ws%7EuEtJDSqNyn8y8nfaUu%7EJGyhPOBqOPIKllKNoiFntWL6HbfY5b4WrFWkAgLXuiBdyr8PnAAjePXYmCnxIvc6g__&Key-Pair-Id=K2L8F4GPSG1IFC
+
+01/06 17:19:03 [[1;32mNOTICE[0m] CUID#13 - Redirecting to https://cas-bridge.xethub.hf.co/xet-bridge-us/64de6da13d3a7519f17c623c/19781ad78a0ee1b1aff6c972139c5e32e6d130345a389bc76daf50fd80a43c4d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cas%2F20260107%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260107T011902Z&X-Amz-Expires=3600&X-Amz-Signature=2d3c543ee41fc8c2ce8f34fb5a8dba85335237971d521fedc9ecbc8e315b2ec3&X-Amz-SignedHeaders=host&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27vox2_dev_mp4_partag%3B+filename%3D%22vox2_dev_mp4_partag%22%3B&x-id=GetObject&Expires=1767752342&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2Nzc1MjM0Mn19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2FzLWJyaWRnZS54ZXRodWIuaGYuY28veGV0LWJyaWRnZS11cy82NGRlNmRhMTNkM2E3NTE5ZjE3YzYyM2MvMTk3ODFhZDc4YTBlZTFiMWFmZjZjOTcyMTM5YzVlMzJlNmQxMzAzNDVhMzg5YmM3NmRhZjUwZmQ4MGE0M2M0ZCoifV19&Signature=je4rwUZVr3dPriQ2u39mZSRhCS4WG3NFBsyTvq6kHSyh%7Eytx2fgF-ktSO6p7XPEITg-mvxGa4ltyndwYBesoCaf6fSN0Za2ArSNEMsfCKmI%7E28PUMGYiBgJ7DIZWTvgfzGDfV4h5Rj0S0VJhKLlgSEMzRRyJDYNVXnA10kPz9HNOa2z5yGD7xwDv0vsBv7K9sfFyDO58hQWNWt0mTPpj6vjkeNiaSQmH6ClLU4E4%7EIioFylPdMbJkpjGWKuNq27Ws%7EuEtJDSqNyn8y8nfaUu%7EJGyhPOBqOPIKllKNoiFntWL6HbfY5b4WrFWkAgLXuiBdyr8PnAAjePXYmCnxIvc6g__&Key-Pair-Id=K2L8F4GPSG1IFC
+
+01/06 17:19:03 [[1;32mNOTICE[0m] CUID#11 - Redirecting to https://cas-bridge.xethub.hf.co/xet-bridge-us/64de6da13d3a7519f17c623c/19781ad78a0ee1b1aff6c972139c5e32e6d130345a389bc76daf50fd80a43c4d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cas%2F20260107%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260107T011902Z&X-Amz-Expires=3600&X-Amz-Signature=2d3c543ee41fc8c2ce8f34fb5a8dba85335237971d521fedc9ecbc8e315b2ec3&X-Amz-SignedHeaders=host&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27vox2_dev_mp4_partag%3B+filename%3D%22vox2_dev_mp4_partag%22%3B&x-id=GetObject&Expires=1767752342&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2Nzc1MjM0Mn19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2FzLWJyaWRnZS54ZXRodWIuaGYuY28veGV0LWJyaWRnZS11cy82NGRlNmRhMTNkM2E3NTE5ZjE3YzYyM2MvMTk3ODFhZDc4YTBlZTFiMWFmZjZjOTcyMTM5YzVlMzJlNmQxMzAzNDVhMzg5YmM3NmRhZjUwZmQ4MGE0M2M0ZCoifV19&Signature=je4rwUZVr3dPriQ2u39mZSRhCS4WG3NFBsyTvq6kHSyh%7Eytx2fgF-ktSO6p7XPEITg-mvxGa4ltyndwYBesoCaf6fSN0Za2ArSNEMsfCKmI%7E28PUMGYiBgJ7DIZWTvgfzGDfV4h5Rj0S0VJhKLlgSEMzRRyJDYNVXnA10kPz9HNOa2z5yGD7xwDv0vsBv7K9sfFyDO58hQWNWt0mTPpj6vjkeNiaSQmH6ClLU4E4%7EIioFylPdMbJkpjGWKuNq27Ws%7EuEtJDSqNyn8y8nfaUu%7EJGyhPOBqOPIKllKNoiFntWL6HbfY5b4WrFWkAgLXuiBdyr8PnAAjePXYmCnxIvc6g__&Key-Pair-Id=K2L8F4GPSG1IFC
+
+01/06 17:19:03 [[1;32mNOTICE[0m] CUID#10 - Redirecting to https://cas-bridge.xethub.hf.co/xet-bridge-us/64de6da13d3a7519f17c623c/19781ad78a0ee1b1aff6c972139c5e32e6d130345a389bc76daf50fd80a43c4d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cas%2F20260107%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260107T011902Z&X-Amz-Expires=3600&X-Amz-Signature=2d3c543ee41fc8c2ce8f34fb5a8dba85335237971d521fedc9ecbc8e315b2ec3&X-Amz-SignedHeaders=host&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27vox2_dev_mp4_partag%3B+filename%3D%22vox2_dev_mp4_partag%22%3B&x-id=GetObject&Expires=1767752342&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2Nzc1MjM0Mn19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2FzLWJyaWRnZS54ZXRodWIuaGYuY28veGV0LWJyaWRnZS11cy82NGRlNmRhMTNkM2E3NTE5ZjE3YzYyM2MvMTk3ODFhZDc4YTBlZTFiMWFmZjZjOTcyMTM5YzVlMzJlNmQxMzAzNDVhMzg5YmM3NmRhZjUwZmQ4MGE0M2M0ZCoifV19&Signature=je4rwUZVr3dPriQ2u39mZSRhCS4WG3NFBsyTvq6kHSyh%7Eytx2fgF-ktSO6p7XPEITg-mvxGa4ltyndwYBesoCaf6fSN0Za2ArSNEMsfCKmI%7E28PUMGYiBgJ7DIZWTvgfzGDfV4h5Rj0S0VJhKLlgSEMzRRyJDYNVXnA10kPz9HNOa2z5yGD7xwDv0vsBv7K9sfFyDO58hQWNWt0mTPpj6vjkeNiaSQmH6ClLU4E4%7EIioFylPdMbJkpjGWKuNq27Ws%7EuEtJDSqNyn8y8nfaUu%7EJGyhPOBqOPIKllKNoiFntWL6HbfY5b4WrFWkAgLXuiBdyr8PnAAjePXYmCnxIvc6g__&Key-Pair-Id=K2L8F4GPSG1IFC
+
+01/06 17:19:03 [[1;32mNOTICE[0m] CUID#17 - Redirecting to https://cas-bridge.xethub.hf.co/xet-bridge-us/64de6da13d3a7519f17c623c/19781ad78a0ee1b1aff6c972139c5e32e6d130345a389bc76daf50fd80a43c4d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cas%2F20260107%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260107T011902Z&X-Amz-Expires=3600&X-Amz-Signature=2d3c543ee41fc8c2ce8f34fb5a8dba85335237971d521fedc9ecbc8e315b2ec3&X-Amz-SignedHeaders=host&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27vox2_dev_mp4_partag%3B+filename%3D%22vox2_dev_mp4_partag%22%3B&x-id=GetObject&Expires=1767752342&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2Nzc1MjM0Mn19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2FzLWJyaWRnZS54ZXRodWIuaGYuY28veGV0LWJyaWRnZS11cy82NGRlNmRhMTNkM2E3NTE5ZjE3YzYyM2MvMTk3ODFhZDc4YTBlZTFiMWFmZjZjOTcyMTM5YzVlMzJlNmQxMzAzNDVhMzg5YmM3NmRhZjUwZmQ4MGE0M2M0ZCoifV19&Signature=je4rwUZVr3dPriQ2u39mZSRhCS4WG3NFBsyTvq6kHSyh%7Eytx2fgF-ktSO6p7XPEITg-mvxGa4ltyndwYBesoCaf6fSN0Za2ArSNEMsfCKmI%7E28PUMGYiBgJ7DIZWTvgfzGDfV4h5Rj0S0VJhKLlgSEMzRRyJDYNVXnA10kPz9HNOa2z5yGD7xwDv0vsBv7K9sfFyDO58hQWNWt0mTPpj6vjkeNiaSQmH6ClLU4E4%7EIioFylPdMbJkpjGWKuNq27Ws%7EuEtJDSqNyn8y8nfaUu%7EJGyhPOBqOPIKllKNoiFntWL6HbfY5b4WrFWkAgLXuiBdyr8PnAAjePXYmCnxIvc6g__&Key-Pair-Id=K2L8F4GPSG1IFC
+
+01/06 17:19:03 [[1;32mNOTICE[0m] CUID#12 - Redirecting to https://cas-bridge.xethub.hf.co/xet-bridge-us/64de6da13d3a7519f17c623c/19781ad78a0ee1b1aff6c972139c5e32e6d130345a389bc76daf50fd80a43c4d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cas%2F20260107%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260107T011902Z&X-Amz-Expires=3600&X-Amz-Signature=2d3c543ee41fc8c2ce8f34fb5a8dba85335237971d521fedc9ecbc8e315b2ec3&X-Amz-SignedHeaders=host&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27vox2_dev_mp4_partag%3B+filename%3D%22vox2_dev_mp4_partag%22%3B&x-id=GetObject&Expires=1767752342&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2Nzc1MjM0Mn19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2FzLWJyaWRnZS54ZXRodWIuaGYuY28veGV0LWJyaWRnZS11cy82NGRlNmRhMTNkM2E3NTE5ZjE3YzYyM2MvMTk3ODFhZDc4YTBlZTFiMWFmZjZjOTcyMTM5YzVlMzJlNmQxMzAzNDVhMzg5YmM3NmRhZjUwZmQ4MGE0M2M0ZCoifV19&Signature=je4rwUZVr3dPriQ2u39mZSRhCS4WG3NFBsyTvq6kHSyh%7Eytx2fgF-ktSO6p7XPEITg-mvxGa4ltyndwYBesoCaf6fSN0Za2ArSNEMsfCKmI%7E28PUMGYiBgJ7DIZWTvgfzGDfV4h5Rj0S0VJhKLlgSEMzRRyJDYNVXnA10kPz9HNOa2z5yGD7xwDv0vsBv7K9sfFyDO58hQWNWt0mTPpj6vjkeNiaSQmH6ClLU4E4%7EIioFylPdMbJkpjGWKuNq27Ws%7EuEtJDSqNyn8y8nfaUu%7EJGyhPOBqOPIKllKNoiFntWL6HbfY5b4WrFWkAgLXuiBdyr8PnAAjePXYmCnxIvc6g__&Key-Pair-Id=K2L8F4GPSG1IFC
+
+01/06 17:19:03 [[1;32mNOTICE[0m] CUID#15 - Redirecting to https://cas-bridge.xethub.hf.co/xet-bridge-us/64de6da13d3a7519f17c623c/19781ad78a0ee1b1aff6c972139c5e32e6d130345a389bc76daf50fd80a43c4d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cas%2F20260107%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260107T011857Z&X-Amz-Expires=3600&X-Amz-Signature=5ae0ee2eb8557864ba6e2ae2876ffdffcb95803d8974d1109ab857fcd1e51b74&X-Amz-SignedHeaders=host&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27vox2_dev_mp4_partag%3B+filename%3D%22vox2_dev_mp4_partag%22%3B&x-id=GetObject&Expires=1767752337&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2Nzc1MjMzN319LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2FzLWJyaWRnZS54ZXRodWIuaGYuY28veGV0LWJyaWRnZS11cy82NGRlNmRhMTNkM2E3NTE5ZjE3YzYyM2MvMTk3ODFhZDc4YTBlZTFiMWFmZjZjOTcyMTM5YzVlMzJlNmQxMzAzNDVhMzg5YmM3NmRhZjUwZmQ4MGE0M2M0ZCoifV19&Signature=LHmJbY9uMowtpA3KqYuSTv7OXkxbeNDFXEkyMeP4SED3cYkXfKH71YyofTdBJXXXTXvUEKeU4ocPXxym7gJcjuwky5BpUfufxStPjl6cr1VSUMvKUuUqoMCmfNMSwhhHKFim7hUoJMFZZloQ9Sn%7Enm3uesawqOmjHAYACOewOlSY3PpEkuOUsDX3fcWfHJlt2540fvUQBjNKRJ-cJm6fWWyZvAVIo2Rz6IhKz36BAZ31GiY-eIyaLiFlMMVfKEQwk1oOgoxG3jujj-eA1pviSE3f5iORWpER1imbEVz6UK%7ESXtSZr0eBq0AHRTToNPbAj%7ElRyJ1w8vWymTXigAOuFg__&Key-Pair-Id=K2L8F4GPSG1IFC
+
+01/06 17:19:03 [[1;32mNOTICE[0m] CUID#14 - Redirecting to https://cas-bridge.xethub.hf.co/xet-bridge-us/64de6da13d3a7519f17c623c/19781ad78a0ee1b1aff6c972139c5e32e6d130345a389bc76daf50fd80a43c4d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cas%2F20260107%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260107T011902Z&X-Amz-Expires=3600&X-Amz-Signature=2d3c543ee41fc8c2ce8f34fb5a8dba85335237971d521fedc9ecbc8e315b2ec3&X-Amz-SignedHeaders=host&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27vox2_dev_mp4_partag%3B+filename%3D%22vox2_dev_mp4_partag%22%3B&x-id=GetObject&Expires=1767752342&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2Nzc1MjM0Mn19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2FzLWJyaWRnZS54ZXRodWIuaGYuY28veGV0LWJyaWRnZS11cy82NGRlNmRhMTNkM2E3NTE5ZjE3YzYyM2MvMTk3ODFhZDc4YTBlZTFiMWFmZjZjOTcyMTM5YzVlMzJlNmQxMzAzNDVhMzg5YmM3NmRhZjUwZmQ4MGE0M2M0ZCoifV19&Signature=je4rwUZVr3dPriQ2u39mZSRhCS4WG3NFBsyTvq6kHSyh%7Eytx2fgF-ktSO6p7XPEITg-mvxGa4ltyndwYBesoCaf6fSN0Za2ArSNEMsfCKmI%7E28PUMGYiBgJ7DIZWTvgfzGDfV4h5Rj0S0VJhKLlgSEMzRRyJDYNVXnA10kPz9HNOa2z5yGD7xwDv0vsBv7K9sfFyDO58hQWNWt0mTPpj6vjkeNiaSQmH6ClLU4E4%7EIioFylPdMbJkpjGWKuNq27Ws%7EuEtJDSqNyn8y8nfaUu%7EJGyhPOBqOPIKllKNoiFntWL6HbfY5b4WrFWkAgLXuiBdyr8PnAAjePXYmCnxIvc6g__&Key-Pair-Id=K2L8F4GPSG1IFC
+
+01/06 17:19:03 [[1;32mNOTICE[0m] CUID#16 - Redirecting to https://cas-bridge.xethub.hf.co/xet-bridge-us/64de6da13d3a7519f17c623c/19781ad78a0ee1b1aff6c972139c5e32e6d130345a389bc76daf50fd80a43c4d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cas%2F20260107%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260107T011902Z&X-Amz-Expires=3600&X-Amz-Signature=2d3c543ee41fc8c2ce8f34fb5a8dba85335237971d521fedc9ecbc8e315b2ec3&X-Amz-SignedHeaders=host&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27vox2_dev_mp4_partag%3B+filename%3D%22vox2_dev_mp4_partag%22%3B&x-id=GetObject&Expires=1767752342&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2Nzc1MjM0Mn19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2FzLWJyaWRnZS54ZXRodWIuaGYuY28veGV0LWJyaWRnZS11cy82NGRlNmRhMTNkM2E3NTE5ZjE3YzYyM2MvMTk3ODFhZDc4YTBlZTFiMWFmZjZjOTcyMTM5YzVlMzJlNmQxMzAzNDVhMzg5YmM3NmRhZjUwZmQ4MGE0M2M0ZCoifV19&Signature=je4rwUZVr3dPriQ2u39mZSRhCS4WG3NFBsyTvq6kHSyh%7Eytx2fgF-ktSO6p7XPEITg-mvxGa4ltyndwYBesoCaf6fSN0Za2ArSNEMsfCKmI%7E28PUMGYiBgJ7DIZWTvgfzGDfV4h5Rj0S0VJhKLlgSEMzRRyJDYNVXnA10kPz9HNOa2z5yGD7xwDv0vsBv7K9sfFyDO58hQWNWt0mTPpj6vjkeNiaSQmH6ClLU4E4%7EIioFylPdMbJkpjGWKuNq27Ws%7EuEtJDSqNyn8y8nfaUu%7EJGyhPOBqOPIKllKNoiFntWL6HbfY5b4WrFWkAgLXuiBdyr8PnAAjePXYmCnxIvc6g__&Key-Pair-Id=K2L8F4GPSG1IFC
+
+01/06 17:19:03 [[1;32mNOTICE[0m] CUID#22 - Redirecting to https://cas-bridge.xethub.hf.co/xet-bridge-us/64de6da13d3a7519f17c623c/19781ad78a0ee1b1aff6c972139c5e32e6d130345a389bc76daf50fd80a43c4d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cas%2F20260107%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260107T011902Z&X-Amz-Expires=3600&X-Amz-Signature=2d3c543ee41fc8c2ce8f34fb5a8dba85335237971d521fedc9ecbc8e315b2ec3&X-Amz-SignedHeaders=host&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27vox2_dev_mp4_partag%3B+filename%3D%22vox2_dev_mp4_partag%22%3B&x-id=GetObject&Expires=1767752342&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2Nzc1MjM0Mn19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2FzLWJyaWRnZS54ZXRodWIuaGYuY28veGV0LWJyaWRnZS11cy82NGRlNmRhMTNkM2E3NTE5ZjE3YzYyM2MvMTk3ODFhZDc4YTBlZTFiMWFmZjZjOTcyMTM5YzVlMzJlNmQxMzAzNDVhMzg5YmM3NmRhZjUwZmQ4MGE0M2M0ZCoifV19&Signature=je4rwUZVr3dPriQ2u39mZSRhCS4WG3NFBsyTvq6kHSyh%7Eytx2fgF-ktSO6p7XPEITg-mvxGa4ltyndwYBesoCaf6fSN0Za2ArSNEMsfCKmI%7E28PUMGYiBgJ7DIZWTvgfzGDfV4h5Rj0S0VJhKLlgSEMzRRyJDYNVXnA10kPz9HNOa2z5yGD7xwDv0vsBv7K9sfFyDO58hQWNWt0mTPpj6vjkeNiaSQmH6ClLU4E4%7EIioFylPdMbJkpjGWKuNq27Ws%7EuEtJDSqNyn8y8nfaUu%7EJGyhPOBqOPIKllKNoiFntWL6HbfY5b4WrFWkAgLXuiBdyr8PnAAjePXYmCnxIvc6g__&Key-Pair-Id=K2L8F4GPSG1IFC
+
+01/06 17:19:03 [[1;32mNOTICE[0m] CUID#19 - Redirecting to https://cas-bridge.xethub.hf.co/xet-bridge-us/64de6da13d3a7519f17c623c/19781ad78a0ee1b1aff6c972139c5e32e6d130345a389bc76daf50fd80a43c4d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cas%2F20260107%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260107T011902Z&X-Amz-Expires=3600&X-Amz-Signature=2d3c543ee41fc8c2ce8f34fb5a8dba85335237971d521fedc9ecbc8e315b2ec3&X-Amz-SignedHeaders=host&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27vox2_dev_mp4_partag%3B+filename%3D%22vox2_dev_mp4_partag%22%3B&x-id=GetObject&Expires=1767752342&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2Nzc1MjM0Mn19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2FzLWJyaWRnZS54ZXRodWIuaGYuY28veGV0LWJyaWRnZS11cy82NGRlNmRhMTNkM2E3NTE5ZjE3YzYyM2MvMTk3ODFhZDc4YTBlZTFiMWFmZjZjOTcyMTM5YzVlMzJlNmQxMzAzNDVhMzg5YmM3NmRhZjUwZmQ4MGE0M2M0ZCoifV19&Signature=je4rwUZVr3dPriQ2u39mZSRhCS4WG3NFBsyTvq6kHSyh%7Eytx2fgF-ktSO6p7XPEITg-mvxGa4ltyndwYBesoCaf6fSN0Za2ArSNEMsfCKmI%7E28PUMGYiBgJ7DIZWTvgfzGDfV4h5Rj0S0VJhKLlgSEMzRRyJDYNVXnA10kPz9HNOa2z5yGD7xwDv0vsBv7K9sfFyDO58hQWNWt0mTPpj6vjkeNiaSQmH6ClLU4E4%7EIioFylPdMbJkpjGWKuNq27Ws%7EuEtJDSqNyn8y8nfaUu%7EJGyhPOBqOPIKllKNoiFntWL6HbfY5b4WrFWkAgLXuiBdyr8PnAAjePXYmCnxIvc6g__&Key-Pair-Id=K2L8F4GPSG1IFC
+
+01/06 17:19:03 [[1;32mNOTICE[0m] CUID#20 - Redirecting to https://cas-bridge.xethub.hf.co/xet-bridge-us/64de6da13d3a7519f17c623c/19781ad78a0ee1b1aff6c972139c5e32e6d130345a389bc76daf50fd80a43c4d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cas%2F20260107%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260107T011902Z&X-Amz-Expires=3600&X-Amz-Signature=2d3c543ee41fc8c2ce8f34fb5a8dba85335237971d521fedc9ecbc8e315b2ec3&X-Amz-SignedHeaders=host&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27vox2_dev_mp4_partag%3B+filename%3D%22vox2_dev_mp4_partag%22%3B&x-id=GetObject&Expires=1767752342&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2Nzc1MjM0Mn19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2FzLWJyaWRnZS54ZXRodWIuaGYuY28veGV0LWJyaWRnZS11cy82NGRlNmRhMTNkM2E3NTE5ZjE3YzYyM2MvMTk3ODFhZDc4YTBlZTFiMWFmZjZjOTcyMTM5YzVlMzJlNmQxMzAzNDVhMzg5YmM3NmRhZjUwZmQ4MGE0M2M0ZCoifV19&Signature=je4rwUZVr3dPriQ2u39mZSRhCS4WG3NFBsyTvq6kHSyh%7Eytx2fgF-ktSO6p7XPEITg-mvxGa4ltyndwYBesoCaf6fSN0Za2ArSNEMsfCKmI%7E28PUMGYiBgJ7DIZWTvgfzGDfV4h5Rj0S0VJhKLlgSEMzRRyJDYNVXnA10kPz9HNOa2z5yGD7xwDv0vsBv7K9sfFyDO58hQWNWt0mTPpj6vjkeNiaSQmH6ClLU4E4%7EIioFylPdMbJkpjGWKuNq27Ws%7EuEtJDSqNyn8y8nfaUu%7EJGyhPOBqOPIKllKNoiFntWL6HbfY5b4WrFWkAgLXuiBdyr8PnAAjePXYmCnxIvc6g__&Key-Pair-Id=K2L8F4GPSG1IFC
+
+01/06 17:19:03 [[1;32mNOTICE[0m] CUID#21 - Redirecting to https://cas-bridge.xethub.hf.co/xet-bridge-us/64de6da13d3a7519f17c623c/19781ad78a0ee1b1aff6c972139c5e32e6d130345a389bc76daf50fd80a43c4d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cas%2F20260107%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260107T011902Z&X-Amz-Expires=3600&X-Amz-Signature=2d3c543ee41fc8c2ce8f34fb5a8dba85335237971d521fedc9ecbc8e315b2ec3&X-Amz-SignedHeaders=host&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27vox2_dev_mp4_partag%3B+filename%3D%22vox2_dev_mp4_partag%22%3B&x-id=GetObject&Expires=1767752342&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2Nzc1MjM0Mn19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2FzLWJyaWRnZS54ZXRodWIuaGYuY28veGV0LWJyaWRnZS11cy82NGRlNmRhMTNkM2E3NTE5ZjE3YzYyM2MvMTk3ODFhZDc4YTBlZTFiMWFmZjZjOTcyMTM5YzVlMzJlNmQxMzAzNDVhMzg5YmM3NmRhZjUwZmQ4MGE0M2M0ZCoifV19&Signature=je4rwUZVr3dPriQ2u39mZSRhCS4WG3NFBsyTvq6kHSyh%7Eytx2fgF-ktSO6p7XPEITg-mvxGa4ltyndwYBesoCaf6fSN0Za2ArSNEMsfCKmI%7E28PUMGYiBgJ7DIZWTvgfzGDfV4h5Rj0S0VJhKLlgSEMzRRyJDYNVXnA10kPz9HNOa2z5yGD7xwDv0vsBv7K9sfFyDO58hQWNWt0mTPpj6vjkeNiaSQmH6ClLU4E4%7EIioFylPdMbJkpjGWKuNq27Ws%7EuEtJDSqNyn8y8nfaUu%7EJGyhPOBqOPIKllKNoiFntWL6HbfY5b4WrFWkAgLXuiBdyr8PnAAjePXYmCnxIvc6g__&Key-Pair-Id=K2L8F4GPSG1IFC
+
+01/06 17:19:03 [[1;32mNOTICE[0m] CUID#18 - Redirecting to https://cas-bridge.xethub.hf.co/xet-bridge-us/64de6da13d3a7519f17c623c/19781ad78a0ee1b1aff6c972139c5e32e6d130345a389bc76daf50fd80a43c4d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cas%2F20260107%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260107T011902Z&X-Amz-Expires=3600&X-Amz-Signature=2d3c543ee41fc8c2ce8f34fb5a8dba85335237971d521fedc9ecbc8e315b2ec3&X-Amz-SignedHeaders=host&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27vox2_dev_mp4_partag%3B+filename%3D%22vox2_dev_mp4_partag%22%3B&x-id=GetObject&Expires=1767752342&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2Nzc1MjM0Mn19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2FzLWJyaWRnZS54ZXRodWIuaGYuY28veGV0LWJyaWRnZS11cy82NGRlNmRhMTNkM2E3NTE5ZjE3YzYyM2MvMTk3ODFhZDc4YTBlZTFiMWFmZjZjOTcyMTM5YzVlMzJlNmQxMzAzNDVhMzg5YmM3NmRhZjUwZmQ4MGE0M2M0ZCoifV19&Signature=je4rwUZVr3dPriQ2u39mZSRhCS4WG3NFBsyTvq6kHSyh%7Eytx2fgF-ktSO6p7XPEITg-mvxGa4ltyndwYBesoCaf6fSN0Za2ArSNEMsfCKmI%7E28PUMGYiBgJ7DIZWTvgfzGDfV4h5Rj0S0VJhKLlgSEMzRRyJDYNVXnA10kPz9HNOa2z5yGD7xwDv0vsBv7K9sfFyDO58hQWNWt0mTPpj6vjkeNiaSQmH6ClLU4E4%7EIioFylPdMbJkpjGWKuNq27Ws%7EuEtJDSqNyn8y8nfaUu%7EJGyhPOBqOPIKllKNoiFntWL6HbfY5b4WrFWkAgLXuiBdyr8PnAAjePXYmCnxIvc6g__&Key-Pair-Id=K2L8F4GPSG1IFC
+
+01/06 17:19:04 [[1;32mNOTICE[0m] CUID#10 - Redirecting to https://cas-bridge.xethub.hf.co/xet-bridge-us/64de6da13d3a7519f17c623c/19781ad78a0ee1b1aff6c972139c5e32e6d130345a389bc76daf50fd80a43c4d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cas%2F20260107%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260107T011903Z&X-Amz-Expires=3600&X-Amz-Signature=d08672f16177c4c164f236b4da44e6c55c228ee5f4733cf80180a8600a6db81c&X-Amz-SignedHeaders=host&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27vox2_dev_mp4_partag%3B+filename%3D%22vox2_dev_mp4_partag%22%3B&x-id=GetObject&Expires=1767752343&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2Nzc1MjM0M319LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2FzLWJyaWRnZS54ZXRodWIuaGYuY28veGV0LWJyaWRnZS11cy82NGRlNmRhMTNkM2E3NTE5ZjE3YzYyM2MvMTk3ODFhZDc4YTBlZTFiMWFmZjZjOTcyMTM5YzVlMzJlNmQxMzAzNDVhMzg5YmM3NmRhZjUwZmQ4MGE0M2M0ZCoifV19&Signature=tz5jApshKMKEs17UNLJcQwxQSjynvEobFzNM5g0H9LC5OHIw5wLl7e0CFsAXEh%7ESIAWJPKAWNcwYSXwpHMmWO-bUDT5w5Vw8ddE2SDuQbt8jGeQ-DMd27aMLMQLlKqzEC%7EbVKcdReUPuVqjn4dL4tHsM4lGpKn29tXHU2Mbh-NOpJtVdxRunfj0O-f5DzDrEIdhf2%7EJhWLdohY5f8nDXGsYgYNREaLA58-xwGpUMGxuE-gZtM3WT3fD%7ECx-iyu6nuqazWVUs7qrvHuHi7DpYdEDr8IEFteImJc2ZpbuFV6aOhnEfU7v8cw-0O1jJ3QiiXZhjESWRCDGfEkc-aSmmhw__&Key-Pair-Id=K2L8F4GPSG1IFC
+[#6cc878 3.2MiB/30GiB(0%) CN:16 DL:495KiB ETA:17h38m17s]
+
+01/06 17:19:04 [[1;32mNOTICE[0m] CUID#16 - Redirecting to https://cas-bridge.xethub.hf.co/xet-bridge-us/64de6da13d3a7519f17c623c/19781ad78a0ee1b1aff6c972139c5e32e6d130345a389bc76daf50fd80a43c4d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cas%2F20260107%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260107T011903Z&X-Amz-Expires=3600&X-Amz-Signature=d08672f16177c4c164f236b4da44e6c55c228ee5f4733cf80180a8600a6db81c&X-Amz-SignedHeaders=host&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27vox2_dev_mp4_partag%3B+filename%3D%22vox2_dev_mp4_partag%22%3B&x-id=GetObject&Expires=1767752343&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2Nzc1MjM0M319LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2FzLWJyaWRnZS54ZXRodWIuaGYuY28veGV0LWJyaWRnZS11cy82NGRlNmRhMTNkM2E3NTE5ZjE3YzYyM2MvMTk3ODFhZDc4YTBlZTFiMWFmZjZjOTcyMTM5YzVlMzJlNmQxMzAzNDVhMzg5YmM3NmRhZjUwZmQ4MGE0M2M0ZCoifV19&Signature=tz5jApshKMKEs17UNLJcQwxQSjynvEobFzNM5g0H9LC5OHIw5wLl7e0CFsAXEh%7ESIAWJPKAWNcwYSXwpHMmWO-bUDT5w5Vw8ddE2SDuQbt8jGeQ-DMd27aMLMQLlKqzEC%7EbVKcdReUPuVqjn4dL4tHsM4lGpKn29tXHU2Mbh-NOpJtVdxRunfj0O-f5DzDrEIdhf2%7EJhWLdohY5f8nDXGsYgYNREaLA58-xwGpUMGxuE-gZtM3WT3fD%7ECx-iyu6nuqazWVUs7qrvHuHi7DpYdEDr8IEFteImJc2ZpbuFV6aOhnEfU7v8cw-0O1jJ3QiiXZhjESWRCDGfEkc-aSmmhw__&Key-Pair-Id=K2L8F4GPSG1IFC
+
+01/06 17:19:04 [[1;32mNOTICE[0m] CUID#18 - Redirecting to https://cas-bridge.xethub.hf.co/xet-bridge-us/64de6da13d3a7519f17c623c/19781ad78a0ee1b1aff6c972139c5e32e6d130345a389bc76daf50fd80a43c4d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cas%2F20260107%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260107T011903Z&X-Amz-Expires=3600&X-Amz-Signature=d08672f16177c4c164f236b4da44e6c55c228ee5f4733cf80180a8600a6db81c&X-Amz-SignedHeaders=host&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27vox2_dev_mp4_partag%3B+filename%3D%22vox2_dev_mp4_partag%22%3B&x-id=GetObject&Expires=1767752343&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2Nzc1MjM0M319LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2FzLWJyaWRnZS54ZXRodWIuaGYuY28veGV0LWJyaWRnZS11cy82NGRlNmRhMTNkM2E3NTE5ZjE3YzYyM2MvMTk3ODFhZDc4YTBlZTFiMWFmZjZjOTcyMTM5YzVlMzJlNmQxMzAzNDVhMzg5YmM3NmRhZjUwZmQ4MGE0M2M0ZCoifV19&Signature=tz5jApshKMKEs17UNLJcQwxQSjynvEobFzNM5g0H9LC5OHIw5wLl7e0CFsAXEh%7ESIAWJPKAWNcwYSXwpHMmWO-bUDT5w5Vw8ddE2SDuQbt8jGeQ-DMd27aMLMQLlKqzEC%7EbVKcdReUPuVqjn4dL4tHsM4lGpKn29tXHU2Mbh-NOpJtVdxRunfj0O-f5DzDrEIdhf2%7EJhWLdohY5f8nDXGsYgYNREaLA58-xwGpUMGxuE-gZtM3WT3fD%7ECx-iyu6nuqazWVUs7qrvHuHi7DpYdEDr8IEFteImJc2ZpbuFV6aOhnEfU7v8cw-0O1jJ3QiiXZhjESWRCDGfEkc-aSmmhw__&Key-Pair-Id=K2L8F4GPSG1IFC
+
+01/06 17:19:04 [[1;32mNOTICE[0m] CUID#20 - Redirecting to https://cas-bridge.xethub.hf.co/xet-bridge-us/64de6da13d3a7519f17c623c/19781ad78a0ee1b1aff6c972139c5e32e6d130345a389bc76daf50fd80a43c4d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cas%2F20260107%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260107T011902Z&X-Amz-Expires=3600&X-Amz-Signature=2d3c543ee41fc8c2ce8f34fb5a8dba85335237971d521fedc9ecbc8e315b2ec3&X-Amz-SignedHeaders=host&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27vox2_dev_mp4_partag%3B+filename%3D%22vox2_dev_mp4_partag%22%3B&x-id=GetObject&Expires=1767752342&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2Nzc1MjM0Mn19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2FzLWJyaWRnZS54ZXRodWIuaGYuY28veGV0LWJyaWRnZS11cy82NGRlNmRhMTNkM2E3NTE5ZjE3YzYyM2MvMTk3ODFhZDc4YTBlZTFiMWFmZjZjOTcyMTM5YzVlMzJlNmQxMzAzNDVhMzg5YmM3NmRhZjUwZmQ4MGE0M2M0ZCoifV19&Signature=je4rwUZVr3dPriQ2u39mZSRhCS4WG3NFBsyTvq6kHSyh%7Eytx2fgF-ktSO6p7XPEITg-mvxGa4ltyndwYBesoCaf6fSN0Za2ArSNEMsfCKmI%7E28PUMGYiBgJ7DIZWTvgfzGDfV4h5Rj0S0VJhKLlgSEMzRRyJDYNVXnA10kPz9HNOa2z5yGD7xwDv0vsBv7K9sfFyDO58hQWNWt0mTPpj6vjkeNiaSQmH6ClLU4E4%7EIioFylPdMbJkpjGWKuNq27Ws%7EuEtJDSqNyn8y8nfaUu%7EJGyhPOBqOPIKllKNoiFntWL6HbfY5b4WrFWkAgLXuiBdyr8PnAAjePXYmCnxIvc6g__&Key-Pair-Id=K2L8F4GPSG1IFC
+[#6cc878 5.3MiB/30GiB(0%) CN:16 DL:707KiB ETA:12h20m32s]
+[#6cc878 6.9MiB/30GiB(0%) CN:16 DL:812KiB ETA:10h45m23s]
+[#6cc878 10MiB/30GiB(0%) CN:16 DL:1.0MiB ETA:7h56m10s]
+[#6cc878 13MiB/30GiB(0%) CN:16 DL:1.4MiB ETA:5h55m23s]
+[#6cc878 16MiB/30GiB(0%) CN:16 DL:1.8MiB ETA:4h35m20s]
+[#6cc878 25MiB/30GiB(0%) CN:16 DL:2.7MiB ETA:3h5m8s]
+[#6cc878 33MiB/30GiB(0%) CN:16 DL:3.8MiB ETA:2h13m29s]
+[#6cc878 35MiB/30GiB(0%) CN:16 DL:3.6MiB ETA:2h20m25s]
+[#6cc878 40MiB/30GiB(0%) CN:16 DL:3.9MiB ETA:2h8m19s]
+[#6cc878 53MiB/30GiB(0%) CN:16 DL:5.2MiB ETA:1h36m57s]
+[#6cc878 64MiB/30GiB(0%) CN:16 DL:6.1MiB ETA:1h23m2s]
+[#6cc878 72MiB/30GiB(0%) CN:16 DL:6.8MiB ETA:1h14m16s]
+[#6cc878 86MiB/30GiB(0%) CN:16 DL:7.9MiB ETA:1h4m23s]
+[#6cc878 96MiB/30GiB(0%) CN:16 DL:8.5MiB ETA:59m23s]
+[#6cc878 110MiB/30GiB(0%) CN:16 DL:9.4MiB ETA:54m13s]
+[#6cc878 127MiB/30GiB(0%) CN:16 DL:10MiB ETA:49m27s]
+[#6cc878 143MiB/30GiB(0%) CN:16 DL:11MiB ETA:43m59s]
+[#6cc878 153MiB/30GiB(0%) CN:16 DL:12MiB ETA:41m28s]
+[#6cc878 175MiB/30GiB(0%) CN:16 DL:13MiB ETA:37m41s]
+[#6cc878 185MiB/30GiB(0%) CN:16 DL:13MiB ETA:38m]
+[#6cc878 199MiB/30GiB(0%) CN:16 DL:13MiB ETA:37m5s]
+[#6cc878 214MiB/30GiB(0%) CN:16 DL:14MiB ETA:35m21s]
+[#6cc878 228MiB/30GiB(0%) CN:16 DL:14MiB ETA:34m48s]
+[#6cc878 238MiB/30GiB(0%) CN:16 DL:14MiB ETA:33m56s]
+[#6cc878 250MiB/30GiB(0%) CN:16 DL:13MiB ETA:36m41s]
+[#6cc878 256MiB/30GiB(0%) CN:16 DL:12MiB ETA:39m20s]
+[#6cc878 260MiB/30GiB(0%) CN:16 DL:11MiB ETA:44m28s]
+[#6cc878 274MiB/30GiB(0%) CN:16 DL:11MiB ETA:44m10s]
+[#6cc878 284MiB/30GiB(0%) CN:16 DL:11MiB ETA:45m34s]
+[#6cc878 291MiB/30GiB(0%) CN:16 DL:10MiB ETA:49m9s]
+[#6cc878 296MiB/30GiB(0%) CN:16 DL:8.8MiB ETA:57m13s]
+[#6cc878 304MiB/30GiB(0%) CN:16 DL:8.2MiB ETA:1h1m8s]
+[#6cc878 307MiB/30GiB(1%) CN:16 DL:7.2MiB ETA:1h10m6s]
+[#6cc878 307MiB/30GiB(1%) CN:16 DL:6.1MiB ETA:1h22m53s]
+[#6cc878 314MiB/30GiB(1%) CN:16 DL:6.0MiB ETA:1h23m42s]
+[#6cc878 321MiB/30GiB(1%) CN:16 DL:6.1MiB ETA:1h21m46s]
+[#6cc878 331MiB/30GiB(1%) CN:16 DL:6.1MiB ETA:1h22m33s]
+[#6cc878 339MiB/30GiB(1%) CN:16 DL:5.8MiB ETA:1h26m54s]
+[#6cc878 348MiB/30GiB(1%) CN:16 DL:5.7MiB ETA:1h27m44s]
+[#6cc878 356MiB/30GiB(1%) CN:16 DL:6.2MiB ETA:1h21m12s]
+[#6cc878 363MiB/30GiB(1%) CN:16 DL:6.1MiB ETA:1h22m16s]
+ *** Download Progress Summary as of Tue Jan  6 17:19:47 2026 *** 
+===============================================================================
+[#6cc878 368MiB/30GiB(1%) CN:16 DL:6.5MiB ETA:1h16m52s]
+FILE: data/voxceleb_hf/vox2/vox2_dev_mp4_partag
+-------------------------------------------------------------------------------
+
+[#6cc878 368MiB/30GiB(1%) CN:16 DL:6.5MiB ETA:1h16m52s]
+[#6cc878 378MiB/30GiB(1%) CN:16 DL:7.6MiB ETA:1h5m54s]
+[#6cc878 381MiB/30GiB(1%) CN:16 DL:7.2MiB ETA:1h9m28s]
+[#6cc878 386MiB/30GiB(1%) CN:16 DL:6.7MiB ETA:1h15m26s]
+[#6cc878 391MiB/30GiB(1%) CN:16 DL:6.2MiB ETA:1h21m5s]
+[#6cc878 399MiB/30GiB(1%) CN:16 DL:6.3MiB ETA:1h19m53s]
+[#6cc878 412MiB/30GiB(1%) CN:16 DL:6.5MiB ETA:1h17m20s]
+[#6cc878 422MiB/30GiB(1%) CN:16 DL:6.9MiB ETA:1h13m5s]
+[#6cc878 432MiB/30GiB(1%) CN:16 DL:7.3MiB ETA:1h8m32s]
+[#6cc878 437MiB/30GiB(1%) CN:16 DL:7.3MiB ETA:1h8m31s]
+[#6cc878 440MiB/30GiB(1%) CN:16 DL:6.5MiB ETA:1h17m12s]
+[#6cc878 446MiB/30GiB(1%) CN:16 DL:6.8MiB ETA:1h13m56s]
+[#6cc878 456MiB/30GiB(1%) CN:16 DL:7.6MiB ETA:1h5m40s]
+[#6cc878 465MiB/30GiB(1%) CN:16 DL:8.1MiB ETA:1h1m49s]
+[#6cc878 475MiB/30GiB(1%) CN:16 DL:8.4MiB ETA:59m44s]
+[#6cc878 483MiB/30GiB(1%) CN:16 DL:7.8MiB ETA:1h4m24s]
+[#6cc878 491MiB/30GiB(1%) CN:16 DL:7.4MiB ETA:1h7m25s]
+[#6cc878 498MiB/30GiB(1%) CN:16 DL:7.2MiB ETA:1h9m30s]
+[#6cc878 505MiB/30GiB(1%) CN:16 DL:7.5MiB ETA:1h6m17s]
+[#6cc878 511MiB/30GiB(1%) CN:16 DL:7.4MiB ETA:1h7m52s]
+[#6cc878 514MiB/30GiB(1%) CN:16 DL:7.6MiB ETA:1h6m8s]
+[#6cc878 520MiB/30GiB(1%) CN:16 DL:7.0MiB ETA:1h11m26s]
+[#6cc878 525MiB/30GiB(1%) CN:16 DL:6.5MiB ETA:1h17m19s]
+[#6cc878 529MiB/30GiB(1%) CN:16 DL:5.9MiB ETA:1h24m10s]
+[#6cc878 536MiB/30GiB(1%) CN:16 DL:5.8MiB ETA:1h26m19s]
+[#6cc878 542MiB/30GiB(1%) CN:16 DL:5.2MiB ETA:1h36m27s]
+[#6cc878 547MiB/30GiB(1%) CN:16 DL:5.0MiB ETA:1h39m52s]
+[#6cc878 552MiB/30GiB(1%) CN:16 DL:5.0MiB ETA:1h39m17s]
+[#6cc878 558MiB/30GiB(1%) CN:16 DL:4.9MiB ETA:1h42m14s]
+[#6cc878 561MiB/30GiB(1%) CN:16 DL:4.7MiB ETA:1h44m51s]
+[#6cc878 569MiB/30GiB(1%) CN:16 DL:5.4MiB ETA:1h32m28s]
+[#6cc878 581MiB/30GiB(1%) CN:16 DL:5.8MiB ETA:1h26m30s]
+[#6cc878 586MiB/30GiB(1%) CN:16 DL:5.7MiB ETA:1h26m40s]
+[#6cc878 597MiB/30GiB(1%) CN:16 DL:6.4MiB ETA:1h17m47s]
+[#6cc878 603MiB/30GiB(1%) CN:16 DL:6.5MiB ETA:1h16m59s]
+[#6cc878 613MiB/30GiB(1%) CN:16 DL:7.1MiB ETA:1h10m26s]
+[#6cc878 622MiB/30GiB(2%) CN:16 DL:7.2MiB ETA:1h8m50s]
+[#6cc878 622MiB/30GiB(2%) CN:16 DL:6.5MiB ETA:1h16m28s]
+[#6cc878 628MiB/30GiB(2%) CN:16 DL:6.8MiB ETA:1h12m41s]
+[#6cc878 629MiB/30GiB(2%) CN:16 DL:6.2MiB ETA:1h19m44s]
+[#6cc878 629MiB/30GiB(2%) CN:16 DL:4.8MiB ETA:1h43m33s]
+[#6cc878 631MiB/30GiB(2%) CN:16 DL:3.3MiB ETA:2h28m47s]
+[#6cc878 631MiB/30GiB(2%) CN:16 DL:1.9MiB ETA:4h11m22s]
+[#6cc878 632MiB/30GiB(2%) CN:16 DL:1.1MiB ETA:7h4s]
+[#6cc878 633MiB/30GiB(2%) CN:16 DL:1.1MiB ETA:7h9m20s]
+[#6cc878 634MiB/30GiB(2%) CN:16 DL:620KiB ETA:13h47m16s]
+[#6cc878 634MiB/30GiB(2%) CN:16 DL:519KiB ETA:16h27m31s]
+[#6cc878 634MiB/30GiB(2%) CN:16 DL:501KiB ETA:17h2m56s]
+[#6cc878 634MiB/30GiB(2%) CN:16 DL:334KiB ETA:25h36m13s]
+[#6cc878 635MiB/30GiB(2%) CN:16 DL:401KiB ETA:21h17m21s]
+[#6cc878 635MiB/30GiB(2%) CN:16 DL:413KiB ETA:20h43m10s]
+[#6cc878 636MiB/30GiB(2%) CN:16 DL:386KiB ETA:22h9m14s]
+[#6cc878 639MiB/30GiB(2%) CN:16 DL:759KiB ETA:11h15m30s]
+[#6cc878 639MiB/30GiB(2%) CN:16 DL:688KiB ETA:12h25m16s]
+[#6cc878 653MiB/30GiB(2%) CN:16 DL:2.0MiB ETA:4h5m38s]
+ *** Download Progress Summary as of Tue Jan  6 17:20:47 2026 *** 
+===============================================================================
+[#6cc878 657MiB/30GiB(2%) CN:16 DL:2.6MiB ETA:3h10m47s]
+FILE: data/voxceleb_hf/vox2/vox2_dev_mp4_partag
+-------------------------------------------------------------------------------
+
+[#6cc878 657MiB/30GiB(2%) CN:16 DL:2.6MiB ETA:3h10m47s]
+[#6cc878 660MiB/30GiB(2%) CN:16 DL:2.7MiB ETA:3h3m9s]
+[#6cc878 667MiB/30GiB(2%) CN:16 DL:3.2MiB ETA:2h33m20s]
+[#6cc878 673MiB/30GiB(2%) CN:16 DL:4.0MiB ETA:2h2m12s]
+[#6cc878 683MiB/30GiB(2%) CN:16 DL:5.3MiB ETA:1h32m59s]
+[#6cc878 688MiB/30GiB(2%) CN:16 DL:5.2MiB ETA:1h34m30s]
+[#6cc878 698MiB/30GiB(2%) CN:16 DL:6.1MiB ETA:1h20m42s]
+[#6cc878 704MiB/30GiB(2%) CN:16 DL:6.5MiB ETA:1h16m12s]
+[#6cc878 709MiB/30GiB(2%) CN:16 DL:6.0MiB ETA:1h21m59s]
+[#6cc878 714MiB/30GiB(2%) CN:16 DL:6.2MiB ETA:1h20m7s]
+[#6cc878 717MiB/30GiB(2%) CN:16 DL:6.1MiB ETA:1h21m45s]
+[#6cc878 720MiB/30GiB(2%) CN:16 DL:5.7MiB ETA:1h27m12s]
+[#6cc878 724MiB/30GiB(2%) CN:16 DL:5.1MiB ETA:1h37m43s]
+[#6cc878 728MiB/30GiB(2%) CN:16 DL:4.6MiB ETA:1h46m43s]
+[#6cc878 734MiB/30GiB(2%) CN:16 DL:4.6MiB ETA:1h48m29s]
+[#6cc878 739MiB/30GiB(2%) CN:16 DL:4.2MiB ETA:1h57m57s]
+[#6cc878 744MiB/30GiB(2%) CN:16 DL:4.1MiB ETA:1h59m38s]
+[#6cc878 744MiB/30GiB(2%) CN:16 DL:3.7MiB ETA:2h13m4s]
+[#6cc878 749MiB/30GiB(2%) CN:16 DL:3.7MiB ETA:2h13m22s]
+[#6cc878 754MiB/30GiB(2%) CN:16 DL:3.9MiB ETA:2h6m33s]
+[#6cc878 763MiB/30GiB(2%) CN:16 DL:4.6MiB ETA:1h46m24s]
+[#6cc878 770MiB/30GiB(2%) CN:16 DL:4.9MiB ETA:1h40m23s]
+[#6cc878 771MiB/30GiB(2%) CN:16 DL:4.6MiB ETA:1h47m8s]
+[#6cc878 778MiB/30GiB(2%) CN:16 DL:4.6MiB ETA:1h47m25s]
+[#6cc878 788MiB/30GiB(2%) CN:16 DL:5.3MiB ETA:1h33m19s]
+[#6cc878 799MiB/30GiB(2%) CN:16 DL:5.9MiB ETA:1h24m4s]
+[#6cc878 805MiB/30GiB(2%) CN:16 DL:6.3MiB ETA:1h18m22s]
+[#6cc878 811MiB/30GiB(2%) CN:16 DL:6.7MiB ETA:1h14m1s]
+[#6cc878 815MiB/30GiB(2%) CN:16 DL:6.2MiB ETA:1h19m25s]
+[#6cc878 825MiB/30GiB(2%) CN:16 DL:6.5MiB ETA:1h15m58s]
+[#6cc878 829MiB/30GiB(2%) CN:16 DL:6.3MiB ETA:1h17m57s]
+[#6cc878 830MiB/30GiB(2%) CN:16 DL:6.0MiB ETA:1h21m48s]
+[#6cc878 834MiB/30GiB(2%) CN:16 DL:5.4MiB ETA:1h31m20s]
+[#6cc878 838MiB/30GiB(2%) CN:16 DL:5.1MiB ETA:1h35m52s]
+[#6cc878 844MiB/30GiB(2%) CN:16 DL:4.7MiB ETA:1h43m45s]
+[#6cc878 848MiB/30GiB(2%) CN:16 DL:4.6MiB ETA:1h47m31s]
+[#6cc878 851MiB/30GiB(2%) CN:16 DL:4.1MiB ETA:2h47s]
+[#6cc878 851MiB/30GiB(2%) CN:16 DL:3.7MiB ETA:2h12m58s]
+[#6cc878 854MiB/30GiB(2%) CN:16 DL:3.0MiB ETA:2h45m49s]
+[#6cc878 856MiB/30GiB(2%) CN:16 DL:2.7MiB ETA:3h1m5s]
+[#6cc878 858MiB/30GiB(2%) CN:16 DL:2.6MiB ETA:3h9m3s]
+[#6cc878 866MiB/30GiB(2%) CN:16 DL:3.1MiB ETA:2h35m50s]
+[#6cc878 869MiB/30GiB(2%) CN:16 DL:2.8MiB ETA:2h56m57s]
+[#6cc878 870MiB/30GiB(2%) CN:16 DL:2.3MiB ETA:3h34m44s]
+[#6cc878 874MiB/30GiB(2%) CN:16 DL:2.5MiB ETA:3h17m25s]
+[#6cc878 877MiB/30GiB(2%) CN:16 DL:2.8MiB ETA:2h57m4s]
+[#6cc878 881MiB/30GiB(2%) CN:16 DL:2.9MiB ETA:2h46m26s]
+[#6cc878 883MiB/30GiB(2%) CN:16 DL:3.0MiB ETA:2h41m53s]
+[#6cc878 886MiB/30GiB(2%) CN:16 DL:3.1MiB ETA:2h38m]
+[#6cc878 888MiB/30GiB(2%) CN:16 DL:2.9MiB ETA:2h46m45s]
+[#6cc878 894MiB/30GiB(2%) CN:16 DL:2.8MiB ETA:2h52m35s]
+[#6cc878 896MiB/30GiB(2%) CN:16 DL:2.8MiB ETA:2h51m31s]
+[#6cc878 896MiB/30GiB(2%) CN:16 DL:2.6MiB ETA:3h7m30s]
+[#6cc878 900MiB/30GiB(2%) CN:16 DL:2.6MiB ETA:3h6m7s]
+[#6cc878 905MiB/30GiB(2%) CN:16 DL:2.7MiB ETA:2h57m39s]
+[#6cc878 909MiB/30GiB(2%) CN:16 DL:2.8MiB ETA:2h51m41s]
+[#6cc878 917MiB/30GiB(2%) CN:16 DL:3.4MiB ETA:2h23m20s]
+ *** Download Progress Summary as of Tue Jan  6 17:21:48 2026 *** 
+===============================================================================
+[#6cc878 921MiB/30GiB(2%) CN:16 DL:3.6MiB ETA:2h16m6s]
+FILE: data/voxceleb_hf/vox2/vox2_dev_mp4_partag
+-------------------------------------------------------------------------------
+
+[#6cc878 921MiB/30GiB(2%) CN:16 DL:3.6MiB ETA:2h16m6s]
+[#6cc878 0.9GiB/30GiB(3%) CN:16 DL:4.4MiB ETA:1h51m37s]
+[#6cc878 0.9GiB/30GiB(3%) CN:16 DL:4.8MiB ETA:1h42m57s]
+[#6cc878 0.9GiB/30GiB(3%) CN:16 DL:5.6MiB ETA:1h27m31s]
+[#6cc878 0.9GiB/30GiB(3%) CN:16 DL:6.5MiB ETA:1h15m41s]
+[#6cc878 0.9GiB/30GiB(3%) CN:16 DL:6.6MiB ETA:1h14m50s]
+[#6cc878 0.9GiB/30GiB(3%) CN:16 DL:7.4MiB ETA:1h6m45s]
+[#6cc878 0.9GiB/30GiB(3%) CN:16 DL:7.3MiB ETA:1h7m9s]
+[#6cc878 0.9GiB/30GiB(3%) CN:16 DL:8.2MiB ETA:1h16s]
+[#6cc878 0.9GiB/30GiB(3%) CN:16 DL:7.9MiB ETA:1h1m56s]
+[#6cc878 0.9GiB/30GiB(3%) CN:16 DL:7.9MiB ETA:1h1m55s]
+[#6cc878 0.9GiB/30GiB(3%) CN:16 DL:7.6MiB ETA:1h4m26s]
+[#6cc878 0.9GiB/30GiB(3%) CN:16 DL:7.8MiB ETA:1h3m4s]
+[#6cc878 1.0GiB/30GiB(3%) CN:16 DL:8.2MiB ETA:1h14s]
+[#6cc878 1.0GiB/30GiB(3%) CN:16 DL:8.4MiB ETA:58m27s]
+[#6cc878 1.0GiB/30GiB(3%) CN:16 DL:9.2MiB ETA:53m11s]
+[#6cc878 1.0GiB/30GiB(3%) CN:16 DL:8.9MiB ETA:54m58s]
+[#6cc878 1.0GiB/30GiB(3%) CN:16 DL:9.8MiB ETA:50m11s]
+[#6cc878 1.0GiB/30GiB(3%) CN:16 DL:9.5MiB ETA:51m42s]
+[#6cc878 1.0GiB/30GiB(3%) CN:16 DL:9.8MiB ETA:50m4s]
+[#6cc878 1.0GiB/30GiB(3%) CN:16 DL:10MiB ETA:47m40s]
+[#6cc878 1.0GiB/30GiB(3%) CN:16 DL:9.8MiB ETA:50m5s]
+[#6cc878 1.0GiB/30GiB(3%) CN:16 DL:9.7MiB ETA:50m21s]
+[#6cc878 1.1GiB/30GiB(3%) CN:16 DL:10MiB ETA:47m25s]
+[#6cc878 1.1GiB/30GiB(3%) CN:16 DL:9.5MiB ETA:51m28s]
+[#6cc878 1.1GiB/30GiB(3%) CN:16 DL:10MiB ETA:46m42s]
+[#6cc878 1.1GiB/30GiB(3%) CN:16 DL:10MiB ETA:48m11s]
+[#6cc878 1.1GiB/30GiB(3%) CN:16 DL:11MiB ETA:44m6s]
+[#6cc878 1.1GiB/30GiB(3%) CN:16 DL:11MiB ETA:42m56s]
+[#6cc878 1.1GiB/30GiB(3%) CN:16 DL:11MiB ETA:41m36s]
+[#6cc878 1.1GiB/30GiB(3%) CN:16 DL:11MiB ETA:42m52s]
+[#6cc878 1.1GiB/30GiB(3%) CN:16 DL:11MiB ETA:43m25s]
+[#6cc878 1.2GiB/30GiB(4%) CN:16 DL:10MiB ETA:45m17s]
+[#6cc878 1.2GiB/30GiB(4%) CN:16 DL:10MiB ETA:45m26s]
+[#6cc878 1.2GiB/30GiB(4%) CN:16 DL:10MiB ETA:48m41s]
+[#6cc878 1.2GiB/30GiB(4%) CN:16 DL:9.7MiB ETA:50m15s]
+[#6cc878 1.2GiB/30GiB(4%) CN:16 DL:9.6MiB ETA:50m41s]
+[#6cc878 1.2GiB/30GiB(4%) CN:16 DL:9.0MiB ETA:54m7s]
+[#6cc878 1.2GiB/30GiB(4%) CN:16 DL:8.9MiB ETA:54m52s]
+[#6cc878 1.2GiB/30GiB(4%) CN:16 DL:9.1MiB ETA:53m28s]
+[#6cc878 1.2GiB/30GiB(4%) CN:16 DL:10MiB ETA:47m4s]
+[#6cc878 1.3GiB/30GiB(4%) CN:16 DL:10MiB ETA:46m32s]
+[#6cc878 1.3GiB/30GiB(4%) CN:16 DL:11MiB ETA:43m18s]
+[#6cc878 1.3GiB/30GiB(4%) CN:16 DL:11MiB ETA:43m18s]
+[#6cc878 1.3GiB/30GiB(4%) CN:16 DL:11MiB ETA:44m4s]
+[#6cc878 1.3GiB/30GiB(4%) CN:16 DL:10MiB ETA:44m52s]
+[#6cc878 1.3GiB/30GiB(4%) CN:16 DL:10MiB ETA:45m49s]
+[#6cc878 1.3GiB/30GiB(4%) CN:16 DL:11MiB ETA:42m33s]
+[#6cc878 1.3GiB/30GiB(4%) CN:16 DL:11MiB ETA:41m7s]
+[#6cc878 1.3GiB/30GiB(4%) CN:16 DL:11MiB ETA:41m25s]
+[#6cc878 1.3GiB/30GiB(4%) CN:16 DL:10MiB ETA:47m46s]
+[#6cc878 1.4GiB/30GiB(4%) CN:16 DL:10MiB ETA:48m48s]
+[#6cc878 1.4GiB/30GiB(4%) CN:16 DL:8.9MiB ETA:54m26s]
+[#6cc878 1.4GiB/30GiB(4%) CN:16 DL:8.9MiB ETA:54m34s]
+[#6cc878 1.4GiB/30GiB(4%) CN:16 DL:9.3MiB ETA:52m5s]
+[#6cc878 1.4GiB/30GiB(4%) CN:16 DL:10MiB ETA:47m4s]
+[#6cc878 1.4GiB/30GiB(4%) CN:16 DL:9.8MiB ETA:49m34s]
+[#6cc878 1.4GiB/30GiB(4%) CN:16 DL:9.3MiB ETA:51m54s]
+[#6cc878 1.4GiB/30GiB(4%) CN:16 DL:8.1MiB ETA:59m29s]
+[#6cc878 1.4GiB/30GiB(4%) CN:16 DL:8.5MiB ETA:57m5s]
+ *** Download Progress Summary as of Tue Jan  6 17:22:49 2026 *** 
+===============================================================================
+[#6cc878 1.4GiB/30GiB(4%) CN:16 DL:8.3MiB ETA:57m57s]
+FILE: data/voxceleb_hf/vox2/vox2_dev_mp4_partag
+-------------------------------------------------------------------------------
+
+[#6cc878 1.4GiB/30GiB(4%) CN:16 DL:8.3MiB ETA:57m57s]
+[#6cc878 1.4GiB/30GiB(4%) CN:16 DL:8.9MiB ETA:54m19s]
+[#6cc878 1.4GiB/30GiB(4%) CN:16 DL:9.7MiB ETA:49m42s]
+[#6cc878 1.5GiB/30GiB(5%) CN:16 DL:9.6MiB ETA:50m34s]
+[#6cc878 1.5GiB/30GiB(5%) CN:16 DL:8.9MiB ETA:54m15s]
+[#6cc878 1.5GiB/30GiB(5%) CN:16 DL:8.9MiB ETA:54m27s]
+[#6cc878 1.5GiB/30GiB(5%) CN:16 DL:8.7MiB ETA:55m30s]
+[#6cc878 1.5GiB/30GiB(5%) CN:16 DL:8.8MiB ETA:54m54s]
+[#6cc878 1.5GiB/30GiB(5%) CN:16 DL:9.1MiB ETA:52m52s]
+[#6cc878 1.5GiB/30GiB(5%) CN:16 DL:9.0MiB ETA:53m22s]
+[#6cc878 1.5GiB/30GiB(5%) CN:16 DL:8.8MiB ETA:54m42s]
+[#6cc878 1.5GiB/30GiB(5%) CN:16 DL:9.0MiB ETA:53m49s]
+[#6cc878 1.5GiB/30GiB(5%) CN:16 DL:8.1MiB ETA:59m18s]
+[#6cc878 1.5GiB/30GiB(5%) CN:16 DL:8.6MiB ETA:56m14s]
+[#6cc878 1.6GiB/30GiB(5%) CN:16 DL:8.8MiB ETA:55m1s]
+[#6cc878 1.6GiB/30GiB(5%) CN:16 DL:8.7MiB ETA:55m37s]
+[#6cc878 1.6GiB/30GiB(5%) CN:16 DL:9.6MiB ETA:50m25s]
+[#6cc878 1.6GiB/30GiB(5%) CN:16 DL:9.8MiB ETA:49m5s]
+[#6cc878 1.6GiB/30GiB(5%) CN:16 DL:10MiB ETA:46m9s]
+[#6cc878 1.6GiB/30GiB(5%) CN:16 DL:11MiB ETA:42m29s]
+[#6cc878 1.6GiB/30GiB(5%) CN:16 DL:11MiB ETA:43m41s]
+[#6cc878 1.6GiB/30GiB(5%) CN:16 DL:11MiB ETA:42m46s]
+[#6cc878 1.6GiB/30GiB(5%) CN:16 DL:11MiB ETA:41m53s]
+[#6cc878 1.7GiB/30GiB(5%) CN:16 DL:11MiB ETA:41m40s]
+[#6cc878 1.7GiB/30GiB(5%) CN:16 DL:12MiB ETA:39m44s]
+[#6cc878 1.7GiB/30GiB(5%) CN:16 DL:12MiB ETA:39m21s]
+[#6cc878 1.7GiB/30GiB(5%) CN:16 DL:13MiB ETA:36m50s]
+[#6cc878 1.7GiB/30GiB(5%) CN:16 DL:13MiB ETA:36m31s]
+[#6cc878 1.7GiB/30GiB(5%) CN:16 DL:13MiB ETA:36m26s]
+[#6cc878 1.7GiB/30GiB(5%) CN:16 DL:14MiB ETA:34m21s]
+[#6cc878 1.8GiB/30GiB(6%) CN:16 DL:14MiB ETA:33m46s]
+[#6cc878 1.8GiB/30GiB(6%) CN:16 DL:15MiB ETA:31m30s]
+[#6cc878 1.8GiB/30GiB(6%) CN:16 DL:16MiB ETA:29m6s]
+[#6cc878 1.8GiB/30GiB(6%) CN:16 DL:16MiB ETA:28m47s]
+[#6cc878 1.8GiB/30GiB(6%) CN:16 DL:16MiB ETA:29m49s]
+[#6cc878 1.8GiB/30GiB(6%) CN:16 DL:15MiB ETA:31m1s]
+[#6cc878 1.8GiB/30GiB(6%) CN:16 DL:14MiB ETA:33m4s]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:13MiB ETA:34m46s]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:10MiB ETA:44m41s]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:9.1MiB ETA:52m12s]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:7.0MiB ETA:1h7m40s]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:4.5MiB ETA:1h45m30s]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:3.3MiB ETA:2h22m23s]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:2.0MiB ETA:3h58m38s]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:820KiB ETA:9h58m23s]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:131KiB ETA:62h20m48s]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:173KiB ETA:47h8m11s]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:516KiB ETA:15h50m1s]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:621KiB ETA:13h9m17s]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:735KiB ETA:11h7m45s]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:1.0MiB ETA:7h56m50s]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:1.2MiB ETA:6h12m30s]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:1.5MiB ETA:5h16m48s]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:2.1MiB ETA:3h43m55s]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:2.4MiB ETA:3h19m9s]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:2.6MiB ETA:3h2m59s]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:2.9MiB ETA:2h45m3s]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:2.7MiB ETA:2h57m21s]
+ *** Download Progress Summary as of Tue Jan  6 17:23:49 2026 *** 
+===============================================================================
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:2.7MiB ETA:2h51m39s]
+FILE: data/voxceleb_hf/vox2/vox2_dev_mp4_partag
+-------------------------------------------------------------------------------
+
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:2.7MiB ETA:2h51m39s]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:2.6MiB ETA:3h42s]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:3.1MiB ETA:2h31m51s]
+ *** Download Progress Summary as of Tue Jan  6 17:27:17 2026 *** 
+===============================================================================
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:0B]
+FILE: data/voxceleb_hf/vox2/vox2_dev_mp4_partag
+-------------------------------------------------------------------------------
+
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:0B]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:0B]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:0B]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:0B]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:0B]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:0B]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:0B]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:0B]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:0B]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:0B]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:0B]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:0B]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:0B]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:0B]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:0B]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:0B]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:0B]
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:0B]
+ *** Download Progress Summary as of Tue Jan  6 17:43:21 2026 *** 
+===============================================================================
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:0B]
+FILE: data/voxceleb_hf/vox2/vox2_dev_mp4_partag
+-------------------------------------------------------------------------------
+
+[#6cc878 1.9GiB/30GiB(6%) CN:16 DL:0B]
+
+01/06 17:43:21 [[1;31mERROR[0m] CUID#9 - Download aborted. URI=https://huggingface.co/datasets/ProgramComputer/voxceleb/resolve/main/vox2/vox2_dev_mp4_partag
+Exception: [AbstractCommand.cc:351] errorCode=1 URI=https://huggingface.co/datasets/ProgramComputer/voxceleb/resolve/main/vox2/vox2_dev_mp4_partag
+  -> [SocketCore.cc:507] errorCode=1 Failed to connect to the host 108.138.246.79, cause: Network is unreachable
+
+01/06 17:43:21 [[1;31mERROR[0m] CUID#10 - Download aborted. URI=https://huggingface.co/datasets/ProgramComputer/voxceleb/resolve/main/vox2/vox2_dev_mp4_partag
+Exception: [AbstractCommand.cc:351] errorCode=19 URI=https://huggingface.co/datasets/ProgramComputer/voxceleb/resolve/main/vox2/vox2_dev_mp4_partag
+  -> [NameResolver.cc:60] errorCode=19 Failed to resolve the hostname huggingface.co, cause: nodename nor servname provided, or not known
+
+01/06 17:43:21 [[1;31mERROR[0m] CUID#11 - Download aborted. URI=https://huggingface.co/datasets/ProgramComputer/voxceleb/resolve/main/vox2/vox2_dev_mp4_partag
+Exception: [AbstractCommand.cc:351] errorCode=19 URI=https://huggingface.co/datasets/ProgramComputer/voxceleb/resolve/main/vox2/vox2_dev_mp4_partag
+  -> [NameResolver.cc:60] errorCode=19 Failed to resolve the hostname huggingface.co, cause: nodename nor servname provided, or not known
+
+01/06 17:43:21 [[1;31mERROR[0m] CUID#12 - Download aborted. URI=https://huggingface.co/datasets/ProgramComputer/voxceleb/resolve/main/vox2/vox2_dev_mp4_partag
+Exception: [AbstractCommand.cc:351] errorCode=19 URI=https://huggingface.co/datasets/ProgramComputer/voxceleb/resolve/main/vox2/vox2_dev_mp4_partag
+  -> [NameResolver.cc:60] errorCode=19 Failed to resolve the hostname huggingface.co, cause: nodename nor servname provided, or not known
+
+01/06 17:43:21 [[1;31mERROR[0m] CUID#13 - Download aborted. URI=https://huggingface.co/datasets/ProgramComputer/voxceleb/resolve/main/vox2/vox2_dev_mp4_partag
+Exception: [AbstractCommand.cc:351] errorCode=19 URI=https://huggingface.co/datasets/ProgramComputer/voxceleb/resolve/main/vox2/vox2_dev_mp4_partag
+  -> [NameResolver.cc:60] errorCode=19 Failed to resolve the hostname huggingface.co, cause: nodename nor servname provided, or not known
+
+01/06 17:43:21 [[1;31mERROR[0m] CUID#14 - Download aborted. URI=https://huggingface.co/datasets/ProgramComputer/voxceleb/resolve/main/vox2/vox2_dev_mp4_partag
+Exception: [AbstractCommand.cc:351] errorCode=19 URI=https://huggingface.co/datasets/ProgramComputer/voxceleb/resolve/main/vox2/vox2_dev_mp4_partag
+  -> [NameResolver.cc:60] errorCode=19 Failed to resolve the hostname huggingface.co, cause: nodename nor servname provided, or not known
+
+01/06 17:43:21 [[1;31mERROR[0m] CUID#15 - Download aborted. URI=https://huggingface.co/datasets/ProgramComputer/voxceleb/resolve/main/vox2/vox2_dev_mp4_partag
+Exception: [AbstractCommand.cc:351] errorCode=19 URI=https://huggingface.co/datasets/ProgramComputer/voxceleb/resolve/main/vox2/vox2_dev_mp4_partag
+  -> [NameResolver.cc:60] errorCode=19 Failed to resolve the hostname huggingface.co, cause: nodename nor servname provided, or not known
+
+01/06 17:43:21 [[1;31mERROR[0m] CUID#16 - Download aborted. URI=https://huggingface.co/datasets/ProgramComputer/voxceleb/resolve/main/vox2/vox2_dev_mp4_partag
+Exception: [AbstractCommand.cc:351] errorCode=19 URI=https://huggingface.co/datasets/ProgramComputer/voxceleb/resolve/main/vox2/vox2_dev_mp4_partag
+  -> [NameResolver.cc:60] errorCode=19 Failed to resolve the hostname huggingface.co, cause: nodename nor servname provided, or not known
+
+01/06 17:43:21 [[1;31mERROR[0m] CUID#17 - Download aborted. URI=https://huggingface.co/datasets/ProgramComputer/voxceleb/resolve/main/vox2/vox2_dev_mp4_partag
+Exception: [AbstractCommand.cc:351] errorCode=19 URI=https://huggingface.co/datasets/ProgramComputer/voxceleb/resolve/main/vox2/vox2_dev_mp4_partag
+  -> [NameResolver.cc:60] errorCode=19 Failed to resolve the hostname huggingface.co, cause: nodename nor servname provided, or not known
+
+01/06 17:43:21 [[1;31mERROR[0m] CUID#18 - Download aborted. URI=https://huggingface.co/datasets/ProgramComputer/voxceleb/resolve/main/vox2/vox2_dev_mp4_partag
+Exception: [AbstractCommand.cc:351] errorCode=19 URI=https://huggingface.co/datasets/ProgramComputer/voxceleb/resolve/main/vox2/vox2_dev_mp4_partag
+  -> [NameResolver.cc:60] errorCode=19 Failed to resolve the hostname huggingface.co, cause: nodename nor servname provided, or not known
+
+01/06 17:43:21 [[1;31mERROR[0m] CUID#19 - Download aborted. URI=https://huggingface.co/datasets/ProgramComputer/voxceleb/resolve/main/vox2/vox2_dev_mp4_partag
+Exception: [AbstractCommand.cc:351] errorCode=19 URI=https://huggingface.co/datasets/ProgramComputer/voxceleb/resolve/main/vox2/vox2_dev_mp4_partag
+  -> [NameResolver.cc:60] errorCode=19 Failed to resolve the hostname huggingface.co, cause: nodename nor servname provided, or not known
+
+01/06 17:43:21 [[1;31mERROR[0m] CUID#20 - Download aborted. URI=https://huggingface.co/datasets/ProgramComputer/voxceleb/resolve/main/vox2/vox2_dev_mp4_partag
+Exception: [AbstractCommand.cc:351] errorCode=19 URI=https://huggingface.co/datasets/ProgramComputer/voxceleb/resolve/main/vox2/vox2_dev_mp4_partag
+  -> [NameResolver.cc:60] errorCode=19 Failed to resolve the hostname huggingface.co, cause: nodename nor servname provided, or not known
+
+01/06 17:43:21 [[1;31mERROR[0m] CUID#21 - Download aborted. URI=https://huggingface.co/datasets/ProgramComputer/voxceleb/resolve/main/vox2/vox2_dev_mp4_partag
+Exception: [AbstractCommand.cc:351] errorCode=19 URI=https://huggingface.co/datasets/ProgramComputer/voxceleb/resolve/main/vox2/vox2_dev_mp4_partag
+  -> [NameResolver.cc:60] errorCode=19 Failed to resolve the hostname huggingface.co, cause: nodename nor servname provided, or not known
+
+01/06 17:43:21 [[1;31mERROR[0m] CUID#22 - Download aborted. URI=https://huggingface.co/datasets/ProgramComputer/voxceleb/resolve/main/vox2/vox2_dev_mp4_partag
+Exception: [AbstractCommand.cc:351] errorCode=19 URI=https://huggingface.co/datasets/ProgramComputer/voxceleb/resolve/main/vox2/vox2_dev_mp4_partag
+  -> [NameResolver.cc:60] errorCode=19 Failed to resolve the hostname huggingface.co, cause: nodename nor servname provided, or not known
+
+01/06 17:43:21 [[1;31mERROR[0m] CUID#7 - Download aborted. URI=https://huggingface.co/datasets/ProgramComputer/voxceleb/resolve/main/vox2/vox2_dev_mp4_partag
+Exception: [AbstractCommand.cc:351] errorCode=19 URI=https://huggingface.co/datasets/ProgramComputer/voxceleb/resolve/main/vox2/vox2_dev_mp4_partag
+  -> [NameResolver.cc:60] errorCode=19 Failed to resolve the hostname huggingface.co, cause: nodename nor servname provided, or not known
+
+01/06 17:43:21 [[1;31mERROR[0m] CUID#8 - Download aborted. URI=https://huggingface.co/datasets/ProgramComputer/voxceleb/resolve/main/vox2/vox2_dev_mp4_partag
+Exception: [AbstractCommand.cc:351] errorCode=19 URI=https://huggingface.co/datasets/ProgramComputer/voxceleb/resolve/main/vox2/vox2_dev_mp4_partag
+  -> [NameResolver.cc:60] errorCode=19 Failed to resolve the hostname huggingface.co, cause: nodename nor servname provided, or not known
+
+01/06 17:43:21 [[1;32mNOTICE[0m] Download GID#6cc878d0041f0fab not complete: data/voxceleb_hf/vox2/vox2_dev_mp4_partag
+
+Download Results:
+gid   |stat|avg speed  |path/URI
+======+====+===========+=======================================================
+6cc878|ERR |   1.3MiB/s|data/voxceleb_hf/vox2/vox2_dev_mp4_partag
+
+Status Legend:
+(ERR):error occurred.
+
+aria2 will resume download if the transfer is restarted.
+If there are any errors, then see the log file. See '-l' option in help/man page for details.
+
+01/06 17:43:21 [[1;32mNOTICE[0m] Downloading 1 item(s)
+
+01/06 17:43:21 [[1;31mERROR[0m] CUID#7 - Download aborted. URI=https://huggingface.co/datasets/ProgramComputer/voxceleb/resolve/main/vox2/vox2_dev_mp4_partah
+Exception: [AbstractCommand.cc:351] errorCode=19 URI=https://huggingface.co/datasets/ProgramComputer/voxceleb/resolve/main/vox2/vox2_dev_mp4_partah
+  -> [NameResolver.cc:60] errorCode=19 Failed to resolve the hostname huggingface.co, cause: nodename nor servname provided, or not known
+
+01/06 17:43:21 [[1;32mNOTICE[0m] Download GID#6e902e9447d5c4b7 not complete: data/voxceleb_hf/vox2/vox2_dev_mp4_partah
+
+Download Results:
+gid   |stat|avg speed  |path/URI
+======+====+===========+=======================================================
+6e902e|ERR |        n/a|data/voxceleb_hf/vox2/vox2_dev_mp4_partah
+
+Status Legend:
+(ERR):error occurred.
+
+aria2 will resume download if the transfer is restarted.
+If there are any errors, then see the log file. See '-l' option in help/man page for details.
+
+01/06 17:43:21 [[1;32mNOTICE[0m] Downloading 1 item(s)
+
+01/06 17:43:21 [[1;31mERROR[0m] CUID#7 - Download aborted. URI=https://huggingface.co/datasets/ProgramComputer/voxceleb/resolve/main/vox2/vox2_test_mp4.zip
+Exception: [AbstractCommand.cc:351] errorCode=19 URI=https://huggingface.co/datasets/ProgramComputer/voxceleb/resolve/main/vox2/vox2_test_mp4.zip
+  -> [NameResolver.cc:60] errorCode=19 Failed to resolve the hostname huggingface.co, cause: nodename nor servname provided, or not known
+
+01/06 17:43:21 [[1;32mNOTICE[0m] Download GID#0ada00be4858317c not complete: data/voxceleb_hf/vox2/vox2_test_mp4.zip
+
+Download Results:
+gid   |stat|avg speed  |path/URI
+======+====+===========+=======================================================
+0ada00|ERR |        n/a|data/voxceleb_hf/vox2/vox2_test_mp4.zip
+
+Status Legend:
+(ERR):error occurred.
+
+aria2 will resume download if the transfer is restarted.
+If there are any errors, then see the log file. See '-l' option in help/man page for details.
+Found 17 existing files
+Need to download 4 files:
+  - vox2/vox2_test_txt.zip
+  - vox2/vox2_dev_mp4_partag
+  - vox2/vox2_dev_mp4_partah
+  - vox2/vox2_test_mp4.zip
+Downloading: vox2_test_txt.zip
+OK: vox2/vox2_test_txt.zip
+Downloading: vox2_dev_mp4_partag
+FAILED: vox2/vox2_dev_mp4_partag
+Downloading: vox2_dev_mp4_partah
+FAILED: vox2/vox2_dev_mp4_partah
+Downloading: vox2_test_mp4.zip
+FAILED: vox2/vox2_test_mp4.zip
+
+3 files failed:
+  - vox2/vox2_dev_mp4_partag
+  - vox2/vox2_dev_mp4_partah
+  - vox2/vox2_test_mp4.zip

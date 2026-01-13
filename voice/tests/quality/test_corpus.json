@@ -1,0 +1,122 @@
+{
+  "description": "LLM-as-Judge Test Corpus - sentences for quality evaluation with difficult cases",
+  "version": "2.0.0",
+  "created": "2025-12-05",
+  "updated": "2025-12-05",
+  "difficult_cases": {
+    "numbers": [
+      {"id": "num_01", "text": "The server processed 1,234,567 requests in 2.5 hours.", "category": "numbers", "lang": "en"},
+      {"id": "num_02", "text": "Version 3.14.159 was released on 2025-12-05.", "category": "numbers", "lang": "en"},
+      {"id": "num_03", "text": "The total cost is $42.99 plus 8.25% tax.", "category": "numbers", "lang": "en"},
+      {"id": "num_04", "text": "Error code 404 occurred at 14:32:15 UTC.", "category": "numbers", "lang": "en"},
+      {"id": "num_05", "text": "File size is 2.7 gigabytes across 15,000 files.", "category": "numbers", "lang": "en"}
+    ],
+    "acronyms": [
+      {"id": "acr_01", "text": "The API returns JSON via HTTP with TLS encryption.", "category": "acronyms", "lang": "en"},
+      {"id": "acr_02", "text": "Install the SDK for iOS and macOS development.", "category": "acronyms", "lang": "en"},
+      {"id": "acr_03", "text": "Configure DNS, SSL, and CDN settings in AWS.", "category": "acronyms", "lang": "en"},
+      {"id": "acr_04", "text": "The CPU and GPU utilization reached 95% during ML training.", "category": "acronyms", "lang": "en"},
+      {"id": "acr_05", "text": "Use REST or gRPC for the microservice API.", "category": "acronyms", "lang": "en"}
+    ],
+    "punctuation": [
+      {"id": "punc_01", "text": "Wait... what? That's impossible!", "category": "punctuation", "lang": "en"},
+      {"id": "punc_02", "text": "The options are: red, blue, or green.", "category": "punctuation", "lang": "en"},
+      {"id": "punc_03", "text": "Hello (yes, really) -- this is a test.", "category": "punctuation", "lang": "en"},
+      {"id": "punc_04", "text": "Is it working? Yes! No... Maybe?", "category": "punctuation", "lang": "en"},
+      {"id": "punc_05", "text": "Step 1: open file; Step 2: edit content; Step 3: save.", "category": "punctuation", "lang": "en"}
+    ],
+    "mixed_content": [
+      {"id": "mix_01", "text": "Download v2.0.1 from https://example.com/file.zip now!", "category": "mixed", "lang": "en"},
+      {"id": "mix_02", "text": "Email support@company.io for 24/7 assistance.", "category": "mixed", "lang": "en"},
+      {"id": "mix_03", "text": "The function foo_bar() returns null if x < 0.", "category": "mixed", "lang": "en"},
+      {"id": "mix_04", "text": "Press Ctrl+C to copy or Cmd+V to paste.", "category": "mixed", "lang": "en"},
+      {"id": "mix_05", "text": "Run ./build.sh --target=release -j8 for faster builds.", "category": "mixed", "lang": "en"}
+    ]
+  },
+  "sentences": {
+    "en": [
+      {"id": "en_01", "text": "The function was successfully refactored.", "category": "technical"},
+      {"id": "en_02", "text": "All tests passed without any errors.", "category": "technical"},
+      {"id": "en_03", "text": "Hello, world! This is a test.", "category": "greeting"},
+      {"id": "en_04", "text": "The quick brown fox jumps over the lazy dog.", "category": "pangram"},
+      {"id": "en_05", "text": "Please review the pull request and leave your comments.", "category": "technical"},
+      {"id": "en_06", "text": "The server response time is within acceptable limits.", "category": "technical"},
+      {"id": "en_07", "text": "Good morning! How can I assist you today?", "category": "greeting"},
+      {"id": "en_08", "text": "The deployment was completed successfully.", "category": "technical"},
+      {"id": "en_09", "text": "There are three bugs that need to be fixed.", "category": "technical"},
+      {"id": "en_10", "text": "Thank you for your patience during this update.", "category": "polite"}
+    ],
+    "ja": [
+      {"id": "ja_01", "text": "関数のリファクタリングが完了しました。", "category": "technical"},
+      {"id": "ja_02", "text": "すべてのテストが成功しました。", "category": "technical"},
+      {"id": "ja_03", "text": "こんにちは、世界！これはテストです。", "category": "greeting"},
+      {"id": "ja_04", "text": "いろはにほへとちりぬるを", "category": "pangram"},
+      {"id": "ja_05", "text": "プルリクエストを確認してコメントをお願いします。", "category": "technical"},
+      {"id": "ja_06", "text": "サーバーの応答時間は許容範囲内です。", "category": "technical"},
+      {"id": "ja_07", "text": "おはようございます。お手伝いしましょうか？", "category": "greeting"},
+      {"id": "ja_08", "text": "デプロイメントは正常に完了しました。", "category": "technical"},
+      {"id": "ja_09", "text": "修正が必要なバグが三つあります。", "category": "technical"},
+      {"id": "ja_10", "text": "お待ちいただきありがとうございます。", "category": "polite"}
+    ],
+    "zh": [
+      {"id": "zh_01", "text": "函数重构已成功完成。", "category": "technical"},
+      {"id": "zh_02", "text": "所有测试均已通过。", "category": "technical"},
+      {"id": "zh_03", "text": "你好，世界！这是一个测试。", "category": "greeting"},
+      {"id": "zh_04", "text": "天地玄黄，宇宙洪荒。", "category": "classical"},
+      {"id": "zh_05", "text": "请审查拉取请求并留下评论。", "category": "technical"},
+      {"id": "zh_06", "text": "服务器响应时间在可接受范围内。", "category": "technical"},
+      {"id": "zh_07", "text": "早上好！我能帮您什么吗？", "category": "greeting"},
+      {"id": "zh_08", "text": "部署已成功完成。", "category": "technical"},
+      {"id": "zh_09", "text": "有三个错误需要修复。", "category": "technical"},
+      {"id": "zh_10", "text": "感谢您的耐心等待。", "category": "polite"}
+    ],
+    "es": [
+      {"id": "es_01", "text": "La función fue refactorizada exitosamente.", "category": "technical"},
+      {"id": "es_02", "text": "Todas las pruebas pasaron sin errores.", "category": "technical"},
+      {"id": "es_03", "text": "¡Hola, mundo! Esto es una prueba.", "category": "greeting"},
+      {"id": "es_04", "text": "El veloz murciélago hindú comía feliz cardillo.", "category": "pangram"},
+      {"id": "es_05", "text": "Por favor revise la solicitud y deje sus comentarios.", "category": "technical"},
+      {"id": "es_06", "text": "El tiempo de respuesta del servidor está dentro de límites aceptables.", "category": "technical"},
+      {"id": "es_07", "text": "¡Buenos días! ¿En qué puedo ayudarle hoy?", "category": "greeting"},
+      {"id": "es_08", "text": "El despliegue se completó exitosamente.", "category": "technical"},
+      {"id": "es_09", "text": "Hay tres errores que necesitan ser corregidos.", "category": "technical"},
+      {"id": "es_10", "text": "Gracias por su paciencia durante esta actualización.", "category": "polite"}
+    ],
+    "fr": [
+      {"id": "fr_01", "text": "La fonction a été refactorisée avec succès.", "category": "technical"},
+      {"id": "fr_02", "text": "Tous les tests sont passés sans erreurs.", "category": "technical"},
+      {"id": "fr_03", "text": "Bonjour, le monde! Ceci est un test.", "category": "greeting"},
+      {"id": "fr_04", "text": "Portez ce vieux whisky au juge blond qui fume.", "category": "pangram"},
+      {"id": "fr_05", "text": "Veuillez examiner la demande et laisser vos commentaires.", "category": "technical"},
+      {"id": "fr_06", "text": "Le temps de réponse du serveur est dans les limites acceptables.", "category": "technical"},
+      {"id": "fr_07", "text": "Bonjour! Comment puis-je vous aider aujourd'hui?", "category": "greeting"},
+      {"id": "fr_08", "text": "Le déploiement a été complété avec succès.", "category": "technical"},
+      {"id": "fr_09", "text": "Il y a trois bugs à corriger.", "category": "technical"},
+      {"id": "fr_10", "text": "Merci de votre patience pendant cette mise à jour.", "category": "polite"}
+    ],
+    "ko": [
+      {"id": "ko_01", "text": "함수 리팩토링이 완료되었습니다.", "category": "technical", "notes": "espeak-ng G2P, no native Kokoro voice"},
+      {"id": "ko_02", "text": "모든 테스트가 성공했습니다.", "category": "technical"},
+      {"id": "ko_03", "text": "안녕하세요, 세계! 이것은 테스트입니다.", "category": "greeting"},
+      {"id": "ko_04", "text": "키스의 고유 조건은 입술끼리 만나야 한다.", "category": "pangram"},
+      {"id": "ko_05", "text": "풀 리퀘스트를 검토하고 코멘트를 남겨주세요.", "category": "technical"},
+      {"id": "ko_06", "text": "서버 응답 시간이 허용 범위 내입니다.", "category": "technical"},
+      {"id": "ko_07", "text": "안녕하세요! 무엇을 도와드릴까요?", "category": "greeting"},
+      {"id": "ko_08", "text": "배포가 성공적으로 완료되었습니다.", "category": "technical"},
+      {"id": "ko_09", "text": "수정이 필요한 버그가 세 개 있습니다.", "category": "technical"},
+      {"id": "ko_10", "text": "업데이트 중 기다려 주셔서 감사합니다.", "category": "polite"}
+    ],
+    "yi": [
+      {"id": "yi_01", "text": "די פֿונקציע איז ריפאַקטאָרד געוואָרן.", "category": "technical", "notes": "Hebrew G2P, English voice fallback"},
+      {"id": "yi_02", "text": "אַלע טעסטס האָבן באַשטאַנען.", "category": "technical"},
+      {"id": "yi_03", "text": "שלום וועלט! דאָס איז אַ טעסט.", "category": "greeting"},
+      {"id": "yi_04", "text": "דער שנעלער ברוינער פֿוקס שפּרינגט איבער דעם פֿויל הונט.", "category": "pangram"},
+      {"id": "yi_05", "text": "ביטע באַטראַכט די בקשה און לאָז אייער באַמערקונג.", "category": "technical"},
+      {"id": "yi_06", "text": "די סערווער ענטפֿער צייט איז אין די אַקסעפּטאַבל גרענעצן.", "category": "technical"},
+      {"id": "yi_07", "text": "גוט מאָרגן! ווי קען איך אייך העלפֿן?", "category": "greeting"},
+      {"id": "yi_08", "text": "די דיפּלוימענט איז סאַקסעספֿול פֿאַרענדיקט געוואָרן.", "category": "technical"},
+      {"id": "yi_09", "text": "עס זענען דרײַ באַגס וואָס דאַרפֿן רעפּאַרירט ווערן.", "category": "technical"},
+      {"id": "yi_10", "text": "דאַנק אייך פֿאַר אייער געדולד בעת דעם אַפּדייט.", "category": "polite"}
+    ]
+  }
+}

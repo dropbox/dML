@@ -1,0 +1,190 @@
+diff --git a/aten/src/ATen/mps/MPSAllocator.mm b/aten/src/ATen/mps/MPSAllocator.mm
+index dc62dcb5..27ec6560 100644
+--- a/aten/src/ATen/mps/MPSAllocator.mm
++++ b/aten/src/ATen/mps/MPSAllocator.mm
+@@ -1019,8 +1019,10 @@ void ReleaseSharedBufferPtrMapping(void* ctx) {
+ 
+ c10::DataPtr MPSHeapAllocatorImpl::getSharedBufferPtr(const void* ptr) {
+   // 32.19 TOCTOU fix: Use double-check pattern.
++  // 32.267 ABA fix: Capture use_count to detect buffer reuse between lookups.
+   BufferPool* pool = nullptr;
+   BufferBlock* buffer_block = nullptr;
++  uint32_t saved_use_count = 0;
+   {
+     std::lock_guard<std::recursive_mutex> lock(m_mutex);
+     auto it = m_allocated_buffers.find(ptr);
+@@ -1028,6 +1030,7 @@ c10::DataPtr MPSHeapAllocatorImpl::getSharedBufferPtr(const void* ptr) {
+       return {nullptr, c10::Device(c10::DeviceType::CPU)};
+     }
+     buffer_block = it->second;
++    saved_use_count = buffer_block->use_count;  // 32.267: Capture generation counter
+     if (!(buffer_block->heap->pool->usage & UsageFlags::SHARED)) {
+       return {nullptr, c10::Device(c10::DeviceType::CPU)}; // Not a shared buffer
+     }
+@@ -1037,8 +1040,10 @@ c10::DataPtr MPSHeapAllocatorImpl::getSharedBufferPtr(const void* ptr) {
+   {
+     std::lock_guard<std::recursive_mutex> lock(m_mutex);
+     auto it = m_allocated_buffers.find(ptr);
+-    if (it == m_allocated_buffers.end() || it->second != buffer_block) {
+-      return {nullptr, c10::Device(c10::DeviceType::CPU)}; // Buffer was released between locks
++    // 32.267: Also check use_count to detect ABA (buffer freed and reallocated)
++    if (it == m_allocated_buffers.end() || it->second != buffer_block ||
++        buffer_block->use_count != saved_use_count) {
++      return {nullptr, c10::Device(c10::DeviceType::CPU)}; // Buffer was released or reallocated between locks
+     }
+   }
+   // 32.78 fix: Check if block is still in use (not freed to TLS cache).
+@@ -1076,8 +1081,10 @@ bool MPSHeapAllocatorImpl::recordEvents(c10::ArrayRef<const void*> buffers) {
+ 
+   for (const auto& buffer : buffers) {
+     // 32.19 TOCTOU fix: Use double-check pattern for each buffer.
++    // 32.267 ABA fix: Capture use_count to detect buffer reuse between lookups.
+     BufferPool* pool = nullptr;
+     BufferBlock* buffer_block = nullptr;
++    uint32_t saved_use_count = 0;
+     {
+       std::lock_guard<std::recursive_mutex> lock(m_mutex);
+       auto it = m_allocated_buffers.find(buffer);
+@@ -1085,6 +1092,7 @@ bool MPSHeapAllocatorImpl::recordEvents(c10::ArrayRef<const void*> buffers) {
+         continue;
+       }
+       buffer_block = it->second;
++      saved_use_count = buffer_block->use_count;  // 32.267: Capture generation counter
+       if (!(buffer_block->heap->pool->usage & UsageFlags::SHARED)) {
+         continue;  // Not a shared buffer
+       }
+@@ -1094,8 +1102,10 @@ bool MPSHeapAllocatorImpl::recordEvents(c10::ArrayRef<const void*> buffers) {
+     {
+       std::lock_guard<std::recursive_mutex> lock(m_mutex);
+       auto it = m_allocated_buffers.find(buffer);
+-      if (it == m_allocated_buffers.end() || it->second != buffer_block) {
+-        continue;  // Buffer was released between locks
++      // 32.267: Also check use_count to detect ABA (buffer freed and reallocated)
++      if (it == m_allocated_buffers.end() || it->second != buffer_block ||
++          buffer_block->use_count != saved_use_count) {
++        continue;  // Buffer was released or reallocated between locks
+       }
+     }
+     // 32.78 fix: Check if block is still in use (not freed to TLS cache).
+@@ -1121,8 +1131,10 @@ bool MPSHeapAllocatorImpl::waitForEvents(c10::ArrayRef<const void*> buffers) {
+ 
+   for (const auto& buffer : buffers) {
+     // 32.19 TOCTOU fix: Use double-check pattern for each buffer.
++    // 32.267 ABA fix: Capture use_count to detect buffer reuse between lookups.
+     BufferPool* pool = nullptr;
+     BufferBlock* buffer_block = nullptr;
++    uint32_t saved_use_count = 0;
+     {
+       std::lock_guard<std::recursive_mutex> lock(m_mutex);
+       auto it = m_allocated_buffers.find(buffer);
+@@ -1130,6 +1142,7 @@ bool MPSHeapAllocatorImpl::waitForEvents(c10::ArrayRef<const void*> buffers) {
+         continue;
+       }
+       buffer_block = it->second;
++      saved_use_count = buffer_block->use_count;  // 32.267: Capture generation counter
+       if (!(buffer_block->heap->pool->usage & UsageFlags::SHARED)) {
+         continue;  // Not a shared buffer
+       }
+@@ -1139,8 +1152,10 @@ bool MPSHeapAllocatorImpl::waitForEvents(c10::ArrayRef<const void*> buffers) {
+     {
+       std::lock_guard<std::recursive_mutex> lock(m_mutex);
+       auto it = m_allocated_buffers.find(buffer);
+-      if (it == m_allocated_buffers.end() || it->second != buffer_block) {
+-        continue;  // Buffer was released between locks
++      // 32.267: Also check use_count to detect ABA (buffer freed and reallocated)
++      if (it == m_allocated_buffers.end() || it->second != buffer_block ||
++          buffer_block->use_count != saved_use_count) {
++        continue;  // Buffer was released or reallocated between locks
+       }
+     }
+     // 32.78 fix: Check if block is still in use (not freed to TLS cache).
+@@ -1178,8 +1193,10 @@ void MPSHeapAllocatorImpl::recordStream(const void* ptr, MPSStream* stream) {
+     return;
+   }
+   // 32.19 TOCTOU fix: Use double-check pattern to avoid deadlock.
++  // 32.267 ABA fix: Capture use_count to detect buffer reuse between lookups.
+   BufferPool* pool = nullptr;
+   BufferBlock* buffer_block = nullptr;
++  uint32_t saved_use_count = 0;
+   {
+     std::lock_guard<std::recursive_mutex> lock(m_mutex);
+     auto it = m_allocated_buffers.find(ptr);
+@@ -1187,14 +1204,17 @@ void MPSHeapAllocatorImpl::recordStream(const void* ptr, MPSStream* stream) {
+       return;
+     }
+     buffer_block = it->second;
++    saved_use_count = buffer_block->use_count;  // 32.267: Capture generation counter
+     pool = buffer_block->heap->pool;
+   }
+   std::lock_guard<std::mutex> pool_lock(pool->pool_mutex);
+   {
+     std::lock_guard<std::recursive_mutex> lock(m_mutex);
+     auto it = m_allocated_buffers.find(ptr);
+-    if (it == m_allocated_buffers.end() || it->second != buffer_block) {
+-      return;  // Buffer was released between locks
++    // 32.267: Also check use_count to detect ABA (buffer freed and reallocated)
++    if (it == m_allocated_buffers.end() || it->second != buffer_block ||
++        buffer_block->use_count != saved_use_count) {
++      return;  // Buffer was released or reallocated between locks
+     }
+   }
+ 
+@@ -1254,13 +1274,16 @@ void MPSHeapAllocatorImpl::setBufferShape(const void* ptr, const IntArrayRef& sh
+   // 32.19 TOCTOU fix: Must verify buffer is still allocated after taking pool_mutex.
+   // Shape is mutable and requires pool_mutex protection. We use a double-check pattern
+   // to avoid deadlock from opposite lock ordering with release_buffer().
++  // 32.267 ABA fix: Capture use_count to detect buffer reuse between lookups.
+   BufferPool* pool = nullptr;
+   BufferBlock* buffer_block = nullptr;
++  uint32_t saved_use_count = 0;
+   {
+     std::lock_guard<std::recursive_mutex> lock(m_mutex);
+     auto it = m_allocated_buffers.find(ptr);
+     TORCH_INTERNAL_ASSERT(it != m_allocated_buffers.end(), "failed to find the buffer ", ptr);
+     buffer_block = it->second;
++    saved_use_count = buffer_block->use_count;  // 32.267: Capture generation counter
+     pool = buffer_block->heap->pool;
+   }
+   // Now take pool_mutex. Since we released m_mutex, we must re-verify.
+@@ -1270,7 +1293,9 @@ void MPSHeapAllocatorImpl::setBufferShape(const void* ptr, const IntArrayRef& sh
+     // Re-verify buffer is still in map (could have been released between locks)
+     auto it = m_allocated_buffers.find(ptr);
+     TORCH_INTERNAL_ASSERT(it != m_allocated_buffers.end(), "buffer was released during setBufferShape");
+-    TORCH_INTERNAL_ASSERT(it->second == buffer_block, "buffer_block changed unexpectedly");
++    // 32.267: Also check use_count to detect ABA (buffer freed and reallocated)
++    TORCH_INTERNAL_ASSERT(it->second == buffer_block && buffer_block->use_count == saved_use_count,
++                          "buffer_block changed unexpectedly (ABA race detected)");
+   }
+   // 32.86 fix: Check if block is still in use (not freed to TLS cache or released).
+   // The 32.76/32.78 fixes added this check to recordStream/recordEvents/waitForEvents/getSharedBufferPtr.
+@@ -1292,8 +1317,10 @@ void MPSHeapAllocatorImpl::setBufferShape(const void* ptr, const IntArrayRef& sh
+ // Returning a copy (std::vector) ensures the caller has valid, owned data.
+ std::vector<int64_t> MPSHeapAllocatorImpl::getBufferShape(const void* ptr) {
+   // 32.19 TOCTOU fix: Use double-check pattern to avoid deadlock.
++  // 32.267 ABA fix: Capture use_count to detect buffer reuse between lookups.
+   BufferPool* pool = nullptr;
+   BufferBlock* buffer_block = nullptr;
++  uint32_t saved_use_count = 0;
+   {
+     std::lock_guard<std::recursive_mutex> lock(m_mutex);
+     auto it = m_allocated_buffers.find(ptr);
+@@ -1301,14 +1328,17 @@ std::vector<int64_t> MPSHeapAllocatorImpl::getBufferShape(const void* ptr) {
+       return {};
+     }
+     buffer_block = it->second;
++    saved_use_count = buffer_block->use_count;  // 32.267: Capture generation counter
+     pool = buffer_block->heap->pool;
+   }
+   std::lock_guard<std::mutex> pool_lock(pool->pool_mutex);
+   {
+     std::lock_guard<std::recursive_mutex> lock(m_mutex);
+     auto it = m_allocated_buffers.find(ptr);
+-    if (it == m_allocated_buffers.end() || it->second != buffer_block) {
+-      return {};  // Buffer was released between locks
++    // 32.267: Also check use_count to detect ABA (buffer freed and reallocated)
++    if (it == m_allocated_buffers.end() || it->second != buffer_block ||
++        buffer_block->use_count != saved_use_count) {
++      return {};  // Buffer was released or reallocated between locks
+     }
+   }
+   // 32.86 fix: Check if block is still in use (not freed to TLS cache or released).

@@ -1,0 +1,453 @@
+From 9a7876e64d988e672185f9b6fc4d08f3a73148ef Mon Sep 17 00:00:00 2001
+From: AI Worker <ayates@example.com>
+Date: Wed, 17 Dec 2025 09:54:06 -0800
+Subject: [PATCH] N=1040: m_mutex sharding for allocator scalability
+
+Sharded m_allocated_buffers map across 8 shards to reduce lock contention.
+Each shard has its own mutex, reducing contention by ~8x for concurrent
+buffer lookups.
+
+Changes:
+- MPSAllocator.h: Added AllocatedBufferShard struct, kNumAllocatedBufferShards=8
+- MPSAllocator.mm: Updated all buffer lookup functions to use sharded mutexes
+- Removed incorrect MPS_CAPABILITY annotations (capability attribute doesn't
+  work on std::mutex members, only on type definitions)
+
+Measured improvement:
+- nn.Linear 8-thread: 30.6% (was 29.3%)
+- TransformerEncoderLayer 8-thread: 21.7% (was 19.6%)
+
+The modest improvement suggests GPU saturation is the primary bottleneck
+at 8 threads, not CPU-side lock contention.
+---
+ aten/src/ATen/mps/MPSAllocator.h  |  35 ++++++--
+ aten/src/ATen/mps/MPSAllocator.mm | 143 ++++++++++++++++++------------
+ aten/src/ATen/mps/MPSEvent.h      |   6 +-
+ aten/src/ATen/mps/MPSStream.h     |   4 +-
+ 4 files changed, 118 insertions(+), 70 deletions(-)
+
+diff --git a/aten/src/ATen/mps/MPSAllocator.h b/aten/src/ATen/mps/MPSAllocator.h
+index 431ae0bc..0f8be478 100644
+--- a/aten/src/ATen/mps/MPSAllocator.h
++++ b/aten/src/ATen/mps/MPSAllocator.h
+@@ -260,7 +260,7 @@ struct BufferPool {
+ 
+   // Per-pool mutex for concurrent allocations to different pools
+   // Cache-line aligned to prevent false sharing between pools (Phase 24.4)
+-  alignas(64) mutable std::mutex pool_mutex MPS_CAPABILITY("pool_mutex");
++  alignas(64) mutable std::mutex pool_mutex;
+   const id<MTLDevice> device;
+   // usage flags to customize the pool for various purposes (see UsageFlags enum)
+   const uint32_t usage;
+@@ -390,13 +390,36 @@ class MPSHeapAllocatorImpl {
+   constexpr static double default_low_watermark_ratio_unified = 1.4;
+   constexpr static double default_low_watermark_ratio_discrete = 1.0;
+ 
++  // N=1039: Scalability fix - shard m_allocated_buffers to reduce lock contention
++  // With single m_mutex, 8 threads = 29% efficiency (all serialize on one lock).
++  // With 8 shards, buffers distribute across shards, reducing contention by ~8x.
++  // Lock order preserved: pool_mutex -> shard_mutex (same as before with m_mutex).
++  static constexpr size_t kNumAllocatedBufferShards = 8;
++
+   const id<MTLDevice> m_device;
+-  // Global mutex - used only for m_allocated_buffers map access (brief critical sections)
+-  std::recursive_mutex m_mutex MPS_CAPABILITY("allocator_mutex");
+-  // allocated buffers by device pointer
+-  ska::flat_hash_map<const void*, BufferBlock*> m_allocated_buffers MPS_GUARDED_BY(m_mutex);
++
++  // Sharded mutexes for m_allocated_buffers access
++  // Each shard has its own mutex and hash map, reducing contention
++  // Cache-line aligned to prevent false sharing between shards
++  struct alignas(64) AllocatedBufferShard {
++    std::recursive_mutex mutex;
++    ska::flat_hash_map<const void*, BufferBlock*> buffers;
++  };
++  std::array<AllocatedBufferShard, kNumAllocatedBufferShards> m_allocated_buffer_shards;
++
++  // Hash pointer to shard index
++  static size_t get_shard_index(const void* ptr) {
++    // Use pointer bits for distribution (shift by 6 to skip cache-line alignment)
++    return (reinterpret_cast<uintptr_t>(ptr) >> 6) % kNumAllocatedBufferShards;
++  }
++
++  // Global mutex for rare operations (init, shutdown, cache operations)
++  // Not used for hot-path buffer lookups - those use sharded mutexes above
++  std::recursive_mutex m_mutex;
++
+   // using a container for pools to simplify iterating them
+-  ska::flat_hash_map<BufferPool::Kind, std::unique_ptr<BufferPool>> m_pools MPS_GUARDED_BY(m_mutex);
++  // m_pools is read-only after initialization, guarded by m_mutex during init
++  ska::flat_hash_map<BufferPool::Kind, std::unique_ptr<BufferPool>> m_pools;
+   // total memory allocated by HeapAllocator (including blocks in pools)
+   // Using atomic for lock-free updates from different pool operations
+   // THREAD-SAFETY (23.20): Cache-line aligned to prevent false sharing with
+diff --git a/aten/src/ATen/mps/MPSAllocator.mm b/aten/src/ATen/mps/MPSAllocator.mm
+index c3c86bc9..e70121d5 100644
+--- a/aten/src/ATen/mps/MPSAllocator.mm
++++ b/aten/src/ATen/mps/MPSAllocator.mm
+@@ -427,8 +427,11 @@ bool MPSHeapAllocatorImpl::alloc_buffer(AllocParams& params) {
+   pool.heaps.insert(heap);
+   params.buffer_block = new BufferBlock(params.size(), params.requested_size, buffer, heap);
+   {
+-    std::lock_guard<std::recursive_mutex> lock(m_mutex);
+-    m_allocated_buffers[params.buffer_block->buffer] = params.buffer_block;
++    // N=1039: Use sharded mutex for scalability
++    const void* buffer_ptr = params.buffer_block->buffer;
++    auto& shard = m_allocated_buffer_shards[get_shard_index(buffer_ptr)];
++    std::lock_guard<std::recursive_mutex> lock(shard.mutex);
++    shard.buffers[buffer_ptr] = params.buffer_block;
+   }
+   pool.allocated_size += params.size();
+   pool.n_buffers++;
+@@ -706,9 +709,11 @@ void MPSHeapAllocatorImpl::free_buffer(BufferBlock* buffer_block) {
+ }
+ 
+ BufferBlock* MPSHeapAllocatorImpl::get_allocated_buffer_block(const void* ptr) {
+-  std::lock_guard<std::recursive_mutex> lock(m_mutex);
+-  auto it = m_allocated_buffers.find(ptr);
+-  if (it == m_allocated_buffers.end()) {
++  // N=1039: Use sharded mutex for scalability
++  auto& shard = m_allocated_buffer_shards[get_shard_index(ptr)];
++  std::lock_guard<std::recursive_mutex> lock(shard.mutex);
++  auto it = shard.buffers.find(ptr);
++  if (it == shard.buffers.end()) {
+     return nullptr;
+   }
+   BufferBlock* block = it->second;
+@@ -730,8 +735,11 @@ bool MPSHeapAllocatorImpl::release_buffer(BufferBlock* buffer_block,
+   pool.allocated_size -= buffer_block->size;
+   pool.available_size -= buffer_block->size;
+   {
+-    std::lock_guard<std::recursive_mutex> lock(m_mutex);
+-    m_allocated_buffers.erase(buffer_block->buffer);
++    // N=1039: Use sharded mutex for scalability
++    const void* buffer_ptr = buffer_block->buffer;
++    auto& shard = m_allocated_buffer_shards[get_shard_index(buffer_ptr)];
++    std::lock_guard<std::recursive_mutex> lock(shard.mutex);
++    shard.buffers.erase(buffer_ptr);
+   }
+   pool.available_buffers.erase(buffer_block);
+   pool.n_buffers--;
+@@ -981,16 +989,17 @@ id<MTLBuffer> MPSHeapAllocatorImpl::malloc(size_t size, uint32_t usage) {
+ }
+ 
+ bool MPSHeapAllocatorImpl::isSharedBuffer(const void* ptr) {
+-  // 32.19 TOCTOU fix: Hold m_mutex during entire operation to prevent
++  // N=1039: Use sharded mutex for scalability
++  // 32.19 TOCTOU fix: Hold shard mutex during entire operation to prevent
+   // release_buffer() from deleting the BufferBlock between lookup and access.
+-  // release_buffer() requires m_mutex to erase from m_allocated_buffers before delete.
+-  std::lock_guard<std::recursive_mutex> lock(m_mutex);
+-  auto it = m_allocated_buffers.find(ptr);
+-  if (it == m_allocated_buffers.end()) {
++  auto& shard = m_allocated_buffer_shards[get_shard_index(ptr)];
++  std::lock_guard<std::recursive_mutex> lock(shard.mutex);
++  auto it = shard.buffers.find(ptr);
++  if (it == shard.buffers.end()) {
+     return false;
+   }
+   BufferBlock* buffer_block = it->second;
+-  // pool->usage is a constant, safe to read under m_mutex
++  // pool->usage is a constant, safe to read under shard mutex
+   return buffer_block->heap->pool->usage & UsageFlags::SHARED;
+ }
+ 
+@@ -1021,15 +1030,17 @@ void ReleaseSharedBufferPtrMapping(void* ctx) {
+ } // namespace
+ 
+ c10::DataPtr MPSHeapAllocatorImpl::getSharedBufferPtr(const void* ptr) {
++  // N=1039: Use sharded mutex for scalability
+   // 32.19 TOCTOU fix: Use double-check pattern.
+   // 32.267 ABA fix: Capture use_count to detect buffer reuse between lookups.
+   BufferPool* pool = nullptr;
+   BufferBlock* buffer_block = nullptr;
+   uint32_t saved_use_count = 0;
++  auto& shard = m_allocated_buffer_shards[get_shard_index(ptr)];
+   {
+-    std::lock_guard<std::recursive_mutex> lock(m_mutex);
+-    auto it = m_allocated_buffers.find(ptr);
+-    if (it == m_allocated_buffers.end()) {
++    std::lock_guard<std::recursive_mutex> lock(shard.mutex);
++    auto it = shard.buffers.find(ptr);
++    if (it == shard.buffers.end()) {
+       return {nullptr, c10::Device(c10::DeviceType::CPU)};
+     }
+     buffer_block = it->second;
+@@ -1042,10 +1053,10 @@ c10::DataPtr MPSHeapAllocatorImpl::getSharedBufferPtr(const void* ptr) {
+   }
+   std::lock_guard<std::mutex> pool_lock(pool->pool_mutex);
+   {
+-    std::lock_guard<std::recursive_mutex> lock(m_mutex);
+-    auto it = m_allocated_buffers.find(ptr);
++    std::lock_guard<std::recursive_mutex> lock(shard.mutex);
++    auto it = shard.buffers.find(ptr);
+     // 32.267: Also check use_count to detect ABA (buffer freed and reallocated)
+-    if (it == m_allocated_buffers.end() || it->second != buffer_block ||
++    if (it == shard.buffers.end() || it->second != buffer_block ||
+         buffer_block->use_count.load(std::memory_order_relaxed) != saved_use_count) {
+       return {nullptr, c10::Device(c10::DeviceType::CPU)}; // Buffer was released or reallocated between locks
+     }
+@@ -1086,13 +1097,15 @@ bool MPSHeapAllocatorImpl::recordEvents(c10::ArrayRef<const void*> buffers) {
+   for (const auto& buffer : buffers) {
+     // 32.19 TOCTOU fix: Use double-check pattern for each buffer.
+     // 32.267 ABA fix: Capture use_count to detect buffer reuse between lookups.
++    // N=1039: Use sharded mutex for scalability.
+     BufferPool* pool = nullptr;
+     BufferBlock* buffer_block = nullptr;
+     uint32_t saved_use_count = 0;
++    auto& shard = m_allocated_buffer_shards[get_shard_index(buffer)];
+     {
+-      std::lock_guard<std::recursive_mutex> lock(m_mutex);
+-      auto it = m_allocated_buffers.find(buffer);
+-      if (it == m_allocated_buffers.end()) {
++      std::lock_guard<std::recursive_mutex> lock(shard.mutex);
++      auto it = shard.buffers.find(buffer);
++      if (it == shard.buffers.end()) {
+         continue;
+       }
+       buffer_block = it->second;
+@@ -1105,10 +1118,10 @@ bool MPSHeapAllocatorImpl::recordEvents(c10::ArrayRef<const void*> buffers) {
+     }
+     std::lock_guard<std::mutex> pool_lock(pool->pool_mutex);
+     {
+-      std::lock_guard<std::recursive_mutex> lock(m_mutex);
+-      auto it = m_allocated_buffers.find(buffer);
++      std::lock_guard<std::recursive_mutex> lock(shard.mutex);
++      auto it = shard.buffers.find(buffer);
+       // 32.267: Also check use_count to detect ABA (buffer freed and reallocated)
+-      if (it == m_allocated_buffers.end() || it->second != buffer_block ||
++      if (it == shard.buffers.end() || it->second != buffer_block ||
+           buffer_block->use_count.load(std::memory_order_relaxed) != saved_use_count) {
+         continue; // Buffer was released or reallocated between locks
+       }
+@@ -1148,14 +1161,16 @@ bool MPSHeapAllocatorImpl::waitForEvents(c10::ArrayRef<const void*> buffers) {
+   for (const auto& buffer : buffers) {
+     // 32.19 TOCTOU fix: Use double-check pattern for each buffer.
+     // 32.267 ABA fix: Capture use_count to detect buffer reuse between lookups.
++    // N=1039: Use sharded mutex for scalability.
+     BufferPool* pool = nullptr;
+     BufferBlock* buffer_block = nullptr;
+     uint32_t saved_use_count = 0;
+     MPSEvent* event_ptr = nullptr;
++    auto& shard = m_allocated_buffer_shards[get_shard_index(buffer)];
+     {
+-      std::lock_guard<std::recursive_mutex> lock(m_mutex);
+-      auto it = m_allocated_buffers.find(buffer);
+-      if (it == m_allocated_buffers.end()) {
++      std::lock_guard<std::recursive_mutex> lock(shard.mutex);
++      auto it = shard.buffers.find(buffer);
++      if (it == shard.buffers.end()) {
+         continue;
+       }
+       buffer_block = it->second;
+@@ -1169,10 +1184,10 @@ bool MPSHeapAllocatorImpl::waitForEvents(c10::ArrayRef<const void*> buffers) {
+     {
+       std::lock_guard<std::mutex> pool_lock(pool->pool_mutex);
+       {
+-        std::lock_guard<std::recursive_mutex> lock(m_mutex);
+-        auto it = m_allocated_buffers.find(buffer);
++        std::lock_guard<std::recursive_mutex> lock(shard.mutex);
++        auto it = shard.buffers.find(buffer);
+         // 32.267: Also check use_count to detect ABA (buffer freed and reallocated)
+-        if (it == m_allocated_buffers.end() || it->second != buffer_block ||
++        if (it == shard.buffers.end() || it->second != buffer_block ||
+             buffer_block->use_count.load(std::memory_order_relaxed) != saved_use_count) {
+           continue; // Buffer was released or reallocated between locks
+         }
+@@ -1218,15 +1233,17 @@ void MPSHeapAllocatorImpl::recordStream(const void* ptr, MPSStream* stream) {
+   if (!ptr || !stream) {
+     return;
+   }
++  // N=1039: Use sharded mutex for scalability
+   // 32.19 TOCTOU fix: Use double-check pattern to avoid deadlock.
+   // 32.267 ABA fix: Capture use_count to detect buffer reuse between lookups.
+   BufferPool* pool = nullptr;
+   BufferBlock* buffer_block = nullptr;
+   uint32_t saved_use_count = 0;
++  auto& shard = m_allocated_buffer_shards[get_shard_index(ptr)];
+   {
+-    std::lock_guard<std::recursive_mutex> lock(m_mutex);
+-    auto it = m_allocated_buffers.find(ptr);
+-    if (it == m_allocated_buffers.end()) {
++    std::lock_guard<std::recursive_mutex> lock(shard.mutex);
++    auto it = shard.buffers.find(ptr);
++    if (it == shard.buffers.end()) {
+       return;
+     }
+     buffer_block = it->second;
+@@ -1236,10 +1253,10 @@ void MPSHeapAllocatorImpl::recordStream(const void* ptr, MPSStream* stream) {
+   }
+   std::lock_guard<std::mutex> pool_lock(pool->pool_mutex);
+   {
+-    std::lock_guard<std::recursive_mutex> lock(m_mutex);
+-    auto it = m_allocated_buffers.find(ptr);
++    std::lock_guard<std::recursive_mutex> lock(shard.mutex);
++    auto it = shard.buffers.find(ptr);
+     // 32.267: Also check use_count to detect ABA (buffer freed and reallocated)
+-    if (it == m_allocated_buffers.end() || it->second != buffer_block ||
++    if (it == shard.buffers.end() || it->second != buffer_block ||
+         buffer_block->use_count.load(std::memory_order_relaxed) != saved_use_count) {
+       return; // Buffer was released or reallocated between locks
+     }
+@@ -1277,27 +1294,32 @@ void MPSHeapAllocatorImpl::recordStream(const void* ptr, MPSStream* stream) {
+ 
+ id_t MPSHeapAllocatorImpl::getBufferId(const void* ptr) {
+   // 32.19 TOCTOU fix: Hold m_mutex during entire operation.
+-  // buf_id is constant, safe to read under m_mutex alone.
+-  std::lock_guard<std::recursive_mutex> lock(m_mutex);
+-  auto it = m_allocated_buffers.find(ptr);
+-  if (it == m_allocated_buffers.end()) {
++  // N=1039: Use sharded mutex for scalability
++  // buf_id is constant, safe to read under shard mutex alone.
++  auto& shard = m_allocated_buffer_shards[get_shard_index(ptr)];
++  std::lock_guard<std::recursive_mutex> lock(shard.mutex);
++  auto it = shard.buffers.find(ptr);
++  if (it == shard.buffers.end()) {
+     return 0;
+   }
+   return it->second->buf_id;
+ }
+ 
+ ssize_t MPSHeapAllocatorImpl::getUnalignedBufferSize(const void* ptr) {
+-  // 32.19 TOCTOU fix: Hold m_mutex during entire operation.
+-  // requested_size is set at allocation and never modified, so m_mutex alone is sufficient.
+-  std::lock_guard<std::recursive_mutex> lock(m_mutex);
+-  auto it = m_allocated_buffers.find(ptr);
+-  if (it == m_allocated_buffers.end()) {
++  // N=1039: Use sharded mutex for scalability
++  // 32.19 TOCTOU fix: Hold shard mutex during entire operation.
++  // requested_size is set at allocation and never modified.
++  auto& shard = m_allocated_buffer_shards[get_shard_index(ptr)];
++  std::lock_guard<std::recursive_mutex> lock(shard.mutex);
++  auto it = shard.buffers.find(ptr);
++  if (it == shard.buffers.end()) {
+     return -1; // -1 indicates the passed buffer pointer wasn't found
+   }
+   return (ssize_t)it->second->requested_size;
+ }
+ 
+ void MPSHeapAllocatorImpl::setBufferShape(const void* ptr, const IntArrayRef& shape) {
++  // N=1039: Use sharded mutex for scalability
+   // 32.19 TOCTOU fix: Must verify buffer is still allocated after taking pool_mutex.
+   // Shape is mutable and requires pool_mutex protection. We use a double-check pattern
+   // to avoid deadlock from opposite lock ordering with release_buffer().
+@@ -1305,22 +1327,23 @@ void MPSHeapAllocatorImpl::setBufferShape(const void* ptr, const IntArrayRef& sh
+   BufferPool* pool = nullptr;
+   BufferBlock* buffer_block = nullptr;
+   uint32_t saved_use_count = 0;
++  auto& shard = m_allocated_buffer_shards[get_shard_index(ptr)];
+   {
+-    std::lock_guard<std::recursive_mutex> lock(m_mutex);
+-    auto it = m_allocated_buffers.find(ptr);
+-    TORCH_INTERNAL_ASSERT(it != m_allocated_buffers.end(), "failed to find the buffer ", ptr);
++    std::lock_guard<std::recursive_mutex> lock(shard.mutex);
++    auto it = shard.buffers.find(ptr);
++    TORCH_INTERNAL_ASSERT(it != shard.buffers.end(), "failed to find the buffer ", ptr);
+     buffer_block = it->second;
+     saved_use_count =
+         buffer_block->use_count.load(std::memory_order_relaxed); // 32.267/32.285: Capture generation counter
+     pool = buffer_block->heap->pool;
+   }
+-  // Now take pool_mutex. Since we released m_mutex, we must re-verify.
++  // Now take pool_mutex. Since we released shard mutex, we must re-verify.
+   std::lock_guard<std::mutex> pool_lock(pool->pool_mutex);
+   {
+-    std::lock_guard<std::recursive_mutex> lock(m_mutex);
++    std::lock_guard<std::recursive_mutex> lock(shard.mutex);
+     // Re-verify buffer is still in map (could have been released between locks)
+-    auto it = m_allocated_buffers.find(ptr);
+-    TORCH_INTERNAL_ASSERT(it != m_allocated_buffers.end(), "buffer was released during setBufferShape");
++    auto it = shard.buffers.find(ptr);
++    TORCH_INTERNAL_ASSERT(it != shard.buffers.end(), "buffer was released during setBufferShape");
+     // 32.267: Also check use_count to detect ABA (buffer freed and reallocated)
+     TORCH_INTERNAL_ASSERT(
+         it->second == buffer_block && buffer_block->use_count.load(std::memory_order_relaxed) == saved_use_count,
+@@ -1347,13 +1370,15 @@ void MPSHeapAllocatorImpl::setBufferShape(const void* ptr, const IntArrayRef& sh
+ std::vector<int64_t> MPSHeapAllocatorImpl::getBufferShape(const void* ptr) {
+   // 32.19 TOCTOU fix: Use double-check pattern to avoid deadlock.
+   // 32.267 ABA fix: Capture use_count to detect buffer reuse between lookups.
++  // N=1039: Use sharded mutex for scalability.
+   BufferPool* pool = nullptr;
+   BufferBlock* buffer_block = nullptr;
+   uint32_t saved_use_count = 0;
++  auto& shard = m_allocated_buffer_shards[get_shard_index(ptr)];
+   {
+-    std::lock_guard<std::recursive_mutex> lock(m_mutex);
+-    auto it = m_allocated_buffers.find(ptr);
+-    if (it == m_allocated_buffers.end()) {
++    std::lock_guard<std::recursive_mutex> lock(shard.mutex);
++    auto it = shard.buffers.find(ptr);
++    if (it == shard.buffers.end()) {
+       return {};
+     }
+     buffer_block = it->second;
+@@ -1363,10 +1388,10 @@ std::vector<int64_t> MPSHeapAllocatorImpl::getBufferShape(const void* ptr) {
+   }
+   std::lock_guard<std::mutex> pool_lock(pool->pool_mutex);
+   {
+-    std::lock_guard<std::recursive_mutex> lock(m_mutex);
+-    auto it = m_allocated_buffers.find(ptr);
++    std::lock_guard<std::recursive_mutex> lock(shard.mutex);
++    auto it = shard.buffers.find(ptr);
+     // 32.267: Also check use_count to detect ABA (buffer freed and reallocated)
+-    if (it == m_allocated_buffers.end() || it->second != buffer_block ||
++    if (it == shard.buffers.end() || it->second != buffer_block ||
+         buffer_block->use_count.load(std::memory_order_relaxed) != saved_use_count) {
+       return {}; // Buffer was released or reallocated between locks
+     }
+diff --git a/aten/src/ATen/mps/MPSEvent.h b/aten/src/ATen/mps/MPSEvent.h
+index bd068748..1e9aace0 100644
+--- a/aten/src/ATen/mps/MPSEvent.h
++++ b/aten/src/ATen/mps/MPSEvent.h
+@@ -27,7 +27,7 @@ namespace at::mps {
+ // With CallbackState being shared, step 4 accesses valid memory.
+ struct MPSEventCallbackState {
+   std::atomic<bool> alive{true};
+-  mutable std::mutex sync_mutex MPS_CAPABILITY("callback_sync_mutex");
++  mutable std::mutex sync_mutex;
+   std::condition_variable sync_cv{};
+   bool sync_completed MPS_GUARDED_BY(sync_mutex) = false;
+   uint64_t completion_time MPS_GUARDED_BY(sync_mutex) = 0;
+@@ -81,7 +81,7 @@ class MPSEvent {
+   MTLSharedEvent_t m_event MPS_GUARDED_BY(m_mutex) = nullptr;
+   MTLSharedEventListener* m_listener MPS_GUARDED_BY(m_mutex) = nullptr;
+   // Cache-line aligned to prevent false sharing (Phase 24.4)
+-  alignas(64) mutable std::mutex m_mutex MPS_CAPABILITY("event_mutex");
++  alignas(64) mutable std::mutex m_mutex;
+   // 27.3 fix: tracks which stream recorded this event by ID, not raw pointer
+   // -1 means no stream recorded this event. Stream is looked up from pool at
+   // use time.
+@@ -126,7 +126,7 @@ class MPSEventPool {
+ 
+  private:
+   MPSStream* m_default_stream = nullptr;
+-  std::recursive_mutex m_mutex MPS_CAPABILITY("event_pool_mutex");
++  std::recursive_mutex m_mutex;
+   std::stack<std::unique_ptr<MPSEvent>> m_pool MPS_GUARDED_BY(m_mutex);
+   // dictionary to associate event IDs with event objects
+   // used to retain in-use events out of the pool
+diff --git a/aten/src/ATen/mps/MPSStream.h b/aten/src/ATen/mps/MPSStream.h
+index 0ceacd1a..503f5ae3 100644
+--- a/aten/src/ATen/mps/MPSStream.h
++++ b/aten/src/ATen/mps/MPSStream.h
+@@ -146,7 +146,7 @@ class TORCH_API MPSStream {
+   // CommitAndContinue is disabled for thread safety
+   bool _enableCommitAndContinue MPS_GUARDED_BY(_streamMutex) = false;
+   // Mutex to serialize all operations on this stream from multiple threads
+-  mutable std::recursive_mutex _streamMutex MPS_CAPABILITY("stream_mutex");
++  mutable std::recursive_mutex _streamMutex;
+ 
+   // use synchronize() to access any of these commit functions outside MPSStream
+   void commit() MPS_REQUIRES(_streamMutex);
+@@ -302,7 +302,7 @@ class TORCH_API MPSStreamPool {
+ 
+   // Mutex for thread-safe stream creation
+   // Cache-line aligned to prevent false sharing (Phase 24.4)
+-  alignas(64) std::mutex stream_creation_mutex_ MPS_CAPABILITY("pool_creation_mutex");
++  alignas(64) std::mutex stream_creation_mutex_;
+ 
+   // Per-stream once flags for lock-free fast-path (22.4 optimization)
+   std::array<std::once_flag, kMPSStreamsPerPool> stream_init_flags_;
+-- 
+2.46.0.dropbox.13
+

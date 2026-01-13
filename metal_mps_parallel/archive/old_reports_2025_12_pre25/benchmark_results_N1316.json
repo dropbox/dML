@@ -1,0 +1,115 @@
+{
+  "benchmark_version": "1.0",
+  "system_info": {
+    "chip": "Apple M4 Max",
+    "chip_cores": 16,
+    "gpu_cores": 40,
+    "ram_gb": 128.0,
+    "macos_version": "15.7.3",
+    "macos_build": "24G419",
+    "pytorch_version": "2.9.1a0+git9a4518e",
+    "metal_support": true,
+    "mps_available": true,
+    "timestamp_utc": "2025-12-20T02:17:11.624476+00:00",
+    "hostname": "L30J2DW1Q2"
+  },
+  "configuration": {
+    "model_type": "matmul",
+    "model_config": {
+      "batch_size": 32,
+      "in_features": 512,
+      "out_features": 512,
+      "hidden": 1024,
+      "matrix_size": 512
+    },
+    "n_trials": 30,
+    "iterations_per_thread": 50,
+    "warmup_iterations": 5,
+    "thread_counts": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "cold_start_included": false
+  },
+  "results": [
+    {
+      "thread_count": 1,
+      "warm_cache_stats": {
+        "n_trials": 30,
+        "mean_ns": 10243022.3,
+        "std_ns": 599560.6659626669,
+        "min_ns": 9837958,
+        "max_ns": 12940208,
+        "p50_ns": 10120667,
+        "p95_ns": 11594917,
+        "p99_ns": 12940208,
+        "coefficient_of_variation": 5.853357030792238
+      },
+      "cold_start_stats": null,
+      "total_ops": 1500,
+      "ops_per_second": 4881.371780280122,
+      "scaling_efficiency_percent": 100.0
+    },
+    {
+      "thread_count": 2,
+      "warm_cache_stats": {
+        "n_trials": 30,
+        "mean_ns": 20860445.8,
+        "std_ns": 519737.0979584144,
+        "min_ns": 20030875,
+        "max_ns": 22586917,
+        "p50_ns": 20798708,
+        "p95_ns": 22029500,
+        "p99_ns": 22586917,
+        "coefficient_of_variation": 2.4914956417585974
+      },
+      "cold_start_stats": null,
+      "total_ops": 3000,
+      "ops_per_second": 4793.761406575501,
+      "scaling_efficiency_percent": 49.10260498843223
+    },
+    {
+      "thread_count": 4,
+      "warm_cache_stats": {
+        "n_trials": 30,
+        "mean_ns": 42864201.46666667,
+        "std_ns": 554434.3873915005,
+        "min_ns": 41889833,
+        "max_ns": 44360792,
+        "p50_ns": 42797208,
+        "p95_ns": 44345000,
+        "p99_ns": 44360792,
+        "coefficient_of_variation": 1.2934672020489084
+      },
+      "cold_start_stats": null,
+      "total_ops": 6000,
+      "ops_per_second": 4665.898189087458,
+      "scaling_efficiency_percent": 23.896449600176233
+    },
+    {
+      "thread_count": 8,
+      "warm_cache_stats": {
+        "n_trials": 30,
+        "mean_ns": 87587588.83333333,
+        "std_ns": 3862275.912275631,
+        "min_ns": 80124291,
+        "max_ns": 91609958,
+        "p50_ns": 89607209,
+        "p95_ns": 91580125,
+        "p99_ns": 91609958,
+        "coefficient_of_variation": 4.4096155216979325
+      },
+      "cold_start_stats": null,
+      "total_ops": 12000,
+      "ops_per_second": 4566.857077903387,
+      "scaling_efficiency_percent": 11.69460472246931
+    }
+  ],
+  "summary": {
+    "baseline_ops_per_second": 4881.371780280122,
+    "max_thread_count": 8,
+    "max_scaling_efficiency": 100.0
+  }
+}

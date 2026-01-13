@@ -1,0 +1,8 @@
+usage: preextract_encoder_features_fast.py [-h] --manifest MANIFEST
+                                           --output-dir OUTPUT_DIR
+                                           [--model MODEL]
+                                           [--batch-size BATCH_SIZE]
+                                           [--workers WORKERS]
+                                           [--max-audio-len MAX_AUDIO_LEN]
+                                           [--no-skip-existing] [--no-prosody]
+preextract_encoder_features_fast.py: error: unrecognized arguments: --skip-existing

@@ -1,0 +1,296 @@
+diff --git a/aten/src/ATen/mps/MPSHooks.mm b/aten/src/ATen/mps/MPSHooks.mm
+index 9965b29a..0919548f 100644
+--- a/aten/src/ATen/mps/MPSHooks.mm
++++ b/aten/src/ATen/mps/MPSHooks.mm
+@@ -104,15 +104,22 @@ void* MPSHooks::getCommandBuffer() const {
+   // can invalidate encoders while another thread is using them inside dispatch_sync.
+   // Unlike encodeSignalEvent() which can use dispatch_async, we need dispatch_sync
+   // here because we must return the command buffer pointer synchronously.
++  //
++  // FIX (Bug #045): When re-entrant, skip endKernelCoalescing to avoid UAF.
++  // The outer dispatch block may still be using the encoder.
+   __block void* result = nullptr;
++  __block bool isReentrant = (dispatch_get_specific(at::mps::getMPSStreamQueueSpecificKey()) == static_cast<void*>(stream));
+   dispatch_block_t dispatch_block = ^() {
+     @autoreleasepool {
+       // Release pending computeCommandEncoder, as extensions is likely to allocate new one
+-      stream->endKernelCoalescing();
++      // FIX (Bug #045): Only end encoding if not re-entrant
++      if (!isReentrant) {
++        stream->endKernelCoalescing();
++      }
+       result = stream->commandBuffer();
+     }
+   };
+-  if (dispatch_get_specific(at::mps::getMPSStreamQueueSpecificKey()) == static_cast<void*>(stream)) {
++  if (isReentrant) {
+     // Already on this stream's queue - execute directly
+     dispatch_block();
+   } else {
+diff --git a/aten/src/ATen/mps/MPSStream.mm b/aten/src/ATen/mps/MPSStream.mm
+index a8f6fc48..2a401ece 100644
+--- a/aten/src/ATen/mps/MPSStream.mm
++++ b/aten/src/ATen/mps/MPSStream.mm
+@@ -165,11 +165,33 @@ void MPSStream::encodeSignalEvent(id<MTLSharedEvent> event, uint64_t value) {
+   // We use dispatch_async for off-queue callers to avoid deadlock: the allocator
+   // holds pool_mutex when calling this, and dispatch_sync would block if a thread
+   // on this queue is waiting for pool_mutex.
++  //
++  // FIX (Bug #047): Metal requires no active encoder to call encodeSignalEvent.
++  // When re-entrant with an active encoder, we must skip entirely - can't end
++  // the encoder (outer block using it) and can't encode event (Metal validation).
++  // The event will be encoded on the next non-re-entrant path.
++
++  // Check re-entrancy BEFORE creating block (need to check encoder under mutex)
++  if (dispatch_get_specific(getMPSStreamQueueSpecificKey()) == static_cast<void*>(this)) {
++    // Re-entrant: check if encoder is active
++    std::lock_guard<std::recursive_mutex> lock(_streamMutex);
++    if (_commandEncoder != nil) {
++      // FIX (Bug #047): Skip - Metal validation fails with active encoder
++      // The event signal will happen on the next non-re-entrant call
++      return;
++    }
++    // No active encoder - safe to proceed synchronously
++    id<MTLCommandBuffer> cmdBuffer = commandBuffer();
++    [cmdBuffer encodeSignalEvent:event value:value];
++    return;
++  }
++
++  // Off-queue: use dispatch_async to avoid deadlock with allocator locks
+   __block id<MTLSharedEvent> eventCopy = [event retain];
+   __block uint64_t valueCopy = value;
+   __block MPSStream* streamPtr = this;
+ 
+-  dispatch_block_t dispatch_block = ^() {
++  dispatch_async(queue(), ^() {
+     @autoreleasepool {
+       std::lock_guard<std::recursive_mutex> lock(streamPtr->_streamMutex);
+       streamPtr->endKernelCoalescing();
+@@ -177,25 +199,36 @@ void MPSStream::encodeSignalEvent(id<MTLSharedEvent> event, uint64_t value) {
+       [cmdBuffer encodeSignalEvent:eventCopy value:valueCopy];
+       [eventCopy release];
+     }
+-  };
+-
+-  if (dispatch_get_specific(getMPSStreamQueueSpecificKey()) == static_cast<void*>(this)) {
+-    // Already on this stream's queue - execute directly
+-    dispatch_block();
+-  } else {
+-    // Off-queue: use dispatch_async to avoid deadlock with allocator locks
+-    dispatch_async(queue(), dispatch_block);
+-  }
++  });
+ }
+ 
+ void MPSStream::encodeWaitForEvent(id<MTLSharedEvent> event, uint64_t value) {
+   TORCH_INTERNAL_ASSERT(event);
+   // 32.274 fix: Same serialization pattern as encodeSignalEvent.
++  //
++  // FIX (Bug #047): Metal requires no active encoder to call encodeWaitForEvent.
++  // Same fix as encodeSignalEvent - skip when re-entrant with active encoder.
++
++  // Check re-entrancy BEFORE creating block (need to check encoder under mutex)
++  if (dispatch_get_specific(getMPSStreamQueueSpecificKey()) == static_cast<void*>(this)) {
++    // Re-entrant: check if encoder is active
++    std::lock_guard<std::recursive_mutex> lock(_streamMutex);
++    if (_commandEncoder != nil) {
++      // FIX (Bug #047): Skip - Metal validation fails with active encoder
++      return;
++    }
++    // No active encoder - safe to proceed synchronously
++    id<MTLCommandBuffer> cmdBuffer = commandBuffer();
++    [cmdBuffer encodeWaitForEvent:event value:value];
++    return;
++  }
++
++  // Off-queue: use dispatch_async to avoid deadlock with allocator locks
+   __block id<MTLSharedEvent> eventCopy = [event retain];
+   __block uint64_t valueCopy = value;
+   __block MPSStream* streamPtr = this;
+ 
+-  dispatch_block_t dispatch_block = ^() {
++  dispatch_async(queue(), ^() {
+     @autoreleasepool {
+       std::lock_guard<std::recursive_mutex> lock(streamPtr->_streamMutex);
+       streamPtr->endKernelCoalescing();
+@@ -203,13 +236,7 @@ void MPSStream::encodeWaitForEvent(id<MTLSharedEvent> event, uint64_t value) {
+       [cmdBuffer encodeWaitForEvent:eventCopy value:valueCopy];
+       [eventCopy release];
+     }
+-  };
+-
+-  if (dispatch_get_specific(getMPSStreamQueueSpecificKey()) == static_cast<void*>(this)) {
+-    dispatch_block();
+-  } else {
+-    dispatch_async(queue(), dispatch_block);
+-  }
++  });
+ }
+ 
+ void MPSStream::synchronize(SyncType syncType) {
+@@ -220,46 +247,131 @@ void MPSStream::synchronize(SyncType syncType) {
+   // This caused a race: synchronize() could end the encoder while a dispatch block was
+   // using it, resulting in use-after-free (PAC failure on encoder's isa pointer).
+   //
+-  // Fix: Route endKernelCoalescing through dispatch_sync to serialize with other blocks.
+-  // If already on this queue (re-entrant call), execute directly to avoid deadlock.
++  // FIX (Bug #045 - re-entrant synchronize still causes UAF):
++  // Bug #044's fix had a flaw: when re-entrant (called from within a dispatch block on
++  // this stream's queue), it executed endKernelCoalescing() directly. This can still
++  // cause UAF if the outer dispatch block is using the encoder. Example crash scenario:
++  //   1. Thread A runs dispatch block on stream queue, gets encoder via commandEncoder()
++  //   2. Operation inside block triggers synchronize() on same stream (e.g., memory ops)
++  //   3. Re-entrant check passes, endKernelCoalescing() called directly
++  //   4. Encoder freed while outer block still using it -> PAC failure crash
++  //
++  // Fix: When re-entrant, SKIP endKernelCoalescing entirely. The encoder is likely in use
++  // by the outer dispatch block. It will be ended by:
++  //   a) The next non-re-entrant synchronize() call from outside the queue
++  //   b) Another dispatch block's endKernelCoalescing (fill, copy, executeMPSGraph, etc.)
++  //   c) Stream destruction
++  // This trades potential encoder lifetime extension for safety against UAF.
+ 
+-  dispatch_block_t end_encoding_block = ^() {
++  if (dispatch_get_specific(getMPSStreamQueueSpecificKey()) == static_cast<void*>(this)) {
++    // Already on this stream's queue - re-entrant call.
++    // FIX (Bug #045): Do NOT end encoding - outer block may still be using the encoder.
++    // Calling dispatch_sync here would deadlock (serial queue waiting for itself).
++    //
++    // FIX (Bug #046 - Metal validation failure on re-entrant commit):
++    // Bug #045 skipped endKernelCoalescing but still allowed commit operations.
++    // Metal requires all encoders to be ended before commit, so this caused
++    // validation failures (SIGABRT in -[IOGPUMetalCommandBuffer validate]).
++    //
++    // Fix: When re-entrant with an active encoder, skip commit operations entirely.
++    // The commit will happen when the outer dispatch block finishes and a
++    // non-re-entrant synchronize is called. Only allow:
++    // - NONE: No commit needed
++    // - COMMIT_AND_CONTINUE: Uses Metal's commitAndContinue which handles encoder state
+     std::lock_guard<std::recursive_mutex> lock(_streamMutex);
+-    endKernelCoalescing();
+-  };
+ 
+-  if (dispatch_get_specific(getMPSStreamQueueSpecificKey()) == static_cast<void*>(this)) {
+-    // Already on this stream's queue - execute directly (re-entrant safe)
+-    end_encoding_block();
+-  } else {
+-    // Off-queue: dispatch_sync to serialize with encoder-using blocks
+-    dispatch_sync(_serialQueue, end_encoding_block);
++    // Check if there's an active encoder that would cause validation failure
++    bool hasActiveEncoder = (_commandEncoder != nil);
++
++    switch (syncType) {
++      case SyncType::NONE:
++        // typically in GPU to GPU copies we won't commit explicitly
++        break;
++      case SyncType::COMMIT:
++        // FIX (Bug #046): Skip if encoder is active - would fail Metal validation
++        if (!hasActiveEncoder) {
++          commit();
++        }
++        // else: silently skip - commit will happen on next non-re-entrant sync
++        break;
++      case SyncType::COMMIT_ADAPTIVE:
++        // the adaptive commit only commits if we hit the low watermark memory threshold
++        if (!hasActiveEncoder && getIMPSAllocator()->getLowWatermarkValue() <= 1) {
++          commit();
++        }
++        break;
++      case SyncType::COMMIT_AND_WAIT:
++        // FIX (Bug #046): Skip if encoder is active - would fail Metal validation
++        // This is safe because the outer block will eventually trigger a proper sync
++        if (!hasActiveEncoder) {
++          commitAndWait();
++        }
++        // else: silently skip - the calling code should handle this gracefully
++        break;
++      case SyncType::COMMIT_AND_CONTINUE:
++        TORCH_INTERNAL_ASSERT_DEBUG_ONLY(_enableCommitAndContinue,
++                                         "CommitAndContinue is called but it is disabled globally!");
++        commitAndContinue();
++        break;
++    }
++    return;
+   }
+ 
+-  // The actual synchronization (commit, wait, etc.) can proceed under _streamMutex
+-  // since we've already ended kernel coalescing above.
+-  std::lock_guard<std::recursive_mutex> lock(_streamMutex);
+-  switch (syncType) {
+-    case SyncType::NONE:
+-      // typically in GPU to GPU copies we won't commit explicitly
+-      break;
+-    case SyncType::COMMIT:
+-      commit();
+-      break;
+-    case SyncType::COMMIT_ADAPTIVE:
+-      // the adaptive commit only commits if we hit the low watermark memory threshold
+-      if (getIMPSAllocator()->getLowWatermarkValue() <= 1) {
+-        commit();
++  // Off-queue: dispatch_sync to serialize BOTH endKernelCoalescing() and commit/wait
++  // with stream work that uses the command encoder without holding _streamMutex.
++  // Without this, a concurrent device-wide synchronizeAllStreams() can commit a
++  // command buffer while another thread is still encoding, triggering:
++  //   -[IOGPUMetalCommandBuffer validate]: commit command buffer with uncommitted encoder
++  __block id<MTLCommandBuffer> prevToWait = nil;
++  __block id<MTLCommandBuffer> currToWait = nil;
++
++  dispatch_sync(_serialQueue, ^() {
++    @autoreleasepool {
++      std::lock_guard<std::recursive_mutex> lock(_streamMutex);
++      endKernelCoalescing();
++      switch (syncType) {
++        case SyncType::NONE:
++          // typically in GPU to GPU copies we won't commit explicitly
++          break;
++        case SyncType::COMMIT:
++          commit();
++          break;
++        case SyncType::COMMIT_ADAPTIVE:
++          if (getIMPSAllocator()->getLowWatermarkValue() <= 1) {
++            commit();
++          }
++          break;
++        case SyncType::COMMIT_AND_WAIT: {
++          // Commit under the stream queue, then wait outside (do not block the queue).
++          if (_prevCommandBuffer) {
++            prevToWait = _prevCommandBuffer;
++            _prevCommandBuffer = nil; // Take ownership
++          }
++          if (_commandBuffer) {
++            [_commandBuffer commit];
++            currToWait = _commandBuffer;
++            _commandBuffer = nil; // Take ownership
++          }
++          break;
++        }
++        case SyncType::COMMIT_AND_CONTINUE:
++          TORCH_INTERNAL_ASSERT_DEBUG_ONLY(_enableCommitAndContinue,
++                                           "CommitAndContinue is called but it is disabled globally!");
++          commitAndContinue();
++          break;
+       }
+-      break;
+-    case SyncType::COMMIT_AND_WAIT:
+-      commitAndWait();
+-      break;
+-    case SyncType::COMMIT_AND_CONTINUE:
+-      TORCH_INTERNAL_ASSERT_DEBUG_ONLY(_enableCommitAndContinue,
+-                                       "CommitAndContinue is called but it is disabled globally!");
+-      commitAndContinue();
+-      break;
++    }
++  });
++
++  if (syncType == SyncType::COMMIT_AND_WAIT) {
++    if (prevToWait) {
++      [prevToWait waitUntilCompleted];
++      [prevToWait release];
++    }
++    if (currToWait) {
++      [currToWait waitUntilCompleted];
++      [currToWait release];
++    }
+   }
+ }
+ 

@@ -1,0 +1,10 @@
+-Q theories MPS
+-arg -w
+-arg -notation-overridden
+
+theories/prelude.v
+theories/mutex.v
+theories/aba.v
+theories/tls.v
+theories/callback.v
+theories/stream_pool.v

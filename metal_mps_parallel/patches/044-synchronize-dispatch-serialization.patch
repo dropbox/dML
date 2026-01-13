@@ -1,0 +1,38 @@
+diff --git a/aten/src/ATen/mps/MPSStream.mm b/aten/src/ATen/mps/MPSStream.mm
+index 03a81f82..a8f6fc48 100644
+--- a/aten/src/ATen/mps/MPSStream.mm
++++ b/aten/src/ATen/mps/MPSStream.mm
+@@ -213,8 +213,32 @@ void MPSStream::encodeWaitForEvent(id<MTLSharedEvent> event, uint64_t value) {
+ }
+ 
+ void MPSStream::synchronize(SyncType syncType) {
++  // FIX (Bug #044 - synchronize() race with dispatch blocks):
++  // endKernelCoalescing() must be serialized with dispatch blocks that use the encoder.
++  // Previously, synchronize() called endKernelCoalescing() directly under _streamMutex,
++  // but dispatch blocks only hold _streamMutex during commandEncoder(), not during use.
++  // This caused a race: synchronize() could end the encoder while a dispatch block was
++  // using it, resulting in use-after-free (PAC failure on encoder's isa pointer).
++  //
++  // Fix: Route endKernelCoalescing through dispatch_sync to serialize with other blocks.
++  // If already on this queue (re-entrant call), execute directly to avoid deadlock.
++
++  dispatch_block_t end_encoding_block = ^() {
++    std::lock_guard<std::recursive_mutex> lock(_streamMutex);
++    endKernelCoalescing();
++  };
++
++  if (dispatch_get_specific(getMPSStreamQueueSpecificKey()) == static_cast<void*>(this)) {
++    // Already on this stream's queue - execute directly (re-entrant safe)
++    end_encoding_block();
++  } else {
++    // Off-queue: dispatch_sync to serialize with encoder-using blocks
++    dispatch_sync(_serialQueue, end_encoding_block);
++  }
++
++  // The actual synchronization (commit, wait, etc.) can proceed under _streamMutex
++  // since we've already ended kernel coalescing above.
+   std::lock_guard<std::recursive_mutex> lock(_streamMutex);
+-  endKernelCoalescing();
+   switch (syncType) {
+     case SyncType::NONE:
+       // typically in GPU to GPU copies we won't commit explicitly

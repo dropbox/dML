@@ -1,0 +1,114 @@
+{
+  "description": "Model registry with signatures and export metadata. DO NOT overwrite models - use versioning!",
+  "export_rules": {
+    "description": "Rules for model exports to prevent corruption",
+    "dtype_recommendations": {
+      "cpu": "float32",
+      "cuda": "float16 or float32 depending on model",
+      "mps": "float32 (float16 causes assertion failures on some ops)"
+    },
+    "rules": [
+      "NEVER overwrite existing models without versioning",
+      "Always specify --dtype explicitly (float32 for MPS stability)",
+      "Verify model size after export matches expected range",
+      "Register model immediately after successful export",
+      "Use model_registry.py export command for automatic registration"
+    ]
+  },
+  "models": {
+    "models/fish-speech-1.5/vocoder_cpu.pt": {
+      "device": "cpu",
+      "dtype": "float32",
+      "export_args": "--component vocoder --device cpu",
+      "export_script": "scripts/export_fish_speech.py",
+      "exported_at": "2025-12-11T07:22:07.061119",
+      "history": [
+        {
+          "archived_at": "2025-12-11T07:22:07.061115",
+          "device": "cpu",
+          "dtype": "float32",
+          "sha256": "PLACEHOLDER",
+          "size_bytes": 90296173,
+          "size_mb": 86.1
+        }
+      ],
+      "notes": null,
+      "sha256": "41147b558cf305781af0685f4b54662f4e51e8ac669491baeaae1b77f71a85b0",
+      "size_bytes": 90296173,
+      "size_mb": 86.11
+    },
+    "models/kokoro/kokoro_cpu.pt": {
+      "device": "cpu",
+      "dtype": "float32",
+      "export_args": "--device cpu --dtype float32",
+      "export_script": "scripts/export_kokoro_torchscript.py",
+      "exported_at": "2025-12-11T07:22:00.340072",
+      "history": [
+        {
+          "archived_at": "2025-12-11T07:22:00.340068",
+          "device": "cpu",
+          "dtype": "float32",
+          "sha256": "PLACEHOLDER",
+          "size_bytes": 328000000,
+          "size_mb": 328.0
+        }
+      ],
+      "notes": null,
+      "sha256": "643b8ddee2c7484db5df2b2eb951a9913297f5eff16718427bae08155f8e5eda",
+      "size_bytes": 328180870,
+      "size_mb": 312.98
+    },
+    "models/kokoro/kokoro_mps.pt": {
+      "device": "mps",
+      "dtype": "float32",
+      "export_args": "--device mps --dtype float32",
+      "export_script": "scripts/export_kokoro_torchscript.py",
+      "exported_at": "2025-12-11T07:19:09.912493",
+      "history": [
+        {
+          "archived_at": "2025-12-11T06:50:00",
+          "device": "mps",
+          "dtype": "float16",
+          "notes": "CORRUPTED - caused MPS assertion failures",
+          "sha256": "UNKNOWN_CORRUPTED",
+          "size_bytes": 164572076,
+          "size_mb": 156.9
+        },
+        {
+          "archived_at": "2025-12-11T07:19:09.912490",
+          "device": "mps",
+          "dtype": "float32",
+          "sha256": "195ca1e9d5cab584e43b0fa22db93cfab4b22dd1e37bbb63f1ea223addb279cc",
+          "size_bytes": 328178507,
+          "size_mb": 312.98
+        }
+      ],
+      "notes": null,
+      "sha256": "1f387f1ad9cb6c3bd0ba10120f1ad6303fa7eb165d0ef9abb0c7e37259f8f2a3",
+      "size_bytes": 328177931,
+      "size_mb": 312.97
+    },
+    "models/mms-tts/mms_tts_ar_cpu.pt": {
+      "device": "cpu",
+      "dtype": "float32",
+      "export_args": "--lang ar",
+      "export_script": "scripts/export_mms_tts.py",
+      "exported_at": "2025-12-11T07:22:13.172552",
+      "history": [
+        {
+          "archived_at": "2025-12-11T07:22:13.172548",
+          "device": "cpu",
+          "dtype": "float32",
+          "sha256": "PLACEHOLDER",
+          "size_bytes": 0,
+          "size_mb": 0
+        }
+      ],
+      "notes": null,
+      "sha256": "def0f654262b98aa9944156ec075f99f4d93c2a5eb653c1d365cd676244b9a9a",
+      "size_bytes": 146278692,
+      "size_mb": 139.5
+    }
+  },
+  "version": "1.0"
+}

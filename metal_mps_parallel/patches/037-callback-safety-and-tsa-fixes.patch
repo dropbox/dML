@@ -1,0 +1,123 @@
+diff --git a/aten/src/ATen/mps/MPSEvent.h b/aten/src/ATen/mps/MPSEvent.h
+index 23141d5d..5d09e4a3 100644
+--- a/aten/src/ATen/mps/MPSEvent.h
++++ b/aten/src/ATen/mps/MPSEvent.h
+@@ -79,6 +79,10 @@ class MPSEvent {
+   uint64_t m_completion_time MPS_GUARDED_BY(m_cpu_sync_mutex) = 0;
+   // tracks which stream recorded this event (for stream-specific sync in elapsedTime)
+   MPSStream* m_recording_stream MPS_GUARDED_BY(m_mutex) = nullptr;
++  // CALLBACK SAFETY (N=1275): Track pending callbacks to prevent use-after-free.
++  // Destructor waits for this to reach 0 before destroying the object.
++  // Atomic because callbacks run on dispatch queue threads, not under m_mutex.
++  std::atomic<uint32_t> m_pending_callbacks{0};
+ 
+   // Internal methods that require m_mutex to be held
+   void recordLocked(MPSStream* stream, bool syncEvent) MPS_REQUIRES(m_mutex);
+diff --git a/aten/src/ATen/mps/MPSEvent.mm b/aten/src/ATen/mps/MPSEvent.mm
+index d1d2ed40..2c277a4f 100644
+--- a/aten/src/ATen/mps/MPSEvent.mm
++++ b/aten/src/ATen/mps/MPSEvent.mm
+@@ -1,6 +1,7 @@
+ //  Copyright © 2023 Apple Inc.
+ 
+ #include <ATen/mps/MPSEvent.h>
++#include <thread>
+ 
+ namespace at::mps {
+ 
+@@ -10,6 +11,20 @@ MPSEvent::MPSEvent(id_t ID, MPSStream* stream, bool enable_timing)
+ }
+ 
+ MPSEvent::~MPSEvent() {
++  // CALLBACK SAFETY (N=1275): Wait for pending callbacks to complete before destruction.
++  // Without this, the callback could fire after 'this' is destroyed, causing use-after-free.
++  // Use a short spin-wait with timeout since callbacks should complete quickly.
++  constexpr int kMaxWaitIterations = 100;
++  constexpr int kSleepMicroseconds = 1000;  // 1ms per iteration, 100ms max
++  for (int i = 0; i < kMaxWaitIterations && m_pending_callbacks.load(std::memory_order_acquire) > 0; ++i) {
++    std::this_thread::sleep_for(std::chrono::microseconds(kSleepMicroseconds));
++  }
++  // If callbacks still pending after timeout, log warning but proceed with destruction
++  // to avoid blocking indefinitely (defensive - should not happen in practice)
++  if (m_pending_callbacks.load(std::memory_order_acquire) > 0) {
++    TORCH_WARN("MPSEvent destructor: ", m_pending_callbacks.load(), " callbacks still pending after timeout");
++  }
++
+   if (m_event) {
+     [m_event release];
+     m_event = nil;
+@@ -77,7 +92,21 @@ bool MPSEvent::notifyLocked(MTLSharedEventNotificationBlock block) {
+     m_listener = [[MTLSharedEventListener alloc]
+         initWithDispatchQueue:dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)];
+   }
+-  [m_event notifyListener:m_listener atValue:m_signalCounter block:block];
++
++  // CALLBACK SAFETY (N=1275): Track pending callbacks to prevent use-after-free.
++  // Increment counter before scheduling; decrement in wrapper after original block runs.
++  // Capture counter by pointer since atomic<> is not copyable.
++  std::atomic<uint32_t>* pending_ptr = &m_pending_callbacks;
++  pending_ptr->fetch_add(1, std::memory_order_release);
++
++  MTLSharedEventNotificationBlock wrapped_block = ^(id<MTLSharedEvent> event, uint64_t value) {
++    // Execute original block
++    block(event, value);
++    // Decrement pending count - signals destructor that callback completed
++    pending_ptr->fetch_sub(1, std::memory_order_release);
++  };
++
++  [m_event notifyListener:m_listener atValue:m_signalCounter block:wrapped_block];
+   return true;
+ }
+ 
+diff --git a/aten/src/ATen/mps/MPSStream.mm b/aten/src/ATen/mps/MPSStream.mm
+index 200d87e7..2827a414 100644
+--- a/aten/src/ATen/mps/MPSStream.mm
++++ b/aten/src/ATen/mps/MPSStream.mm
+@@ -212,6 +212,9 @@ void MPSStream::synchronize(SyncType syncType) {
+ }
+ 
+ void MPSStream::commit() {
++  // TSA FIX (N=1275): Acquire lock to protect _enableCommitAndContinue access.
++  // Using recursive_mutex is safe when called from synchronize() which already holds it.
++  std::lock_guard<std::recursive_mutex> lock(_streamMutex);
+   if (_enableCommitAndContinue) {
+     [commandBuffer() commitAndContinue];
+   } else {
+@@ -220,6 +223,9 @@ void MPSStream::commit() {
+ }
+ 
+ void MPSStream::commitAndWait() {
++  // TSA FIX (N=1275): Acquire lock to protect _commandBuffer/_prevCommandBuffer.
++  // Using recursive_mutex is safe when called from synchronize() which already holds it.
++  std::lock_guard<std::recursive_mutex> lock(_streamMutex);
+   if (_prevCommandBuffer) {
+     // the previous command buffer (if exists) has already been committed,
+     // so we just wait until it's completed and then dispose it.
+@@ -237,11 +243,17 @@ void MPSStream::commitAndWait() {
+ }
+ 
+ void MPSStream::commitAndContinue() {
++  // TSA FIX (N=1275): Acquire lock to protect _commandBuffer.
++  // Using recursive_mutex is safe when called from synchronize() which already holds it.
++  std::lock_guard<std::recursive_mutex> lock(_streamMutex);
+   assert(_commandBuffer);
+   [_commandBuffer commitAndContinue];
+ }
+ 
+ void MPSStream::endKernelCoalescing() {
++  // TSA FIX (N=1275): Acquire lock to protect _commandEncoder.
++  // Using recursive_mutex is safe when called from synchronize() which already holds it.
++  std::lock_guard<std::recursive_mutex> lock(_streamMutex);
+   if (_commandEncoder) {
+     [_commandEncoder endEncoding];
+     [_commandEncoder release];
+@@ -250,6 +262,9 @@ void MPSStream::endKernelCoalescing() {
+ }
+ 
+ void MPSStream::flush() {
++  // TSA FIX (N=1275): Acquire lock to protect _commandBuffer/_prevCommandBuffer.
++  // Using recursive_mutex is safe when called from commit() which may already hold it.
++  std::lock_guard<std::recursive_mutex> lock(_streamMutex);
+   if (_commandBuffer) {
+     [_commandBuffer commit];
+     // if commitAndContinue is disabled (e.g., for Profiler), we keep the command

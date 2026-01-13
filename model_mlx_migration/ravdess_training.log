@@ -1,0 +1,87 @@
+/Users/ayates/model_mlx_migration/.venv/lib/python3.12/site-packages/webrtcvad.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+======================================================================
+Multi-Head Training for Whisper
+======================================================================
+Output: checkpoints/multi_head_ravdess
+Model: mlx-community/whisper-large-v3-mlx
+Heads: CTC=False, Emotion=True, Singing=True, Pitch=False
+
+1. Loading Whisper model...
+Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 1972.86it/s]
+   d_model=1280
+2. Creating heads...
+   CTC: 66.4M params
+   Emotion: 0.7M params
+   Singing: 0.2M params
+   Pitch: 0.2M params
+3. Loading tokenizer...
+4. Loading RAVDESS from data/prosody/ravdess...
+Loading RAVDESS from: data/prosody/ravdess
+Found 2452 audio files
+Total samples: 2452
+Train: 2207, Val: 245
+Singing: 1012, Speaking: 1440
+Emotions: {'angry': 376, 'happy': 376, 'fearful': 376, 'disgust': 192, 'calm': 376, 'sad': 376, 'neutral': 188, 'surprise': 192}
+
+Total training samples: 2207
+Total validation samples: 245
+
+======================================================================
+Starting Training
+======================================================================
+Starting multi-head training
+Epochs: 5
+Train samples: 2207
+Val samples: 245
+Heads: CTC=False, Emotion=True, Singing=True, Pitch=False
+  Step 50: emotion=2.0939 | singing=0.3584
+  Step 100: emotion=1.6376 | singing=0.0782
+  Step 150: emotion=1.3501 | singing=0.0534
+  Step 200: emotion=1.2162 | singing=0.0371
+  Step 250: emotion=1.0938 | singing=0.0388
+Epoch 1/5: emotion=1.4383 | singing=0.1046
+  Val loss: 0.5568
+Saved checkpoint: checkpoints/multi_head_ravdess/best.npz
+  New best model saved!
+  Step 300: emotion=0.9925 | singing=0.0231
+  Step 350: emotion=0.9159 | singing=0.0312
+  Step 400: emotion=0.9574 | singing=0.0198
+  Step 450: emotion=0.8182 | singing=0.0243
+  Step 500: emotion=0.8282 | singing=0.0200
+Saved checkpoint: checkpoints/multi_head_ravdess/step_500.npz
+  Step 550: emotion=0.7955 | singing=0.0182
+Epoch 2/5: emotion=0.8743 | singing=0.0241
+  Val loss: 0.4280
+Saved checkpoint: checkpoints/multi_head_ravdess/best.npz
+  New best model saved!
+  Step 600: emotion=0.8373 | singing=0.0107
+  Step 650: emotion=0.7680 | singing=0.0145
+  Step 700: emotion=0.7545 | singing=0.0161
+  Step 750: emotion=0.6560 | singing=0.0190
+  Step 800: emotion=0.6888 | singing=0.0222
+Epoch 3/5: emotion=0.7292 | singing=0.0161
+  Val loss: 0.3964
+Saved checkpoint: checkpoints/multi_head_ravdess/best.npz
+  New best model saved!
+  Step 850: emotion=0.6254 | singing=0.0045
+  Step 900: emotion=0.6850 | singing=0.0094
+  Step 950: emotion=0.7074 | singing=0.0103
+  Step 1000: emotion=0.5858 | singing=0.0056
+Saved checkpoint: checkpoints/multi_head_ravdess/step_1000.npz
+  Step 1050: emotion=0.6813 | singing=0.0120
+  Step 1100: emotion=0.6675 | singing=0.0242
+Epoch 4/5: emotion=0.6613 | singing=0.0115
+  Val loss: 0.3569
+Saved checkpoint: checkpoints/multi_head_ravdess/best.npz
+  New best model saved!
+  Step 1150: emotion=0.6104 | singing=0.0143
+  Step 1200: emotion=0.6404 | singing=0.0063
+  Step 1250: emotion=0.6778 | singing=0.0131
+  Step 1300: emotion=0.5541 | singing=0.0073
+  Step 1350: emotion=0.5566 | singing=0.0114
+Epoch 5/5: emotion=0.6125 | singing=0.0098
+  Val loss: 0.3282
+Saved checkpoint: checkpoints/multi_head_ravdess/best.npz
+  New best model saved!
+Training complete!

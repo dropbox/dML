@@ -1,0 +1,7 @@
+[submodule "stream-tts-cpp"]
+	path = stream-tts-cpp
+	url = git@github.com:ayates_dbx/stream-tts-cpp.git
+
+[submodule "external/whisper.cpp"]
+	path = external/whisper.cpp
+	url = https://github.com/ggerganov/whisper.cpp.git

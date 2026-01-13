@@ -1,0 +1,473 @@
+/opt/homebrew/lib/python3.14/site-packages/webrtcvad.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+============================================================
+CTC Draft Head Training
+============================================================
+Model: mlx-community/whisper-large-v3-mlx
+Data: data/librispeech/train-clean-100
+Output: checkpoints/ctc_head_large_v3
+Epochs: 10
+Batch size: 4
+Learning rate: 0.0003
+Loss function: PyTorch CTC (best quality)
+PyTorch available: True
+Initial memory: 319 MB
+============================================================
+
+MEMORY OPTIMIZATIONS ENABLED:
+  - Sequence trimming (only process actual frames, not padded)
+  - Aggressive memory cleanup between batches
+  - Immediate tensor deletion after use
+============================================================
+
+1. Loading Whisper model (frozen encoder)...
+Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 3030.57it/s]
+   Loaded in 0.9s
+
+   Loading tokenizer...
+
+2. Creating CTC head...
+
+   Resuming from checkpoint: checkpoints/ctc_head_large_v3/step_7000.npz
+   Loaded 4 parameters
+   Parameters: 66,441,625 (66.4M)
+
+3. Loading dataset...
+Loading LibriSpeech from: data/librispeech/train-clean-100
+Found 585 transcript files
+Total samples: 28539
+Train: 25686, Val: 2853
+   Resuming from step 7000, epoch 1
+
+4. Starting training...
+Starting CTC head training
+Epochs: 10
+Train samples: 25686
+Val samples: 2853
+Batch size: 4
+Learning rate: 0.0003
+Using PyTorch CTC loss: True
+  Step 7050: loss=1.1925, mem=8561MB
+  Step 7100: loss=1.1599, mem=8568MB
+  Step 7150: loss=1.1356, mem=10859MB
+  Step 7200: loss=1.1163, mem=13490MB
+  Step 7250: loss=1.0920, mem=13492MB
+  Step 7300: loss=1.0754, mem=16502MB
+  Step 7350: loss=1.0544, mem=16502MB
+  Step 7400: loss=1.0396, mem=16502MB
+  Step 7450: loss=1.0232, mem=16502MB
+  Step 7500: loss=1.0094, mem=19571MB
+Saving: checkpoints/ctc_head_large_v3/step_7500.npz
+  Step 7550: loss=1.0049, mem=19824MB
+  Step 7600: loss=0.9939, mem=19825MB
+  Step 7650: loss=0.9828, mem=19825MB
+  Step 7700: loss=0.9771, mem=19825MB
+  Step 7750: loss=0.9711, mem=19825MB
+  Step 7800: loss=0.9650, mem=19825MB
+  Step 7850: loss=0.9606, mem=19825MB
+  Step 7900: loss=0.9573, mem=19825MB
+  Step 7950: loss=0.9511, mem=19825MB
+  Step 8000: loss=0.9458, mem=19825MB
+Saving: checkpoints/ctc_head_large_v3/step_8000.npz
+  Step 8050: loss=0.9407, mem=19826MB
+  Step 8100: loss=0.9348, mem=19828MB
+  Step 8150: loss=0.9304, mem=19828MB
+  Step 8200: loss=0.9259, mem=19828MB
+  Step 8250: loss=0.9218, mem=19828MB
+  Step 8300: loss=0.9174, mem=19828MB
+  Step 8350: loss=0.9147, mem=19828MB
+  Step 8400: loss=0.9115, mem=19828MB
+  Step 8450: loss=0.9080, mem=19828MB
+  Step 8500: loss=0.9062, mem=19828MB
+Saving: checkpoints/ctc_head_large_v3/step_8500.npz
+  Step 8550: loss=0.9044, mem=19828MB
+  Step 8600: loss=0.9005, mem=19828MB
+  Step 8650: loss=0.8974, mem=19828MB
+  Step 8700: loss=0.8950, mem=19828MB
+  Step 8750: loss=0.8910, mem=19828MB
+  Step 8800: loss=0.8859, mem=19828MB
+  Step 8850: loss=0.8832, mem=19828MB
+  Step 8900: loss=0.8796, mem=19828MB
+  Step 8950: loss=0.8774, mem=19828MB
+  Step 9000: loss=0.8742, mem=19828MB
+Saving: checkpoints/ctc_head_large_v3/step_9000.npz
+  Step 9050: loss=0.8713, mem=19828MB
+  Step 9100: loss=0.8685, mem=19828MB
+  Step 9150: loss=0.8652, mem=19828MB
+  Step 9200: loss=0.8619, mem=19828MB
+  Step 9250: loss=0.8591, mem=19828MB
+  Step 9300: loss=0.8568, mem=19828MB
+  Step 9350: loss=0.8537, mem=19828MB
+  Step 9400: loss=0.8521, mem=19828MB
+  Step 9450: loss=0.8496, mem=19828MB
+  Step 9500: loss=0.8480, mem=19828MB
+Saving: checkpoints/ctc_head_large_v3/step_9500.npz
+  Step 9550: loss=0.8459, mem=19828MB
+  Step 9600: loss=0.8444, mem=19828MB
+  Step 9650: loss=0.8431, mem=19828MB
+  Step 9700: loss=0.8410, mem=19828MB
+  Step 9750: loss=0.8393, mem=19828MB
+  Step 9800: loss=0.8372, mem=19828MB
+  Step 9850: loss=0.8354, mem=19828MB
+  Step 9900: loss=0.8341, mem=19828MB
+  Step 9950: loss=0.8326, mem=19828MB
+  Step 10000: loss=0.8314, mem=19828MB
+Saving: checkpoints/ctc_head_large_v3/step_10000.npz
+  Step 10050: loss=0.8307, mem=19828MB
+  Step 10100: loss=0.8290, mem=19828MB
+  Step 10150: loss=0.8268, mem=19828MB
+  Step 10200: loss=0.8255, mem=19828MB
+  Step 10250: loss=0.8242, mem=19828MB
+  Step 10300: loss=0.8234, mem=19828MB
+  Step 10350: loss=0.8223, mem=19828MB
+  Step 10400: loss=0.8205, mem=19828MB
+  Step 10450: loss=0.8183, mem=19828MB
+  Step 10500: loss=0.8168, mem=19828MB
+Saving: checkpoints/ctc_head_large_v3/step_10500.npz
+  Step 10550: loss=0.8158, mem=19828MB
+  Step 10600: loss=0.8140, mem=19828MB
+  Step 10650: loss=0.8123, mem=19828MB
+  Step 10700: loss=0.8107, mem=19828MB
+  Step 10750: loss=0.8090, mem=19828MB
+  Step 10800: loss=0.8071, mem=19828MB
+  Step 10850: loss=0.8060, mem=19828MB
+  Step 10900: loss=0.8042, mem=19828MB
+  Step 10950: loss=0.8031, mem=19828MB
+  Step 11000: loss=0.8019, mem=19828MB
+Saving: checkpoints/ctc_head_large_v3/step_11000.npz
+  Step 11050: loss=0.8008, mem=19828MB
+  Step 11100: loss=0.8002, mem=19828MB
+  Step 11150: loss=0.7993, mem=19828MB
+  Step 11200: loss=0.7981, mem=19828MB
+  Step 11250: loss=0.7972, mem=19828MB
+  Step 11300: loss=0.7958, mem=19828MB
+  Step 11350: loss=0.7947, mem=19828MB
+  Step 11400: loss=0.7932, mem=19828MB
+  Step 11450: loss=0.7918, mem=19828MB
+  Step 11500: loss=0.7905, mem=19828MB
+Saving: checkpoints/ctc_head_large_v3/step_11500.npz
+  Step 11550: loss=0.7891, mem=19828MB
+  Step 11600: loss=0.7874, mem=19828MB
+  Step 11650: loss=0.7863, mem=19828MB
+  Step 11700: loss=0.7852, mem=19828MB
+  Step 11750: loss=0.7839, mem=19828MB
+  Step 11800: loss=0.7834, mem=19828MB
+  Step 11850: loss=0.7823, mem=19828MB
+  Step 11900: loss=0.7816, mem=19828MB
+  Step 11950: loss=0.7806, mem=19828MB
+  Step 12000: loss=0.7791, mem=19828MB
+Saving: checkpoints/ctc_head_large_v3/step_12000.npz
+  Step 12050: loss=0.7788, mem=19828MB
+  Step 12100: loss=0.7776, mem=19828MB
+  Step 12150: loss=0.7770, mem=19828MB
+  Step 12200: loss=0.7761, mem=19828MB
+  Step 12250: loss=0.7748, mem=19828MB
+  Step 12300: loss=0.7739, mem=19828MB
+  Step 12350: loss=0.7734, mem=19828MB
+  Step 12400: loss=0.7724, mem=19828MB
+  Step 12450: loss=0.7712, mem=19828MB
+  Step 12500: loss=0.7700, mem=19828MB
+Saving: checkpoints/ctc_head_large_v3/step_12500.npz
+  Step 12550: loss=0.7692, mem=19828MB
+  Step 12600: loss=0.7681, mem=19828MB
+  Step 12650: loss=0.7669, mem=19828MB
+  Step 12700: loss=0.7664, mem=19828MB
+  Step 12750: loss=0.7652, mem=19828MB
+  Step 12800: loss=0.7646, mem=19828MB
+  Step 12850: loss=0.7638, mem=19828MB
+  Step 12900: loss=0.7629, mem=19828MB
+  Step 12950: loss=0.7623, mem=19828MB
+  Step 13000: loss=0.7613, mem=19828MB
+Saving: checkpoints/ctc_head_large_v3/step_13000.npz
+  Step 13050: loss=0.7604, mem=19828MB
+  Step 13100: loss=0.7596, mem=19828MB
+  Step 13150: loss=0.7589, mem=19828MB
+  Step 13200: loss=0.7579, mem=19828MB
+  Step 13250: loss=0.7569, mem=19828MB
+  Step 13300: loss=0.7561, mem=19828MB
+  Step 13350: loss=0.7555, mem=19828MB
+  Step 13400: loss=0.7543, mem=19828MB
+  Epoch peak memory: 19828MB
+Epoch 1/10
+  Train loss: 0.7542
+  Val loss: 141.8049
+  Val accuracy: 85.76%
+Saving: checkpoints/ctc_head_large_v3/epoch_1.npz
+  Step 13450: loss=0.5909, mem=19828MB
+  Step 13500: loss=0.5762, mem=19828MB
+Saving: checkpoints/ctc_head_large_v3/step_13500.npz
+  Step 13550: loss=0.5750, mem=19828MB
+  Step 13600: loss=0.5897, mem=19828MB
+  Step 13650: loss=0.5926, mem=19828MB
+  Step 13700: loss=0.5856, mem=19828MB
+  Step 13750: loss=0.5937, mem=19828MB
+  Step 13800: loss=0.5921, mem=19828MB
+  Step 13850: loss=0.5908, mem=19828MB
+  Step 13900: loss=0.5933, mem=19828MB
+  Step 13950: loss=0.5945, mem=19828MB
+  Step 14000: loss=0.5948, mem=19828MB
+Saving: checkpoints/ctc_head_large_v3/step_14000.npz
+  Step 14050: loss=0.5969, mem=19828MB
+  Step 14100: loss=0.5985, mem=19828MB
+  Step 14150: loss=0.6009, mem=19828MB
+  Step 14200: loss=0.5992, mem=19828MB
+  Step 14250: loss=0.5995, mem=19828MB
+  Step 14300: loss=0.5983, mem=19828MB
+  Step 14350: loss=0.5980, mem=19828MB
+  Step 14400: loss=0.5957, mem=19828MB
+  Step 14450: loss=0.5956, mem=19828MB
+  Step 14500: loss=0.5944, mem=19828MB
+Saving: checkpoints/ctc_head_large_v3/step_14500.npz
+  Step 14550: loss=0.5938, mem=19828MB
+  Step 14600: loss=0.5934, mem=19828MB
+  Step 14650: loss=0.5939, mem=19828MB
+  Step 14700: loss=0.5954, mem=19828MB
+  Step 14750: loss=0.5951, mem=19828MB
+  Step 14800: loss=0.5958, mem=19828MB
+  Step 14850: loss=0.5971, mem=19828MB
+  Step 14900: loss=0.5982, mem=19828MB
+  Step 14950: loss=0.5972, mem=19828MB
+  Step 15000: loss=0.5985, mem=19828MB
+Saving: checkpoints/ctc_head_large_v3/step_15000.npz
+  Step 15050: loss=0.5987, mem=19828MB
+  Step 15100: loss=0.5993, mem=19828MB
+  Step 15150: loss=0.6003, mem=19828MB
+  Step 15200: loss=0.6009, mem=19828MB
+  Step 15250: loss=0.6004, mem=19828MB
+  Step 15300: loss=0.6008, mem=19828MB
+  Step 15350: loss=0.6005, mem=19828MB
+  Step 15400: loss=0.6010, mem=19828MB
+  Step 15450: loss=0.6009, mem=19828MB
+  Step 15500: loss=0.6008, mem=19828MB
+Saving: checkpoints/ctc_head_large_v3/step_15500.npz
+  Step 15550: loss=0.6002, mem=19828MB
+  Step 15600: loss=0.5998, mem=19828MB
+  Step 15650: loss=0.5988, mem=19828MB
+  Step 15700: loss=0.6003, mem=19828MB
+  Step 15750: loss=0.6006, mem=19828MB
+  Step 15800: loss=0.6019, mem=19828MB
+  Step 15850: loss=0.6023, mem=19828MB
+  Step 15900: loss=0.6023, mem=19828MB
+  Step 15950: loss=0.6024, mem=19828MB
+  Step 16000: loss=0.6021, mem=19828MB
+Saving: checkpoints/ctc_head_large_v3/step_16000.npz
+  Step 16050: loss=0.6017, mem=19828MB
+  Step 16100: loss=0.6007, mem=19828MB
+  Step 16150: loss=0.6003, mem=19828MB
+  Step 16200: loss=0.6011, mem=19828MB
+  Step 16250: loss=0.6004, mem=19828MB
+  Step 16300: loss=0.6000, mem=19828MB
+  Step 16350: loss=0.5999, mem=19828MB
+  Step 16400: loss=0.5992, mem=19828MB
+  Step 16450: loss=0.5996, mem=19828MB
+  Step 16500: loss=0.5996, mem=19828MB
+Saving: checkpoints/ctc_head_large_v3/step_16500.npz
+  Step 16550: loss=0.5989, mem=19828MB
+  Step 16600: loss=0.5994, mem=19828MB
+  Step 16650: loss=0.6001, mem=19828MB
+  Step 16700: loss=0.6000, mem=19828MB
+  Step 16750: loss=0.5996, mem=19828MB
+  Step 16800: loss=0.5992, mem=19828MB
+  Step 16850: loss=0.5995, mem=19828MB
+  Step 16900: loss=0.5986, mem=19828MB
+  Step 16950: loss=0.5985, mem=19828MB
+  Step 17000: loss=0.5989, mem=19828MB
+Saving: checkpoints/ctc_head_large_v3/step_17000.npz
+  Step 17050: loss=0.5987, mem=19828MB
+  Step 17100: loss=0.5987, mem=19828MB
+  Step 17150: loss=0.5984, mem=19828MB
+  Step 17200: loss=0.5984, mem=19828MB
+  Step 17250: loss=0.5983, mem=19828MB
+  Step 17300: loss=0.5981, mem=19828MB
+  Step 17350: loss=0.5980, mem=19828MB
+  Step 17400: loss=0.5974, mem=19828MB
+  Step 17450: loss=0.5970, mem=19828MB
+  Step 17500: loss=0.5967, mem=19828MB
+Saving: checkpoints/ctc_head_large_v3/step_17500.npz
+  Step 17550: loss=0.5970, mem=19828MB
+  Step 17600: loss=0.5970, mem=19828MB
+  Step 17650: loss=0.5968, mem=19828MB
+  Step 17700: loss=0.5968, mem=19828MB
+  Step 17750: loss=0.5969, mem=19828MB
+  Step 17800: loss=0.5966, mem=19828MB
+  Step 17850: loss=0.5964, mem=19828MB
+  Step 17900: loss=0.5964, mem=19828MB
+  Step 17950: loss=0.5961, mem=19828MB
+  Step 18000: loss=0.5960, mem=19828MB
+Saving: checkpoints/ctc_head_large_v3/step_18000.npz
+  Step 18050: loss=0.5956, mem=19828MB
+  Step 18100: loss=0.5952, mem=19828MB
+  Step 18150: loss=0.5951, mem=19828MB
+  Step 18200: loss=0.5949, mem=19828MB
+  Step 18250: loss=0.5949, mem=19828MB
+  Step 18300: loss=0.5950, mem=19828MB
+  Step 18350: loss=0.5951, mem=19828MB
+  Step 18400: loss=0.5952, mem=19828MB
+  Step 18450: loss=0.5952, mem=19828MB
+  Step 18500: loss=0.5952, mem=19828MB
+Saving: checkpoints/ctc_head_large_v3/step_18500.npz
+  Step 18550: loss=0.5955, mem=19828MB
+  Step 18600: loss=0.5953, mem=19828MB
+  Step 18650: loss=0.5959, mem=19828MB
+  Step 18700: loss=0.5957, mem=19828MB
+  Step 18750: loss=0.5955, mem=19828MB
+  Step 18800: loss=0.5952, mem=19828MB
+  Step 18850: loss=0.5952, mem=19828MB
+  Step 18900: loss=0.5950, mem=19828MB
+  Step 18950: loss=0.5949, mem=19828MB
+  Step 19000: loss=0.5947, mem=19828MB
+Saving: checkpoints/ctc_head_large_v3/step_19000.npz
+  Step 19050: loss=0.5948, mem=19828MB
+  Step 19100: loss=0.5947, mem=19828MB
+  Step 19150: loss=0.5947, mem=19828MB
+  Step 19200: loss=0.5946, mem=19828MB
+  Step 19250: loss=0.5943, mem=19828MB
+  Step 19300: loss=0.5940, mem=19828MB
+  Step 19350: loss=0.5939, mem=19828MB
+  Step 19400: loss=0.5936, mem=19828MB
+  Step 19450: loss=0.5934, mem=19828MB
+  Step 19500: loss=0.5935, mem=19828MB
+Saving: checkpoints/ctc_head_large_v3/step_19500.npz
+  Step 19550: loss=0.5940, mem=19828MB
+  Step 19600: loss=0.5940, mem=19828MB
+  Step 19650: loss=0.5937, mem=19828MB
+  Step 19700: loss=0.5934, mem=19828MB
+  Step 19750: loss=0.5934, mem=19828MB
+  Step 19800: loss=0.5929, mem=19828MB
+  Epoch peak memory: 19828MB
+Epoch 2/10
+  Train loss: 0.5932
+  Val loss: 144.7492
+  Val accuracy: 88.05%
+Saving: checkpoints/ctc_head_large_v3/epoch_2.npz
+  Step 19850: loss=0.6030, mem=19828MB
+  Step 19900: loss=0.5712, mem=19828MB
+  Step 19950: loss=0.5261, mem=19828MB
+  Step 20000: loss=0.5304, mem=19828MB
+Saving: checkpoints/ctc_head_large_v3/step_20000.npz
+  Step 20050: loss=0.5190, mem=19828MB
+  Step 20100: loss=0.5261, mem=19828MB
+  Step 20150: loss=0.5312, mem=19828MB
+  Step 20200: loss=0.5337, mem=19828MB
+  Step 20250: loss=0.5305, mem=19828MB
+  Step 20300: loss=0.5341, mem=19828MB
+  Step 20350: loss=0.5340, mem=19828MB
+  Step 20400: loss=0.5297, mem=19828MB
+  Step 20450: loss=0.5285, mem=19828MB
+  Step 20500: loss=0.5305, mem=19828MB
+Saving: checkpoints/ctc_head_large_v3/step_20500.npz
+  Step 20550: loss=0.5296, mem=19828MB
+  Step 20600: loss=0.5314, mem=19828MB
+  Step 20650: loss=0.5313, mem=19828MB
+  Step 20700: loss=0.5331, mem=19828MB
+  Step 20750: loss=0.5327, mem=19828MB
+  Step 20800: loss=0.5324, mem=19828MB
+  Step 20850: loss=0.5360, mem=19828MB
+  Step 20900: loss=0.5344, mem=19828MB
+  Step 20950: loss=0.5342, mem=19828MB
+  Step 21000: loss=0.5352, mem=19828MB
+Saving: checkpoints/ctc_head_large_v3/step_21000.npz
+  Step 21050: loss=0.5356, mem=19828MB
+  Step 21100: loss=0.5359, mem=19828MB
+  Step 21150: loss=0.5370, mem=19828MB
+  Step 21200: loss=0.5367, mem=19828MB
+  Step 21250: loss=0.5357, mem=19828MB
+  Step 21300: loss=0.5363, mem=19828MB
+  Step 21350: loss=0.5358, mem=19828MB
+  Step 21400: loss=0.5365, mem=19828MB
+  Step 21450: loss=0.5345, mem=19828MB
+  Step 21500: loss=0.5353, mem=19828MB
+Saving: checkpoints/ctc_head_large_v3/step_21500.npz
+  Step 21550: loss=0.5370, mem=19828MB
+  Step 21600: loss=0.5376, mem=19828MB
+  Step 21650: loss=0.5383, mem=19828MB
+  Step 21700: loss=0.5370, mem=19828MB
+  Step 21750: loss=0.5376, mem=19828MB
+  Step 21800: loss=0.5375, mem=19828MB
+  Step 21850: loss=0.5373, mem=19828MB
+  Step 21900: loss=0.5370, mem=19828MB
+  Step 21950: loss=0.5361, mem=19828MB
+  Step 22000: loss=0.5355, mem=19828MB
+Saving: checkpoints/ctc_head_large_v3/step_22000.npz
+  Step 22050: loss=0.5354, mem=19828MB
+  Step 22100: loss=0.5350, mem=19828MB
+  Step 22150: loss=0.5354, mem=19828MB
+  Step 22200: loss=0.5357, mem=19828MB
+  Step 22250: loss=0.5356, mem=19828MB
+  Step 22300: loss=0.5365, mem=19828MB
+  Step 22350: loss=0.5363, mem=19828MB
+  Step 22400: loss=0.5361, mem=19828MB
+  Step 22450: loss=0.5366, mem=19828MB
+  Step 22500: loss=0.5360, mem=19828MB
+Saving: checkpoints/ctc_head_large_v3/step_22500.npz
+  Step 22550: loss=0.5356, mem=19828MB
+  Step 22600: loss=0.5355, mem=19828MB
+  Step 22650: loss=0.5353, mem=19828MB
+  Step 22700: loss=0.5352, mem=19828MB
+  Step 22750: loss=0.5349, mem=19828MB
+  Step 22800: loss=0.5352, mem=19828MB
+  Step 22850: loss=0.5344, mem=19828MB
+  Step 22900: loss=0.5346, mem=19828MB
+  Step 22950: loss=0.5350, mem=19828MB
+  Step 23000: loss=0.5347, mem=19828MB
+Saving: checkpoints/ctc_head_large_v3/step_23000.npz
+  Step 23050: loss=0.5347, mem=19828MB
+  Step 23100: loss=0.5358, mem=19828MB
+  Step 23150: loss=0.5359, mem=19828MB
+  Step 23200: loss=0.5363, mem=19828MB
+  Step 23250: loss=0.5368, mem=19828MB
+  Step 23300: loss=0.5365, mem=19828MB
+  Step 23350: loss=0.5364, mem=19828MB
+  Step 23400: loss=0.5363, mem=19828MB
+  Step 23450: loss=0.5355, mem=19828MB
+  Step 23500: loss=0.5354, mem=19828MB
+Saving: checkpoints/ctc_head_large_v3/step_23500.npz
+  Step 23550: loss=0.5355, mem=19828MB
+  Step 23600: loss=0.5359, mem=19828MB
+  Step 23650: loss=0.5360, mem=19828MB
+  Step 23700: loss=0.5361, mem=19828MB
+  Step 23750: loss=0.5358, mem=19828MB
+  Step 23800: loss=0.5360, mem=19828MB
+  Step 23850: loss=0.5358, mem=19828MB
+  Step 23900: loss=0.5357, mem=19828MB
+  Step 23950: loss=0.5360, mem=19828MB
+  Step 24000: loss=0.5364, mem=19828MB
+Saving: checkpoints/ctc_head_large_v3/step_24000.npz
+  Step 24050: loss=0.5369, mem=19828MB
+  Step 24100: loss=0.5367, mem=19828MB
+  Step 24150: loss=0.5370, mem=19828MB
+  Step 24200: loss=0.5374, mem=19828MB
+  Step 24250: loss=0.5374, mem=19828MB
+  Step 24300: loss=0.5379, mem=19828MB
+  Step 24350: loss=0.5385, mem=19828MB
+  Step 24400: loss=0.5384, mem=19828MB
+  Step 24450: loss=0.5383, mem=19828MB
+  Step 24500: loss=0.5383, mem=19828MB
+Saving: checkpoints/ctc_head_large_v3/step_24500.npz
+  Step 24550: loss=0.5388, mem=19828MB
+  Step 24600: loss=0.5385, mem=19828MB
+  Step 24650: loss=0.5388, mem=19828MB
+  Step 24700: loss=0.5390, mem=19828MB
+  Step 24750: loss=0.5388, mem=19828MB
+  Step 24800: loss=0.5384, mem=19828MB
+  Step 24850: loss=0.5383, mem=19828MB
+  Step 24900: loss=0.5381, mem=19828MB
+  Step 24950: loss=0.5380, mem=19828MB
+  Step 25000: loss=0.5378, mem=19828MB
+Saving: checkpoints/ctc_head_large_v3/step_25000.npz
+  Step 25050: loss=0.5380, mem=19828MB
+  Step 25100: loss=0.5380, mem=19828MB
+  Step 25150: loss=0.5384, mem=19828MB
+  Step 25200: loss=0.5383, mem=19828MB
+  Step 25250: loss=0.5382, mem=19828MB
+  Step 25300: loss=0.5383, mem=19828MB
+  Step 25350: loss=0.5383, mem=19828MB
+  Step 25400: loss=0.5385, mem=19828MB
+  Step 25450: loss=0.5385, mem=19828MB
+  Step 25500: loss=0.5385, mem=19828MB
+Saving: checkpoints/ctc_head_large_v3/step_25500.npz
+  Step 25550: loss=0.5385, mem=19828MB
+  Step 25600: loss=0.5383, mem=19828MB
+  Step 25650: loss=0.5389, mem=19828MB
+/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:297: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-8rffv1dh'}
+  warnings.warn(

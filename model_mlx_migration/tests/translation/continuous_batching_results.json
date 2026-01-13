@@ -1,0 +1,56 @@
+{
+  "basic_functionality": "PASS",
+  "varying_lengths": "PASS",
+  "batch_scaling": {
+    "1": {
+      "sequential_ms": 59.48972702026367,
+      "continuous_ms": 59.85593795776367,
+      "speedup": 0.9938817943549993,
+      "throughput_texts_per_sec": 16.70678021461518
+    },
+    "2": {
+      "sequential_ms": 151.89297993977866,
+      "continuous_ms": 110.60333251953125,
+      "speedup": 1.3733128693292866,
+      "throughput_texts_per_sec": 18.082637787128373
+    },
+    "4": {
+      "sequential_ms": 298.6886501312256,
+      "continuous_ms": 130.7516892751058,
+      "speedup": 2.284396108281056,
+      "throughput_texts_per_sec": 30.592338976086726
+    },
+    "8": {
+      "sequential_ms": 599.3303457895914,
+      "continuous_ms": 195.74332237243652,
+      "speedup": 3.0618175809300854,
+      "throughput_texts_per_sec": 40.86984885634349
+    },
+    "16": {
+      "sequential_ms": 1201.1435826619465,
+      "continuous_ms": 293.0399576822917,
+      "speedup": 4.09890716666088,
+      "throughput_texts_per_sec": 54.60006248481272
+    }
+  },
+  "full_benchmark": {
+    "batch_size": 8,
+    "sequential": {
+      "mean_latency_ms": 1113.6716842651367,
+      "median_latency_ms": 1113.6651039123535,
+      "throughput_texts_per_second": 7.183445635756512,
+      "throughput_tokens_per_second": 108.64961524081723,
+      "mean_tokens_generated": 121.0
+    },
+    "continuous_batching": {
+      "mean_latency_ms": 694.7629928588867,
+      "median_latency_ms": 695.4498291015625,
+      "throughput_texts_per_second": 11.514718086927349,
+      "throughput_tokens_per_second": 162.64539297784881,
+      "mean_tokens_generated": 113.0
+    },
+    "speedup_latency": 1.6029519357133268,
+    "speedup_throughput": 1.6029519357133266
+  },
+  "quality_comparison": "FAIL"
+}

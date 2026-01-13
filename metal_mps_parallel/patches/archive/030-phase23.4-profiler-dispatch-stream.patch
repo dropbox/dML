@@ -1,0 +1,35 @@
+diff --git a/aten/src/ATen/mps/MPSStream.h b/aten/src/ATen/mps/MPSStream.h
+index c066eb4d..c19fbb35 100644
+--- a/aten/src/ATen/mps/MPSStream.h
++++ b/aten/src/ATen/mps/MPSStream.h
+@@ -153,8 +153,11 @@ class TORCH_API MPSStream {
+ };
+ 
+ /**
+- * Get the current MPS stream for the calling thread.
+- * Returns the thread-local current stream, or default stream if not set.
++ * Get the current MPS stream for the current execution context.
++ *
++ * If called from within an `MPSStream` serial dispatch queue, returns the owning
++ * stream for that queue. Otherwise returns the thread-local current stream, or
++ * the default stream if not set.
+  */
+ TORCH_API MPSStream* getCurrentMPSStream();
+ 
+diff --git a/aten/src/ATen/mps/MPSStream.mm b/aten/src/ATen/mps/MPSStream.mm
+index 2ab6c4d1..daf18729 100644
+--- a/aten/src/ATen/mps/MPSStream.mm
++++ b/aten/src/ATen/mps/MPSStream.mm
+@@ -610,6 +610,12 @@ MPSStreamImpl::MPSStreamImpl() {}
+ //-----------------------------------------------------------------
+ 
+ MPSStream* getCurrentMPSStream() {
++  // If called from within a stream's serial dispatch queue, prefer the queue's
++  // owning stream over thread-local state. GCD may execute blocks on worker
++  // threads that do not carry the originating thread's TLS.
++  if (void* stream_ptr = dispatch_get_specific(getMPSStreamQueueSpecificKey())) {
++    return static_cast<MPSStream*>(stream_ptr);
++  }
+   return MPSStreamPool::getCurrentStream();
+ }
+ 

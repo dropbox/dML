@@ -1,0 +1,114 @@
+=== Analyzing: MPSProfiler.h ===
+clang++: warning: treating 'c-header' input as 'c++-header' when in C++ mode, this behavior is deprecated [-Wdeprecated]
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/aten/src/ATen/mps/MPSProfiler.h:5:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/aten/src/ATen/Tensor.h:3:
+/Users/ayates/metal_mps_parallel/pytorch-mps-fork/aten/src/ATen/core/Tensor.h:3:10: fatal error: 'ATen/core/TensorBody.h' file not found
+    3 | #include <ATen/core/TensorBody.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~
+1 error generated.
+=== Analyzing: EmptyTensor.h ===
+clang++: warning: treating 'c-header' input as 'c++-header' when in C++ mode, this behavior is deprecated [-Wdeprecated]
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/aten/src/ATen/mps/EmptyTensor.h:4:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/aten/src/ATen/core/TensorBase.h:16:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/c10/core/Device.h:3:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/c10/core/DeviceType.h:8:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/c10/macros/Export.h:1:
+/Users/ayates/metal_mps_parallel/pytorch-mps-fork/torch/headeronly/macros/Export.h:7:10: fatal error: 'torch/headeronly/macros/cmake_macros.h' file not found
+    7 | #include <torch/headeronly/macros/cmake_macros.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 error generated.
+=== Analyzing: MPSAllocator.h ===
+clang++: warning: treating 'c-header' input as 'c++-header' when in C++ mode, this behavior is deprecated [-Wdeprecated]
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/aten/src/ATen/mps/MPSAllocator.h:5:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/aten/src/ATen/mps/MPSAllocatorInterface.h:5:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/aten/src/ATen/core/ATen_fwd.h:2:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/c10/core/QScheme.h:3:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/c10/util/Exception.h:4:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/c10/macros/Export.h:1:
+/Users/ayates/metal_mps_parallel/pytorch-mps-fork/torch/headeronly/macros/Export.h:7:10: fatal error: 'torch/headeronly/macros/cmake_macros.h' file not found
+    7 | #include <torch/headeronly/macros/cmake_macros.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 error generated.
+=== Analyzing: MPSGuardImpl.h ===
+clang++: warning: treating 'c-header' input as 'c++-header' when in C++ mode, this behavior is deprecated [-Wdeprecated]
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/aten/src/ATen/mps/MPSGuardImpl.h:4:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/aten/src/ATen/Context.h:3:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/aten/src/ATen/BlasBackend.h:3:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/c10/util/Exception.h:4:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/c10/macros/Export.h:1:
+/Users/ayates/metal_mps_parallel/pytorch-mps-fork/torch/headeronly/macros/Export.h:7:10: fatal error: 'torch/headeronly/macros/cmake_macros.h' file not found
+    7 | #include <torch/headeronly/macros/cmake_macros.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 error generated.
+=== Analyzing: MPSHooks.h ===
+clang++: warning: treating 'c-header' input as 'c++-header' when in C++ mode, this behavior is deprecated [-Wdeprecated]
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/aten/src/ATen/mps/MPSHooks.h:5:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/aten/src/ATen/Generator.h:2:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/aten/src/ATen/core/Generator.h:8:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/c10/util/Exception.h:4:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/c10/macros/Export.h:1:
+/Users/ayates/metal_mps_parallel/pytorch-mps-fork/torch/headeronly/macros/Export.h:7:10: fatal error: 'torch/headeronly/macros/cmake_macros.h' file not found
+    7 | #include <torch/headeronly/macros/cmake_macros.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 error generated.
+=== Analyzing: MPSEvent.h ===
+clang++: warning: treating 'c-header' input as 'c++-header' when in C++ mode, this behavior is deprecated [-Wdeprecated]
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/aten/src/ATen/mps/MPSEvent.h:5:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/aten/src/ATen/mps/MPSStream.h:12:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/aten/src/ATen/mps/MPSDevice.h:4:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/aten/src/ATen/Device.h:2:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/c10/core/Device.h:3:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/c10/core/DeviceType.h:8:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/c10/macros/Export.h:1:
+/Users/ayates/metal_mps_parallel/pytorch-mps-fork/torch/headeronly/macros/Export.h:7:10: fatal error: 'torch/headeronly/macros/cmake_macros.h' file not found
+    7 | #include <torch/headeronly/macros/cmake_macros.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 error generated.
+=== Analyzing: MPSDevice.h ===
+clang++: warning: treating 'c-header' input as 'c++-header' when in C++ mode, this behavior is deprecated [-Wdeprecated]
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/aten/src/ATen/mps/MPSDevice.h:4:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/aten/src/ATen/Device.h:2:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/c10/core/Device.h:3:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/c10/core/DeviceType.h:8:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/c10/macros/Export.h:1:
+/Users/ayates/metal_mps_parallel/pytorch-mps-fork/torch/headeronly/macros/Export.h:7:10: fatal error: 'torch/headeronly/macros/cmake_macros.h' file not found
+    7 | #include <torch/headeronly/macros/cmake_macros.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 error generated.
+=== Analyzing: MPSThreadSafety.h ===
+clang++: warning: treating 'c-header' input as 'c++-header' when in C++ mode, this behavior is deprecated [-Wdeprecated]
+=== Analyzing: MPSStream.h ===
+clang++: warning: treating 'c-header' input as 'c++-header' when in C++ mode, this behavior is deprecated [-Wdeprecated]
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/aten/src/ATen/mps/MPSStream.h:12:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/aten/src/ATen/mps/MPSDevice.h:4:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/aten/src/ATen/Device.h:2:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/c10/core/Device.h:3:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/c10/core/DeviceType.h:8:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/c10/macros/Export.h:1:
+/Users/ayates/metal_mps_parallel/pytorch-mps-fork/torch/headeronly/macros/Export.h:7:10: fatal error: 'torch/headeronly/macros/cmake_macros.h' file not found
+    7 | #include <torch/headeronly/macros/cmake_macros.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 error generated.
+=== Analyzing: IndexKernels.h ===
+clang++: warning: treating 'c-header' input as 'c++-header' when in C++ mode, this behavior is deprecated [-Wdeprecated]
+=== Analyzing: MPSAllocatorInterface.h ===
+clang++: warning: treating 'c-header' input as 'c++-header' when in C++ mode, this behavior is deprecated [-Wdeprecated]
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/aten/src/ATen/mps/MPSAllocatorInterface.h:5:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/aten/src/ATen/core/ATen_fwd.h:2:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/c10/core/QScheme.h:3:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/c10/util/Exception.h:4:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/c10/macros/Export.h:1:
+/Users/ayates/metal_mps_parallel/pytorch-mps-fork/torch/headeronly/macros/Export.h:7:10: fatal error: 'torch/headeronly/macros/cmake_macros.h' file not found
+    7 | #include <torch/headeronly/macros/cmake_macros.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 error generated.
+=== Analyzing: MPSGeneratorImpl.h ===
+clang++: warning: treating 'c-header' input as 'c++-header' when in C++ mode, this behavior is deprecated [-Wdeprecated]
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/aten/src/ATen/mps/MPSGeneratorImpl.h:5:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/aten/src/ATen/core/Generator.h:8:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/c10/util/Exception.h:4:
+In file included from /Users/ayates/metal_mps_parallel/pytorch-mps-fork/c10/macros/Export.h:1:
+/Users/ayates/metal_mps_parallel/pytorch-mps-fork/torch/headeronly/macros/Export.h:7:10: fatal error: 'torch/headeronly/macros/cmake_macros.h' file not found
+    7 | #include <torch/headeronly/macros/cmake_macros.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 error generated.

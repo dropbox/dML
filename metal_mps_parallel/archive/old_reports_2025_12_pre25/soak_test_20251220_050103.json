@@ -1,0 +1,34 @@
+{
+  "start_time": "2025-12-20T05:00:33.375696+00:00",
+  "end_time": "2025-12-20T05:01:03.427614+00:00",
+  "duration_seconds": 30.051918029785156,
+  "total_iterations": 0,
+  "total_successful_ops": 98367,
+  "total_failed_ops": 0,
+  "memory": {
+    "cpu": {
+      "initial_mb": 207.59375,
+      "final_mb": 228.640625,
+      "peak_mb": 207.59375,
+      "growth_mb": 21.046875
+    },
+    "gpu": {
+      "initial_mb": 1.1025390625,
+      "final_mb": 1.1025390625,
+      "peak_mb": 1.1025390625,
+      "growth_mb": 0.0
+    }
+  },
+  "performance": {
+    "average_ops_per_second": 3273.235335678281
+  },
+  "hardware_info": {
+    "timestamp": "2025-12-20T05:00:33.333533Z",
+    "python_version": "3.14.0",
+    "pytorch_version": "2.9.1a0+git9a4518e",
+    "mps_available": true
+  },
+  "passed": true,
+  "failure_reason": null,
+  "metrics_history": []
+}

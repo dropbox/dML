@@ -1,0 +1,12 @@
+/opt/homebrew/lib/python3.14/site-packages/webrtcvad.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+usage: python3.14 -m tools.whisper_mlx.train_rich_decoder_v4
+       [-h] [--output-dir OUTPUT_DIR] --encoder-cache ENCODER_CACHE
+       [--train-manifest TRAIN_MANIFEST] [--val-manifest VAL_MANIFEST]
+       [--init-from INIT_FROM] [--epochs EPOCHS] [--batch-size BATCH_SIZE]
+       [--accumulation-steps ACCUMULATION_STEPS] [--lr LR]
+       [--no-early-stopping] [--no-encoder-lora]
+       [--encoder-lora-rank ENCODER_LORA_RANK]
+       [--encoder-lora-alpha ENCODER_LORA_ALPHA]
+       [--encoder-lora-start-layer ENCODER_LORA_START_LAYER]
+python3.14 -m tools.whisper_mlx.train_rich_decoder_v4: error: the following arguments are required: --encoder-cache

@@ -1,0 +1,21 @@
+/opt/homebrew/lib/python3.14/site-packages/webrtcvad.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/ayates/model_mlx_migration/tools/whisper_mlx/train_rich_decoder_v4.py", line 1002, in <module>
+    main()
+    ~~~~^^
+  File "/Users/ayates/model_mlx_migration/tools/whisper_mlx/train_rich_decoder_v4.py", line 979, in main
+    val_loader = PrefetchDataLoader(
+        manifest=val_manifest,
+    ...<5 lines>...
+        use_prosody=config.use_prosody,
+    )
+  File "/Users/ayates/model_mlx_migration/tools/whisper_mlx/train_rich_decoder_v4.py", line 207, in __init__
+    raise ValueError("No cached samples found! Run encoder pre-extraction first.")
+ValueError: No cached samples found! Run encoder pre-extraction first.
+Train: 19734 samples
+Val: 2193 samples
+Cache-only mode: 7881/19734 samples (39.9% cached)
+Cache-only mode: 0/2193 samples (0.0% cached)

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libkokoro_prosody.a CMakeFiles/kokoro_prosody.dir/prosody_parser.cpp.o CMakeFiles/kokoro_prosody.dir/prosody_adjust.cpp.o
+/usr/bin/ranlib libkokoro_prosody.a

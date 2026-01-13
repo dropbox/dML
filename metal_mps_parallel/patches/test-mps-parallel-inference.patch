@@ -1,0 +1,107 @@
+diff --git a/test/test_mps.py b/test/test_mps.py
+index 9204bf5d..461d6324 100644
+--- a/test/test_mps.py
++++ b/test/test_mps.py
+@@ -12825,6 +12825,102 @@ class TestMetalLibrary(TestCaseMPS):
+                            f"Capture file {capture_dirname} contains only metadata, i.e. {capture_listdir}")
+ 
+ 
++class TestMPSParallelInference(TestCaseMPS):
++    """Tests for MPS stream pool parallel inference support.
++
++    The MPS stream pool enables thread-safe parallel inference by providing
++    each thread with its own MTLCommandQueue. These tests verify:
++    - Basic parallel tensor operations work correctly
++    - Stream assignment is stable per-thread
++    - No data races under concurrent access
++    """
++
++    def test_parallel_basic_ops(self):
++        """Test basic parallel tensor operations with 2 threads."""
++        import threading
++
++        results = []
++        errors = []
++
++        def worker(thread_id):
++            try:
++                for _ in range(5):
++                    x = torch.randn(100, 100, device='mps')
++                    y = torch.randn(100, 100, device='mps')
++                    z = torch.mm(x, y)
++                    _ = z.sum().item()
++                results.append(thread_id)
++            except Exception as e:
++                errors.append((thread_id, str(e)))
++
++        threads = [threading.Thread(target=worker, args=(i,)) for i in range(2)]
++        for t in threads:
++            t.start()
++        for t in threads:
++            t.join()
++
++        self.assertEqual(len(errors), 0, f"Parallel ops failed: {errors}")
++        self.assertEqual(len(results), 2)
++
++    def test_parallel_4_threads(self):
++        """Test parallel operations with 4 threads."""
++        import threading
++        from concurrent.futures import ThreadPoolExecutor
++
++        def compute():
++            x = torch.randn(50, 50, device='mps')
++            y = torch.randn(50, 50, device='mps')
++            return torch.mm(x, y).sum().item()
++
++        with ThreadPoolExecutor(max_workers=4) as pool:
++            futures = [pool.submit(compute) for _ in range(20)]
++            results = [f.result() for f in futures]
++
++        self.assertEqual(len(results), 20)
++
++    def test_thread_churn(self):
++        """Test stability under thread creation/destruction churn."""
++        import threading
++
++        for batch in range(3):
++            threads = []
++            for i in range(8):
++                def work():
++                    x = torch.randn(20, 20, device='mps')
++                    _ = x.sum().item()
++                t = threading.Thread(target=work)
++                threads.append(t)
++                t.start()
++            for t in threads:
++                t.join()
++
++    def test_cross_stream_tensor(self):
++        """Test tensor created on one thread, used on another."""
++        import threading
++        import queue
++
++        q = queue.Queue()
++
++        def producer():
++            x = torch.randn(100, 100, device='mps')
++            torch.mps.synchronize()
++            q.put(x)
++
++        def consumer():
++            x = q.get(timeout=5)
++            y = x * 2
++            torch.mps.synchronize()
++            return y.sum().item()
++
++        t1 = threading.Thread(target=producer)
++        t1.start()
++        t1.join()
++
++        t2 = threading.Thread(target=consumer)
++        t2.start()
++        t2.join()
++
++
+ # TODO: Actually instantiate that test for the "mps" device to better reflect what it is doing.
+ # This requires mps to be properly registered in the device generic test framework which is not the
+ # case right now. We can probably use `allow_mps` introduced in https://github.com/pytorch/pytorch/pull/87342

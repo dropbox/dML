@@ -1,0 +1,7 @@
+/Users/ayates/model_mlx_migration/src/kokoro/build_full/CMakeFiles/kokoro_tokenizer.dir
+/Users/ayates/model_mlx_migration/src/kokoro/build_full/CMakeFiles/kokoro_prosody.dir
+/Users/ayates/model_mlx_migration/src/kokoro/build_full/CMakeFiles/test_tokenizer.dir
+/Users/ayates/model_mlx_migration/src/kokoro/build_full/CMakeFiles/test_prosody.dir
+/Users/ayates/model_mlx_migration/src/kokoro/build_full/CMakeFiles/test.dir
+/Users/ayates/model_mlx_migration/src/kokoro/build_full/CMakeFiles/edit_cache.dir
+/Users/ayates/model_mlx_migration/src/kokoro/build_full/CMakeFiles/rebuild_cache.dir

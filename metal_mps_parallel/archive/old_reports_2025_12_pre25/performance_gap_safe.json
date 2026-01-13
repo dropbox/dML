@@ -1,0 +1,98 @@
+{
+  "timestamp": "2025-12-20T14:09:37.433343",
+  "baseline": {
+    "ops_per_sec": 14055.63656144801,
+    "latency_ms": 0.07114583502698224
+  },
+  "mps_threading_safe": {
+    "results": [
+      {
+        "threads": 1,
+        "throughput": 2692.049752670551,
+        "speedup": 0.19152812758792737,
+        "efficiency": 0.19152812758792737
+      },
+      {
+        "threads": 2,
+        "throughput": 3045.569361501666,
+        "speedup": 0.21667957535662918,
+        "efficiency": 0.10833978767831459
+      },
+      {
+        "threads": 4,
+        "throughput": 3230.0806821684528,
+        "speedup": 0.229806787337399,
+        "efficiency": 0.05745169683434975
+      }
+    ]
+  },
+  "cpu_parallel_ideal": {
+    "results": [
+      {
+        "threads": 1,
+        "throughput": 545.9051653309944,
+        "speedup": 0.9940475865095139,
+        "efficiency": 0.9940475865095139
+      },
+      {
+        "threads": 2,
+        "throughput": 1009.7797166113934,
+        "speedup": 1.8387242948969151,
+        "efficiency": 0.9193621474484576
+      },
+      {
+        "threads": 4,
+        "throughput": 1943.5810682531946,
+        "speedup": 3.539098350372357,
+        "efficiency": 0.8847745875930892
+      },
+      {
+        "threads": 8,
+        "throughput": 3583.4801350800412,
+        "speedup": 6.525217209515304,
+        "efficiency": 0.815652151189413
+      }
+    ]
+  },
+  "batching": {
+    "results": [
+      {
+        "batch_size": 1,
+        "samples_per_sec": 15252.135327634163,
+        "scaling_vs_batch1": 1.0
+      },
+      {
+        "batch_size": 8,
+        "samples_per_sec": 79010.39489831445,
+        "scaling_vs_batch1": 5.180284150453454
+      },
+      {
+        "batch_size": 32,
+        "samples_per_sec": 305868.8589872052,
+        "scaling_vs_batch1": 20.054166345680468
+      },
+      {
+        "batch_size": 64,
+        "samples_per_sec": 989824.6029106167,
+        "scaling_vs_batch1": 64.89744430192867
+      }
+    ]
+  },
+  "gap": {
+    "at_4_threads": {
+      "mps_efficiency": 0.05745169683434975,
+      "cpu_efficiency": 0.8847745875930892,
+      "gap": 0.8273228907587395,
+      "potential_improvement": 15.400321249764934
+    }
+  },
+  "summary": {
+    "mps_4t_efficiency": 0.05745169683434975,
+    "cpu_4t_efficiency": 0.8847745875930892,
+    "cpu_8t_speedup": 6.525217209515304,
+    "batch_64_scaling": 64.89744430192867,
+    "estimated_apple_tax": "5.9x",
+    "our_status": "WORKING at 8 threads while MLX crashes at 2",
+    "evidence": "MLX crash trace shows AGXMetalG16X driver failure"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "specification": "MPSEncodingLock.tla",
+  "config": "MPSEncodingLock.cfg",
+  "timestamp": "2025-12-19T14:58:00Z",
+  "parameters": {
+    "NumThreads": 3,
+    "NumStreams": 2
+  },
+  "results": {
+    "status": "PASS",
+    "states_generated": 88616257,
+    "distinct_states": 10132608,
+    "states_left_on_queue": 0,
+    "depth": 119,
+    "errors": 0
+  },
+  "invariants_checked": [
+    "TypeInvariant",
+    "MutexExclusivity",
+    "NoReentrantDeadlock",
+    "StreamLockConsistency",
+    "EncodingStateConsistency",
+    "Safety"
+  ],
+  "properties_verified": [
+    {
+      "id": "GL.001",
+      "name": "DeadlockFree",
+      "status": "PASS"
+    },
+    {
+      "id": "GL.002",
+      "name": "MutexExclusivity",
+      "status": "PASS"
+    },
+    {
+      "id": "GL.003",
+      "name": "NoReentrantDeadlock",
+      "status": "PASS"
+    },
+    {
+      "id": "GL.004",
+      "name": "LockOrderValid",
+      "status": "PASS"
+    },
+    {
+      "id": "GL.005",
+      "name": "NoWaitUnderEncodingLock",
+      "status": "ASPIRATIONAL",
+      "note": "Tracks waitUntilCompleted under lock for scalability analysis"
+    }
+  ],
+  "opportunity_map_target": "B1.3",
+  "purpose": "Global encoding lock contract - deadlock freedom and minimality",
+  "code_anchors": [
+    "MPSStream.mm:49-70 (getGlobalMetalEncodingMutex, MPSEncodingLock impl)",
+    "MPSStream.mm:224-255 (synchronize with waitUntilCompleted under lock)",
+    "MPSThreadSafety.h:90-100 (lock hierarchy documentation)"
+  ]
+}

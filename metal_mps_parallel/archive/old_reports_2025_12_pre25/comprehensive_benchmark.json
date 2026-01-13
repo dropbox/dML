@@ -1,0 +1,175 @@
+{
+  "baseline": {
+    "ops_per_sec": 9913.136144662112,
+    "samples_per_sec": 317220.3566291876,
+    "description": "Single-threaded, batch=32"
+  },
+  "threading": {
+    "2_threads": {
+      "ops_per_sec": 2494.794736003579,
+      "speedup": 0.2516655374845166,
+      "efficiency": 0.1258327687422583,
+      "samples_per_sec": 79833.43155211453
+    },
+    "4_threads": {
+      "ops_per_sec": 2764.980143771778,
+      "speedup": 0.27892082822453984,
+      "efficiency": 0.06973020705613496,
+      "samples_per_sec": 88479.36460069689
+    },
+    "8_threads": {
+      "ops_per_sec": 2716.0904592985726,
+      "speedup": 0.2739890201912636,
+      "efficiency": 0.03424862752390795,
+      "samples_per_sec": 86914.89469755432
+    }
+  },
+  "process_pool": {
+    "2_processes": {
+      "ops_per_sec": 4747.414600359223,
+      "speedup": 0.4789013820732751,
+      "efficiency": 0.23945069103663755,
+      "samples_per_sec": 151917.26721149514,
+      "total_ops": 60,
+      "elapsed": 0.012638457992579788
+    },
+    "4_processes": {
+      "ops_per_sec": 9930.00750655472,
+      "speedup": 1.0017019197200971,
+      "efficiency": 0.2504254799300243,
+      "samples_per_sec": 317760.24020975106,
+      "total_ops": 120,
+      "elapsed": 0.012084583009709604
+    },
+    "8_processes": {
+      "ops_per_sec": 17279.550736306323,
+      "speedup": 1.7430962799407104,
+      "efficiency": 0.2178870349925888,
+      "samples_per_sec": 552945.6235618023,
+      "total_ops": 240,
+      "elapsed": 0.01388924999628216
+    }
+  },
+  "batching": {
+    "batch_1": {
+      "batch_size": 1,
+      "samples_per_sec": 10676.204088617096,
+      "ops_per_sec": 10676.204088617096,
+      "samples_scaling": 0.0336554822712622
+    },
+    "batch_8": {
+      "batch_size": 8,
+      "samples_per_sec": 76723.5808737609,
+      "ops_per_sec": 9590.447609220113,
+      "samples_scaling": 0.2418620976567603
+    },
+    "batch_32": {
+      "batch_size": 32,
+      "samples_per_sec": 312502.53300619265,
+      "ops_per_sec": 9765.70415644352,
+      "samples_scaling": 0.9851276138986572
+    },
+    "batch_64": {
+      "batch_size": 64,
+      "samples_per_sec": 597658.3551773475,
+      "ops_per_sec": 9338.411799646055,
+      "samples_scaling": 1.884047926583652
+    },
+    "batch_128": {
+      "batch_size": 128,
+      "samples_per_sec": 1026734.4815294737,
+      "ops_per_sec": 8021.363136949013,
+      "samples_scaling": 3.2366601325326276
+    }
+  },
+  "batchqueue": {
+    "error": "BatchQueue: cannot submit to stopped queue. Call start() first."
+  },
+  "hybrid_batch_thread": {
+    "2t_batch32": {
+      "samples_per_sec": 68296.20948374491,
+      "ops_per_sec": 2134.2565463670285,
+      "threads": 2,
+      "batch_size": 32
+    },
+    "4t_batch16": {
+      "samples_per_sec": 35036.176685325125,
+      "ops_per_sec": 2189.7610428328203,
+      "threads": 4,
+      "batch_size": 16
+    },
+    "2t_batch64": {
+      "samples_per_sec": 131354.83759602843,
+      "ops_per_sec": 2052.4193374379443,
+      "threads": 2,
+      "batch_size": 64
+    }
+  },
+  "ranked": [
+    {
+      "method": "Batching batch_128",
+      "samples_per_sec": 1026734.4815294737
+    },
+    {
+      "method": "Batching batch_64",
+      "samples_per_sec": 597658.3551773475
+    },
+    {
+      "method": "Process Pool 8_processes",
+      "samples_per_sec": 552945.6235618023
+    },
+    {
+      "method": "Process Pool 4_processes",
+      "samples_per_sec": 317760.24020975106
+    },
+    {
+      "method": "Baseline (1 thread, batch 32)",
+      "samples_per_sec": 317220.3566291876
+    },
+    {
+      "method": "Batching batch_32",
+      "samples_per_sec": 312502.53300619265
+    },
+    {
+      "method": "Process Pool 2_processes",
+      "samples_per_sec": 151917.26721149514
+    },
+    {
+      "method": "Hybrid 2t_batch64",
+      "samples_per_sec": 131354.83759602843
+    },
+    {
+      "method": "Threading 4_threads",
+      "samples_per_sec": 88479.36460069689
+    },
+    {
+      "method": "Threading 8_threads",
+      "samples_per_sec": 86914.89469755432
+    },
+    {
+      "method": "Threading 2_threads",
+      "samples_per_sec": 79833.43155211453
+    },
+    {
+      "method": "Batching batch_8",
+      "samples_per_sec": 76723.5808737609
+    },
+    {
+      "method": "Hybrid 2t_batch32",
+      "samples_per_sec": 68296.20948374491
+    },
+    {
+      "method": "Hybrid 4t_batch16",
+      "samples_per_sec": 35036.176685325125
+    },
+    {
+      "method": "Batching batch_1",
+      "samples_per_sec": 10676.204088617096
+    }
+  ],
+  "best": {
+    "method": "Batching batch_128",
+    "samples_per_sec": 1026734.4815294737
+  },
+  "timestamp": "2025-12-20T14:28:46.163003"
+}

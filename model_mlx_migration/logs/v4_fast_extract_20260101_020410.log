@@ -1,0 +1,10 @@
+/opt/homebrew/lib/python3.14/site-packages/webrtcvad.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+Manifest: 59527 samples
+Batch size: 8
+Workers: 4
+To process: 58866 (skipped 426 cached)
+Loading mlx-community/whisper-large-v3-mlx...
+Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 20360.70it/s]
+Batches:   0%|          | 0/7359 [00:00<?, ?it/s]Batches:   0%|          | 1/7359 [00:03<7:06:06,  3.47s/it]Batches:   0%|          | 2/7359 [00:06<6:36:25,  3.23s/it]Batches:   0%|          | 3/7359 [00:09<6:45:32,  3.31s/it]Batches:   0%|          | 4/7359 [00:13<6:52:26,  3.36s/it]Batches:   0%|          | 5/7359 [00:16<7:02:01,  3.44s/it]Batches:   0%|          | 6/7359 [00:20<6:52:18,  3.36s/it]Batches:   0%|          | 7/7359 [00:23<6:41:04,  3.27s/it]Batches:   0%|          | 8/7359 [00:26<6:44:28,  3.30s/it]Batches:   0%|          | 9/7359 [00:29<6:43:06,  3.29s/it]Batches:   0%|          | 10/7359 [00:33<7:01:47,  3.44s/it]Batches:   0%|          | 11/7359 [00:37<7:00:02,  3.43s/it]Batches:   0%|          | 12/7359 [00:40<6:49:29,  3.34s/it]Batches:   0%|          | 13/7359 [00:43<6:43:39,  3.30s/it]Batches:   0%|          | 14/7359 [00:46<6:39:20,  3.26s/it]Batches:   0%|          | 15/7359 [00:49<6:41:10,  3.28s/it]/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-uxm3j01i'}
+  warnings.warn(

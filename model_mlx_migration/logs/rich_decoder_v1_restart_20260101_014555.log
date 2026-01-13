@@ -1,0 +1,25 @@
+/opt/homebrew/lib/python3.14/site-packages/webrtcvad.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+======================================================================
+RichDecoder Training
+======================================================================
+Output: checkpoints/rich_decoder_v1
+Model: mlx-community/whisper-large-v3-mlx
+LoRA: rank=8, alpha=16
+
+1. Loading Whisper model...
+Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 34379.54it/s]
+   Encoder: 1280-dim
+2. Loading tokenizer...
+3. Creating RichDecoder...
+   Total parameters: 918.44M
+   Trainable parameters: 11.91M
+   LoRA adapters: 192
+4. Loading emotion data...
+Loading unified emotion dataset from: data/emotion/unified_emotion
+Error loading dataset: Directory data/emotion/unified_emotion not found
+Loaded 0 train samples
+Loading unified emotion dataset from: data/emotion/unified_emotion
+Error loading dataset: Directory data/emotion/unified_emotion not found
+Loaded 0 validation samples
+ERROR: No training data found!

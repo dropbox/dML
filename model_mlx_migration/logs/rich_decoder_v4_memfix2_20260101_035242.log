@@ -1,0 +1,189 @@
+/opt/homebrew/lib/python3.14/site-packages/webrtcvad.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+Train: 19734 samples
+Val: 2193 samples
+Cache-only mode: 13155/19734 samples (66.7% cached)
+Cache-only mode: 2193/2193 samples (100.0% cached)
+Using cached encoder features from: data/v3_multitask/encoder_cache
+Prosody features: ENABLED (from cache)
+Model parameters:
+  Total: 4,032,008
+  Encoder LoRA: 737,280
+  Classification head: 3,294,728
+  Converted model parameters to bfloat16
+Loading weights from checkpoints/rich_decoder_v4_lora/best.npz
+  Loaded 78 weight tensors
+
+============================================================
+Training RichDecoder v4 (Optimized)
+============================================================
+  Epochs: 10
+  Batch size: 4 x 4 = 16
+  Total steps: 32890
+  bfloat16: True
+  Prefetch: 4 batches
+  Early stopping: True (patience=3)
+
+Epoch 1/10
+mx.metal.clear_cache is deprecated and will be removed in a future version. Use mx.clear_cache instead.
+  Step 50: loss=1.4788, acc=25.00%, lr=3.00e-06
+  Step 100: loss=0.0760, acc=100.00%, lr=6.00e-06
+  Step 150: loss=0.9470, acc=75.00%, lr=9.00e-06
+  Step 200: loss=0.6163, acc=75.00%, lr=1.20e-05
+  Step 250: loss=1.2007, acc=50.00%, lr=1.50e-05
+  Step 300: loss=0.9808, acc=50.00%, lr=1.80e-05
+  Step 350: loss=0.4498, acc=75.00%, lr=2.10e-05
+  Step 400: loss=1.7204, acc=25.00%, lr=2.40e-05
+  Step 450: loss=0.8348, acc=50.00%, lr=2.70e-05
+  Step 500: loss=1.1600, acc=50.00%, lr=3.00e-05
+  Step 550: loss=1.5439, acc=25.00%, lr=3.00e-05
+  Step 600: loss=1.7321, acc=25.00%, lr=3.00e-05
+  Step 650: loss=0.2345, acc=100.00%, lr=3.00e-05
+  Step 700: loss=1.2095, acc=75.00%, lr=3.00e-05
+  Step 750: loss=1.2250, acc=50.00%, lr=3.00e-05
+  Step 800: loss=0.9776, acc=50.00%, lr=3.00e-05
+  Step 850: loss=0.7715, acc=100.00%, lr=3.00e-05
+  Step 900: loss=0.5244, acc=75.00%, lr=3.00e-05
+  Step 950: loss=0.4910, acc=75.00%, lr=3.00e-05
+  Step 1000: loss=0.0579, acc=100.00%, lr=3.00e-05
+  Validation: loss=0.7259, acc=70.22%
+  New best model! acc=70.22%
+  Step 1050: loss=0.3977, acc=75.00%, lr=3.00e-05
+  Step 1100: loss=1.6518, acc=50.00%, lr=3.00e-05
+  Step 1150: loss=1.6127, acc=50.00%, lr=3.00e-05
+  Step 1200: loss=0.3626, acc=100.00%, lr=3.00e-05
+  Step 1250: loss=1.3902, acc=50.00%, lr=3.00e-05
+  Step 1300: loss=0.4705, acc=75.00%, lr=3.00e-05
+  Step 1350: loss=0.7965, acc=75.00%, lr=3.00e-05
+  Step 1400: loss=1.2515, acc=25.00%, lr=2.99e-05
+  Step 1450: loss=0.0158, acc=100.00%, lr=2.99e-05
+  Step 1500: loss=0.3301, acc=100.00%, lr=2.99e-05
+  Step 1550: loss=1.3387, acc=50.00%, lr=2.99e-05
+  Step 1600: loss=0.7904, acc=100.00%, lr=2.99e-05
+  Step 1650: loss=0.0271, acc=100.00%, lr=2.99e-05
+  Step 1700: loss=0.1248, acc=100.00%, lr=2.99e-05
+  Step 1750: loss=0.7512, acc=75.00%, lr=2.99e-05
+  Step 1800: loss=0.9860, acc=50.00%, lr=2.99e-05
+  Step 1850: loss=0.1086, acc=100.00%, lr=2.99e-05
+  Step 1900: loss=0.4275, acc=75.00%, lr=2.99e-05
+  Step 1950: loss=0.4778, acc=75.00%, lr=2.99e-05
+  Step 2000: loss=0.0458, acc=100.00%, lr=2.98e-05
+  Validation: loss=0.7133, acc=69.95%
+  Step 2050: loss=0.0470, acc=100.00%, lr=2.98e-05
+  Step 2100: loss=0.5920, acc=75.00%, lr=2.98e-05
+  Step 2150: loss=0.8216, acc=75.00%, lr=2.98e-05
+  Step 2200: loss=0.0543, acc=100.00%, lr=2.98e-05
+  Step 2250: loss=0.5522, acc=75.00%, lr=2.98e-05
+  Step 2300: loss=2.2818, acc=0.00%, lr=2.98e-05
+  Step 2350: loss=0.9366, acc=50.00%, lr=2.98e-05
+  Step 2400: loss=0.5995, acc=75.00%, lr=2.98e-05
+  Step 2450: loss=0.4153, acc=100.00%, lr=2.97e-05
+  Step 2500: loss=0.8948, acc=50.00%, lr=2.97e-05
+  Step 2550: loss=0.7120, acc=75.00%, lr=2.97e-05
+  Step 2600: loss=0.0106, acc=100.00%, lr=2.97e-05
+  Step 2650: loss=1.1259, acc=50.00%, lr=2.97e-05
+  Step 2700: loss=0.0289, acc=100.00%, lr=2.97e-05
+  Step 2750: loss=0.6191, acc=75.00%, lr=2.97e-05
+  Step 2800: loss=1.3891, acc=50.00%, lr=2.96e-05
+  Step 2850: loss=0.3900, acc=100.00%, lr=2.96e-05
+  Step 2900: loss=1.3653, acc=50.00%, lr=2.96e-05
+  Step 2950: loss=1.1892, acc=50.00%, lr=2.96e-05
+  Step 3000: loss=1.2735, acc=50.00%, lr=2.96e-05
+  Validation: loss=0.7048, acc=72.46%
+  New best model! acc=72.46%
+  Step 3050: loss=1.4072, acc=25.00%, lr=2.96e-05
+  Step 3100: loss=1.0290, acc=50.00%, lr=2.95e-05
+  Step 3150: loss=0.9634, acc=50.00%, lr=2.95e-05
+  Step 3200: loss=0.5169, acc=75.00%, lr=2.95e-05
+  Step 3250: loss=0.4453, acc=75.00%, lr=2.95e-05
+  Epoch 1 complete: avg_loss=0.7463, time=371.6s
+  Validation: loss=0.7082, acc=73.37%
+  New best model! acc=73.37%
+Epoch 2/10
+  Step 3300: loss=0.8179, acc=75.00%, lr=2.95e-05
+  Step 3350: loss=0.0766, acc=100.00%, lr=2.94e-05
+  Step 3400: loss=0.0536, acc=100.00%, lr=2.94e-05
+  Step 3450: loss=0.5759, acc=75.00%, lr=2.94e-05
+  Step 3500: loss=0.2733, acc=100.00%, lr=2.94e-05
+  Step 3550: loss=0.5482, acc=75.00%, lr=2.94e-05
+  Step 3600: loss=0.4878, acc=75.00%, lr=2.93e-05
+  Step 3650: loss=0.9508, acc=50.00%, lr=2.93e-05
+  Step 3700: loss=0.6182, acc=100.00%, lr=2.93e-05
+  Step 3750: loss=1.2403, acc=25.00%, lr=2.93e-05
+  Step 3800: loss=0.0293, acc=100.00%, lr=2.93e-05
+  Step 3850: loss=0.3479, acc=100.00%, lr=2.92e-05
+  Step 3900: loss=0.0213, acc=100.00%, lr=2.92e-05
+  Step 3950: loss=1.8212, acc=0.00%, lr=2.92e-05
+  Step 4000: loss=0.6569, acc=75.00%, lr=2.92e-05
+  Validation: loss=0.7041, acc=72.69%
+  Step 4050: loss=0.8718, acc=75.00%, lr=2.91e-05
+  Step 4100: loss=0.9829, acc=50.00%, lr=2.91e-05
+  Step 4150: loss=0.7482, acc=75.00%, lr=2.91e-05
+  Step 4200: loss=0.4685, acc=75.00%, lr=2.91e-05
+  Step 4250: loss=0.5329, acc=75.00%, lr=2.91e-05
+  Step 4300: loss=1.0381, acc=75.00%, lr=2.90e-05
+  Step 4350: loss=0.9880, acc=50.00%, lr=2.90e-05
+  Step 4400: loss=1.2725, acc=50.00%, lr=2.90e-05
+  Step 4450: loss=0.8702, acc=75.00%, lr=2.89e-05
+  Step 4500: loss=0.4269, acc=75.00%, lr=2.89e-05
+  Step 4550: loss=0.4940, acc=75.00%, lr=2.89e-05
+  Step 4600: loss=1.0248, acc=50.00%, lr=2.89e-05
+  Step 4650: loss=0.3985, acc=75.00%, lr=2.88e-05
+  Step 4700: loss=0.3840, acc=100.00%, lr=2.88e-05
+  Step 4750: loss=0.8629, acc=75.00%, lr=2.88e-05
+  Step 4800: loss=0.6826, acc=75.00%, lr=2.88e-05
+  Step 4850: loss=0.4368, acc=75.00%, lr=2.87e-05
+  Step 4900: loss=0.6941, acc=75.00%, lr=2.87e-05
+  Step 4950: loss=1.0653, acc=50.00%, lr=2.87e-05
+  Step 5000: loss=0.0234, acc=100.00%, lr=2.86e-05
+  Validation: loss=0.6959, acc=71.96%
+  Step 5050: loss=0.4708, acc=75.00%, lr=2.86e-05
+  Step 5100: loss=0.4137, acc=75.00%, lr=2.86e-05
+  Step 5150: loss=0.4009, acc=100.00%, lr=2.86e-05
+  Step 5200: loss=1.2549, acc=75.00%, lr=2.85e-05
+  Step 5250: loss=0.9293, acc=50.00%, lr=2.85e-05
+  Step 5300: loss=0.7807, acc=75.00%, lr=2.85e-05
+  Step 5350: loss=1.3555, acc=25.00%, lr=2.84e-05
+  Step 5400: loss=1.4648, acc=25.00%, lr=2.84e-05
+  Step 5450: loss=1.1465, acc=75.00%, lr=2.84e-05
+  Step 5500: loss=0.0566, acc=100.00%, lr=2.83e-05
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/ayates/model_mlx_migration/tools/whisper_mlx/train_rich_decoder_v4.py", line 1033, in <module>
+    main()
+    ~~~~^^
+  File "/Users/ayates/model_mlx_migration/tools/whisper_mlx/train_rich_decoder_v4.py", line 1029, in main
+    trainer.train(train_loader, val_loader)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ayates/model_mlx_migration/tools/whisper_mlx/train_rich_decoder_v4.py", line 800, in train
+    self.optimizer.update(self.model, accumulated_grads)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ayates/Library/Python/3.14/lib/python/site-packages/mlx/optimizers/optimizers.py", line 29, in update
+    model.update(self.apply_gradients(gradients, model))
+                 ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/ayates/Library/Python/3.14/lib/python/site-packages/mlx/optimizers/optimizers.py", line 109, in apply_gradients
+    return tree_map(self.apply_single, gradients, parameters, self.state)
+  File "/Users/ayates/Library/Python/3.14/lib/python/site-packages/mlx/utils.py", line 54, in tree_map
+    k: tree_map(fn, child, *(r[k] for r in rest), is_leaf=is_leaf)
+       ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ayates/Library/Python/3.14/lib/python/site-packages/mlx/utils.py", line 54, in tree_map
+    k: tree_map(fn, child, *(r[k] for r in rest), is_leaf=is_leaf)
+       ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ayates/Library/Python/3.14/lib/python/site-packages/mlx/utils.py", line 54, in tree_map
+    k: tree_map(fn, child, *(r[k] for r in rest), is_leaf=is_leaf)
+       ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  [Previous line repeated 2 more times]
+  File "/Users/ayates/Library/Python/3.14/lib/python/site-packages/mlx/utils.py", line 58, in tree_map
+    return fn(tree, *rest)
+  File "/Users/ayates/Library/Python/3.14/lib/python/site-packages/mlx/optimizers/optimizers.py", line 586, in apply_single
+    return super().apply_single(
+           ~~~~~~~~~~~~~~~~~~~~^
+        gradient, parameter * (1 - lr * self.weight_decay), state
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ayates/Library/Python/3.14/lib/python/site-packages/mlx/optimizers/optimizers.py", line 524, in apply_single
+    v = b2 * v + (1 - b2) * mx.square(gradient)
+        ~~~^~~
+RuntimeError: [metal::malloc] Resource limit (499000) exceeded.

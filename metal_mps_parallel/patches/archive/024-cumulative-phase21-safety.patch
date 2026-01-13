@@ -1,0 +1,168 @@
+diff --git a/aten/src/ATen/mps/MPSGuardImpl.h b/aten/src/ATen/mps/MPSGuardImpl.h
+index 79a66a8e..f7879ae9 100644
+--- a/aten/src/ATen/mps/MPSGuardImpl.h
++++ b/aten/src/ATen/mps/MPSGuardImpl.h
+@@ -80,7 +80,18 @@ struct TORCH_API MPSGuardImpl final
+ 
+   Stream getNewStream(Device, int priority = 0) const override {
+     (void)priority;
+-    // Acquire a stream from the pool for parallel execution
++    // Acquire a stream from the pool for parallel execution.
++    //
++    // WARNING: This acquires a freelist slot that is NOT automatically released
++    // until the calling thread exits or the stream is set as the thread's current
++    // stream (via setCurrentMPSStream or exchangeStream). Repeated calls to
++    // getNewStream() without proper stream management will exhaust the pool.
++    //
++    // For most use cases, prefer getCurrentMPSStream() which automatically assigns
++    // a stream to each thread via TLS with proper lifecycle management.
++    //
++    // If you need explicit stream control, ensure the returned stream is set as
++    // the thread's current stream so it will be released when the thread exits.
+     MPSStream* stream = getStreamFromPool();
+     return stream->unwrap();
+   }
+diff --git a/aten/src/ATen/mps/MPSStream.h b/aten/src/ATen/mps/MPSStream.h
+index 683f07e3..2273e2b6 100644
+--- a/aten/src/ATen/mps/MPSStream.h
++++ b/aten/src/ATen/mps/MPSStream.h
+@@ -47,6 +47,23 @@ namespace at::mps {
+ //-----------------------------------------------------------------
+ //  MPSStream
+ //-----------------------------------------------------------------
++//
++// THREAD SAFETY MODEL:
++// Each MPSStream should be used by exactly ONE thread at a time.
++// The stream pool assigns streams to threads via TLS, ensuring thread isolation.
++//
++// The internal _streamMutex (recursive_mutex) protects against concurrent
++// access from async completion handlers, not from multiple user threads.
++//
++// IMPORTANT: Do not share an MPSStream between threads. Use getCurrentMPSStream()
++// which returns the calling thread's assigned stream from the pool.
++//
++// The dispatch_sync pattern inside stream methods expects that either:
++// 1. The caller is already on the stream's serial queue (detected via dispatch_get_specific)
++// 2. No other thread is concurrently using this stream
++//
++// Violating this design may cause deadlocks due to lock-order inversion
++// (mutex held while dispatch_sync to queue that needs mutex).
+ 
+ enum class SyncType {
+   NONE, // no commit to command buffer
+diff --git a/aten/src/ATen/mps/MPSStream.mm b/aten/src/ATen/mps/MPSStream.mm
+index 6bfef659..d8f7dafc 100644
+--- a/aten/src/ATen/mps/MPSStream.mm
++++ b/aten/src/ATen/mps/MPSStream.mm
+@@ -160,6 +160,11 @@ void MPSStream::flush() {
+     // if commitAndContinue is disabled (e.g., for Profiler), we keep the command
+     // buffer so we could wait on it later, if required.
+     if (!_enableCommitAndContinue) {
++      // Release previous command buffer to avoid leak if flush() is called
++      // multiple times before commitAndWait() (which normally releases it).
++      if (_prevCommandBuffer) {
++        [_prevCommandBuffer release];
++      }
+       _prevCommandBuffer = _commandBuffer;
+     } else {
+       [_commandBuffer release];
+@@ -170,9 +175,14 @@ void MPSStream::flush() {
+ 
+ void MPSStream::addCompletedHandler(MTLCommandBufferHandler block) {
+   std::lock_guard<std::recursive_mutex> lock(_streamMutex);
++  // Capture command buffer BEFORE dispatch_sync to avoid lock-order inversion.
++  // If we called commandBuffer() inside the dispatch block and dispatch_sync
++  // runs on a different thread, that thread would try to acquire _streamMutex
++  // which this thread already holds -> DEADLOCK.
++  MPSCommandBuffer* cb = commandBuffer();
+   dispatch_block_t dispatch_block = ^() {
+     @autoreleasepool {
+-      [commandBuffer() addCompletedHandler:block];
++      [cb addCompletedHandler:block];
+     }
+   };
+   if (dispatch_get_specific(&kMPSStreamQueueSpecificKey) == static_cast<void*>(this)) {
+diff --git a/aten/src/ATen/native/mps/MetalShaderLibrary.h b/aten/src/ATen/native/mps/MetalShaderLibrary.h
+index f5c2fd54..8efc0908 100644
+--- a/aten/src/ATen/native/mps/MetalShaderLibrary.h
++++ b/aten/src/ATen/native/mps/MetalShaderLibrary.h
+@@ -55,6 +55,20 @@ constexpr bool has_size_type_v = has_size_type<T>::value;
+ // Returns `gpuAddress` of respective `id<MTLBuffer>` plus storage offset
+ void* get_tensor_gpu_address(const at::TensorBase&);
+ 
++// MetalKernelFunction wraps a Metal compute pipeline state and manages command encoding.
++//
++// THREAD SAFETY: MetalKernelFunction instances are NOT thread-safe.
++// Each thread should obtain its own instance via getKernelFunction().
++// Do NOT share instances across threads - the mutable state (current_stream_,
++// encoder) is not protected by locks.
++//
++// Usage pattern:
++//   auto fn = shaderLib.getKernelFunction(...);  // Thread-local instance
++//   fn.runCommandBlock([&] {
++//     fn.startEncoding();
++//     fn.setArg(...);
++//     fn.dispatch(...);
++//   });
+ class MetalKernelFunction {
+  public:
+   MetalKernelFunction(MTLComputePipelineState_t cps_, MTLFunction_t f_);
+diff --git a/aten/src/ATen/native/mps/OperationUtils.mm b/aten/src/ATen/native/mps/OperationUtils.mm
+index 71918a08..c3682f6a 100644
+--- a/aten/src/ATen/native/mps/OperationUtils.mm
++++ b/aten/src/ATen/native/mps/OperationUtils.mm
+@@ -23,6 +23,7 @@
+ #endif
+ 
+ #include <c10/util/env.h>
++#include <c10/util/ScopeExit.h>
+ #include <mach-o/dyld.h>
+ #include <mach-o/getsect.h>
+ 
+@@ -56,6 +57,18 @@
+ 
+ namespace at::native::mps {
+ 
++// dispatch_sync wrapper that propagates C++ exceptions across the dispatch boundary.
++//
++// WARNING: This function will DEADLOCK if called while already on the target queue.
++// GCD's dispatch_sync to a serial queue from within that same queue is undefined behavior.
++//
++// This is safe in the current usage (MetalKernelFunction::runCommandBlock) because:
++// - Each thread gets its own stream via TLS (getCurrentMPSStream)
++// - Each stream has its own serial queue
++// - The thread shouldn't be on its own stream's queue when entering runCommandBlock
++//
++// If you need to dispatch work from code that may already be on a stream's queue,
++// use the dispatch_get_specific pattern with kMPSStreamQueueSpecificKey (see MPSStream.mm).
+ void dispatch_sync_with_rethrow(dispatch_queue_t queue, void (^block)()) {
+   __block std::optional<std::exception_ptr> block_exception;
+   dispatch_sync(queue, ^() {
+@@ -866,6 +879,10 @@ id<MTLLibrary> MetalShaderLibrary::getLibrary(const std::initializer_list<std::s
+   std::lock_guard<std::mutex> lock(cacheMutex_);
+   // Another thread might have compiled it while we were compiling
+   if (auto existing = libMap[key]) {
++    // Release the library we just compiled to avoid Metal resource leak.
++    // newLibraryWithSource returns a retained object (per ObjC naming conventions),
++    // so we must release it since we won't be using it.
++    [lib release];
+     return existing;
+   }
+   return libMap[key] = lib;
+@@ -1168,12 +1185,15 @@ void MetalKernelFunction::runCommandBlock(std::function<void(void)> run) {
+   // Capture stream BEFORE dispatch_sync to avoid TLS hazard.
+   // GCD may run the block on a different thread with different TLS.
+   current_stream_ = getCurrentMPSStream();
++  // Use RAII to ensure current_stream_ is cleared even if run() throws.
++  // Without this, dispatch_sync_with_rethrow would rethrow the exception
++  // and leave current_stream_ in a stale non-null state.
++  auto cleanup = c10::make_scope_exit([this] { current_stream_ = nullptr; });
+   dispatch_sync_with_rethrow(current_stream_->queue(), ^() {
+     @autoreleasepool {
+       run();
+     }
+   });
+-  current_stream_ = nullptr;  // Clear after block completes
+ }
+ 
+ void MetalKernelFunction::startEncoding() {

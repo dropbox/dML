@@ -1,0 +1,65 @@
+{
+  "description": "LLM-as-Judge Quality Baseline Scores",
+  "version": "1.0.0",
+  "created": "2025-12-05",
+  "updated": "2025-12-05",
+  "thresholds": {
+    "accuracy": {
+      "min": 4.0,
+      "description": "Minimum acceptable accuracy score (1-5)"
+    },
+    "naturalness": {
+      "min": 3.5,
+      "description": "Minimum acceptable naturalness score (1-5)"
+    },
+    "quality": {
+      "min": 3.5,
+      "description": "Minimum acceptable overall quality score (1-5)"
+    }
+  },
+  "language_baselines": {
+    "en": {
+      "accuracy": {"baseline": 4.5, "tolerance": 0.5},
+      "naturalness": {"baseline": 4.0, "tolerance": 0.5},
+      "quality": {"baseline": 4.0, "tolerance": 0.5},
+      "status": "production",
+      "notes": "English TTS (Kokoro) is mature and well-tested"
+    },
+    "ja": {
+      "accuracy": {"baseline": 4.5, "tolerance": 0.5},
+      "naturalness": {"baseline": 4.0, "tolerance": 0.5},
+      "quality": {"baseline": 4.0, "tolerance": 0.5},
+      "status": "production",
+      "notes": "Japanese TTS (Kokoro + MeCab) is mature"
+    },
+    "zh": {
+      "accuracy": {"baseline": 4.5, "tolerance": 0.5},
+      "naturalness": {"baseline": 4.0, "tolerance": 0.5},
+      "quality": {"baseline": 4.0, "tolerance": 0.5},
+      "status": "production",
+      "notes": "Chinese TTS uses misaki lexicon with proper tones. Worker #388: Fixed Chinese prosody with jieba word boundaries and misaki-native phonemes."
+    },
+    "es": {
+      "accuracy": {"baseline": 4.0, "tolerance": 0.5},
+      "naturalness": {"baseline": 3.5, "tolerance": 0.5},
+      "quality": {"baseline": 3.5, "tolerance": 0.5},
+      "status": "beta",
+      "notes": "Spanish TTS uses espeak G2P - fixed in #107 (was using English G2P, causing mispronunciation)"
+    },
+    "fr": {
+      "accuracy": {"baseline": 3.0, "tolerance": 1.0},
+      "naturalness": {"baseline": 3.0, "tolerance": 0.5},
+      "quality": {"baseline": 3.0, "tolerance": 0.5},
+      "status": "beta",
+      "notes": "French TTS uses espeak G2P + ff_siwis voice. Known issues: Kokoro model not trained on French phonemes, causing pronunciation errors. G2P improvements in #108 (clause spacing, nasal vowel handling)."
+    }
+  },
+  "ci_config": {
+    "fail_on_regression": true,
+    "regression_threshold": 0.5,
+    "languages_required": ["en", "ja", "zh"],
+    "languages_optional": ["es", "fr"],
+    "max_samples_per_language": 5,
+    "timeout_per_evaluation_seconds": 60
+  }
+}

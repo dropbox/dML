@@ -1,0 +1,23 @@
+Manifest: 59527 samples
+Batch size: 8
+Workers: 4
+To process: 58866 (skipped 426 cached)
+Traceback (most recent call last):
+  File "/Users/ayates/model_mlx_migration/scripts/preextract_encoder_features_fast.py", line 242, in <module>
+    main()
+    ~~~~^^
+  File "/Users/ayates/model_mlx_migration/scripts/preextract_encoder_features_fast.py", line 229, in main
+    preextract_features_fast(
+    ~~~~~~~~~~~~~~~~~~~~~~~~^
+        manifest_path=args.manifest,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        num_workers=args.workers,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ayates/model_mlx_migration/scripts/preextract_encoder_features_fast.py", line 123, in preextract_features_fast
+    model = load_whisper_encoder(model_name)
+  File "/Users/ayates/model_mlx_migration/scripts/preextract_encoder_features_fast.py", line 32, in load_whisper_encoder
+    from tools.whisper_mlx.model import WhisperMLX
+ModuleNotFoundError: No module named 'tools'

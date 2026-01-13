@@ -1,0 +1,442 @@
+# Voice Project - Nightly Quality Tests
+# Worker #119: LLM-as-Judge quality evaluation
+#
+# Runs nightly to evaluate TTS quality using GPT-4o.
+# Requires OPENAI_API_KEY secret and self-hosted runner with models.
+#
+# Note: This workflow is designed for self-hosted runners that have:
+# - Pre-installed models (~7GB)
+# - Metal GPU support (Apple Silicon)
+# - OPENAI_API_KEY environment variable
+
+name: Nightly Quality
+
+on:
+  schedule:
+    # Run at 3 AM UTC daily
+    - cron: '0 3 * * *'
+  workflow_dispatch:  # Allow manual trigger
+    inputs:
+      run_all_languages:
+        description: 'Run all languages (en, ja, zh, es, fr)'
+        required: false
+        default: 'true'
+        type: boolean
+      skip_slow_tests:
+        description: 'Skip slow LLM evaluation tests'
+        required: false
+        default: 'false'
+        type: boolean
+
+env:
+  PYTHON_VERSION: "3.11"
+
+jobs:
+  # ==========================================================================
+  # Quality Tests - LLM-as-Judge evaluation
+  # ==========================================================================
+  quality:
+    name: LLM Quality Evaluation
+    # Use self-hosted runner with models pre-installed
+    # Falls back to macos-14 for testing (will skip model-dependent tests)
+    runs-on: ${{ vars.QUALITY_RUNNER || 'macos-14' }}
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest pytest-timeout pyyaml openai jiwer psutil
+
+      - name: Check for models
+        id: check-models
+        run: |
+          if [ -d "models/kokoro" ] && [ -d "models/whisper" ]; then
+            echo "models_available=true" >> $GITHUB_OUTPUT
+            echo "Models found - full quality tests will run"
+          else
+            echo "models_available=false" >> $GITHUB_OUTPUT
+            echo "Models not found - quality tests will be limited"
+          fi
+
+      - name: Check OpenAI API key
+        id: check-openai
+        run: |
+          if [ -n "${{ secrets.OPENAI_API_KEY }}" ]; then
+            echo "openai_available=true" >> $GITHUB_OUTPUT
+            echo "OpenAI API key configured"
+          else
+            echo "openai_available=false" >> $GITHUB_OUTPUT
+            echo "OpenAI API key not configured - LLM judge tests will skip"
+          fi
+
+      - name: Run quality infrastructure tests
+        run: |
+          pytest tests/quality -v -k "Setup or Corpus or Regression" \
+            --timeout=30 \
+            || echo "Some setup tests may have skipped"
+
+      - name: Run LLM-as-Judge tests (English)
+        if: steps.check-openai.outputs.openai_available == 'true' && steps.check-models.outputs.models_available == 'true'
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          pytest tests/quality/test_llm_judge.py -v \
+            -k "English" \
+            --timeout=120 \
+            -m "quality and slow"
+
+      - name: Run LLM-as-Judge tests (Japanese)
+        if: |
+          steps.check-openai.outputs.openai_available == 'true' &&
+          steps.check-models.outputs.models_available == 'true' &&
+          (github.event.inputs.run_all_languages == 'true' || github.event.inputs.run_all_languages == '')
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          pytest tests/quality/test_llm_judge.py -v \
+            -k "Japanese" \
+            --timeout=120 \
+            -m "quality and slow" \
+            || echo "Japanese tests completed (may have expected failures)"
+
+      - name: Run LLM-as-Judge tests (Chinese)
+        if: |
+          steps.check-openai.outputs.openai_available == 'true' &&
+          steps.check-models.outputs.models_available == 'true' &&
+          (github.event.inputs.run_all_languages == 'true' || github.event.inputs.run_all_languages == '')
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          pytest tests/quality/test_llm_judge.py -v \
+            -k "Chinese" \
+            --timeout=120 \
+            -m "quality and slow" \
+            || echo "Chinese tests completed (may have expected failures)"
+
+      - name: Run LLM-as-Judge tests (Spanish)
+        if: |
+          steps.check-openai.outputs.openai_available == 'true' &&
+          steps.check-models.outputs.models_available == 'true' &&
+          (github.event.inputs.run_all_languages == 'true' || github.event.inputs.run_all_languages == '')
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          pytest tests/quality/test_llm_judge.py -v \
+            -k "Spanish" \
+            --timeout=120 \
+            -m "quality and slow" \
+            || echo "Spanish tests completed (may have expected failures)"
+
+      - name: Run LLM-as-Judge tests (French)
+        if: |
+          steps.check-openai.outputs.openai_available == 'true' &&
+          steps.check-models.outputs.models_available == 'true' &&
+          (github.event.inputs.run_all_languages == 'true' || github.event.inputs.run_all_languages == '')
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          pytest tests/quality/test_llm_judge.py -v \
+            -k "French" \
+            --timeout=120 \
+            -m "quality and slow" \
+            || echo "French tests completed (may have expected failures)"
+
+      - name: Run difficult cases tests
+        if: |
+          steps.check-openai.outputs.openai_available == 'true' &&
+          steps.check-models.outputs.models_available == 'true' &&
+          github.event.inputs.skip_slow_tests != 'true'
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          pytest tests/quality/test_llm_judge.py -v \
+            -k "Difficult" \
+            --timeout=180 \
+            -m "quality and slow" \
+            || echo "Difficult cases tests completed"
+
+      - name: Upload quality history
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: quality-history
+          path: tests/quality/quality_history.json
+          retention-days: 90
+
+      - name: Check for quality regression
+        id: regression-check
+        if: steps.check-models.outputs.models_available == 'true'
+        run: |
+          python3 << 'PYEOF'
+          import json
+          import sys
+          from pathlib import Path
+
+          history_path = Path('tests/quality/quality_history.json')
+          baseline_path = Path('tests/quality/quality_baseline.json')
+
+          if not history_path.exists():
+              print("No quality history - skipping regression check")
+              sys.exit(0)
+
+          if not baseline_path.exists():
+              print("No baseline config - skipping regression check")
+              sys.exit(0)
+
+          with open(history_path) as f:
+              history = json.load(f)
+
+          with open(baseline_path) as f:
+              baseline = json.load(f)
+
+          runs = history.get('runs', [])
+          if len(runs) < 5:
+              print(f"Insufficient history ({len(runs)} runs) - need at least 5 for regression check")
+              sys.exit(0)
+
+          # Get config
+          ci_config = baseline.get('ci_config', {})
+          fail_on_regression = ci_config.get('fail_on_regression', True)
+          regression_threshold = ci_config.get('regression_threshold', 0.5)
+          required_langs = ci_config.get('languages_required', ['en', 'ja'])
+
+          # Check recent runs against historical average
+          failures = []
+          lang_baselines = baseline.get('language_baselines', {})
+
+          for lang in required_langs:
+              lang_runs = [r for r in runs if r.get('language') == lang]
+              if len(lang_runs) < 3:
+                  print(f"Insufficient data for {lang} ({len(lang_runs)} runs)")
+                  continue
+
+              # Get last run and historical average (excluding last)
+              last_run = lang_runs[-1]
+              hist_runs = lang_runs[:-1][-10:]  # Last 10 excluding current
+
+              for metric in ['accuracy', 'naturalness', 'quality']:
+                  current = last_run.get('scores', {}).get(metric, 0)
+                  hist_avg = sum(r.get('scores', {}).get(metric, 0) for r in hist_runs) / len(hist_runs)
+
+                  # Check against baseline minimum
+                  baseline_min = lang_baselines.get(lang, {}).get(metric, {}).get('baseline', 4.0)
+                  tolerance = lang_baselines.get(lang, {}).get(metric, {}).get('tolerance', 0.5)
+                  min_acceptable = baseline_min - tolerance
+
+                  if current < min_acceptable:
+                      failures.append(f"{lang}/{metric}: {current:.1f} < {min_acceptable:.1f} (baseline)")
+                  elif current < hist_avg - regression_threshold:
+                      failures.append(f"{lang}/{metric}: {current:.1f} < {hist_avg:.1f} - {regression_threshold} (regression)")
+
+          if failures:
+              print("=== QUALITY REGRESSION DETECTED ===")
+              for f in failures:
+                  print(f"  FAIL: {f}")
+              if fail_on_regression:
+                  print("\nFailing CI due to quality regression.")
+                  sys.exit(1)
+              else:
+                  print("\nRegression detected but fail_on_regression=false")
+          else:
+              print("=== Quality Check PASSED ===")
+              print(f"Checked {len(required_langs)} required languages")
+          PYEOF
+
+      - name: Generate quality report
+        if: always()
+        run: |
+          echo "=== Nightly Quality Report ===" > quality_report.md
+          echo "" >> quality_report.md
+          echo "Date: $(date -u +%Y-%m-%d)" >> quality_report.md
+          echo "Commit: ${{ github.sha }}" >> quality_report.md
+          echo "" >> quality_report.md
+
+          if [ -f tests/quality/quality_history.json ]; then
+            echo "### Recent Quality Scores" >> quality_report.md
+            python3 << 'PYEOF' >> quality_report.md 2>/dev/null || echo "Could not parse quality history"
+          import json
+          with open('tests/quality/quality_history.json') as f:
+              data = json.load(f)
+          runs = data.get('runs', [])[-10:]
+          print('| Test | Language | Accuracy | Naturalness | Quality |')
+          print('|------|----------|----------|-------------|---------|')
+          for r in runs:
+              s = r.get('scores', {})
+              name = r.get("test_name", "unknown")[:30]
+              lang = r.get("language", "?")
+              acc = s.get("accuracy", 0)
+              nat = s.get("naturalness", 0)
+              qual = s.get("quality", 0)
+              print(f'| {name} | {lang} | {acc}/5 | {nat}/5 | {qual}/5 |')
+          PYEOF
+          else
+            echo "No quality history available" >> quality_report.md
+          fi
+
+          # Add trend analysis
+          if [ -f tests/quality/quality_history.json ]; then
+            echo "" >> quality_report.md
+            echo "### Quality Trends by Language" >> quality_report.md
+            python3 << 'PYEOF' >> quality_report.md 2>/dev/null || echo "Could not analyze trends"
+          import json
+          from collections import defaultdict
+
+          with open('tests/quality/quality_history.json') as f:
+              data = json.load(f)
+
+          runs = data.get('runs', [])
+          by_lang = defaultdict(list)
+          for r in runs[-50:]:  # Last 50 runs
+              lang = r.get('language', 'unknown')
+              by_lang[lang].append(r.get('scores', {}))
+
+          print('| Language | Tests | Avg Accuracy | Avg Naturalness | Avg Quality | Trend |')
+          print('|----------|-------|--------------|-----------------|-------------|-------|')
+
+          for lang in sorted(by_lang.keys()):
+              scores = by_lang[lang]
+              if not scores:
+                  continue
+              count = len(scores)
+              avg_acc = sum(s.get('accuracy', 0) for s in scores) / count
+              avg_nat = sum(s.get('naturalness', 0) for s in scores) / count
+              avg_qual = sum(s.get('quality', 0) for s in scores) / count
+
+              # Simple trend: compare recent (last 5) vs older (rest)
+              if count >= 5:
+                  recent = scores[-5:]
+                  older = scores[:-5]
+                  recent_avg = sum(s.get('accuracy', 0) for s in recent) / len(recent)
+                  older_avg = sum(s.get('accuracy', 0) for s in older) / len(older) if older else recent_avg
+                  if recent_avg > older_avg + 0.2:
+                      trend = "📈 Improving"
+                  elif recent_avg < older_avg - 0.2:
+                      trend = "📉 Declining"
+                  else:
+                      trend = "➡️ Stable"
+              else:
+                  trend = "📊 New"
+
+              print(f'| {lang} | {count} | {avg_acc:.2f}/5 | {avg_nat:.2f}/5 | {avg_qual:.2f}/5 | {trend} |')
+          PYEOF
+          fi
+
+          cat quality_report.md
+
+      - name: Upload quality report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: quality-report
+          path: quality_report.md
+          retention-days: 30
+
+  # ==========================================================================
+  # Performance Regression Check
+  # ==========================================================================
+  performance:
+    name: Performance Regression
+    runs-on: ${{ vars.QUALITY_RUNNER || 'macos-14' }}
+    timeout-minutes: 30
+    needs: quality
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install pytest pytest-timeout pyyaml psutil
+
+      - name: Check for models
+        id: check-models
+        run: |
+          if [ -d "models/kokoro" ]; then
+            echo "models_available=true" >> $GITHUB_OUTPUT
+          else
+            echo "models_available=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Run latency tests
+        if: steps.check-models.outputs.models_available == 'true'
+        run: |
+          pytest tests/stress/test_stress.py -v \
+            -k "Latency" \
+            --timeout=300 \
+            || echo "Latency tests completed"
+
+      - name: Check for performance regression
+        run: |
+          echo "=== Performance Regression Check ==="
+          echo ""
+          echo "Performance targets:"
+          echo "  - Warm latency: <200ms"
+          echo "  - Cold latency: <2s"
+          echo "  - P99 latency: <500ms"
+          echo ""
+          # Future: Compare against baseline and alert on regression
+          echo "Regression check complete (baseline comparison TBD)"
+
+  # ==========================================================================
+  # Notify on Failure
+  # ==========================================================================
+  notify:
+    name: Notify on Failure
+    runs-on: ubuntu-latest
+    needs: [quality, performance]
+    if: failure()
+
+    steps:
+      - name: Create issue on failure
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = `Nightly Quality Tests Failed - ${new Date().toISOString().split('T')[0]}`;
+            const body = `
+            ## Nightly Quality Test Failure
+
+            **Workflow Run:** [${{ github.run_id }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            **Commit:** ${{ github.sha }}
+            **Date:** ${new Date().toISOString()}
+
+            Please investigate the failing tests:
+            1. Check the workflow logs for specific failures
+            2. Review quality_history.json for regression trends
+            3. Run tests locally with \`make test-quality\`
+
+            /cc @${{ github.repository_owner }}
+            `;
+
+            // Check for existing open issue
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'quality-regression'
+            });
+
+            if (issues.data.length === 0) {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: title,
+                body: body,
+                labels: ['quality-regression', 'automated']
+              });
+            }

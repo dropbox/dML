@@ -1,0 +1,7 @@
+/opt/homebrew/lib/python3.14/site-packages/webrtcvad.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+usage: python3.14 -m tools.whisper_mlx.evaluate_phoneme_head
+       [-h] --checkpoint CHECKPOINT [--data-dir DATA_DIR]
+       [--num-samples NUM_SAMPLES] [--discrimination] [--per-speaker]
+       [--num-wrong NUM_WRONG] [--whisper-model WHISPER_MODEL]
+python3.14 -m tools.whisper_mlx.evaluate_phoneme_head: error: unrecognized arguments:   

@@ -1,0 +1,343 @@
+2026-01-07 10:44:31,177 [INFO] Acquired training lock
+2026-01-07 10:44:31,178 [INFO] Loading encoder from checkpoints/zipformer/en-streaming/exp/pretrained.pt
+2026-01-07 10:44:31,316 [INFO] Encoder loaded: output_dim=512
+2026-01-07 10:44:31,316 [INFO] Loading data from data/emotion/combined_emotion_hf (dataset=combined)
+2026-01-07 10:44:32,145 [INFO] Train batches: 237
+2026-01-07 10:44:32,145 [INFO] Val batches: 26
+2026-01-07 10:44:32,174 [INFO] Head num_classes: 6
+2026-01-07 10:44:32,176 [INFO] Created emotion head with 988,166 parameters
+2026-01-07 10:44:32,176 [INFO] Stage 4: 11,754,487 params (UNFROZEN)
+2026-01-07 10:44:32,176 [INFO] Stage 5: 3,906,660 params (UNFROZEN)
+2026-01-07 10:44:32,176 [INFO] Total unfrozen encoder params: 15,661,147
+2026-01-07 10:44:32,176 [INFO] Total trainable parameters: 16,649,313
+2026-01-07 10:44:32,176 [INFO] Fine-tuning with encoder unfreezing: lr=4e-05 (encoder_lr parameter is ignored - both encoder and head use same lr)
+2026-01-07 10:44:32,176 [INFO] ============================================================
+2026-01-07 10:44:32,176 [INFO] Training Configuration
+2026-01-07 10:44:32,176 [INFO] ============================================================
+2026-01-07 10:44:32,176 [INFO] Head type: emotion
+2026-01-07 10:44:32,176 [INFO] Encoder dim: 512
+2026-01-07 10:44:32,176 [INFO] Batch size: 32
+2026-01-07 10:44:32,176 [INFO] Head learning rate: 4e-05
+2026-01-07 10:44:32,176 [INFO] Encoder learning rate: 1e-05
+2026-01-07 10:44:32,176 [INFO] Unfrozen encoder stages: 2
+2026-01-07 10:44:32,176 [INFO] Gradient clipping: 1.0
+2026-01-07 10:44:32,176 [INFO] Cache clearing: every 100 steps
+2026-01-07 10:44:32,176 [INFO] Label smoothing: 0.1
+2026-01-07 10:44:32,176 [INFO] Loss function: Focal Loss (gamma=2.0)
+2026-01-07 10:44:32,176 [INFO] SpecAugment: True
+2026-01-07 10:44:32,176 [INFO] Param dtype: float32
+2026-01-07 10:44:32,176 [INFO] Epochs: 10
+2026-01-07 10:44:32,176 [INFO] Max steps: 2370
+2026-01-07 10:44:32,176 [INFO] Label key: emotion_labels
+2026-01-07 10:44:32,176 [INFO] ============================================================
+2026-01-07 10:44:32,177 [INFO] Created EncoderHeadModel for fine-tuning (reused across all steps)
+2026-01-07 10:44:32,177 [INFO] Epoch 1/10
+2026-01-07 10:44:38,361 [INFO] Step 10/2370 | Loss: 1.2377 | Acc: 0.1875 | LR: 7.20e-07
+2026-01-07 10:44:45,641 [INFO] Step 20/2370 | Loss: 1.2462 | Acc: 0.1562 | LR: 1.52e-06
+2026-01-07 10:44:52,282 [INFO] Step 30/2370 | Loss: 1.2508 | Acc: 0.0625 | LR: 2.32e-06
+2026-01-07 10:44:58,813 [INFO] Step 40/2370 | Loss: 1.2448 | Acc: 0.1250 | LR: 3.12e-06
+2026-01-07 10:45:05,199 [INFO] Step 50/2370 | Loss: 1.2441 | Acc: 0.1250 | LR: 3.92e-06
+2026-01-07 10:45:12,189 [INFO] Step 60/2370 | Loss: 1.2361 | Acc: 0.2500 | LR: 4.72e-06
+2026-01-07 10:45:19,323 [INFO] Step 70/2370 | Loss: 1.2482 | Acc: 0.1875 | LR: 5.52e-06
+2026-01-07 10:45:26,613 [INFO] Step 80/2370 | Loss: 1.2495 | Acc: 0.1250 | LR: 6.32e-06
+2026-01-07 10:45:33,996 [INFO] Step 90/2370 | Loss: 1.2269 | Acc: 0.1875 | LR: 7.12e-06
+2026-01-07 10:45:42,221 [INFO] Step 100/2370 | Loss: 1.2450 | Acc: 0.1875 | LR: 7.92e-06
+2026-01-07 10:45:53,226 [INFO] [EVAL] Step 100 | Val Loss: 1.7785 | Val Acc: 0.2488
+2026-01-07 10:45:53,232 [INFO] New best validation accuracy: 0.2488
+2026-01-07 10:45:59,867 [INFO] Step 110/2370 | Loss: 1.2383 | Acc: 0.0938 | LR: 8.72e-06
+2026-01-07 10:46:07,694 [INFO] Step 120/2370 | Loss: 1.2186 | Acc: 0.2812 | LR: 9.52e-06
+2026-01-07 10:46:15,917 [INFO] Step 130/2370 | Loss: 1.2301 | Acc: 0.2812 | LR: 1.03e-05
+2026-01-07 10:46:20,814 [INFO] Step 140/2370 | Loss: 1.1927 | Acc: 0.3125 | LR: 1.11e-05
+2026-01-07 10:46:24,505 [INFO] Step 150/2370 | Loss: 1.2063 | Acc: 0.3438 | LR: 1.19e-05
+2026-01-07 10:46:28,384 [INFO] Step 160/2370 | Loss: 1.1940 | Acc: 0.3438 | LR: 1.27e-05
+2026-01-07 10:46:32,140 [INFO] Step 170/2370 | Loss: 1.1845 | Acc: 0.3125 | LR: 1.35e-05
+2026-01-07 10:46:35,813 [INFO] Step 180/2370 | Loss: 1.3358 | Acc: 0.0938 | LR: 1.43e-05
+2026-01-07 10:46:39,594 [INFO] Step 190/2370 | Loss: 1.2023 | Acc: 0.1250 | LR: 1.51e-05
+2026-01-07 10:46:44,835 [INFO] Step 200/2370 | Loss: 1.2598 | Acc: 0.3438 | LR: 1.59e-05
+2026-01-07 10:46:48,665 [INFO] [EVAL] Step 200 | Val Loss: 1.7908 | Val Acc: 0.1947
+2026-01-07 10:46:51,894 [INFO] Step 210/2370 | Loss: 1.2497 | Acc: 0.1875 | LR: 1.67e-05
+2026-01-07 10:46:55,146 [INFO] Step 220/2370 | Loss: 1.2104 | Acc: 0.1250 | LR: 1.75e-05
+2026-01-07 10:46:58,327 [INFO] Step 230/2370 | Loss: 1.1722 | Acc: 0.2500 | LR: 1.83e-05
+2026-01-07 10:47:00,513 [INFO] Epoch 1 complete | Avg Loss: 1.2222 | Avg Acc: 0.2160 | Updates: 237 | Micro-batches: 237 | Skipped: 0 (loss=0, logits=0, grads=0)
+2026-01-07 10:47:00,513 [INFO] Epoch 2/10
+2026-01-07 10:47:01,614 [INFO] Step 240/2370 | Loss: 1.1500 | Acc: 0.2812 | LR: 1.91e-05
+2026-01-07 10:47:04,823 [INFO] Step 250/2370 | Loss: 1.0860 | Acc: 0.4062 | LR: 1.99e-05
+2026-01-07 10:47:08,073 [INFO] Step 260/2370 | Loss: 1.2732 | Acc: 0.1875 | LR: 2.07e-05
+2026-01-07 10:47:11,211 [INFO] Step 270/2370 | Loss: 1.1915 | Acc: 0.2188 | LR: 2.15e-05
+2026-01-07 10:47:14,404 [INFO] Step 280/2370 | Loss: 1.2460 | Acc: 0.1875 | LR: 2.23e-05
+2026-01-07 10:47:17,607 [INFO] Step 290/2370 | Loss: 1.1833 | Acc: 0.2812 | LR: 2.31e-05
+2026-01-07 10:47:21,343 [INFO] Step 300/2370 | Loss: 1.2240 | Acc: 0.2188 | LR: 2.39e-05
+2026-01-07 10:47:25,610 [INFO] [EVAL] Step 300 | Val Loss: 1.7569 | Val Acc: 0.2512
+2026-01-07 10:47:25,613 [INFO] New best validation accuracy: 0.2512
+2026-01-07 10:47:29,287 [INFO] Step 310/2370 | Loss: 1.2094 | Acc: 0.2812 | LR: 2.47e-05
+2026-01-07 10:47:32,680 [INFO] Step 320/2370 | Loss: 1.1448 | Acc: 0.2500 | LR: 2.55e-05
+2026-01-07 10:47:36,061 [INFO] Step 330/2370 | Loss: 1.1523 | Acc: 0.2812 | LR: 2.63e-05
+2026-01-07 10:47:39,263 [INFO] Step 340/2370 | Loss: 1.1184 | Acc: 0.3750 | LR: 2.71e-05
+2026-01-07 10:47:42,566 [INFO] Step 350/2370 | Loss: 1.2018 | Acc: 0.2188 | LR: 2.79e-05
+2026-01-07 10:47:45,787 [INFO] Step 360/2370 | Loss: 1.2032 | Acc: 0.2500 | LR: 2.87e-05
+2026-01-07 10:47:49,015 [INFO] Step 370/2370 | Loss: 1.1583 | Acc: 0.2812 | LR: 2.95e-05
+2026-01-07 10:47:52,348 [INFO] Step 380/2370 | Loss: 1.1265 | Acc: 0.3438 | LR: 3.03e-05
+2026-01-07 10:47:55,610 [INFO] Step 390/2370 | Loss: 1.2124 | Acc: 0.2812 | LR: 3.11e-05
+2026-01-07 10:47:59,147 [INFO] Step 400/2370 | Loss: 1.1182 | Acc: 0.2812 | LR: 3.19e-05
+2026-01-07 10:48:03,528 [INFO] [EVAL] Step 400 | Val Loss: 1.7336 | Val Acc: 0.2272
+2026-01-07 10:48:06,629 [INFO] Step 410/2370 | Loss: 1.1558 | Acc: 0.2500 | LR: 3.27e-05
+2026-01-07 10:48:09,826 [INFO] Step 420/2370 | Loss: 1.1290 | Acc: 0.3750 | LR: 3.35e-05
+2026-01-07 10:48:13,013 [INFO] Step 430/2370 | Loss: 1.2279 | Acc: 0.3750 | LR: 3.43e-05
+2026-01-07 10:48:16,198 [INFO] Step 440/2370 | Loss: 1.1335 | Acc: 0.2812 | LR: 3.51e-05
+2026-01-07 10:48:19,341 [INFO] Step 450/2370 | Loss: 1.2098 | Acc: 0.0938 | LR: 3.59e-05
+2026-01-07 10:48:22,513 [INFO] Step 460/2370 | Loss: 1.1567 | Acc: 0.1250 | LR: 3.67e-05
+2026-01-07 10:48:25,734 [INFO] Step 470/2370 | Loss: 1.3515 | Acc: 0.1250 | LR: 3.75e-05
+2026-01-07 10:48:27,112 [INFO] Epoch 2 complete | Avg Loss: 1.1648 | Avg Acc: 0.2745 | Updates: 237 | Micro-batches: 237 | Skipped: 0 (loss=0, logits=0, grads=0)
+2026-01-07 10:48:27,112 [INFO] Epoch 3/10
+2026-01-07 10:48:29,226 [INFO] Step 480/2370 | Loss: 1.1813 | Acc: 0.3438 | LR: 3.83e-05
+2026-01-07 10:48:32,557 [INFO] Step 490/2370 | Loss: 1.2354 | Acc: 0.2812 | LR: 3.91e-05
+2026-01-07 10:48:36,255 [INFO] Step 500/2370 | Loss: 1.0616 | Acc: 0.2500 | LR: 3.99e-05
+2026-01-07 10:48:40,316 [INFO] [EVAL] Step 500 | Val Loss: 1.7147 | Val Acc: 0.2752
+2026-01-07 10:48:40,318 [INFO] New best validation accuracy: 0.2752
+2026-01-07 10:48:43,537 [INFO] Step 510/2370 | Loss: 1.0330 | Acc: 0.4688 | LR: 4.00e-05
+2026-01-07 10:48:46,782 [INFO] Step 520/2370 | Loss: 1.2592 | Acc: 0.3125 | LR: 4.00e-05
+2026-01-07 10:48:49,881 [INFO] Step 530/2370 | Loss: 1.2824 | Acc: 0.2500 | LR: 4.00e-05
+2026-01-07 10:48:53,072 [INFO] Step 540/2370 | Loss: 1.1310 | Acc: 0.3125 | LR: 4.00e-05
+2026-01-07 10:48:56,385 [INFO] Step 550/2370 | Loss: 1.0846 | Acc: 0.3438 | LR: 3.99e-05
+2026-01-07 10:48:59,675 [INFO] Step 560/2370 | Loss: 1.1514 | Acc: 0.3750 | LR: 3.99e-05
+2026-01-07 10:49:02,950 [INFO] Step 570/2370 | Loss: 1.1184 | Acc: 0.3125 | LR: 3.99e-05
+2026-01-07 10:49:06,191 [INFO] Step 580/2370 | Loss: 1.0444 | Acc: 0.5000 | LR: 3.98e-05
+2026-01-07 10:49:09,488 [INFO] Step 590/2370 | Loss: 1.0741 | Acc: 0.3125 | LR: 3.98e-05
+2026-01-07 10:49:13,188 [INFO] Step 600/2370 | Loss: 1.1283 | Acc: 0.3438 | LR: 3.97e-05
+2026-01-07 10:49:17,135 [INFO] [EVAL] Step 600 | Val Loss: 1.6795 | Val Acc: 0.2764
+2026-01-07 10:49:17,138 [INFO] New best validation accuracy: 0.2764
+2026-01-07 10:49:20,393 [INFO] Step 610/2370 | Loss: 1.0902 | Acc: 0.2500 | LR: 3.97e-05
+2026-01-07 10:49:21,558 [WARNING] Skipping batch due to non-finite loss at step=613 (loss=nan, epoch=3).
+2026-01-07 10:49:21,722 [WARNING] Skipping batch due to non-finite loss at step=613 (loss=nan, epoch=3).
+2026-01-07 10:49:23,994 [INFO] Step 620/2370 | Loss: 1.0701 | Acc: 0.3125 | LR: 3.96e-05
+2026-01-07 10:49:27,296 [INFO] Step 630/2370 | Loss: 1.0722 | Acc: 0.2188 | LR: 3.95e-05
+2026-01-07 10:49:30,490 [INFO] Step 640/2370 | Loss: 1.0996 | Acc: 0.2812 | LR: 3.95e-05
+2026-01-07 10:49:33,782 [INFO] Step 650/2370 | Loss: 1.0696 | Acc: 0.4375 | LR: 3.94e-05
+2026-01-07 10:49:37,113 [INFO] Step 660/2370 | Loss: 1.1504 | Acc: 0.3438 | LR: 3.93e-05
+2026-01-07 10:49:40,448 [INFO] Step 670/2370 | Loss: 1.0573 | Acc: 0.3438 | LR: 3.92e-05
+2026-01-07 10:49:43,787 [INFO] Step 680/2370 | Loss: 0.9449 | Acc: 0.4062 | LR: 3.91e-05
+2026-01-07 10:49:47,006 [INFO] Step 690/2370 | Loss: 1.0698 | Acc: 0.2812 | LR: 3.90e-05
+2026-01-07 10:49:50,745 [INFO] Step 700/2370 | Loss: 0.8861 | Acc: 0.5000 | LR: 3.89e-05
+2026-01-07 10:49:54,429 [INFO] [EVAL] Step 700 | Val Loss: 1.5894 | Val Acc: 0.3209
+2026-01-07 10:49:54,431 [INFO] New best validation accuracy: 0.3209
+2026-01-07 10:49:57,315 [INFO] Epoch 3 complete | Avg Loss: 1.1004 | Avg Acc: 0.3186 | Updates: 235 | Micro-batches: 237 | Skipped: 2 (loss=2, logits=0, grads=0)
+2026-01-07 10:49:57,315 [INFO] Epoch 4/10
+2026-01-07 10:49:57,788 [INFO] Step 710/2370 | Loss: 0.9403 | Acc: 0.5625 | LR: 3.88e-05
+2026-01-07 10:50:01,039 [INFO] Step 720/2370 | Loss: 1.0204 | Acc: 0.4062 | LR: 3.87e-05
+2026-01-07 10:50:04,217 [INFO] Step 730/2370 | Loss: 0.9817 | Acc: 0.4062 | LR: 3.86e-05
+2026-01-07 10:50:07,513 [INFO] Step 740/2370 | Loss: 1.0846 | Acc: 0.3438 | LR: 3.84e-05
+2026-01-07 10:50:10,861 [INFO] Step 750/2370 | Loss: 1.0511 | Acc: 0.4375 | LR: 3.83e-05
+2026-01-07 10:50:14,166 [INFO] Step 760/2370 | Loss: 1.3696 | Acc: 0.1875 | LR: 3.82e-05
+2026-01-07 10:50:17,450 [INFO] Step 770/2370 | Loss: 1.0759 | Acc: 0.3750 | LR: 3.80e-05
+2026-01-07 10:50:20,706 [INFO] Step 780/2370 | Loss: 1.1520 | Acc: 0.1562 | LR: 3.79e-05
+2026-01-07 10:50:23,999 [INFO] Step 790/2370 | Loss: 0.9710 | Acc: 0.4062 | LR: 3.77e-05
+2026-01-07 10:50:27,645 [INFO] Step 800/2370 | Loss: 1.1005 | Acc: 0.2812 | LR: 3.76e-05
+2026-01-07 10:50:31,897 [INFO] [EVAL] Step 800 | Val Loss: 1.5675 | Val Acc: 0.3438
+2026-01-07 10:50:31,899 [INFO] New best validation accuracy: 0.3438
+2026-01-07 10:50:35,012 [INFO] Step 810/2370 | Loss: 1.1644 | Acc: 0.1875 | LR: 3.74e-05
+2026-01-07 10:50:38,120 [INFO] Step 820/2370 | Loss: 1.1613 | Acc: 0.2812 | LR: 3.73e-05
+2026-01-07 10:50:40,592 [WARNING] Skipping batch due to non-finite loss at step=827 (loss=nan, epoch=4).
+2026-01-07 10:50:41,573 [INFO] Step 830/2370 | Loss: 1.0719 | Acc: 0.3125 | LR: 3.71e-05
+2026-01-07 10:50:44,813 [INFO] Step 840/2370 | Loss: 1.0285 | Acc: 0.4062 | LR: 3.69e-05
+2026-01-07 10:50:48,085 [INFO] Step 850/2370 | Loss: 0.9092 | Acc: 0.4688 | LR: 3.67e-05
+2026-01-07 10:50:51,367 [INFO] Step 860/2370 | Loss: 1.1156 | Acc: 0.2812 | LR: 3.66e-05
+2026-01-07 10:50:54,574 [INFO] Step 870/2370 | Loss: 1.0057 | Acc: 0.4062 | LR: 3.64e-05
+2026-01-07 10:50:57,586 [WARNING] Skipping batch due to non-finite loss at step=879 (loss=nan, epoch=4).
+2026-01-07 10:50:57,905 [INFO] Step 880/2370 | Loss: 0.9276 | Acc: 0.4062 | LR: 3.62e-05
+2026-01-07 10:51:00,412 [WARNING] Skipping batch due to non-finite loss at step=887 (loss=nan, epoch=4).
+2026-01-07 10:51:01,446 [INFO] Step 890/2370 | Loss: 1.3898 | Acc: 0.2812 | LR: 3.60e-05
+2026-01-07 10:51:05,110 [INFO] Step 900/2370 | Loss: 1.0933 | Acc: 0.1875 | LR: 3.58e-05
+2026-01-07 10:51:08,862 [INFO] [EVAL] Step 900 | Val Loss: 1.5177 | Val Acc: 0.3510
+2026-01-07 10:51:08,863 [INFO] New best validation accuracy: 0.3510
+2026-01-07 10:51:12,203 [INFO] Step 910/2370 | Loss: 1.0885 | Acc: 0.3125 | LR: 3.56e-05
+2026-01-07 10:51:13,660 [WARNING] Skipping batch due to non-finite loss at step=914 (loss=nan, epoch=4).
+2026-01-07 10:51:14,873 [WARNING] Skipping batch due to non-finite loss at step=917 (loss=nan, epoch=4).
+2026-01-07 10:51:15,064 [WARNING] Skipping batch due to non-finite loss at step=917 (loss=nan, epoch=4).
+2026-01-07 10:51:16,116 [INFO] Step 920/2370 | Loss: 1.0790 | Acc: 0.3125 | LR: 3.54e-05
+2026-01-07 10:51:16,957 [WARNING] Skipping batch due to non-finite loss at step=922 (loss=nan, epoch=4).
+2026-01-07 10:51:17,457 [WARNING] Skipping batch due to non-finite loss at step=923 (loss=nan, epoch=4).
+2026-01-07 10:51:17,992 [WARNING] Skipping batch due to non-finite loss at step=924 (loss=nan, epoch=4).
+2026-01-07 10:51:18,155 [WARNING] Skipping batch due to non-finite loss at step=924 (loss=nan, epoch=4).
+2026-01-07 10:51:20,966 [INFO] Step 930/2370 | Loss: 0.9909 | Acc: 0.3438 | LR: 3.52e-05
+2026-01-07 10:51:21,117 [INFO] Epoch 4 complete | Avg Loss: 1.0441 | Avg Acc: 0.3650 | Updates: 221 | Micro-batches: 237 | Skipped: 16 (loss=16, logits=0, grads=0)
+2026-01-07 10:51:21,117 [INFO] Epoch 5/10
+2026-01-07 10:51:21,430 [WARNING] Skipping batch due to non-finite loss at step=930 (loss=nan, epoch=5).
+2026-01-07 10:51:21,597 [WARNING] Skipping batch due to non-finite loss at step=930 (loss=nan, epoch=5).
+2026-01-07 10:51:21,758 [WARNING] Skipping batch due to non-finite loss at step=930 (loss=nan, epoch=5).
+2026-01-07 10:51:22,263 [WARNING] Skipping batch due to non-finite loss at step=931 (loss=nan, epoch=5).
+2026-01-07 10:51:22,421 [WARNING] Skipping batch due to non-finite loss at step=931 (loss=nan, epoch=5).
+2026-01-07 10:51:25,335 [INFO] Step 940/2370 | Loss: 1.0930 | Acc: 0.3125 | LR: 3.49e-05
+2026-01-07 10:51:25,505 [WARNING] Skipping batch due to non-finite loss at step=940 (loss=nan, epoch=5).
+2026-01-07 10:51:27,002 [WARNING] Skipping batch due to non-finite loss at step=944 (loss=nan, epoch=5).
+2026-01-07 10:51:27,189 [WARNING] Skipping batch due to non-finite loss at step=944 (loss=nan, epoch=5).
+2026-01-07 10:51:29,188 [INFO] Step 950/2370 | Loss: 1.0239 | Acc: 0.2812 | LR: 3.47e-05
+2026-01-07 10:51:29,348 [WARNING] Skipping batch due to non-finite loss at step=950 (loss=nan, epoch=5).
+2026-01-07 10:51:32,697 [INFO] Step 960/2370 | Loss: 0.9101 | Acc: 0.6250 | LR: 3.45e-05
+2026-01-07 10:51:34,463 [WARNING] Skipping batch due to non-finite loss at step=965 (loss=nan, epoch=5).
+2026-01-07 10:51:36,095 [INFO] Step 970/2370 | Loss: 0.8943 | Acc: 0.4062 | LR: 3.43e-05
+2026-01-07 10:51:39,899 [INFO] Step 980/2370 | Loss: 0.9123 | Acc: 0.4375 | LR: 3.40e-05
+2026-01-07 10:51:43,275 [INFO] Step 990/2370 | Loss: 0.9702 | Acc: 0.3750 | LR: 3.38e-05
+2026-01-07 10:51:46,906 [INFO] Step 1000/2370 | Loss: 1.1356 | Acc: 0.3438 | LR: 3.35e-05
+2026-01-07 10:51:51,122 [INFO] [EVAL] Step 1000 | Val Loss: 1.4745 | Val Acc: 0.3918
+2026-01-07 10:51:51,124 [INFO] New best validation accuracy: 0.3918
+2026-01-07 10:51:54,479 [INFO] Step 1010/2370 | Loss: 1.1522 | Acc: 0.3438 | LR: 3.33e-05
+2026-01-07 10:51:58,305 [INFO] Step 1020/2370 | Loss: 0.9673 | Acc: 0.5000 | LR: 3.30e-05
+2026-01-07 10:52:01,606 [INFO] Step 1030/2370 | Loss: 1.0349 | Acc: 0.2812 | LR: 3.28e-05
+2026-01-07 10:52:05,518 [INFO] Step 1040/2370 | Loss: 0.9654 | Acc: 0.3750 | LR: 3.25e-05
+2026-01-07 10:52:09,016 [INFO] Step 1050/2370 | Loss: 0.9224 | Acc: 0.4375 | LR: 3.23e-05
+2026-01-07 10:52:12,726 [INFO] Step 1060/2370 | Loss: 0.9808 | Acc: 0.3750 | LR: 3.20e-05
+2026-01-07 10:52:16,365 [INFO] Step 1070/2370 | Loss: 0.9896 | Acc: 0.3438 | LR: 3.17e-05
+2026-01-07 10:52:20,489 [INFO] Step 1080/2370 | Loss: 1.0320 | Acc: 0.3438 | LR: 3.15e-05
+2026-01-07 10:52:24,588 [INFO] Step 1090/2370 | Loss: 0.9214 | Acc: 0.3750 | LR: 3.12e-05
+2026-01-07 10:52:28,737 [INFO] Step 1100/2370 | Loss: 0.9661 | Acc: 0.4062 | LR: 3.09e-05
+2026-01-07 10:52:32,431 [INFO] [EVAL] Step 1100 | Val Loss: 1.5059 | Val Acc: 0.3927
+2026-01-07 10:52:32,432 [INFO] New best validation accuracy: 0.3927
+2026-01-07 10:52:36,606 [INFO] Step 1110/2370 | Loss: 0.9816 | Acc: 0.4062 | LR: 3.07e-05
+2026-01-07 10:52:40,158 [INFO] Epoch 5 complete | Avg Loss: 0.9914 | Avg Acc: 0.3959 | Updates: 187 | Micro-batches: 237 | Skipped: 50 (loss=50, logits=0, grads=0)
+2026-01-07 10:52:40,158 [INFO] Epoch 6/10
+2026-01-07 10:52:41,358 [INFO] Step 1120/2370 | Loss: 0.8145 | Acc: 0.5312 | LR: 3.04e-05
+2026-01-07 10:52:41,518 [WARNING] Skipping batch due to non-finite loss at step=1120 (loss=nan, epoch=6).
+2026-01-07 10:52:43,353 [WARNING] Skipping batch due to non-finite loss at step=1125 (loss=nan, epoch=6).
+2026-01-07 10:52:44,587 [WARNING] Skipping batch due to non-finite loss at step=1128 (loss=nan, epoch=6).
+2026-01-07 10:52:44,774 [WARNING] Skipping batch due to non-finite loss at step=1128 (loss=nan, epoch=6).
+2026-01-07 10:52:45,451 [INFO] Step 1130/2370 | Loss: 1.0737 | Acc: 0.4062 | LR: 3.01e-05
+2026-01-07 10:52:45,943 [WARNING] Skipping batch due to non-finite loss at step=1131 (loss=nan, epoch=6).
+2026-01-07 10:52:47,086 [WARNING] Skipping batch due to non-finite loss at step=1134 (loss=nan, epoch=6).
+2026-01-07 10:52:48,828 [WARNING] Skipping batch due to non-finite loss at step=1139 (loss=nan, epoch=6).
+2026-01-07 10:52:49,171 [INFO] Step 1140/2370 | Loss: 0.9278 | Acc: 0.2812 | LR: 2.98e-05
+2026-01-07 10:52:49,615 [WARNING] Skipping batch due to non-finite loss at step=1141 (loss=nan, epoch=6).
+2026-01-07 10:52:50,401 [WARNING] Skipping batch due to non-finite loss at step=1143 (loss=nan, epoch=6).
+2026-01-07 10:52:52,479 [WARNING] Skipping batch due to non-finite loss at step=1149 (loss=nan, epoch=6).
+2026-01-07 10:52:52,952 [INFO] Step 1150/2370 | Loss: 0.9415 | Acc: 0.3125 | LR: 2.95e-05
+2026-01-07 10:52:57,490 [INFO] Step 1160/2370 | Loss: 0.8343 | Acc: 0.5312 | LR: 2.92e-05
+2026-01-07 10:53:00,538 [INFO] Step 1170/2370 | Loss: 0.9194 | Acc: 0.5312 | LR: 2.89e-05
+2026-01-07 10:53:03,797 [INFO] Step 1180/2370 | Loss: 1.0130 | Acc: 0.3125 | LR: 2.86e-05
+2026-01-07 10:53:07,754 [INFO] Step 1190/2370 | Loss: 0.9374 | Acc: 0.4375 | LR: 2.83e-05
+2026-01-07 10:53:12,306 [INFO] Step 1200/2370 | Loss: 0.7930 | Acc: 0.5312 | LR: 2.80e-05
+2026-01-07 10:53:16,535 [INFO] [EVAL] Step 1200 | Val Loss: 1.4854 | Val Acc: 0.3849
+2026-01-07 10:53:20,374 [INFO] Step 1210/2370 | Loss: 0.9682 | Acc: 0.3750 | LR: 2.77e-05
+2026-01-07 10:53:25,644 [INFO] Step 1220/2370 | Loss: 0.9107 | Acc: 0.3438 | LR: 2.74e-05
+2026-01-07 10:53:29,650 [INFO] Step 1230/2370 | Loss: 0.9423 | Acc: 0.5000 | LR: 2.71e-05
+2026-01-07 10:53:33,060 [INFO] Step 1240/2370 | Loss: 0.9882 | Acc: 0.3750 | LR: 2.68e-05
+2026-01-07 10:53:37,013 [INFO] Step 1250/2370 | Loss: 1.0100 | Acc: 0.3750 | LR: 2.65e-05
+2026-01-07 10:53:40,781 [INFO] Step 1260/2370 | Loss: 1.0224 | Acc: 0.4062 | LR: 2.62e-05
+2026-01-07 10:53:45,748 [INFO] Step 1270/2370 | Loss: 0.9747 | Acc: 0.4062 | LR: 2.59e-05
+2026-01-07 10:53:50,245 [INFO] Step 1280/2370 | Loss: 0.9149 | Acc: 0.4062 | LR: 2.56e-05
+2026-01-07 10:53:52,046 [INFO] Epoch 6 complete | Avg Loss: 0.9685 | Avg Acc: 0.4018 | Updates: 168 | Micro-batches: 237 | Skipped: 69 (loss=69, logits=0, grads=0)
+2026-01-07 10:53:52,046 [INFO] Epoch 7/10
+2026-01-07 10:53:53,990 [INFO] Step 1290/2370 | Loss: 0.9386 | Acc: 0.3438 | LR: 2.52e-05
+2026-01-07 10:53:54,154 [WARNING] Skipping batch due to non-finite loss at step=1290 (loss=nan, epoch=7).
+2026-01-07 10:53:54,667 [WARNING] Skipping batch due to non-finite loss at step=1291 (loss=nan, epoch=7).
+2026-01-07 10:53:54,839 [WARNING] Skipping batch due to non-finite loss at step=1291 (loss=nan, epoch=7).
+2026-01-07 10:53:57,075 [WARNING] Skipping batch due to non-finite loss at step=1297 (loss=nan, epoch=7).
+2026-01-07 10:53:57,294 [WARNING] Skipping batch due to non-finite loss at step=1297 (loss=nan, epoch=7).
+2026-01-07 10:53:57,444 [WARNING] Skipping batch due to non-finite loss at step=1297 (loss=nan, epoch=7).
+2026-01-07 10:53:57,638 [WARNING] Skipping batch due to non-finite loss at step=1297 (loss=nan, epoch=7).
+2026-01-07 10:53:58,155 [WARNING] Skipping batch due to non-finite loss at step=1298 (loss=nan, epoch=7).
+2026-01-07 10:53:58,675 [WARNING] Skipping batch due to non-finite loss at step=1299 (loss=nan, epoch=7).
+2026-01-07 10:54:00,179 [INFO] Step 1300/2370 | Loss: 0.8598 | Acc: 0.5000 | LR: 2.49e-05
+2026-01-07 10:54:03,971 [INFO] [EVAL] Step 1300 | Val Loss: 1.4291 | Val Acc: 0.4077
+2026-01-07 10:54:03,972 [INFO] New best validation accuracy: 0.4077
+2026-01-07 10:54:04,480 [WARNING] Skipping batch due to non-finite loss at step=1301 (loss=nan, epoch=7).
+2026-01-07 10:54:08,357 [INFO] Step 1310/2370 | Loss: 1.1383 | Acc: 0.3125 | LR: 2.46e-05
+2026-01-07 10:54:12,282 [INFO] Step 1320/2370 | Loss: 0.8645 | Acc: 0.4375 | LR: 2.43e-05
+2026-01-07 10:54:17,563 [INFO] Step 1330/2370 | Loss: 1.0460 | Acc: 0.4688 | LR: 2.40e-05
+2026-01-07 10:54:21,599 [INFO] Step 1340/2370 | Loss: 1.1270 | Acc: 0.1875 | LR: 2.36e-05
+2026-01-07 10:54:26,539 [INFO] Step 1350/2370 | Loss: 0.8984 | Acc: 0.4688 | LR: 2.33e-05
+2026-01-07 10:54:29,984 [INFO] Step 1360/2370 | Loss: 0.8936 | Acc: 0.3750 | LR: 2.30e-05
+2026-01-07 10:54:35,020 [INFO] Step 1370/2370 | Loss: 0.8782 | Acc: 0.4688 | LR: 2.27e-05
+2026-01-07 10:54:39,791 [INFO] Step 1380/2370 | Loss: 0.8608 | Acc: 0.4688 | LR: 2.23e-05
+2026-01-07 10:54:45,124 [INFO] Step 1390/2370 | Loss: 1.1379 | Acc: 0.3438 | LR: 2.20e-05
+2026-01-07 10:54:50,883 [INFO] Step 1400/2370 | Loss: 1.0783 | Acc: 0.4688 | LR: 2.17e-05
+2026-01-07 10:54:54,668 [INFO] [EVAL] Step 1400 | Val Loss: 1.4277 | Val Acc: 0.4219
+2026-01-07 10:54:54,669 [INFO] New best validation accuracy: 0.4219
+2026-01-07 10:54:59,130 [INFO] Step 1410/2370 | Loss: 1.0442 | Acc: 0.3438 | LR: 2.14e-05
+2026-01-07 10:55:03,276 [INFO] Step 1420/2370 | Loss: 0.8872 | Acc: 0.5000 | LR: 2.10e-05
+2026-01-07 10:55:05,013 [INFO] Epoch 7 complete | Avg Loss: 0.9534 | Avg Acc: 0.4176 | Updates: 138 | Micro-batches: 237 | Skipped: 99 (loss=99, logits=0, grads=0)
+2026-01-07 10:55:05,013 [INFO] Epoch 8/10
+2026-01-07 10:55:05,323 [WARNING] Skipping batch due to non-finite loss at step=1423 (loss=nan, epoch=8).
+2026-01-07 10:55:05,828 [WARNING] Skipping batch due to non-finite loss at step=1424 (loss=nan, epoch=8).
+2026-01-07 10:55:06,310 [WARNING] Skipping batch due to non-finite loss at step=1425 (loss=nan, epoch=8).
+2026-01-07 10:55:06,805 [WARNING] Skipping batch due to non-finite loss at step=1426 (loss=nan, epoch=8).
+2026-01-07 10:55:06,961 [WARNING] Skipping batch due to non-finite loss at step=1426 (loss=nan, epoch=8).
+2026-01-07 10:55:07,493 [WARNING] Skipping batch due to non-finite loss at step=1427 (loss=nan, epoch=8).
+2026-01-07 10:55:07,673 [WARNING] Skipping batch due to non-finite loss at step=1427 (loss=nan, epoch=8).
+2026-01-07 10:55:07,835 [WARNING] Skipping batch due to non-finite loss at step=1427 (loss=nan, epoch=8).
+2026-01-07 10:55:07,997 [WARNING] Skipping batch due to non-finite loss at step=1427 (loss=nan, epoch=8).
+2026-01-07 10:55:08,574 [WARNING] Skipping batch due to non-finite loss at step=1428 (loss=nan, epoch=8).
+2026-01-07 10:55:09,695 [INFO] Step 1430/2370 | Loss: 0.9488 | Acc: 0.5312 | LR: 2.07e-05
+2026-01-07 10:55:13,830 [INFO] Step 1440/2370 | Loss: 0.9541 | Acc: 0.3438 | LR: 2.04e-05
+2026-01-07 10:55:18,509 [INFO] Step 1450/2370 | Loss: 0.9385 | Acc: 0.4375 | LR: 2.00e-05
+2026-01-07 10:55:23,065 [INFO] Step 1460/2370 | Loss: 0.8191 | Acc: 0.4062 | LR: 1.97e-05
+2026-01-07 10:55:27,653 [INFO] Step 1470/2370 | Loss: 0.9985 | Acc: 0.2812 | LR: 1.94e-05
+2026-01-07 10:55:33,066 [INFO] Step 1480/2370 | Loss: 1.0761 | Acc: 0.2812 | LR: 1.91e-05
+2026-01-07 10:55:38,230 [INFO] Step 1490/2370 | Loss: 1.0388 | Acc: 0.3750 | LR: 1.87e-05
+2026-01-07 10:55:45,517 [INFO] Step 1500/2370 | Loss: 0.8623 | Acc: 0.5000 | LR: 1.84e-05
+2026-01-07 10:55:49,259 [INFO] [EVAL] Step 1500 | Val Loss: 1.4434 | Val Acc: 0.4211
+2026-01-07 10:55:52,590 [INFO] Step 1510/2370 | Loss: 1.1170 | Acc: 0.5000 | LR: 1.81e-05
+2026-01-07 10:55:56,995 [INFO] Step 1520/2370 | Loss: 1.0163 | Acc: 0.4062 | LR: 1.78e-05
+2026-01-07 10:56:01,061 [INFO] Step 1530/2370 | Loss: 0.9640 | Acc: 0.4062 | LR: 1.74e-05
+2026-01-07 10:56:04,809 [INFO] Step 1540/2370 | Loss: 0.8876 | Acc: 0.4688 | LR: 1.71e-05
+2026-01-07 10:56:09,154 [INFO] Step 1550/2370 | Loss: 1.0455 | Acc: 0.2188 | LR: 1.68e-05
+2026-01-07 10:56:12,925 [INFO] Step 1560/2370 | Loss: 0.9506 | Acc: 0.4062 | LR: 1.65e-05
+2026-01-07 10:56:16,723 [INFO] Step 1570/2370 | Loss: 0.8139 | Acc: 0.6562 | LR: 1.61e-05
+2026-01-07 10:56:17,066 [INFO] Epoch 8 complete | Avg Loss: 0.9473 | Avg Acc: 0.4279 | Updates: 147 | Micro-batches: 237 | Skipped: 90 (loss=90, logits=0, grads=0)
+2026-01-07 10:56:17,066 [INFO] Epoch 9/10
+2026-01-07 10:56:18,663 [WARNING] Skipping batch due to non-finite loss at step=1574 (loss=nan, epoch=9).
+2026-01-07 10:56:18,832 [WARNING] Skipping batch due to non-finite loss at step=1574 (loss=nan, epoch=9).
+2026-01-07 10:56:19,627 [WARNING] Skipping batch due to non-finite loss at step=1576 (loss=nan, epoch=9).
+2026-01-07 10:56:20,763 [WARNING] Skipping batch due to non-finite loss at step=1579 (loss=nan, epoch=9).
+2026-01-07 10:56:21,125 [INFO] Step 1580/2370 | Loss: 0.9299 | Acc: 0.4375 | LR: 1.58e-05
+2026-01-07 10:56:21,285 [WARNING] Skipping batch due to non-finite loss at step=1580 (loss=nan, epoch=9).
+2026-01-07 10:56:21,468 [WARNING] Skipping batch due to non-finite loss at step=1580 (loss=nan, epoch=9).
+2026-01-07 10:56:21,625 [WARNING] Skipping batch due to non-finite loss at step=1580 (loss=nan, epoch=9).
+2026-01-07 10:56:21,786 [WARNING] Skipping batch due to non-finite loss at step=1580 (loss=nan, epoch=9).
+2026-01-07 10:56:21,988 [WARNING] Skipping batch due to non-finite loss at step=1580 (loss=nan, epoch=9).
+2026-01-07 10:56:22,793 [WARNING] Skipping batch due to non-finite loss at step=1582 (loss=nan, epoch=9).
+2026-01-07 10:56:27,198 [INFO] Step 1590/2370 | Loss: 0.9046 | Acc: 0.4375 | LR: 1.55e-05
+2026-01-07 10:56:32,880 [INFO] Step 1600/2370 | Loss: 1.1702 | Acc: 0.4062 | LR: 1.52e-05
+2026-01-07 10:56:36,643 [INFO] [EVAL] Step 1600 | Val Loss: 1.4168 | Val Acc: 0.4330
+2026-01-07 10:56:36,645 [INFO] New best validation accuracy: 0.4330
+2026-01-07 10:56:43,119 [INFO] Step 1610/2370 | Loss: 0.8691 | Acc: 0.5625 | LR: 1.49e-05
+2026-01-07 10:56:47,132 [INFO] Step 1620/2370 | Loss: 0.9153 | Acc: 0.4062 | LR: 1.46e-05
+2026-01-07 10:56:50,966 [INFO] Step 1630/2370 | Loss: 0.8826 | Acc: 0.5312 | LR: 1.43e-05
+2026-01-07 10:56:56,062 [INFO] Step 1640/2370 | Loss: 0.8580 | Acc: 0.4062 | LR: 1.39e-05
+2026-01-07 10:57:00,967 [INFO] Step 1650/2370 | Loss: 0.8217 | Acc: 0.5312 | LR: 1.36e-05
+2026-01-07 10:57:05,985 [INFO] Step 1660/2370 | Loss: 0.8456 | Acc: 0.5000 | LR: 1.33e-05
+2026-01-07 10:57:11,438 [INFO] Step 1670/2370 | Loss: 0.8710 | Acc: 0.4375 | LR: 1.30e-05
+2026-01-07 10:57:15,485 [INFO] Step 1680/2370 | Loss: 0.9165 | Acc: 0.4062 | LR: 1.27e-05
+2026-01-07 10:57:20,480 [WARNING] Skipping batch due to non-finite loss at step=1689 (loss=nan, epoch=9).
+2026-01-07 10:57:20,891 [INFO] Step 1690/2370 | Loss: 0.9554 | Acc: 0.3750 | LR: 1.24e-05
+2026-01-07 10:57:26,010 [INFO] Step 1700/2370 | Loss: 0.8294 | Acc: 0.4375 | LR: 1.21e-05
+2026-01-07 10:57:29,788 [INFO] [EVAL] Step 1700 | Val Loss: 1.4250 | Val Acc: 0.4137
+2026-01-07 10:57:31,302 [INFO] Epoch 9 complete | Avg Loss: 0.9365 | Avg Acc: 0.4298 | Updates: 134 | Micro-batches: 237 | Skipped: 103 (loss=103, logits=0, grads=0)
+2026-01-07 10:57:31,303 [INFO] Epoch 10/10
+2026-01-07 10:57:31,601 [WARNING] Skipping batch due to non-finite loss at step=1704 (loss=nan, epoch=10).
+2026-01-07 10:57:31,786 [WARNING] Skipping batch due to non-finite loss at step=1704 (loss=nan, epoch=10).
+2026-01-07 10:57:31,941 [WARNING] Skipping batch due to non-finite loss at step=1704 (loss=nan, epoch=10).
+2026-01-07 10:57:32,430 [WARNING] Skipping batch due to non-finite loss at step=1705 (loss=nan, epoch=10).
+2026-01-07 10:57:32,585 [WARNING] Skipping batch due to non-finite loss at step=1705 (loss=nan, epoch=10).
+2026-01-07 10:57:33,060 [WARNING] Skipping batch due to non-finite loss at step=1706 (loss=nan, epoch=10).
+2026-01-07 10:57:33,869 [WARNING] Skipping batch due to non-finite loss at step=1708 (loss=nan, epoch=10).
+2026-01-07 10:57:34,031 [WARNING] Skipping batch due to non-finite loss at step=1708 (loss=nan, epoch=10).
+2026-01-07 10:57:34,765 [INFO] Step 1710/2370 | Loss: 0.9720 | Acc: 0.3750 | LR: 1.18e-05
+2026-01-07 10:57:34,961 [WARNING] Skipping batch due to non-finite loss at step=1710 (loss=nan, epoch=10).
+2026-01-07 10:57:35,135 [WARNING] Skipping batch due to non-finite loss at step=1710 (loss=nan, epoch=10).
+2026-01-07 10:57:38,939 [INFO] Step 1720/2370 | Loss: 0.8838 | Acc: 0.4688 | LR: 1.15e-05
+2026-01-07 10:57:42,909 [INFO] Step 1730/2370 | Loss: 0.7685 | Acc: 0.4375 | LR: 1.13e-05
+2026-01-07 10:57:47,349 [INFO] Step 1740/2370 | Loss: 0.9534 | Acc: 0.3438 | LR: 1.10e-05
+2026-01-07 10:57:51,984 [INFO] Step 1750/2370 | Loss: 0.9041 | Acc: 0.5000 | LR: 1.07e-05
+2026-01-07 10:57:57,588 [INFO] Step 1760/2370 | Loss: 0.8809 | Acc: 0.4688 | LR: 1.04e-05
+2026-01-07 10:58:03,298 [INFO] Step 1770/2370 | Loss: 0.8101 | Acc: 0.5625 | LR: 1.01e-05
+2026-01-07 10:58:07,698 [INFO] Step 1780/2370 | Loss: 0.9660 | Acc: 0.3125 | LR: 9.85e-06
+2026-01-07 10:58:11,610 [INFO] Step 1790/2370 | Loss: 0.9190 | Acc: 0.5000 | LR: 9.57e-06
+2026-01-07 10:58:16,542 [INFO] Step 1800/2370 | Loss: 0.9577 | Acc: 0.4062 | LR: 9.30e-06
+2026-01-07 10:58:20,827 [INFO] [EVAL] Step 1800 | Val Loss: 1.4113 | Val Acc: 0.4313
+2026-01-07 10:58:26,339 [INFO] Step 1810/2370 | Loss: 1.0351 | Acc: 0.3750 | LR: 9.04e-06
+2026-01-07 10:58:30,351 [WARNING] Skipping batch due to non-finite loss at step=1816 (loss=nan, epoch=10).
+2026-01-07 10:58:32,559 [INFO] Step 1820/2370 | Loss: 0.9082 | Acc: 0.4375 | LR: 8.77e-06
+2026-01-07 10:58:36,987 [INFO] Step 1830/2370 | Loss: 0.9553 | Acc: 0.4375 | LR: 8.51e-06
+2026-01-07 10:58:37,713 [INFO] Epoch 10 complete | Avg Loss: 0.9151 | Avg Acc: 0.4541 | Updates: 128 | Micro-batches: 237 | Skipped: 109 (loss=109, logits=0, grads=0)
+2026-01-07 10:58:41,807 [INFO] Final validation: Loss=1.4120, Acc=0.4196
+2026-01-07 10:58:41,809 [INFO] Training completed in 849.63s (0.24h)
+2026-01-07 10:58:41,809 [INFO] Best validation accuracy: 0.4330

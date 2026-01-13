@@ -1,0 +1,28 @@
+# ThreadSanitizer Suppressions for MPS Parallel Inference
+# These suppress known benign races in Apple frameworks and Python runtime
+
+# Apple Metal/MPS framework internal races (not our code)
+race:MTL*
+race:MPS*
+race:*Metal*
+race:dispatch_*
+race:_dispatch_*
+race:objc_*
+race:*CFRunLoop*
+
+# Apple system libraries
+race:*libsystem*
+race:*CoreFoundation*
+race:*Foundation*
+
+# Python GIL-protected operations
+race:*Python*
+race:*PyGILState*
+race:*_Py*
+
+# Known benign races in libc++
+race:std::__1::basic_string*
+race:std::__1::__shared_weak_count*
+
+# PyTorch internal (if any benign races found)
+# race:c10::*

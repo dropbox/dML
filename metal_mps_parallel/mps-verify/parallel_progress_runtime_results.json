@@ -1,0 +1,42 @@
+{
+  "test_name": "parallel_critical_section_runtime",
+  "timestamp": "2025-12-21T18:22:26.338490",
+  "worker_iteration": 1302,
+  "torch_available": true,
+  "mps_available": true,
+  "results": {
+    "simulated": {
+      "status": "PASS",
+      "max_concurrent": 4,
+      "overlap_count": 179,
+      "overlap_fraction": 4.3305997362109006
+    },
+    "mps": {
+      "status": "PASS",
+      "max_concurrent": 4,
+      "overlap_count": 58,
+      "overlap_fraction": 2.7754127931954637
+    },
+    "scaling": {
+      "status": "PASS",
+      "results": {
+        "2": {
+          "max_concurrent": 2,
+          "overlap_count": 28,
+          "overlap_fraction": 0.7644273401052287
+        },
+        "4": {
+          "max_concurrent": 4,
+          "overlap_count": 88,
+          "overlap_fraction": 4.496855880897049
+        },
+        "8": {
+          "max_concurrent": 8,
+          "overlap_count": 191,
+          "overlap_fraction": 20.833762945427697
+        }
+      }
+    }
+  },
+  "overall_status": "PASS"
+}

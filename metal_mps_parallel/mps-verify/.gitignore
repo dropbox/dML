@@ -1,0 +1,4 @@
+/.lake
+/tools/
+/specs/*_TTrace_*
+/specs/states/

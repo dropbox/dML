@@ -1,0 +1,102 @@
+diff --git a/aten/src/ATen/mps/MPSEvent.mm b/aten/src/ATen/mps/MPSEvent.mm
+index b5d60cd3..d1d2ed40 100644
+--- a/aten/src/ATen/mps/MPSEvent.mm
++++ b/aten/src/ATen/mps/MPSEvent.mm
+@@ -21,6 +21,9 @@ MPSEvent::~MPSEvent() {
+ }
+ 
+ void MPSEvent::recordLocked(MPSStream* stream, bool syncEvent) {
++  // Acquire global encoding lock to serialize Metal operations (AGX race workaround)
++  // This protects endKernelCoalescing, commandBuffer, and encodeSignalEvent calls
++  MPSEncodingLock encodingLock;
+   // active encoders must end before encoding or waiting
+   stream->endKernelCoalescing();
+   ++m_signalCounter;
+@@ -48,6 +51,9 @@ bool MPSEvent::waitLocked(MPSStream* stream, bool syncEvent) {
+   if (m_event.signaledValue >= m_signalCounter) {
+     return false;
+   }
++  // Acquire global encoding lock to serialize Metal operations (AGX race workaround)
++  // This protects endKernelCoalescing, commandBuffer, and encodeWaitForEvent calls
++  MPSEncodingLock encodingLock;
+   // active encoders must end before encoding or waiting
+   stream->endKernelCoalescing();
+   id<MTLCommandBuffer> commandBuffer = stream->commandBuffer();
+diff --git a/aten/src/ATen/mps/MPSHooks.mm b/aten/src/ATen/mps/MPSHooks.mm
+index 14aebbb9..24101ac4 100644
+--- a/aten/src/ATen/mps/MPSHooks.mm
++++ b/aten/src/ATen/mps/MPSHooks.mm
+@@ -76,6 +76,10 @@ void MPSHooks::commitStream() const {
+ void* MPSHooks::getCommandBuffer() const {
+   // THREAD-SAFETY FIX: Use current thread's stream for proper parallel execution
+   auto stream = at::mps::getCurrentMPSStream();
++  // Acquire global encoding lock to serialize Metal operations (AGX race workaround)
++  // This protects endKernelCoalescing and commandBuffer calls
++  // NOTE: Callers should use dispatch_sync_with_rethrow pattern for their encoding work
++  at::mps::MPSEncodingLock encodingLock;
+   // Release pending computeCommandEncoder, as extensions is likely to allocate new one
+   stream->endKernelCoalescing();
+   return stream->commandBuffer();
+diff --git a/aten/src/ATen/mps/MPSStream.mm b/aten/src/ATen/mps/MPSStream.mm
+index 9a1bf027..316fcd16 100644
+--- a/aten/src/ATen/mps/MPSStream.mm
++++ b/aten/src/ATen/mps/MPSStream.mm
+@@ -293,6 +293,9 @@ void MPSStream::fill(id<MTLBuffer> buffer, uint8_t value, size_t length, size_t
+   std::lock_guard<std::recursive_mutex> lock(_streamMutex);
+   dispatch_block_t dispatch_block = ^() {
+     @autoreleasepool {
++      // Acquire global encoding mutex inside the block for both dispatch paths
++      // (direct call when already on queue, and dispatch_sync)
++      MPSEncodingLock encodingLock;
+       endKernelCoalescing();
+       id<MTLBlitCommandEncoder> blitEncoder = [commandBuffer() blitCommandEncoder];
+ 
+@@ -329,6 +332,9 @@ void MPSStream::copy(id<MTLBuffer> srcBuffer,
+   std::lock_guard<std::recursive_mutex> lock(_streamMutex);
+   dispatch_block_t dispatch_block = ^() {
+     @autoreleasepool {
++      // Acquire global encoding mutex inside the block for both dispatch paths
++      // (direct call when already on queue, and dispatch_sync)
++      MPSEncodingLock encodingLock;
+       endKernelCoalescing();
+       id<MTLBlitCommandEncoder> blitEncoder = [commandBuffer() blitCommandEncoder];
+ 
+diff --git a/aten/src/ATen/native/mps/OperationUtils.h b/aten/src/ATen/native/mps/OperationUtils.h
+index d5bceb5f..8a7d5c4b 100644
+--- a/aten/src/ATen/native/mps/OperationUtils.h
++++ b/aten/src/ATen/native/mps/OperationUtils.h
+@@ -307,6 +307,8 @@ inline T* LookUpOrCreateCachedKernel(const std::string& key, std::function<MPSKe
+     return rc;
+   }
+   return cache_->CreateCachedKernelAs<T>(key, ^mps::MPSCachedKernel*() {
++    // Acquire global encoding lock during kernel creation - Apple AGX race workaround
++    at::mps::MPSEncodingLock encodingLock;
+     auto k_ = new mps::MPSCachedKernel(instantiate());
+     return k_;
+   });
+@@ -408,6 +410,9 @@ inline T* LookUpOrCreateCachedGraph(const std::string& key, std::function<void(M
+   return cache_->CreateCachedGraphAs<T>(key, ^mps::MPSCachedGraph*() {
+     T* newCachedGraph = nil;
+     @autoreleasepool {
++      // Acquire global encoding lock during graph creation - Apple AGX race workaround
++      // Graph creation involves Metal shader compilation which can race
++      at::mps::MPSEncodingLock encodingLock;
+       // Initialize graph
+       auto mpsGraph = mps::make_mps_graph();
+       newCachedGraph = new T(mpsGraph);
+diff --git a/aten/src/ATen/native/mps/operations/Normalization.mm b/aten/src/ATen/native/mps/operations/Normalization.mm
+index ef39121e..5bb519cf 100644
+--- a/aten/src/ATen/native/mps/operations/Normalization.mm
++++ b/aten/src/ATen/native/mps/operations/Normalization.mm
+@@ -973,6 +973,11 @@ std::tuple<Tensor, Tensor, Tensor> layer_norm_mps(const Tensor& input,
+       MTLSize numThreads = MTLSizeMake(std::min((axis_size + N_READS - 1) / N_READS, 1024), 1, 1);
+       MTLSize numThreadgroups = MTLSizeMake(M, 1, 1);
+       [computeEncoder dispatchThreadgroups:numThreadgroups threadsPerThreadgroup:numThreads];
++      // THREAD-SAFETY FIX: Wait for GPU completion before releasing s_layer_norm_mutex
++      // This ensures the GPU work is complete before another thread encodes more work,
++      // preventing races in Apple's Metal framework. Performance impact: serializes
++      // LayerNorm across threads, but correctness is more important.
++      stream->synchronize(SyncType::COMMIT_AND_WAIT);
+     });
+   }
+   out = out.view(input_shape);

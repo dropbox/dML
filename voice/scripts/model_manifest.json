@@ -1,0 +1,68 @@
+{
+  "kokoro": [
+    {
+      "path": "kokoro/kokoro_mps.pt",
+      "size_bytes": 328178507,
+      "sha256_prefix": "195ca1e9d5cab584",
+      "description": "Kokoro TTS model (MPS/Metal, complex STFT)"
+    },
+    {
+      "path": "kokoro/voice_af_heart.pt",
+      "size_bytes": 523866,
+      "sha256_prefix": "97ce71c8f40b177c",
+      "description": "Default English voice (af_heart) - full [510,1,256] voice pack"
+    },
+    {
+      "path": "kokoro/lexicon/us_gold.json",
+      "size_bytes": 3000559,
+      "sha256_prefix": "ca86bf361aedc8e5",
+      "description": "English lexicon"
+    }
+  ],
+  "nllb": [
+    {
+      "path": "nllb/nllb-encoder-mps.pt",
+      "size_bytes": 1658517676,
+      "sha256_prefix": "15dd5ad6a21857a0",
+      "description": "NLLB encoder (MPS)"
+    },
+    {
+      "path": "nllb/nllb-decoder-mps.pt",
+      "size_bytes": 1860315440,
+      "sha256_prefix": "7ceca1b9c3785662",
+      "description": "NLLB decoder (MPS)"
+    },
+    {
+      "path": "nllb/nllb-decoder-first-mps.pt",
+      "size_bytes": 1860285178,
+      "sha256_prefix": "5285940c6e7e4f94",
+      "description": "NLLB decoder first token (MPS)"
+    },
+    {
+      "path": "nllb/nllb-decoder-kvcache-mps.pt",
+      "size_bytes": 1860296562,
+      "sha256_prefix": "f2180d721549e22a",
+      "description": "NLLB decoder with KV cache (MPS)"
+    },
+    {
+      "path": "nllb/sentencepiece.bpe.model",
+      "size_bytes": 4852054,
+      "sha256_prefix": "14bb8dfb35c0ffde",
+      "description": "NLLB tokenizer"
+    }
+  ],
+  "whisper": [
+    {
+      "path": "whisper/ggml-large-v3.bin",
+      "size_bytes": 3095033483,
+      "sha256_prefix": "64d182b440b98d52",
+      "description": "Whisper large-v3 (GGML)"
+    },
+    {
+      "path": "whisper/ggml-silero-v6.2.0.bin",
+      "size_bytes": 885098,
+      "sha256_prefix": "2aa269b785eeb53a",
+      "description": "Silero VAD model"
+    }
+  ]
+}

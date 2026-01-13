@@ -1,0 +1,16 @@
+/Users/ayates/model_mlx_migration/.venv/lib/python3.12/site-packages/webrtcvad.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+============================================================
+CTC Draft Head Training
+============================================================
+Model: mlx-community/whisper-large-v3-mlx
+Data: data/librispeech/train-clean-100
+Output: checkpoints/ctc_head_large_v3
+Epochs: 10
+Batch size: 4
+Learning rate: 0.0001
+PyTorch available: True
+============================================================
+
+1. Loading Whisper model (frozen encoder)...
+Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 2059.06it/s]

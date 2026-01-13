@@ -1,0 +1,63 @@
+{
+  "start_time": "2025-12-20T02:54:02.586072+00:00",
+  "end_time": "2025-12-20T02:54:32.606502+00:00",
+  "duration_seconds": 30.020429134368896,
+  "total_iterations": 2,
+  "total_successful_ops": 98533,
+  "total_failed_ops": 0,
+  "memory": {
+    "cpu": {
+      "initial_mb": 206.21875,
+      "final_mb": 214.875,
+      "peak_mb": 214.96875,
+      "growth_mb": 8.65625
+    },
+    "gpu": {
+      "initial_mb": 1.1025390625,
+      "final_mb": 1.1025390625,
+      "peak_mb": 1.3212890625,
+      "growth_mb": 0.0
+    }
+  },
+  "performance": {
+    "average_ops_per_second": 3282.198251030145
+  },
+  "hardware_info": {
+    "timestamp": "2025-12-20T02:54:02.545363Z",
+    "python_version": "3.14.0",
+    "pytorch_version": "2.9.1a0+git9a4518e",
+    "mps_available": true
+  },
+  "passed": true,
+  "failure_reason": null,
+  "metrics_history": [
+    {
+      "timestamp": "2025-12-20T02:54:12.686957+00:00",
+      "elapsed_seconds": 10.100758075714111,
+      "iteration": 1,
+      "cpu_memory_mb": 214.6875,
+      "cpu_memory_peak_mb": 214.6875,
+      "gpu_memory_allocated_mb": 1.2900390625,
+      "gpu_memory_reserved_mb": 8.765625,
+      "successful_ops": 33009,
+      "failed_ops": 0,
+      "threads_alive": 1,
+      "ops_per_second": 3300.9,
+      "errors": []
+    },
+    {
+      "timestamp": "2025-12-20T02:54:22.687979+00:00",
+      "elapsed_seconds": 20.101757049560547,
+      "iteration": 2,
+      "cpu_memory_mb": 214.96875,
+      "cpu_memory_peak_mb": 214.96875,
+      "gpu_memory_allocated_mb": 1.3212890625,
+      "gpu_memory_reserved_mb": 8.765625,
+      "successful_ops": 65895,
+      "failed_ops": 0,
+      "threads_alive": 1,
+      "ops_per_second": 3288.6,
+      "errors": []
+    }
+  ]
+}

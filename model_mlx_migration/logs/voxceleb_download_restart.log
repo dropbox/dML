@@ -1,0 +1,8 @@
+/opt/homebrew/lib/python3.14/site-packages/huggingface_hub/utils/_validators.py:186: UserWarning: The `resume_download` argument is deprecated and ignored in `snapshot_download`. Downloads always resume whenever possible.
+  warnings.warn(
+[17:05:13] [INFO] === Downloading VoxCeleb from HuggingFace ===
+[17:05:13] [INFO] Repo: ProgramComputer/voxceleb
+[17:05:13] [INFO] Output: /Users/ayates/model_mlx_migration/data
+[17:05:13] [INFO] Starting download (this may take several hours)...
+Fetching 41 files:   0%|          | 0/41 [00:00<?, ?it/s]/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-hidte61y'}
+  warnings.warn(

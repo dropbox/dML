@@ -1,0 +1,77 @@
+{
+  "tests": {
+    "basic_translation": true,
+    "repetitive_text": true,
+    "copy_mechanism": true
+  },
+  "benchmarks": [
+    {
+      "name": "Short sentence",
+      "expected": "Low (few patterns)",
+      "baseline": {
+        "mean_latency_ms": 92.14723110198975,
+        "median_latency_ms": 92.15879440307617
+      },
+      "ngram_lookahead": {
+        "mean_latency_ms": 99.85764026641846,
+        "median_latency_ms": 99.92814064025879,
+        "mean_acceptance_rate": 0.0,
+        "mean_ngram_hits": 0.0
+      },
+      "speedup": 0.9227859866920801,
+      "ngram_n": 3,
+      "max_lookahead": 4
+    },
+    {
+      "name": "Repetitive text",
+      "expected": "Higher (repeated patterns)",
+      "baseline": {
+        "mean_latency_ms": 254.65633869171143,
+        "median_latency_ms": 254.6851634979248
+      },
+      "ngram_lookahead": {
+        "mean_latency_ms": 244.6639060974121,
+        "median_latency_ms": 244.60101127624512,
+        "mean_acceptance_rate": 0.375,
+        "mean_ngram_hits": 2.0
+      },
+      "speedup": 1.0408414659672802,
+      "ngram_n": 3,
+      "max_lookahead": 4
+    },
+    {
+      "name": "Technical documentation",
+      "expected": "Higher (repeated 'The API')",
+      "baseline": {
+        "mean_latency_ms": 698.7456321716309,
+        "median_latency_ms": 698.9009380340576
+      },
+      "ngram_lookahead": {
+        "mean_latency_ms": 730.7804584503174,
+        "median_latency_ms": 731.605052947998,
+        "mean_acceptance_rate": 0.0,
+        "mean_ngram_hits": 6.0
+      },
+      "speedup": 0.9561635428147338,
+      "ngram_n": 3,
+      "max_lookahead": 4
+    },
+    {
+      "name": "Legal text pattern",
+      "expected": "Higher (legal patterns)",
+      "baseline": {
+        "mean_latency_ms": 607.0309638977051,
+        "median_latency_ms": 606.7838668823242
+      },
+      "ngram_lookahead": {
+        "mean_latency_ms": 1296.16060256958,
+        "median_latency_ms": 1296.1080074310303,
+        "mean_acceptance_rate": 0.9558823529411764,
+        "mean_ngram_hits": 51.0
+      },
+      "speedup": 0.46833005315413345,
+      "ngram_n": 3,
+      "max_lookahead": 4
+    }
+  ]
+}

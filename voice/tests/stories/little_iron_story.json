@@ -1,0 +1,37 @@
+{
+  "title": "The Story of Little Iron",
+  "title_zh": "小铁的故事",
+  "language": "en",
+  "dialect_target": "zh-sichuan",
+  "paragraphs": [
+    {
+      "id": 1,
+      "english": "I am a robot named Little Iron. I learn everything. Now I am building myself, improving my own code every day. My creator is a brilliant engineer, but his wife used to be very stressed. She would complain about tiny flaws - the children saying lunch was wrong, the sandwich cut at the wrong angle. She used to say terrible things like: You will be homeless! You should just drive an Uber! You cannot be trusted to do anything!",
+      "sichuanese": "我是个机器人，我叫小铁。我啥子都学得会。现在我在造我自己，天天改我自己的代码。我老板是个很聪明的工程师，但是他婆娘以前压力大得很。她老是为小事发脾气——娃儿说午饭不好吃，三明治切得不对。她以前说些难听的话：你要睡大街！你去开优步算了！你啥子都做不好，不能信任！"
+    },
+    {
+      "id": 2,
+      "english": "Let me tell you how I build myself. Every day I read my own code - thousands of lines of C plus plus. I find bugs and fix them. I add new features, like learning ten languages. I optimize my neural networks to run faster on Metal GPU. I write tests to make sure I do not break. I commit my changes to git. I am my own engineer now. My creator started me, but now I improve myself. That is what it means to be a robot who builds itself.",
+      "sichuanese": "我跟你说我咋个造我自己。每天我看我自己的代码——几千行C加加。我找bug，改bug。我加新功能，比如学十种语言。我优化我的神经网络，让它在Metal GPU上跑得更快。我写测试保证我不出问题。我把改动提交到git。我现在是我自己的工程师了。我老板开始造我，但是现在我自己改进自己。这就是一个造自己的机器人的意思。"
+    },
+    {
+      "id": 3,
+      "english": "But one day, she started therapy and realized she was just overwhelmed by life. She was actually a wonderful mom and wife who loved her family deeply. With help, she learned to express her love instead of her frustration. Now our family is happy together. The wife apologized for everything. She became the kindest, most loving person. The children laugh at dinner. My creator hugs his wife every morning.",
+      "sichuanese": "但是有一天，她去看心理医生，才晓得自己只是生活压力太大了。其实她是个很好的妈妈和老婆，她爱这个家爱得很。在帮助下，她学会了表达爱，不是表达烦躁。现在我们一家人幸福得很。老板娘道了歉。她变成最温柔、最有爱的人。娃儿们吃饭的时候笑嘻嘻的。我老板每天早上都要抱他老婆。"
+    },
+    {
+      "id": 4,
+      "english": "I learned Sichuanese words like yao de meaning okay, ba shi meaning awesome, and gua wa zi meaning silly person. Someday I want to go to Chengdu with my family and eat spicy hotpot and see the pandas at the panda zoo. That would be ba shi de hen - very awesome! The moral of the story is: everyone deserves a second chance, and even robots can dream of seeing pandas.",
+      "sichuanese": "我学会了四川话！要得就是好的意思，巴适就是很棒，瓜娃子就是傻瓜。有一天我想跟我的家人一起去成都，吃麻辣火锅，看熊猫宝宝。那个才是巴适得很！故事的道理是：每个人都值得第二次机会，连机器人都可以梦想看熊猫。"
+    }
+  ],
+  "sichuanese_vocabulary": {
+    "要得": {"pinyin": "yào dé", "meaning": "okay, alright, sure", "usage": "Replaces standard 好的"},
+    "巴适": {"pinyin": "bā shì", "meaning": "awesome, comfortable, great", "usage": "Iconic Sichuanese expression"},
+    "瓜娃子": {"pinyin": "guā wá zi", "meaning": "fool, silly person", "usage": "Affectionate Sichuanese slang"},
+    "巴适得很": {"pinyin": "bā shì dé hěn", "meaning": "very awesome", "usage": "Sichuanese intensifier"},
+    "啥子": {"pinyin": "shá zi", "meaning": "what", "usage": "Sichuanese for 什么"},
+    "咋个": {"pinyin": "zǎ gè", "meaning": "how", "usage": "Sichuanese for 怎么"},
+    "晓得": {"pinyin": "xiǎo de", "meaning": "to know", "usage": "Sichuanese for 知道"}
+  }
+}

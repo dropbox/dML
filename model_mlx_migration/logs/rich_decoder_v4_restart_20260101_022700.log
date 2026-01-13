@@ -1,0 +1,115 @@
+/opt/homebrew/lib/python3.14/site-packages/webrtcvad.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+Train: 19734 samples
+Val: 2193 samples
+Cache-only mode: 8267/19734 samples (41.9% cached)
+Cache-only mode: 0/2193 samples (0.0% cached)
+WARNING: No cached validation samples. Validation will be skipped.
+Using cached encoder features from: data/v3_multitask/encoder_cache
+Prosody features: ENABLED (from cache)
+Model parameters:
+  Total: 4,769,288
+  Encoder LoRA: 1,474,560
+  Classification head: 3,294,728
+  Converted model parameters to bfloat16
+Loading weights from checkpoints/rich_decoder_v4/step_2000.npz
+  Loaded 78 weight tensors
+
+============================================================
+Training RichDecoder v4 (Optimized)
+============================================================
+  Epochs: 10
+  Batch size: 4 x 4 = 16
+  Total steps: 20670
+  bfloat16: True
+  Prefetch: 4 batches
+  Early stopping: True (patience=3)
+
+Epoch 1/10
+  Step 50: loss=0.4733, acc=75.00%, lr=5.00e-06
+  Step 100: loss=1.1092, acc=50.00%, lr=1.00e-05
+  Step 150: loss=0.8069, acc=50.00%, lr=1.50e-05
+  Step 200: loss=0.0377, acc=100.00%, lr=2.00e-05
+  Step 250: loss=0.5364, acc=75.00%, lr=2.50e-05
+  Step 300: loss=0.1970, acc=100.00%, lr=3.00e-05
+  Step 350: loss=1.0242, acc=50.00%, lr=3.50e-05
+  Step 400: loss=0.8400, acc=75.00%, lr=4.00e-05
+  Step 450: loss=0.3147, acc=100.00%, lr=4.50e-05
+  Step 500: loss=0.8302, acc=100.00%, lr=5.00e-05
+  Step 550: loss=0.0086, acc=100.00%, lr=5.00e-05
+  Step 600: loss=0.1577, acc=100.00%, lr=5.00e-05
+  Step 650: loss=1.8582, acc=25.00%, lr=5.00e-05
+  Step 700: loss=0.1685, acc=100.00%, lr=5.00e-05
+  Step 750: loss=1.2413, acc=25.00%, lr=5.00e-05
+  Step 800: loss=0.5385, acc=75.00%, lr=5.00e-05
+  Step 850: loss=0.8005, acc=75.00%, lr=5.00e-05
+  Step 900: loss=0.5400, acc=75.00%, lr=5.00e-05
+  Step 950: loss=0.7463, acc=75.00%, lr=4.99e-05
+  Step 1000: loss=1.0659, acc=50.00%, lr=4.99e-05
+  Step 1050: loss=0.4660, acc=75.00%, lr=4.99e-05
+  Step 1100: loss=0.6128, acc=75.00%, lr=4.99e-05
+  Step 1150: loss=0.4612, acc=75.00%, lr=4.99e-05
+  Step 1200: loss=0.4580, acc=100.00%, lr=4.99e-05
+  Step 1250: loss=0.0104, acc=100.00%, lr=4.98e-05
+  Step 1300: loss=0.9571, acc=50.00%, lr=4.98e-05
+  Step 1350: loss=0.0177, acc=100.00%, lr=4.98e-05
+  Step 1400: loss=1.2528, acc=25.00%, lr=4.98e-05
+  Step 1450: loss=0.8951, acc=75.00%, lr=4.97e-05
+  Step 1500: loss=0.5918, acc=75.00%, lr=4.97e-05
+  Step 1550: loss=0.5775, acc=75.00%, lr=4.97e-05
+  Step 1600: loss=0.3855, acc=75.00%, lr=4.96e-05
+  Step 1650: loss=0.9971, acc=50.00%, lr=4.96e-05
+  Step 1700: loss=1.3295, acc=25.00%, lr=4.96e-05
+  Step 1750: loss=0.9833, acc=50.00%, lr=4.95e-05
+  Step 1800: loss=0.7411, acc=50.00%, lr=4.95e-05
+  Step 1850: loss=0.3829, acc=100.00%, lr=4.95e-05
+  Step 1900: loss=0.2616, acc=100.00%, lr=4.94e-05
+  Step 1950: loss=0.2513, acc=100.00%, lr=4.94e-05
+  Step 2000: loss=0.0066, acc=100.00%, lr=4.93e-05
+  Step 2050: loss=0.6146, acc=75.00%, lr=4.93e-05
+  Epoch 1 complete: avg_loss=0.6303, time=224.4s
+Epoch 2/10
+  Step 2100: loss=0.5969, acc=75.00%, lr=4.92e-05
+  Step 2150: loss=0.3147, acc=100.00%, lr=4.92e-05
+  Step 2200: loss=0.0200, acc=100.00%, lr=4.91e-05
+  Step 2250: loss=0.2473, acc=100.00%, lr=4.91e-05
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/ayates/model_mlx_migration/tools/whisper_mlx/train_rich_decoder_v4.py", line 1014, in <module>
+    main()
+    ~~~~^^
+  File "/Users/ayates/model_mlx_migration/tools/whisper_mlx/train_rich_decoder_v4.py", line 1010, in main
+    trainer.train(train_loader, val_loader)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ayates/model_mlx_migration/tools/whisper_mlx/train_rich_decoder_v4.py", line 798, in train
+    self.optimizer.update(self.model, accumulated_grads)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ayates/Library/Python/3.14/lib/python/site-packages/mlx/optimizers/optimizers.py", line 29, in update
+    model.update(self.apply_gradients(gradients, model))
+                 ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/ayates/Library/Python/3.14/lib/python/site-packages/mlx/optimizers/optimizers.py", line 109, in apply_gradients
+    return tree_map(self.apply_single, gradients, parameters, self.state)
+  File "/Users/ayates/Library/Python/3.14/lib/python/site-packages/mlx/utils.py", line 54, in tree_map
+    k: tree_map(fn, child, *(r[k] for r in rest), is_leaf=is_leaf)
+       ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ayates/Library/Python/3.14/lib/python/site-packages/mlx/utils.py", line 54, in tree_map
+    k: tree_map(fn, child, *(r[k] for r in rest), is_leaf=is_leaf)
+       ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ayates/Library/Python/3.14/lib/python/site-packages/mlx/utils.py", line 54, in tree_map
+    k: tree_map(fn, child, *(r[k] for r in rest), is_leaf=is_leaf)
+       ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  [Previous line repeated 2 more times]
+  File "/Users/ayates/Library/Python/3.14/lib/python/site-packages/mlx/utils.py", line 58, in tree_map
+    return fn(tree, *rest)
+  File "/Users/ayates/Library/Python/3.14/lib/python/site-packages/mlx/optimizers/optimizers.py", line 586, in apply_single
+    return super().apply_single(
+           ~~~~~~~~~~~~~~~~~~~~^
+        gradient, parameter * (1 - lr * self.weight_decay), state
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ayates/Library/Python/3.14/lib/python/site-packages/mlx/optimizers/optimizers.py", line 523, in apply_single
+    m = b1 * m + (1 - b1) * gradient
+                 ~~~~~~~~~^~~~~~~~~~
+RuntimeError: [metal::malloc] Resource limit (499000) exceeded.

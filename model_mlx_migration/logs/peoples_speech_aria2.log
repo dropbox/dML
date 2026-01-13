@@ -1,0 +1,1598 @@
+Fetching file list from HuggingFace...
+Total train files: 804
+Other files: 3690
+Already downloaded: 50
+Need to download: 763 train files
+[1/763] clean/train-00041-of-00804.parquet...OOK
+[2/763] clean/train-00042-of-00804.parquet...OOK
+[3/763] clean/train-00043-of-00804.parquet...OOK
+[4/763] clean/train-00044-of-00804.parquet...OOK
+[5/763] clean/train-00045-of-00804.parquet... OK
+[6/763] clean/train-00046-of-00804.parquet...OOK
+[7/763] clean/train-00047-of-00804.parquet...OOK
+[8/763] clean/train-00048-of-00804.parquet... OK
+[9/763] clean/train-00049-of-00804.parquet... OK
+[10/763] clean/train-00050-of-00804.parquet... OK
+[11/763] clean/train-00051-of-00804.parquet... OK
+[12/763] clean/train-00052-of-00804.parquet... OK
+[13/763] clean/train-00053-of-00804.parquet... OK
+[14/763] clean/train-00054-of-00804.parquet... OK
+[15/763] clean/train-00055-of-00804.parquet... OK
+[16/763] clean/train-00056-of-00804.parquet... OK
+[17/763] clean/train-00057-of-00804.parquet... OK
+[18/763] clean/train-00058-of-00804.parquet... OK
+[19/763] clean/train-00059-of-00804.parquet... OK
+[20/763] clean/train-00060-of-00804.parquet... OK
+[21/763] clean/train-00061-of-00804.parquet...OK
+[22/804] clean/train-00021-of-00804.parquet... OK
+[23/804] clean/train-00022-of-00804.parquet... OK
+[24/804] clean/train-00023-of-00804.parquet... FOK
+[25/763] clean/train-00065-of-00804.parquet... OK
+[26/763] clean/train-00066-of-00804.parquet... OK
+[27/763] clean/train-00067-of-00804.parquet... OK
+[28/763] clean/train-00068-of-00804.parquet... OK
+[29/763] clean/train-00069-of-00804.parquet... OK
+[30/763] clean/train-00070-of-00804.parquet... OK
+[31/763] clean/train-00071-of-00804.parquet... OK
+[32/763] clean/train-00072-of-00804.parquet... OK
+[33/763] clean/train-00073-of-00804.parquet... OK
+[34/763] clean/train-00074-of-00804.parquet... OK
+[35/763] clean/train-00075-of-00804.parquet... OK
+[36/763] clean/train-00076-of-00804.parquet... OK
+[37/763] clean/train-00077-of-00804.parquet... OK
+[38/763] clean/train-00078-of-00804.parquet... OK
+[39/763] clean/train-00079-of-00804.parquet... OK
+[40/763] clean/train-00080-of-00804.parquet... OK
+[41/763] clean/train-00081-of-00804.parquet... OK
+[42/763] clean/train-00082-of-00804.parquet... OK
+[43/763] clean/train-00083-of-00804.parquet... OK
+[44/763] clean/train-00084-of-00804.parquet... OK
+[45/763] clean/train-00085-of-00804.parquet... OK
+[46/763] clean/train-00086-of-00804.parquet... OK
+[47/763] clean/train-00087-of-00804.parquet... OK
+[48/763] clean/train-00088-of-00804.parquet... OK
+[49/763] clean/train-00089-of-00804.parquet... OK
+[50/763] clean/train-00090-of-00804.parquet... OK
+--- Progress: 50/763 (0 failed) ---
+[51/763] clean/train-00091-of-00804.parquet... OK
+[52/763] clean/train-00092-of-00804.parquet... OK
+[53/763] clean/train-00093-of-00804.parquet... OK
+OK
+[54/804] clean/train-00053-of-00804.parquet.OK
+OK
+[55/804] clean/train-00054-of-00804.parquet.OK
+OK
+[56/804] clean/train-00055-of-00804.parquet.OK
+OK
+[57/804] clean/train-00056-of-00804.parquet.OK
+[58/763] clean/train-00098-of-00804.parquet... Python(1218) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[59/763] clean/train-00099-of-00804.parquet... Python(1340) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[60/763] clean/train-00100-of-00804.parquet... Python(1345) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[61/763] clean/train-00101-of-00804.parquet... Python(1349) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[62/763] clean/train-00102-of-00804.parquet... Python(1376) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[63/763] clean/train-00103-of-00804.parquet... Python(1384) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[64/763] clean/train-00104-of-00804.parquet... Python(1400) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[65/763] clean/train-00105-of-00804.parquet... Python(1407) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[66/763] clean/train-00106-of-00804.parquet... Python(1459) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[67/763] clean/train-00107-of-00804.parquet... Python(1520) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[68/763] clean/train-00108-of-00804.parquet... Python(1531) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[69/763] clean/train-00109-of-00804.parquet... Python(1568) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[70/763] clean/train-00110-of-00804.parquet... Python(1604) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[71/763] clean/train-00111-of-00804.parquet... Python(1615) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[72/763] clean/train-00112-of-00804.parquet... Python(1732) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[73/763] clean/train-00113-of-00804.parquet... Python(1984) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[74/763] clean/train-00114-of-00804.parquet... Python(2314) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[75/763] clean/train-00115-of-00804.parquet... Python(2502) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[76/763] clean/train-00116-of-00804.parquet... Python(2592) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[77/763] clean/train-00117-of-00804.parquet... Python(2650) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[78/763] clean/train-00118-of-00804.parquet... Python(2739) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[79/763] clean/train-00119-of-00804.parquet... Python(2742) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[80/763] clean/train-00120-of-00804.parquet... Python(2744) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[81/763] clean/train-00121-of-00804.parquet... Python(2746) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[82/763] clean/train-00122-of-00804.parquet... Python(2749) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[83/763] clean/train-00123-of-00804.parquet... Python(2751) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[84/763] clean/train-00124-of-00804.parquet... Python(2754) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[85/763] clean/train-00125-of-00804.parquet... Python(2756) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[86/763] clean/train-00126-of-00804.parquet... Python(2758) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[87/763] clean/train-00127-of-00804.parquet... Python(2760) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[88/763] clean/train-00128-of-00804.parquet... Python(2762) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[89/763] clean/train-00129-of-00804.parquet... Python(2764) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[90/763] clean/train-00130-of-00804.parquet... Python(2767) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[91/763] clean/train-00131-of-00804.parquet... Python(2770) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[92/763] clean/train-00132-of-00804.parquet... Python(2772) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[93/763] clean/train-00133-of-00804.parquet... Python(2774) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[94/763] clean/train-00134-of-00804.parquet... Python(2776) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[95/763] clean/train-00135-of-00804.parquet... Python(2779) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[96/763] clean/train-00136-of-00804.parquet... Python(2781) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[97/763] clean/train-00137-of-00804.parquet... Python(2784) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[98/763] clean/train-00138-of-00804.parquet... Python(2786) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[99/763] clean/train-00139-of-00804.parquet... Python(2790) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[100/763] clean/train-00140-of-00804.parquet... Python(2792) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+--- Progress: 100/763 (24 failed) ---
+[101/763] clean/train-00141-of-00804.parquet... Python(2793) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[102/763] clean/train-00142-of-00804.parquet... Python(2796) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[103/763] clean/train-00143-of-00804.parquet... Python(2800) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[104/763] clean/train-00144-of-00804.parquet... Python(2802) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[105/763] clean/train-00145-of-00804.parquet... Python(2804) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[106/763] clean/train-00146-of-00804.parquet... Python(2806) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[107/763] clean/train-00147-of-00804.parquet... Python(2810) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[108/763] clean/train-00148-of-00804.parquet... Python(2812) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[109/763] clean/train-00149-of-00804.parquet... Python(2814) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[110/763] clean/train-00150-of-00804.parquet... Python(2816) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[111/763] clean/train-00151-of-00804.parquet... Python(2819) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[112/763] clean/train-00152-of-00804.parquet... Python(2822) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[113/763] clean/train-00153-of-00804.parquet... Python(2824) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[114/763] clean/train-00154-of-00804.parquet... Python(2826) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[115/763] clean/train-00155-of-00804.parquet... Python(2828) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[116/763] clean/train-00156-of-00804.parquet... Python(2830) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[117/763] clean/train-00157-of-00804.parquet... Python(2834) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[118/763] clean/train-00158-of-00804.parquet... Python(2837) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[119/763] clean/train-00159-of-00804.parquet... Python(2839) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[120/763] clean/train-00160-of-00804.parquet... Python(2842) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[121/763] clean/train-00161-of-00804.parquet... Python(2844) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[122/763] clean/train-00162-of-00804.parquet... Python(2846) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[123/763] clean/train-00163-of-00804.parquet... Python(2849) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[124/763] clean/train-00164-of-00804.parquet... Python(2851) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[125/763] clean/train-00165-of-00804.parquet... Python(2853) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[126/763] clean/train-00166-of-00804.parquet... Python(2989) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[127/763] clean/train-00167-of-00804.parquet... Python(2992) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[128/763] clean/train-00168-of-00804.parquet... Python(2994) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[129/763] clean/train-00169-of-00804.parquet... Python(2997) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[130/763] clean/train-00170-of-00804.parquet... Python(3000) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[131/763] clean/train-00171-of-00804.parquet... Python(3002) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[132/763] clean/train-00172-of-00804.parquet... Python(3004) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[133/763] clean/train-00173-of-00804.parquet... Python(3007) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[134/763] clean/train-00174-of-00804.parquet... Python(3009) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[135/763] clean/train-00175-of-00804.parquet... Python(3012) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[136/763] clean/train-00176-of-00804.parquet... Python(3014) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[137/763] clean/train-00177-of-00804.parquet... Python(3015) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[138/763] clean/train-00178-of-00804.parquet... Python(3018) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[139/763] clean/train-00179-of-00804.parquet... Python(3020) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[140/763] clean/train-00180-of-00804.parquet... Python(3022) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[141/763] clean/train-00181-of-00804.parquet... Python(3024) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[142/763] clean/train-00182-of-00804.parquet... Python(3026) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[143/763] clean/train-00183-of-00804.parquet... Python(3028) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[144/763] clean/train-00184-of-00804.parquet... Python(3030) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[145/763] clean/train-00185-of-00804.parquet... Python(3032) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[146/763] clean/train-00186-of-00804.parquet... Python(3034) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[147/763] clean/train-00187-of-00804.parquet... Python(3036) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[148/763] clean/train-00188-of-00804.parquet... Python(3038) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[149/763] clean/train-00189-of-00804.parquet... Python(3040) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[150/763] clean/train-00190-of-00804.parquet... Python(3042) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+--- Progress: 150/763 (73 failed) ---
+[151/763] clean/train-00191-of-00804.parquet... Python(3044) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[152/763] clean/train-00192-of-00804.parquet... Python(3046) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[153/763] clean/train-00193-of-00804.parquet... Python(3048) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[154/763] clean/train-00194-of-00804.parquet... Python(3050) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[155/763] clean/train-00195-of-00804.parquet... Python(3052) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[156/763] clean/train-00196-of-00804.parquet... Python(3054) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[157/763] clean/train-00197-of-00804.parquet... Python(3056) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[158/763] clean/train-00198-of-00804.parquet... Python(3058) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[159/763] clean/train-00199-of-00804.parquet... Python(3060) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[160/763] clean/train-00200-of-00804.parquet... Python(3062) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[161/763] clean/train-00201-of-00804.parquet... Python(3064) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[162/763] clean/train-00202-of-00804.parquet... Python(3066) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[163/763] clean/train-00203-of-00804.parquet... Python(3068) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[164/763] clean/train-00204-of-00804.parquet... Python(3071) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[165/763] clean/train-00205-of-00804.parquet... Python(3073) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[166/763] clean/train-00206-of-00804.parquet... Python(3075) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[167/763] clean/train-00207-of-00804.parquet... Python(3077) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[168/763] clean/train-00208-of-00804.parquet... Python(3079) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[169/763] clean/train-00209-of-00804.parquet... Python(3080) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[170/763] clean/train-00210-of-00804.parquet... Python(3082) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[171/763] clean/train-00211-of-00804.parquet... Python(3084) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[172/763] clean/train-00212-of-00804.parquet... Python(3086) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[173/763] clean/train-00213-of-00804.parquet... Python(3088) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[174/763] clean/train-00214-of-00804.parquet... Python(3090) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[175/763] clean/train-00215-of-00804.parquet... Python(3092) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[176/763] clean/train-00216-of-00804.parquet... Python(3094) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[177/763] clean/train-00217-of-00804.parquet... Python(3096) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[178/763] clean/train-00218-of-00804.parquet... Python(3098) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[179/763] clean/train-00219-of-00804.parquet... Python(3100) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[180/763] clean/train-00220-of-00804.parquet... Python(3102) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[181/763] clean/train-00221-of-00804.parquet... Python(3104) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[182/763] clean/train-00222-of-00804.parquet... Python(3106) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[183/763] clean/train-00223-of-00804.parquet... Python(3108) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[184/763] clean/train-00224-of-00804.parquet... Python(3110) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[185/763] clean/train-00225-of-00804.parquet... Python(3112) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[186/763] clean/train-00226-of-00804.parquet... Python(3114) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[187/763] clean/train-00227-of-00804.parquet... Python(3116) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[188/763] clean/train-00228-of-00804.parquet... Python(3118) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[189/763] clean/train-00229-of-00804.parquet... Python(3120) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[190/763] clean/train-00230-of-00804.parquet... Python(3122) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[191/763] clean/train-00231-of-00804.parquet... Python(3124) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[192/763] clean/train-00232-of-00804.parquet... Python(3126) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[193/763] clean/train-00233-of-00804.parquet... Python(3128) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[194/763] clean/train-00234-of-00804.parquet... Python(3130) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[195/763] clean/train-00235-of-00804.parquet... Python(3132) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[196/763] clean/train-00236-of-00804.parquet... Python(3134) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[197/763] clean/train-00237-of-00804.parquet... Python(3136) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[198/763] clean/train-00238-of-00804.parquet... Python(3138) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[199/763] clean/train-00239-of-00804.parquet... Python(3140) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[200/763] clean/train-00240-of-00804.parquet... Python(3142) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+--- Progress: 200/763 (123 failed) ---
+[201/763] clean/train-00241-of-00804.parquet... Python(3144) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[202/763] clean/train-00242-of-00804.parquet... Python(3146) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[203/763] clean/train-00243-of-00804.parquet... Python(3148) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[204/763] clean/train-00244-of-00804.parquet... Python(3150) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[205/763] clean/train-00245-of-00804.parquet... Python(3152) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[206/763] clean/train-00246-of-00804.parquet... Python(3154) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[207/763] clean/train-00247-of-00804.parquet... Python(3156) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[208/763] clean/train-00248-of-00804.parquet... Python(3158) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[209/763] clean/train-00249-of-00804.parquet... Python(3160) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[210/763] clean/train-00250-of-00804.parquet... Python(3162) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[211/763] clean/train-00251-of-00804.parquet... Python(3164) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[212/763] clean/train-00252-of-00804.parquet... Python(3166) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[213/763] clean/train-00253-of-00804.parquet... Python(3168) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[214/763] clean/train-00254-of-00804.parquet... Python(3170) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[215/763] clean/train-00255-of-00804.parquet... Python(3172) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[216/763] clean/train-00256-of-00804.parquet... Python(3174) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[217/763] clean/train-00257-of-00804.parquet... Python(3176) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[218/763] clean/train-00258-of-00804.parquet... Python(3178) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[219/763] clean/train-00259-of-00804.parquet... Python(3180) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[220/763] clean/train-00260-of-00804.parquet... Python(3182) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[221/763] clean/train-00261-of-00804.parquet... Python(3184) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[222/763] clean/train-00262-of-00804.parquet... Python(3186) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[223/763] clean/train-00263-of-00804.parquet... Python(3188) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[224/763] clean/train-00264-of-00804.parquet... Python(3189) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[225/763] clean/train-00265-of-00804.parquet... Python(3191) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[226/763] clean/train-00266-of-00804.parquet... Python(3193) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[227/763] clean/train-00267-of-00804.parquet... Python(3195) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[228/763] clean/train-00268-of-00804.parquet... Python(3197) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[229/763] clean/train-00269-of-00804.parquet... Python(3199) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[230/763] clean/train-00270-of-00804.parquet... Python(3202) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[231/763] clean/train-00271-of-00804.parquet... Python(3204) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[232/763] clean/train-00272-of-00804.parquet... Python(3205) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[233/763] clean/train-00273-of-00804.parquet... Python(3207) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[234/763] clean/train-00274-of-00804.parquet... Python(3210) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[235/763] clean/train-00275-of-00804.parquet... Python(3211) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[236/763] clean/train-00276-of-00804.parquet... Python(3213) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[237/763] clean/train-00277-of-00804.parquet... Python(3215) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[238/763] clean/train-00278-of-00804.parquet... Python(3222) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[239/763] clean/train-00279-of-00804.parquet... Python(3226) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[240/763] clean/train-00280-of-00804.parquet... Python(3230) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[241/763] clean/train-00281-of-00804.parquet... Python(3234) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[242/763] clean/train-00282-of-00804.parquet... Python(3236) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[243/763] clean/train-00283-of-00804.parquet... Python(3239) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+FAILED
+[244/763] clean/train-00284-of-00804.parquet... Python(3241) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[245/763] clean/train-00285-of-00804.parquet... Python(3271) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[246/763] clean/train-00286-of-00804.parquet... Python(3318) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[247/763] clean/train-00287-of-00804.parquet... Python(3437) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[248/763] clean/train-00288-of-00804.parquet... Python(3562) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[249/763] clean/train-00289-of-00804.parquet... Python(3630) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[250/763] clean/train-00290-of-00804.parquet... Python(3724) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+--- Progress: 250/763 (166 failed) ---
+[251/763] clean/train-00291-of-00804.parquet... Python(3732) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[252/763] clean/train-00292-of-00804.parquet... Python(3812) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[253/763] clean/train-00293-of-00804.parquet... Python(3820) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[254/763] clean/train-00294-of-00804.parquet... Python(3874) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[255/763] clean/train-00295-of-00804.parquet... Python(3904) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[256/763] clean/train-00296-of-00804.parquet... Python(3957) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[257/763] clean/train-00297-of-00804.parquet... Python(3969) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[258/763] clean/train-00298-of-00804.parquet... Python(3979) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[259/763] clean/train-00299-of-00804.parquet... Python(3982) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[260/763] clean/train-00300-of-00804.parquet... Python(3984) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[261/763] clean/train-00301-of-00804.parquet... Python(4015) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[262/763] clean/train-00302-of-00804.parquet... Python(4021) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[263/763] clean/train-00303-of-00804.parquet... Python(4032) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[264/763] clean/train-00304-of-00804.parquet... Python(4044) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[265/763] clean/train-00305-of-00804.parquet... Python(4121) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[266/763] clean/train-00306-of-00804.parquet... Python(4281) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[267/763] clean/train-00307-of-00804.parquet... Python(4369) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[268/763] clean/train-00308-of-00804.parquet... Python(4462) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[269/763] clean/train-00309-of-00804.parquet... Python(4553) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[270/763] clean/train-00310-of-00804.parquet... Python(4596) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[271/763] clean/train-00311-of-00804.parquet... Python(4605) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[272/763] clean/train-00312-of-00804.parquet... Python(4632) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[273/763] clean/train-00313-of-00804.parquet... Python(4650) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[274/763] clean/train-00314-of-00804.parquet... Python(4661) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[275/763] clean/train-00315-of-00804.parquet... Python(4681) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[276/763] clean/train-00316-of-00804.parquet... Python(4702) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[277/763] clean/train-00317-of-00804.parquet... Python(4704) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[278/763] clean/train-00318-of-00804.parquet... Python(4706) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[279/763] clean/train-00319-of-00804.parquet... Python(4714) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[280/763] clean/train-00320-of-00804.parquet... Python(4728) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[281/763] clean/train-00321-of-00804.parquet... Python(4738) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[282/763] clean/train-00322-of-00804.parquet... Python(4741) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[283/763] clean/train-00323-of-00804.parquet... Python(4749) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[284/763] clean/train-00324-of-00804.parquet... Python(4756) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[285/763] clean/train-00325-of-00804.parquet... Python(4768) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[286/763] clean/train-00326-of-00804.parquet... Python(4799) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[287/763] clean/train-00327-of-00804.parquet... Python(4801) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[288/763] clean/train-00328-of-00804.parquet... Python(4816) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[289/763] clean/train-00329-of-00804.parquet... Python(4819) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[290/763] clean/train-00330-of-00804.parquet... Python(4830) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[291/763] clean/train-00331-of-00804.parquet... Python(4834) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[292/763] clean/train-00332-of-00804.parquet... Python(4859) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[293/763] clean/train-00333-of-00804.parquet... Python(4868) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[294/763] clean/train-00334-of-00804.parquet... Python(4871) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[295/763] clean/train-00335-of-00804.parquet... Python(4880) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[296/763] clean/train-00336-of-00804.parquet... Python(4883) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[297/763] clean/train-00337-of-00804.parquet... Python(4913) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[298/763] clean/train-00338-of-00804.parquet... Python(4992) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[299/763] clean/train-00339-of-00804.parquet... Python(5339) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[300/763] clean/train-00340-of-00804.parquet... Python(5524) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+--- Progress: 300/763 (166 failed) ---
+[301/763] clean/train-00341-of-00804.parquet... Python(5642) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[302/763] clean/train-00342-of-00804.parquet... Python(5735) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[303/763] clean/train-00343-of-00804.parquet... Python(5833) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[304/763] clean/train-00344-of-00804.parquet... Python(6002) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[305/763] clean/train-00345-of-00804.parquet... Python(6086) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[306/763] clean/train-00346-of-00804.parquet... Python(6178) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[307/763] clean/train-00347-of-00804.parquet... Python(6235) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[308/763] clean/train-00348-of-00804.parquet... Python(6253) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[309/763] clean/train-00349-of-00804.parquet... Python(6306) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[310/763] clean/train-00350-of-00804.parquet... Python(6339) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[311/763] clean/train-00351-of-00804.parquet... Python(6347) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[312/763] clean/train-00352-of-00804.parquet... Python(6355) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[313/763] clean/train-00353-of-00804.parquet... Python(6407) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[314/763] clean/train-00354-of-00804.parquet... Python(6415) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[315/763] clean/train-00355-of-00804.parquet... Python(6418) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[316/763] clean/train-00356-of-00804.parquet... Python(6426) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[317/763] clean/train-00357-of-00804.parquet... Python(6431) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[318/763] clean/train-00358-of-00804.parquet... Python(6479) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[319/763] clean/train-00359-of-00804.parquet... Python(6483) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[320/763] clean/train-00360-of-00804.parquet... Python(6485) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[321/763] clean/train-00361-of-00804.parquet... Python(6493) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[322/763] clean/train-00362-of-00804.parquet... Python(6495) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[323/763] clean/train-00363-of-00804.parquet... Python(6506) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[324/763] clean/train-00364-of-00804.parquet... Python(6510) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[325/763] clean/train-00365-of-00804.parquet... Python(6544) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[326/763] clean/train-00366-of-00804.parquet... Python(6582) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[327/763] clean/train-00367-of-00804.parquet... Python(6585) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[328/763] clean/train-00368-of-00804.parquet... Python(6593) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[329/763] clean/train-00369-of-00804.parquet... Python(6597) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[330/763] clean/train-00370-of-00804.parquet... Python(6606) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[331/763] clean/train-00371-of-00804.parquet... Python(6609) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[332/763] clean/train-00372-of-00804.parquet... Python(6619) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[333/763] clean/train-00373-of-00804.parquet... Python(6628) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[334/763] clean/train-00374-of-00804.parquet... Python(6631) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[335/763] clean/train-00375-of-00804.parquet... Python(6641) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[336/763] clean/train-00376-of-00804.parquet... Python(6648) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[337/763] clean/train-00377-of-00804.parquet... Python(6683) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[338/763] clean/train-00378-of-00804.parquet... Python(6786) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[339/763] clean/train-00379-of-00804.parquet... Python(6805) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[340/763] clean/train-00380-of-00804.parquet... Python(6809) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[341/763] clean/train-00381-of-00804.parquet... Python(6812) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[342/763] clean/train-00382-of-00804.parquet... Python(6820) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[343/763] clean/train-00383-of-00804.parquet... Python(6822) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[344/763] clean/train-00384-of-00804.parquet... Python(6831) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[345/763] clean/train-00385-of-00804.parquet... Python(6833) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[346/763] clean/train-00386-of-00804.parquet... Python(6836) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[347/763] clean/train-00387-of-00804.parquet... Python(6846) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[348/763] clean/train-00388-of-00804.parquet... Python(6850) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[349/763] clean/train-00389-of-00804.parquet... Python(6860) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[350/763] clean/train-00390-of-00804.parquet... Python(6898) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+--- Progress: 350/763 (166 failed) ---
+[351/763] clean/train-00391-of-00804.parquet... Python(6945) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[352/763] clean/train-00392-of-00804.parquet... Python(6953) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[353/763] clean/train-00393-of-00804.parquet... Python(6968) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[354/763] clean/train-00394-of-00804.parquet... Python(6972) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[355/763] clean/train-00395-of-00804.parquet... Python(6987) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[356/763] clean/train-00396-of-00804.parquet... Python(7002) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[357/763] clean/train-00397-of-00804.parquet... Python(7009) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[358/763] clean/train-00398-of-00804.parquet... Python(7037) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[359/763] clean/train-00399-of-00804.parquet... Python(7039) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[360/763] clean/train-00400-of-00804.parquet... Python(7047) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[361/763] clean/train-00401-of-00804.parquet... Python(7049) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[362/763] clean/train-00402-of-00804.parquet... Python(7051) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[363/763] clean/train-00403-of-00804.parquet... Python(7059) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[364/763] clean/train-00404-of-00804.parquet... Python(7062) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[365/763] clean/train-00405-of-00804.parquet... Python(7070) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[366/763] clean/train-00406-of-00804.parquet... Python(7072) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[367/763] clean/train-00407-of-00804.parquet... Python(7074) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[368/763] clean/train-00408-of-00804.parquet... Python(7086) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[369/763] clean/train-00409-of-00804.parquet... Python(7091) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[370/763] clean/train-00410-of-00804.parquet... Python(7099) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[371/763] clean/train-00411-of-00804.parquet... Python(7104) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[372/763] clean/train-00412-of-00804.parquet... Python(7108) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[373/763] clean/train-00413-of-00804.parquet... Python(7117) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[374/763] clean/train-00414-of-00804.parquet... Python(7120) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[375/763] clean/train-00415-of-00804.parquet... Python(7128) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[376/763] clean/train-00416-of-00804.parquet... Python(7271) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[377/763] clean/train-00417-of-00804.parquet... Python(7282) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[378/763] clean/train-00418-of-00804.parquet... Python(7284) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[379/763] clean/train-00419-of-00804.parquet... Python(7288) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[380/763] clean/train-00420-of-00804.parquet... Python(7296) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[381/763] clean/train-00421-of-00804.parquet... Python(7299) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[382/763] clean/train-00422-of-00804.parquet... Python(7307) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[383/763] clean/train-00423-of-00804.parquet... Python(7309) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[384/763] clean/train-00424-of-00804.parquet... Python(7317) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[385/763] clean/train-00425-of-00804.parquet... Python(7329) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[386/763] clean/train-00426-of-00804.parquet... Python(7375) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[387/763] clean/train-00427-of-00804.parquet... Python(7377) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[388/763] clean/train-00428-of-00804.parquet... Python(7379) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[389/763] clean/train-00429-of-00804.parquet... Python(7398) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[390/763] clean/train-00430-of-00804.parquet... Python(7455) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[391/763] clean/train-00431-of-00804.parquet... Python(7481) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[392/763] clean/train-00432-of-00804.parquet... Python(7483) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[393/763] clean/train-00433-of-00804.parquet... Python(7493) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[394/763] clean/train-00434-of-00804.parquet... Python(7517) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[395/763] clean/train-00435-of-00804.parquet... Python(7525) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[396/763] clean/train-00436-of-00804.parquet... Python(7529) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[397/763] clean/train-00437-of-00804.parquet... Python(7531) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[398/763] clean/train-00438-of-00804.parquet... Python(7554) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[399/763] clean/train-00439-of-00804.parquet... Python(7558) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[400/763] clean/train-00440-of-00804.parquet... Python(7567) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+--- Progress: 400/763 (166 failed) ---
+[401/763] clean/train-00441-of-00804.parquet... Python(7572) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[402/763] clean/train-00442-of-00804.parquet... Python(7585) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[403/763] clean/train-00443-of-00804.parquet... Python(7587) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[404/763] clean/train-00444-of-00804.parquet... Python(7591) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[405/763] clean/train-00445-of-00804.parquet... Python(7598) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[406/763] clean/train-00446-of-00804.parquet... Python(7602) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[407/763] clean/train-00447-of-00804.parquet... Python(7613) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[408/763] clean/train-00448-of-00804.parquet... Python(7617) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[409/763] clean/train-00449-of-00804.parquet... Python(7701) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[410/763] clean/train-00450-of-00804.parquet... Python(7714) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[411/763] clean/train-00451-of-00804.parquet... Python(7717) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[412/763] clean/train-00452-of-00804.parquet... Python(7725) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[413/763] clean/train-00453-of-00804.parquet... Python(7728) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[414/763] clean/train-00454-of-00804.parquet... Python(7784) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[415/763] clean/train-00455-of-00804.parquet... Python(7880) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[416/763] clean/train-00456-of-00804.parquet... Python(8015) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[417/763] clean/train-00457-of-00804.parquet... Python(8225) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[418/763] clean/train-00458-of-00804.parquet... Python(8313) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[419/763] clean/train-00459-of-00804.parquet... Python(8368) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[420/763] clean/train-00460-of-00804.parquet... Python(8394) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[421/763] clean/train-00461-of-00804.parquet... Python(8419) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[422/763] clean/train-00462-of-00804.parquet... Python(8450) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[423/763] clean/train-00463-of-00804.parquet... Python(8453) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[424/763] clean/train-00464-of-00804.parquet... Python(8500) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[425/763] clean/train-00465-of-00804.parquet... Python(8532) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[426/763] clean/train-00466-of-00804.parquet... Python(8567) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[427/763] clean/train-00467-of-00804.parquet... Python(8586) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[428/763] clean/train-00468-of-00804.parquet... Python(8598) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[429/763] clean/train-00469-of-00804.parquet... Python(8624) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[430/763] clean/train-00470-of-00804.parquet... Python(8635) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[431/763] clean/train-00471-of-00804.parquet... Python(8667) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[432/763] clean/train-00472-of-00804.parquet... Python(8694) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[433/763] clean/train-00473-of-00804.parquet... Python(8715) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[434/763] clean/train-00474-of-00804.parquet... Python(8742) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[435/763] clean/train-00475-of-00804.parquet... Python(8752) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[436/763] clean/train-00476-of-00804.parquet... Python(8764) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[437/763] clean/train-00477-of-00804.parquet... Python(8770) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[438/763] clean/train-00478-of-00804.parquet... Python(8780) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[439/763] clean/train-00479-of-00804.parquet... Python(8804) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[440/763] clean/train-00480-of-00804.parquet... Python(8822) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[441/763] clean/train-00481-of-00804.parquet... Python(8838) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[442/763] clean/train-00482-of-00804.parquet... Python(8880) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[443/763] clean/train-00483-of-00804.parquet... Python(8924) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[444/763] clean/train-00484-of-00804.parquet... Python(8981) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[445/763] clean/train-00485-of-00804.parquet... Python(9099) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[446/763] clean/train-00486-of-00804.parquet... Python(9246) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[447/763] clean/train-00487-of-00804.parquet... Python(9252) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[448/763] clean/train-00488-of-00804.parquet... Python(9371) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[449/763] clean/train-00489-of-00804.parquet... Python(9376) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[450/763] clean/train-00490-of-00804.parquet... Python(9593) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+--- Progress: 450/763 (166 failed) ---
+[451/763] clean/train-00491-of-00804.parquet... Python(9603) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[452/763] clean/train-00492-of-00804.parquet... Python(9623) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[453/763] clean/train-00493-of-00804.parquet... Python(9637) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[454/763] clean/train-00494-of-00804.parquet... Python(9642) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[455/763] clean/train-00495-of-00804.parquet... Python(9647) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[456/763] clean/train-00496-of-00804.parquet... Python(9681) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[457/763] clean/train-00497-of-00804.parquet... Python(9686) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[458/763] clean/train-00498-of-00804.parquet... Python(9698) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[459/763] clean/train-00499-of-00804.parquet... Python(9704) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[460/763] clean/train-00500-of-00804.parquet... Python(9708) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[461/763] clean/train-00501-of-00804.parquet... Python(9720) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[462/763] clean/train-00502-of-00804.parquet... Python(9730) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[463/763] clean/train-00503-of-00804.parquet... Python(9745) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[464/763] clean/train-00504-of-00804.parquet... Python(9750) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[465/763] clean/train-00505-of-00804.parquet... Python(9909) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[466/763] clean/train-00506-of-00804.parquet... Python(10435) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[467/763] clean/train-00507-of-00804.parquet... Python(10508) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[468/763] clean/train-00508-of-00804.parquet... Python(10599) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[469/763] clean/train-00509-of-00804.parquet... Python(10650) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[470/763] clean/train-00510-of-00804.parquet... Python(10724) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[471/763] clean/train-00511-of-00804.parquet... Python(10728) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[472/763] clean/train-00512-of-00804.parquet... Python(10731) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[473/763] clean/train-00513-of-00804.parquet... Python(10739) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[474/763] clean/train-00514-of-00804.parquet... Python(10745) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[475/763] clean/train-00515-of-00804.parquet... Python(10757) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[476/763] clean/train-00516-of-00804.parquet... Python(10829) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[477/763] clean/train-00517-of-00804.parquet... Python(10905) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[478/763] clean/train-00518-of-00804.parquet... Python(10988) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[479/763] clean/train-00519-of-00804.parquet... Python(11090) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[480/763] clean/train-00520-of-00804.parquet... Python(11177) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[481/763] clean/train-00521-of-00804.parquet... Python(11229) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[482/763] clean/train-00522-of-00804.parquet... Python(16419) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[483/763] clean/train-00523-of-00804.parquet... Python(21833) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[484/763] clean/train-00524-of-00804.parquet... Python(27424) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[485/763] clean/train-00525-of-00804.parquet... Python(32857) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[486/763] clean/train-00526-of-00804.parquet... Python(38300) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[487/763] clean/train-00527-of-00804.parquet... Python(55919) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[488/763] clean/train-00528-of-00804.parquet... Python(60945) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[489/763] clean/train-00529-of-00804.parquet... Python(66383) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[490/763] clean/train-00530-of-00804.parquet... Python(72833) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[491/763] clean/train-00531-of-00804.parquet... Python(77757) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[492/763] clean/train-00532-of-00804.parquet... Python(82760) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[493/763] clean/train-00533-of-00804.parquet... Python(90524) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[494/763] clean/train-00534-of-00804.parquet... Python(90527) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[495/763] clean/train-00535-of-00804.parquet... Python(90623) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[496/763] clean/train-00536-of-00804.parquet... Python(90625) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[497/763] clean/train-00537-of-00804.parquet... Python(90627) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[498/763] clean/train-00538-of-00804.parquet... Python(90638) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[499/763] clean/train-00539-of-00804.parquet... Python(90641) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[500/763] clean/train-00540-of-00804.parquet... Python(90650) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+--- Progress: 500/763 (166 failed) ---
+[501/763] clean/train-00541-of-00804.parquet... Python(90651) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[502/763] clean/train-00542-of-00804.parquet... Python(90655) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[503/763] clean/train-00543-of-00804.parquet... Python(90672) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[504/763] clean/train-00544-of-00804.parquet... Python(90722) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[505/763] clean/train-00545-of-00804.parquet... Python(91312) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[506/763] clean/train-00546-of-00804.parquet... Python(91408) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[507/763] clean/train-00547-of-00804.parquet... Python(91459) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[508/763] clean/train-00548-of-00804.parquet... Python(91535) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[509/763] clean/train-00549-of-00804.parquet... Python(91627) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[510/763] clean/train-00550-of-00804.parquet... Python(91757) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[511/763] clean/train-00551-of-00804.parquet... Python(91835) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[512/763] clean/train-00552-of-00804.parquet... Python(91916) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[513/763] clean/train-00553-of-00804.parquet... Python(91948) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[514/763] clean/train-00554-of-00804.parquet... Python(91956) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[515/763] clean/train-00555-of-00804.parquet... Python(91963) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[516/763] clean/train-00556-of-00804.parquet... Python(92031) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[517/763] clean/train-00557-of-00804.parquet... Python(92081) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[518/763] clean/train-00558-of-00804.parquet... Python(92525) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[519/763] clean/train-00559-of-00804.parquet... Python(92877) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[520/763] clean/train-00560-of-00804.parquet... Python(92933) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[521/763] clean/train-00561-of-00804.parquet... Python(92997) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[522/763] clean/train-00562-of-00804.parquet... Python(93043) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[523/763] clean/train-00563-of-00804.parquet... Python(93046) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[524/763] clean/train-00564-of-00804.parquet... Python(93103) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[525/763] clean/train-00565-of-00804.parquet... Python(93205) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[526/763] clean/train-00566-of-00804.parquet... Python(93321) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[527/763] clean/train-00567-of-00804.parquet... Python(93327) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[528/763] clean/train-00568-of-00804.parquet... Python(93330) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[529/763] clean/train-00569-of-00804.parquet... Python(93338) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[530/763] clean/train-00570-of-00804.parquet... Python(93340) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[531/763] clean/train-00571-of-00804.parquet... Python(93376) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[532/763] clean/train-00572-of-00804.parquet... Python(93440) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[533/763] clean/train-00573-of-00804.parquet... Python(93543) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[534/763] clean/train-00574-of-00804.parquet... Python(93588) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[535/763] clean/train-00575-of-00804.parquet... Python(93661) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[536/763] clean/train-00576-of-00804.parquet... Python(93720) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[537/763] clean/train-00577-of-00804.parquet... Python(93834) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[538/763] clean/train-00578-of-00804.parquet... Python(93862) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[539/763] clean/train-00579-of-00804.parquet... Python(93918) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[540/763] clean/train-00580-of-00804.parquet... Python(93935) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[541/763] clean/train-00581-of-00804.parquet... Python(93957) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[542/763] clean/train-00582-of-00804.parquet... Python(93970) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[543/763] clean/train-00583-of-00804.parquet... Python(94015) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[544/763] clean/train-00584-of-00804.parquet... Python(94115) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[545/763] clean/train-00585-of-00804.parquet... Python(94174) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[546/763] clean/train-00586-of-00804.parquet... Python(94198) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[547/763] clean/train-00587-of-00804.parquet... Python(94223) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[548/763] clean/train-00588-of-00804.parquet... Python(94234) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[549/763] clean/train-00589-of-00804.parquet... Python(94250) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[550/763] clean/train-00590-of-00804.parquet... Python(94300) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+--- Progress: 550/763 (166 failed) ---
+[551/763] clean/train-00591-of-00804.parquet... Python(94333) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[552/763] clean/train-00592-of-00804.parquet... Python(94354) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[553/763] clean/train-00593-of-00804.parquet... Python(94374) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[554/763] clean/train-00594-of-00804.parquet... Python(94385) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[555/763] clean/train-00595-of-00804.parquet... Python(94504) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[556/763] clean/train-00596-of-00804.parquet... Python(94551) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[557/763] clean/train-00597-of-00804.parquet... Python(94566) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[558/763] clean/train-00598-of-00804.parquet... Python(94713) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[559/763] clean/train-00599-of-00804.parquet... Python(94882) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[560/763] clean/train-00600-of-00804.parquet... Python(94933) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[561/763] clean/train-00601-of-00804.parquet... Python(95017) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[562/763] clean/train-00602-of-00804.parquet... Python(95057) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[563/763] clean/train-00603-of-00804.parquet... Python(95078) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[564/763] clean/train-00604-of-00804.parquet... Python(95216) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[565/763] clean/train-00605-of-00804.parquet... Python(95243) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[566/763] clean/train-00606-of-00804.parquet... Python(95334) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[567/763] clean/train-00607-of-00804.parquet... Python(96410) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[568/763] clean/train-00608-of-00804.parquet... Python(98045) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[569/763] clean/train-00609-of-00804.parquet... Python(266) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[570/763] clean/train-00610-of-00804.parquet... Python(1007) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[571/763] clean/train-00611-of-00804.parquet... Python(1274) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[572/763] clean/train-00612-of-00804.parquet... Python(1303) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[573/763] clean/train-00613-of-00804.parquet... Python(1344) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[574/763] clean/train-00614-of-00804.parquet... Python(1406) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[575/763] clean/train-00615-of-00804.parquet... Python(1433) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[576/763] clean/train-00616-of-00804.parquet... Python(1457) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[577/763] clean/train-00617-of-00804.parquet... Python(1508) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[578/763] clean/train-00618-of-00804.parquet... Python(1557) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[579/763] clean/train-00619-of-00804.parquet... Python(1670) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[580/763] clean/train-00620-of-00804.parquet... Python(1711) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[581/763] clean/train-00621-of-00804.parquet... Python(1730) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[582/763] clean/train-00622-of-00804.parquet... Python(1752) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[583/763] clean/train-00623-of-00804.parquet... Python(1781) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[584/763] clean/train-00624-of-00804.parquet... Python(1840) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[585/763] clean/train-00625-of-00804.parquet... Python(1934) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[586/763] clean/train-00626-of-00804.parquet... Python(2008) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[587/763] clean/train-00627-of-00804.parquet... Python(2044) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[588/763] clean/train-00628-of-00804.parquet... Python(2061) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[589/763] clean/train-00629-of-00804.parquet... Python(2070) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[590/763] clean/train-00630-of-00804.parquet... Python(2082) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[591/763] clean/train-00631-of-00804.parquet... Python(2095) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[592/763] clean/train-00632-of-00804.parquet... Python(2203) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[593/763] clean/train-00633-of-00804.parquet... Python(2219) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[594/763] clean/train-00634-of-00804.parquet... Python(2259) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[595/763] clean/train-00635-of-00804.parquet... Python(2272) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[596/763] clean/train-00636-of-00804.parquet... Python(2288) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[597/763] clean/train-00637-of-00804.parquet... Python(2297) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[598/763] clean/train-00638-of-00804.parquet... Python(2318) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[599/763] clean/train-00639-of-00804.parquet... Python(2352) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[600/763] clean/train-00640-of-00804.parquet... Python(2367) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+--- Progress: 600/763 (166 failed) ---
+[601/763] clean/train-00641-of-00804.parquet... Python(2411) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[602/763] clean/train-00642-of-00804.parquet... Python(2449) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[603/763] clean/train-00643-of-00804.parquet... Python(2476) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[604/763] clean/train-00644-of-00804.parquet... Python(2580) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[605/763] clean/train-00645-of-00804.parquet... Python(2594) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[606/763] clean/train-00646-of-00804.parquet... Python(2612) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[607/763] clean/train-00647-of-00804.parquet... Python(2630) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[608/763] clean/train-00648-of-00804.parquet... Python(2702) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[609/763] clean/train-00649-of-00804.parquet... Python(2729) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[610/763] clean/train-00650-of-00804.parquet... Python(2760) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[611/763] clean/train-00651-of-00804.parquet... Python(2771) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[612/763] clean/train-00652-of-00804.parquet... Python(2783) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[613/763] clean/train-00653-of-00804.parquet... Python(2784) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[614/763] clean/train-00654-of-00804.parquet... Python(2786) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[615/763] clean/train-00655-of-00804.parquet... Python(2790) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[616/763] clean/train-00656-of-00804.parquet... Python(2800) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[617/763] clean/train-00657-of-00804.parquet... Python(2803) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[618/763] clean/train-00658-of-00804.parquet... Python(2806) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[619/763] clean/train-00659-of-00804.parquet... Python(2816) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[620/763] clean/train-00660-of-00804.parquet... Python(2828) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[621/763] clean/train-00661-of-00804.parquet... Python(2953) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[622/763] clean/train-00662-of-00804.parquet... Python(3050) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[623/763] clean/train-00663-of-00804.parquet... Python(3119) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[624/763] clean/train-00664-of-00804.parquet... Python(3151) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[625/763] clean/train-00665-of-00804.parquet... Python(3652) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[626/763] clean/train-00666-of-00804.parquet... Python(3852) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[627/763] clean/train-00667-of-00804.parquet... Python(3915) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[628/763] clean/train-00668-of-00804.parquet... Python(3957) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[629/763] clean/train-00669-of-00804.parquet... Python(3965) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[630/763] clean/train-00670-of-00804.parquet... Python(3967) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[631/763] clean/train-00671-of-00804.parquet... Python(3968) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[632/763] clean/train-00672-of-00804.parquet... Python(3973) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[633/763] clean/train-00673-of-00804.parquet... Python(3984) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[634/763] clean/train-00674-of-00804.parquet... Python(3988) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[635/763] clean/train-00675-of-00804.parquet... Python(4047) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[636/763] clean/train-00676-of-00804.parquet... Python(4120) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[637/763] clean/train-00677-of-00804.parquet... Python(4168) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[638/763] clean/train-00678-of-00804.parquet... Python(4252) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[639/763] clean/train-00679-of-00804.parquet... Python(4280) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[640/763] clean/train-00680-of-00804.parquet... Python(4284) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[641/763] clean/train-00681-of-00804.parquet... Python(4311) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[642/763] clean/train-00682-of-00804.parquet... Python(4313) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[643/763] clean/train-00683-of-00804.parquet... Python(4320) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[644/763] clean/train-00684-of-00804.parquet... Python(4325) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[645/763] clean/train-00685-of-00804.parquet... Python(4439) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[646/763] clean/train-00686-of-00804.parquet... Python(4513) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[647/763] clean/train-00687-of-00804.parquet... Python(4578) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[648/763] clean/train-00688-of-00804.parquet... Python(4601) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[649/763] clean/train-00689-of-00804.parquet... Python(4604) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[650/763] clean/train-00690-of-00804.parquet... Python(4612) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+--- Progress: 650/763 (166 failed) ---
+[651/763] clean/train-00691-of-00804.parquet... Python(4616) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[652/763] clean/train-00692-of-00804.parquet... Python(4625) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[653/763] clean/train-00693-of-00804.parquet... Python(4628) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[654/763] clean/train-00694-of-00804.parquet... Python(4640) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[655/763] clean/train-00695-of-00804.parquet... Python(4688) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[656/763] clean/train-00696-of-00804.parquet... Python(4734) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[657/763] clean/train-00697-of-00804.parquet... Python(4768) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[658/763] clean/train-00698-of-00804.parquet... Python(4777) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[659/763] clean/train-00699-of-00804.parquet... Python(4791) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[660/763] clean/train-00700-of-00804.parquet... Python(4801) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[661/763] clean/train-00701-of-00804.parquet... Python(4810) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[662/763] clean/train-00702-of-00804.parquet... Python(4819) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[663/763] clean/train-00703-of-00804.parquet... Python(4830) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[664/763] clean/train-00704-of-00804.parquet... Python(4931) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[665/763] clean/train-00705-of-00804.parquet... Python(5025) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[666/763] clean/train-00706-of-00804.parquet... Python(5033) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[667/763] clean/train-00707-of-00804.parquet... Python(5044) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[668/763] clean/train-00708-of-00804.parquet... Python(5056) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[669/763] clean/train-00709-of-00804.parquet... Python(5067) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[670/763] clean/train-00710-of-00804.parquet... Python(5113) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[671/763] clean/train-00711-of-00804.parquet... Python(5126) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[672/763] clean/train-00712-of-00804.parquet... Python(5130) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[673/763] clean/train-00713-of-00804.parquet... Python(5140) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[674/763] clean/train-00714-of-00804.parquet... Python(5157) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[675/763] clean/train-00715-of-00804.parquet... Python(5179) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[676/763] clean/train-00716-of-00804.parquet... Python(5199) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[677/763] clean/train-00717-of-00804.parquet... Python(5215) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[678/763] clean/train-00718-of-00804.parquet... Python(5229) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[679/763] clean/train-00719-of-00804.parquet... Python(5238) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[680/763] clean/train-00720-of-00804.parquet... Python(5271) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[681/763] clean/train-00721-of-00804.parquet... Python(5281) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[682/763] clean/train-00722-of-00804.parquet... Python(5386) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[683/763] clean/train-00723-of-00804.parquet... Python(5435) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[684/763] clean/train-00724-of-00804.parquet... Python(5461) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[685/763] clean/train-00725-of-00804.parquet... Python(5500) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[686/763] clean/train-00726-of-00804.parquet... Python(5515) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[687/763] clean/train-00727-of-00804.parquet... Python(5527) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[688/763] clean/train-00728-of-00804.parquet... Python(5540) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[689/763] clean/train-00729-of-00804.parquet... Python(5609) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[690/763] clean/train-00730-of-00804.parquet... Python(5627) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[691/763] clean/train-00731-of-00804.parquet... Python(5659) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[692/763] clean/train-00732-of-00804.parquet... Python(5678) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[693/763] clean/train-00733-of-00804.parquet... Python(5779) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[694/763] clean/train-00734-of-00804.parquet... Python(5799) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[695/763] clean/train-00735-of-00804.parquet... Python(5846) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[696/763] clean/train-00736-of-00804.parquet... Python(5859) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[697/763] clean/train-00737-of-00804.parquet... Python(5876) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[698/763] clean/train-00738-of-00804.parquet... Python(5893) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[699/763] clean/train-00739-of-00804.parquet... Python(5904) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[700/763] clean/train-00740-of-00804.parquet... Python(5920) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+--- Progress: 700/763 (166 failed) ---
+[701/763] clean/train-00741-of-00804.parquet... Python(5977) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[702/763] clean/train-00742-of-00804.parquet... Python(6010) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[703/763] clean/train-00743-of-00804.parquet... Python(6020) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[704/763] clean/train-00744-of-00804.parquet... Python(6037) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[705/763] clean/train-00745-of-00804.parquet... Python(6141) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[706/763] clean/train-00746-of-00804.parquet... Python(6150) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[707/763] clean/train-00747-of-00804.parquet... Python(6174) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[708/763] clean/train-00748-of-00804.parquet... Python(6195) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[709/763] clean/train-00749-of-00804.parquet... Python(6302) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[710/763] clean/train-00750-of-00804.parquet... Python(6532) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[711/763] clean/train-00751-of-00804.parquet... Python(6803) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[712/763] clean/train-00752-of-00804.parquet... Python(7167) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[713/763] clean/train-00753-of-00804.parquet... Python(7293) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[714/763] clean/train-00754-of-00804.parquet... Python(7385) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[715/763] clean/train-00755-of-00804.parquet... Python(7396) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[716/763] clean/train-00756-of-00804.parquet... Python(7400) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[717/763] clean/train-00757-of-00804.parquet... Python(7411) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[718/763] clean/train-00758-of-00804.parquet... Python(7413) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[719/763] clean/train-00759-of-00804.parquet... Python(7418) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[720/763] clean/train-00760-of-00804.parquet... Python(7483) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[721/763] clean/train-00761-of-00804.parquet... Python(7554) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[722/763] clean/train-00762-of-00804.parquet... Python(7584) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[723/763] clean/train-00763-of-00804.parquet... Python(7616) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[724/763] clean/train-00764-of-00804.parquet... Python(7623) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[725/763] clean/train-00765-of-00804.parquet... Python(7650) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[726/763] clean/train-00766-of-00804.parquet... Python(7653) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[727/763] clean/train-00767-of-00804.parquet... Python(7655) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[728/763] clean/train-00768-of-00804.parquet... Python(7721) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[729/763] clean/train-00769-of-00804.parquet... Python(7836) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[730/763] clean/train-00770-of-00804.parquet... Python(7881) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[731/763] clean/train-00771-of-00804.parquet... Python(7887) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[732/763] clean/train-00772-of-00804.parquet... Python(7894) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[733/763] clean/train-00773-of-00804.parquet... Python(7906) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[734/763] clean/train-00774-of-00804.parquet... Python(7909) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[735/763] clean/train-00775-of-00804.parquet... Python(7934) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[736/763] clean/train-00776-of-00804.parquet... Python(8015) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[737/763] clean/train-00777-of-00804.parquet... Python(8092) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[738/763] clean/train-00778-of-00804.parquet... Python(8106) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[739/763] clean/train-00779-of-00804.parquet... Python(8114) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[740/763] clean/train-00780-of-00804.parquet... Python(8116) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[741/763] clean/train-00781-of-00804.parquet... Python(8119) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[742/763] clean/train-00782-of-00804.parquet... Python(8166) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[743/763] clean/train-00783-of-00804.parquet... Python(8213) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[744/763] clean/train-00784-of-00804.parquet... Python(8219) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[745/763] clean/train-00785-of-00804.parquet... Python(8228) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[746/763] clean/train-00786-of-00804.parquet... Python(8230) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[747/763] clean/train-00787-of-00804.parquet... Python(8232) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[748/763] clean/train-00788-of-00804.parquet... Python(8241) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[749/763] clean/train-00789-of-00804.parquet... Python(8243) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[750/763] clean/train-00790-of-00804.parquet... Python(8245) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+--- Progress: 750/763 (166 failed) ---
+[751/763] clean/train-00791-of-00804.parquet... Python(8254) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[752/763] clean/train-00792-of-00804.parquet... Python(8352) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[753/763] clean/train-00793-of-00804.parquet... Python(8416) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[754/763] clean/train-00794-of-00804.parquet... Python(8429) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[755/763] clean/train-00795-of-00804.parquet... Python(8433) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[756/763] clean/train-00796-of-00804.parquet... Python(8435) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[757/763] clean/train-00797-of-00804.parquet... Python(8439) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[758/763] clean/train-00798-of-00804.parquet... Python(8447) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[759/763] clean/train-00799-of-00804.parquet... Python(8449) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[760/763] clean/train-00800-of-00804.parquet... Python(8550) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[761/763] clean/train-00801-of-00804.parquet... Python(8565) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[762/763] clean/train-00802-of-00804.parquet... Python(8567) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[763/763] clean/train-00803-of-00804.parquet... Python(8573) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+
+Complete! 597 succeeded, 166 failed
+Failed files:
+  - clean/train-00117-of-00804.parquet
+  - clean/train-00118-of-00804.parquet
+  - clean/train-00119-of-00804.parquet
+  - clean/train-00120-of-00804.parquet
+  - clean/train-00121-of-00804.parquet
+  - clean/train-00122-of-00804.parquet
+  - clean/train-00123-of-00804.parquet
+  - clean/train-00124-of-00804.parquet
+  - clean/train-00125-of-00804.parquet
+  - clean/train-00126-of-00804.parquet
+  ... and 156 more
+804] clean/train-00766-of-00804.parquet... Python(8240) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[768/804] clean/train-00767-of-00804.parquet... Python(8242) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[769/804] clean/train-00768-of-00804.parquet... Python(8244) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[770/804] clean/train-00769-of-00804.parquet... Python(8253) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[771/804] clean/train-00770-of-00804.parquet... Python(8313) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[772/804] clean/train-00771-of-00804.parquet... Python(8417) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[773/804] clean/train-00772-of-00804.parquet... Python(8430) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[774/804] clean/train-00773-of-00804.parquet... Python(8434) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[775/804] clean/train-00774-of-00804.parquet... Python(8436) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[776/804] clean/train-00775-of-00804.parquet... Python(8446) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[777/804] clean/train-00776-of-00804.parquet... Python(8448) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[778/804] clean/train-00777-of-00804.parquet... Python(8493) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[779/804] clean/train-00778-of-00804.parquet... Python(8564) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[780/804] clean/train-00779-of-00804.parquet... Python(8566) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[781/804] clean/train-00780-of-00804.parquet... Python(8568) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[782/804] clean/train-00781-of-00804.parquet... Python(8593) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[783/804] clean/train-00782-of-00804.parquet... Python(8601) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[784/804] clean/train-00783-of-00804.parquet... Python(8602) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[785/804] clean/train-00784-of-00804.parquet... Python(8604) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[786/804] clean/train-00785-of-00804.parquet... Python(8605) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[787/804] clean/train-00786-of-00804.parquet... Python(8606) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[788/804] clean/train-00787-of-00804.parquet... Python(8642) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[789/804] clean/train-00788-of-00804.parquet... Python(8649) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[790/804] clean/train-00789-of-00804.parquet... Python(8716) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[791/804] clean/train-00790-of-00804.parquet... Python(8749) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[792/804] clean/train-00791-of-00804.parquet... Python(8830) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[793/804] clean/train-00792-of-00804.parquet... Python(8838) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[794/804] clean/train-00793-of-00804.parquet... Python(8893) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[795/804] clean/train-00794-of-00804.parquet... Python(8918) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[796/804] clean/train-00795-of-00804.parquet... Python(8968) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[797/804] clean/train-00796-of-00804.parquet... Python(9009) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[798/804] clean/train-00797-of-00804.parquet... Python(9061) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[799/804] clean/train-00798-of-00804.parquet... Python(9119) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[800/804] clean/train-00799-of-00804.parquet... Python(9166) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+--- Progress: 800/804 (168 failed) ---
+[801/804] clean/train-00800-of-00804.parquet... Python(9205) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[802/804] clean/train-00801-of-00804.parquet... Python(9239) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[803/804] clean/train-00802-of-00804.parquet... Python(9272) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+[804/804] clean/train-00803-of-00804.parquet... Python(9318) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+OK
+
+Complete! 636 succeeded, 168 failed
+Failed files:
+  - clean/train-00023-of-00804.parquet
+  - clean/train-00078-of-00804.parquet
+  - clean/train-00079-of-00804.parquet
+  - clean/train-00080-of-00804.parquet
+  - clean/train-00081-of-00804.parquet
+  - clean/train-00082-of-00804.parquet
+  - clean/train-00083-of-00804.parquet
+  - clean/train-00084-of-00804.parquet
+  - clean/train-00085-of-00804.parquet
+  - clean/train-00086-of-00804.parquet
+  ... and 158 more

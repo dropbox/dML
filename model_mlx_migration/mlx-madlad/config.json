@@ -1,0 +1,29 @@
+{
+    "architectures": [
+        "T5ForConditionalGeneration"
+    ],
+    "d_ff": 8192,
+    "d_kv": 128,
+    "d_model": 1024,
+    "dropout_rate": 0.1,
+    "decoder_start_token_id": 0,
+    "pad_token_id": 1,
+    "eos_token_id": 2,
+    "feed_forward_proj": "gated-gelu",
+    "initializer_factor": 1.0,
+    "is_encoder_decoder": true,
+    "layer_norm_epsilon": 1e-06,
+    "model_type": "t5",
+    "n_positions": 512,
+    "num_decoder_layers": 32,
+    "num_heads": 16,
+    "num_layers": 32,
+    "output_past": true,
+    "relative_attention_max_distance": 128,
+    "relative_attention_num_buckets": 32,
+    "task_specific_params": {},
+    "tie_word_embeddings": false,
+    "transformers_version": "4.23.1",
+    "use_cache": true,
+    "vocab_size": 256000
+}

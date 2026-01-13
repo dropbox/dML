@@ -1,0 +1,64 @@
+/opt/homebrew/lib/python3.14/site-packages/webrtcvad.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+======================================================================
+RichDecoder v3 Multi-Task Training
+======================================================================
+Output: checkpoints/rich_decoder_v3_cached
+Model: mlx-community/whisper-large-v3-mlx
+LoRA: rank=32, alpha=64
+Freeze: para=False, language=False
+Encoder cache: data/v3_multitask/encoder_cache
+Data source: JSON manifests
+
+1. Loading Whisper model...
+Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 18157.16it/s]
+   Encoder: 1280-dim
+2. Loading tokenizer...
+3. Creating RichDecoder with LoRA rank=32...
+   Total parameters: 930.19M
+   Trainable parameters: 23.66M
+   LoRA adapters: 192
+4. Loading emotion data...
+   Using manifest files:
+     Train: data/v3_multitask/train_manifest.json
+     Val: data/v3_multitask/val_manifest.json
+Loading manifest from: data/v3_multitask/train_manifest.json
+Loaded 19734 samples from manifest
+Loading manifest from: data/v3_multitask/val_manifest.json
+Loaded 2193 samples from manifest
+   Train: 19734, Val: 2193
+5a. Loading emotion head from: checkpoints/rich_decoder_v1/best.npz
+Loaded trainable parameters from checkpoints/rich_decoder_v1/best.npz
+
+======================================================================
+Starting Multi-Task Training
+======================================================================
+======================================================================
+RichDecoder v3 Multi-Task Training
+======================================================================
+Epochs: 10
+Train samples: 19734
+Val samples: 2193
+Steps per epoch: 4934
+LoRA: rank=32, alpha=64
+Frozen heads: none
+Loss weights: emo=2.0, lang=0.3, para=0.3
+
+Starting epoch 1/10
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/ayates/model_mlx_migration/tools/whisper_mlx/train_rich_decoder_v3.py", line 1149, in <module>
+    main()
+    ~~~~^^
+  File "/Users/ayates/model_mlx_migration/tools/whisper_mlx/train_rich_decoder_v3.py", line 1145, in main
+    trainer.train(train_samples, val_samples)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ayates/model_mlx_migration/tools/whisper_mlx/train_rich_decoder_v3.py", line 785, in train
+    losses = self.train_step(batch)
+  File "/Users/ayates/model_mlx_migration/tools/whisper_mlx/train_rich_decoder_v3.py", line 669, in train_step
+    batch = self._prepare_batch(batch_samples)
+  File "/Users/ayates/model_mlx_migration/tools/whisper_mlx/train_rich_decoder_v3.py", line 557, in _prepare_batch
+    cached = self.encoder_cache.get(sample.audio_path)
+             ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'TrainingEncoderCache' object has no attribute 'get'

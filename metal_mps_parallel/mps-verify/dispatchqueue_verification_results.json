@@ -1,0 +1,108 @@
+{
+  "spec": "MPSDispatchQueueContext",
+  "date": "2025-12-19",
+  "iteration": 1308,
+  "opportunity_map_target": "B1.5",
+  "title": "Dispatch/queue execution context safety (TLS hazards + reentrancy)",
+
+  "tlc_results": {
+    "status": "PASS",
+    "states_generated": 606106,
+    "distinct_states": 152171,
+    "max_depth": 22,
+    "workers": 4,
+    "time_seconds": 1,
+    "fingerprint_collision_probability": "3.7E-9"
+  },
+
+  "model_parameters": {
+    "NumThreads": 3,
+    "NumQueues": 2,
+    "MaxOps": 5,
+    "AllowUnsafePatterns": false
+  },
+
+  "invariants_verified": [
+    {
+      "name": "TypeInvariant",
+      "status": "PASS",
+      "description": "All variables have correct types"
+    },
+    {
+      "name": "QueueExclusivity",
+      "status": "PASS",
+      "description": "At most one thread executes on each queue (serial queue semantics)"
+    },
+    {
+      "name": "ThreadQueueConsistency",
+      "status": "PASS",
+      "description": "Thread queue binding consistent with queue executing state"
+    },
+    {
+      "name": "ExceptionNotLost",
+      "status": "PASS",
+      "description": "Exceptions caught in dispatch blocks are properly rethrown"
+    },
+    {
+      "name": "Safety",
+      "status": "PASS",
+      "description": "Combined safety (exclusivity + consistency + exception propagation)"
+    },
+    {
+      "name": "NoTLSLookupInBlock",
+      "status": "PASS",
+      "description": "No TLS lookup inside dispatch blocks (blocks use captured stream)"
+    }
+  ],
+
+  "properties_verified": [
+    {
+      "id": "DQ.001",
+      "name": "DQ.NoReentrantDispatchSync",
+      "verification": "TLA+ model with safe dispatch pattern",
+      "status": "VERIFIED",
+      "description": "Re-entrant dispatch detected via dispatch_get_specific, executed inline"
+    },
+    {
+      "id": "DQ.002",
+      "name": "DQ.NoTLSLookupInsideDispatchedBlock",
+      "verification": "TLA+ invariant NoTLSLookupInBlock",
+      "status": "VERIFIED",
+      "description": "Dispatch blocks use captured stream pointer, not TLS lookup"
+    },
+    {
+      "id": "DQ.003",
+      "name": "DQ.ExceptionPropagationSound",
+      "verification": "TLA+ invariant ExceptionNotLost",
+      "status": "VERIFIED",
+      "description": "Exceptions caught in dispatch_sync_with_rethrow are properly rethrown"
+    },
+    {
+      "id": "DQ.004",
+      "name": "DQ.QueueExclusivity",
+      "verification": "TLA+ invariant QueueExclusivity",
+      "status": "VERIFIED",
+      "description": "Serial queue semantics: at most one thread per queue"
+    },
+    {
+      "id": "DQ.005",
+      "name": "DQ.DeadlockFree",
+      "verification": "TLC termination check (-deadlock disabled)",
+      "status": "VERIFIED",
+      "description": "Safe pattern avoids dispatch_sync reentrancy deadlock"
+    }
+  ],
+
+  "code_anchors": [
+    "MPSStream.mm:dispatch_sync_with_rethrow",
+    "MPSGraph.mm:executeMPSGraph (dispatch_get_specific pattern)",
+    "tests/repro_dispatch_sync_with_rethrow_reentrancy.mm"
+  ],
+
+  "notes": [
+    "Model simplifies to one active queue per thread (no nested cross-queue dispatch)",
+    "UnsafeDispatchSync action exists for proving hazard via aspirational invariants",
+    "AllowUnsafePatterns=FALSE excludes unsafe actions from verification",
+    "With AllowUnsafePatterns=TRUE, NoReentrantDeadlock invariant will fail (proves hazard)"
+  ]
+}

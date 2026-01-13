@@ -1,0 +1,78 @@
+diff --git a/aten/src/ATen/native/mps/OperationUtils.mm b/aten/src/ATen/native/mps/OperationUtils.mm
+index d420560e..219ec8e9 100644
+--- a/aten/src/ATen/native/mps/OperationUtils.mm
++++ b/aten/src/ATen/native/mps/OperationUtils.mm
+@@ -850,34 +850,37 @@ id<MTLLibrary> MetalShaderLibrary::getLibrary(const std::initializer_list<std::s
+     key += ":" + p;
+   }
+ 
+-  // Fast path: check cache with sharded lock (33.2: now uses per-shard map)
+-  // Use find() instead of operator[] to avoid default-inserting empty entries on miss
++  // 32.27 FIX: Hold shard lock during compilation to avoid double-compile race.
++  // Previously, two threads could both miss the cache, release the lock, compile
++  // the same shader in parallel, and then one would discard its duplicate.
++  // Now we hold the lock during compilation - the 16 shards still provide good
++  // parallelism across different keys (shader variants hash to different shards).
+   const size_t shard_idx = getShardIndex(key);
+-  {
+-    std::lock_guard<std::mutex> lock(cacheMutexes_[shard_idx]);
+-    auto it = libMaps_[shard_idx].find(key);
+-    if (it != libMaps_[shard_idx].end()) {
+-      return it->second;
+-    }
++  std::lock_guard<std::mutex> lock(cacheMutexes_[shard_idx]);
++
++  // Check cache under lock
++  auto it = libMaps_[shard_idx].find(key);
++  if (it != libMaps_[shard_idx].end()) {
++    return it->second;
+   }
+ 
+-  // Slow path: compile the library (outside lock to allow parallelism)
++  // Compile the library (under lock to prevent duplicate compilation)
+   id<MTLLibrary> lib = nil;
+-  auto it = params.begin();
++  auto pit = params.begin();
+   switch (nparams) {
+     case 1:
+-      lib = compileLibrary(fmt::format(fmt::runtime(shaderSource), *it));
++      lib = compileLibrary(fmt::format(fmt::runtime(shaderSource), *pit));
+       break;
+     case 2: {
+-      auto& first = *it++;
+-      auto& second = *it;
++      auto& first = *pit++;
++      auto& second = *pit;
+       lib = compileLibrary(fmt::format(fmt::runtime(shaderSource), first, second));
+       break;
+     }
+     case 3: {
+-      auto& first = *it++;
+-      auto& second = *it++;
+-      auto& third = *it;
++      auto& first = *pit++;
++      auto& second = *pit++;
++      auto& third = *pit;
+       lib = compileLibrary(fmt::format(fmt::runtime(shaderSource), first, second, third));
+       break;
+     }
+@@ -885,18 +888,7 @@ id<MTLLibrary> MetalShaderLibrary::getLibrary(const std::initializer_list<std::s
+       TORCH_INTERNAL_ASSERT(false, "Unsupported number of parameters ", nparams);
+   }
+ 
+-  // Store in cache under sharded lock (33.2: now uses per-shard map)
+-  std::lock_guard<std::mutex> lock(cacheMutexes_[shard_idx]);
+-  // Another thread might have compiled it while we were compiling
+-  // Use find() to avoid default-inserting, then emplace if not found
+-  auto cacheIt = libMaps_[shard_idx].find(key);
+-  if (cacheIt != libMaps_[shard_idx].end()) {
+-    // Release the library we just compiled to avoid Metal resource leak.
+-    // newLibraryWithSource returns a retained object (per ObjC naming conventions),
+-    // so we must release it since we won't be using it.
+-    [lib release];
+-    return cacheIt->second;
+-  }
++  // Store in cache (still under lock, no need to re-check)
+   libMaps_[shard_idx].emplace(key, lib);
+   return lib;
+ }

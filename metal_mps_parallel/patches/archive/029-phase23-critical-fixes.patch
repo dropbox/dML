@@ -1,0 +1,139 @@
+diff --git a/aten/src/ATen/mps/MPSEvent.h b/aten/src/ATen/mps/MPSEvent.h
+index d2fc8672..328cc206 100644
+--- a/aten/src/ATen/mps/MPSEvent.h
++++ b/aten/src/ATen/mps/MPSEvent.h
+@@ -103,13 +103,18 @@ class MPSEventPool {
+   std::recursive_mutex m_mutex;
+   std::stack<std::unique_ptr<MPSEvent>> m_pool{};
+   // dictionary to associate event IDs with event objects
+- // used to retain in-use events out of the pool
++  // used to retain in-use events out of the pool
+   // for torch.mps.Event() bindings.
+-  std::unordered_map<id_t, MPSEventPtr> m_in_use_events{};
++  // Uses shared_ptr for thread-safe access: getInUseEventShared() returns
++  // a copy that keeps the event alive even if releaseEvent() is called.
++  std::unordered_map<id_t, std::shared_ptr<MPSEvent>> m_in_use_events{};
+   std::atomic<uint64_t> m_event_counter{0};
+   std::function<void(MPSEvent*)> m_default_deleter;
+ 
++  // Returns raw pointer for internal use under lock
+   MPSEvent* getInUseEvent(id_t event_id, bool locked = true);
++  // Returns shared_ptr copy for thread-safe use outside lock
++  std::shared_ptr<MPSEvent> getInUseEventShared(id_t event_id);
+ };
+ 
+ // shared_ptr is used to get MPSEventPool destroyed after dependent instances
+diff --git a/aten/src/ATen/mps/MPSEvent.mm b/aten/src/ATen/mps/MPSEvent.mm
+index e03ac31a..ade8b788 100644
+--- a/aten/src/ATen/mps/MPSEvent.mm
++++ b/aten/src/ATen/mps/MPSEvent.mm
+@@ -156,8 +156,13 @@ bool MPSEvent::query() const {
+ 
+ void MPSEvent::reset(bool enable_timing) {
+   std::lock_guard<std::mutex> lock(m_mutex);
+-  m_signalCounter = 0;
+-  m_event.signaledValue = 0;
++  // THREAD-SAFETY: Use monotonically increasing counter to prevent cross-talk.
++  // Don't reset signaledValue to 0 - pending GPU signals from previous owner
++  // could overwrite it with a higher value, causing query() to return true
++  // prematurely. Instead, set the counter to the current signaledValue so
++  // the next record() will use signaledValue + 1.
++  uint64_t current_signaled = m_event.signaledValue;
++  m_signalCounter = current_signaled;
+   // reset record time
+   m_enable_timing = enable_timing;
+   {
+@@ -214,7 +219,8 @@ id_t MPSEventPool::acquireEvent(bool enable_timing) {
+   MPSEventPtr event = acquireEvent(enable_timing, nullptr);
+   TORCH_INTERNAL_ASSERT(event);
+   id_t event_id = event->getID();
+-  m_in_use_events.emplace(event_id, std::move(event));
++  // Convert unique_ptr to shared_ptr for thread-safe access
++  m_in_use_events.emplace(event_id, std::shared_ptr<MPSEvent>(event.release(), event.get_deleter()));
+   return event_id;
+ }
+ 
+@@ -258,20 +264,17 @@ double MPSEventPool::elapsedTime(id_t start_event_id, id_t end_event_id) {
+   // regardless of which per-thread stream recorded the events.
+   MPSStreamPool::instance().synchronizeAllStreams();
+ 
+-  // Get event pointers under lock, then release before waiting.
+-  // waitForCpuSync() can block for arbitrary time - don't hold pool mutex.
+-  MPSEvent* start_event;
+-  MPSEvent* end_event;
+-  {
+-    std::lock_guard<std::recursive_mutex> lock(m_mutex);
+-    start_event = getInUseEvent(start_event_id, false);
+-    end_event = getInUseEvent(end_event_id, false);
+-    TORCH_CHECK(
+-        start_event->isTimingEnabled() && end_event->isTimingEnabled(),
+-        "Events were not created with argument 'enable_timing=True'");
+-  }
++  // Get shared_ptr copies to keep events alive even if releaseEvent() is called.
++  // This fixes the raw pointer race where releaseEvent could invalidate pointers.
++  std::shared_ptr<MPSEvent> start_event = getInUseEventShared(start_event_id);
++  std::shared_ptr<MPSEvent> end_event = getInUseEventShared(end_event_id);
++
++  TORCH_CHECK(
++      start_event->isTimingEnabled() && end_event->isTimingEnabled(),
++      "Events were not created with argument 'enable_timing=True'");
+ 
+-  // Wait OUTSIDE lock - these calls block until GPU completion notification
++  // Wait for CPU sync - these calls block until GPU completion notification.
++  // The shared_ptr keeps the events alive during this blocking operation.
+   if (end_event->getCompletionTime() == 0) {
+     TORCH_CHECK(end_event->query(), "End event ", end_event_id, " must be recorded before calculating elapsed time.");
+     end_event->waitForCpuSync();
+@@ -305,6 +308,14 @@ MPSEvent* MPSEventPool::getInUseEvent(id_t event_id, bool locked) {
+   return it->second.get();
+ }
+ 
++std::shared_ptr<MPSEvent> MPSEventPool::getInUseEventShared(id_t event_id) {
++  std::lock_guard<std::recursive_mutex> lock(m_mutex);
++  auto it = m_in_use_events.find(event_id);
++  TORCH_CHECK(it != m_in_use_events.end(), "Invalid Event ID: ", event_id);
++  // Return a copy of the shared_ptr to keep the event alive outside the lock
++  return it->second;
++}
++
+ std::shared_ptr<MPSEventPool> getMPSEventPool() {
+   static std::shared_ptr<MPSEventPool> event_pool = std::make_shared<MPSEventPool>(getDefaultMPSStream());
+   return event_pool;
+diff --git a/aten/src/ATen/native/mps/operations/LinearAlgebra.mm b/aten/src/ATen/native/mps/operations/LinearAlgebra.mm
+index 7a3dde67..0d76b143 100644
+--- a/aten/src/ATen/native/mps/operations/LinearAlgebra.mm
++++ b/aten/src/ATen/native/mps/operations/LinearAlgebra.mm
+@@ -2,6 +2,7 @@
+ 
+ #define TORCH_ASSERT_ONLY_METHOD_OPERATORS
+ #include <ATen/mps/MPSProfiler.h>
++#include <mutex>
+ #include <ATen/native/BatchLinearAlgebra.h>
+ #include <ATen/native/LinearAlgebra.h>
+ #include <ATen/native/LinearAlgebraUtils.h>
+@@ -791,6 +792,12 @@ static Tensor& addmm_out_mps_impl(const Tensor& bias,
+   return output;
+ }
+ 
++// THREAD-SAFETY: Global mutex for MPSNDArrayMatrixMultiplication encoding.
++// Apple's MPS framework has internal shared state that makes concurrent encoding
++// of MPSNDArrayMatrixMultiplication kernels unsafe, even with per-thread instances.
++// This mutex serializes the tiled bmm path to prevent crashes.
++static std::mutex s_bmm_tiled_mutex;
++
+ static Tensor& tiled_bmm_out_mps_impl(const Tensor& batch1, const Tensor& batch2, Tensor& result) {
+   if (is_macos_13_or_newer(MacOSVersion::MACOS_VER_15_0_PLUS)) {
+     using namespace mps;
+@@ -883,6 +890,12 @@ static Tensor& tiled_bmm_out_mps_impl(const Tensor& batch1, const Tensor& batch2
+         auto aDesc = aDesc_;
+         auto bDesc = bDesc_;
+         auto resDesc = resDesc_;
++
++        // THREAD-SAFETY: Serialize only the kernel encoding.
++        // Apple's MPSNDArrayMatrixMultiplication has internal shared state that is not thread-safe.
++        // We minimize the critical section to just the encoding calls.
++        std::lock_guard<std::mutex> lock(s_bmm_tiled_mutex);
++
+         for (const auto i : c10::irange(requiredIterations)) {
+           if (i == requiredIterations - 1 && lastBatchSize != 0) {
+             aDesc = aDescLastBatch_;

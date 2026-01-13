@@ -1,0 +1,54 @@
+{
+  "timestamp": "2025-12-20T05:17:16.054919",
+  "pytorch_version": "2.9.1a0+git4201c80",
+  "mps_available": true,
+  "device_name": "mps",
+  "summary": "Tested 3 assumptions\nBugs proven: 1\nBugs not reproduced: 2\n\nProven Apple MPS bugs requiring workarounds:\n  - contiguous_race\n\nAssumptions not proven (may be intermittent):\n  - sdpa_parallel_race\n  - batch_serialization_needed",
+  "tests": [
+    {
+      "name": "contiguous_race",
+      "assumption": "Apple MPS has a race condition in memory copy operations triggered by .contiguous() on tensors with complex stride patterns when called from multiple threads simultaneously.",
+      "workaround": "Use .reshape() which can handle non-contiguous tensors directly, avoiding the internal .contiguous() call race condition.",
+      "test_mode": "unprotected (use .contiguous())",
+      "iterations": 30,
+      "threads": 8,
+      "passed": 28,
+      "failed": 2,
+      "crashes": 0,
+      "max_diff": 102.44009399414062,
+      "result": "FAIL",
+      "evidence": "Race detected: 2/30 iterations failed, max_diff=1.02e+02",
+      "duration_ms": 1134.7730159759521
+    },
+    {
+      "name": "sdpa_parallel_race",
+      "assumption": "Apple MPS's scaled_dot_product_attention has internal shared state that causes data races when called from multiple threads without serialization.",
+      "workaround": "Use MPSBatchQueue with num_workers=1 to serialize GPU access, avoiding the internal race condition in Apple's SDPA implementation.",
+      "test_mode": "unprotected (parallel SDPA)",
+      "iterations": 20,
+      "threads": 8,
+      "passed": 20,
+      "failed": 0,
+      "crashes": 0,
+      "max_diff": 0.0,
+      "result": "PASS",
+      "evidence": "No race detected in 20 iterations (bug may be intermittent)",
+      "duration_ms": 489.6667003631592
+    },
+    {
+      "name": "batch_serialization_needed",
+      "assumption": "Running 8+ threads with direct MPS inference (no serialization) causes more race conditions than with serialization.",
+      "workaround": "MPSBatchQueue with num_workers=1 serializes GPU access, achieving better correctness at high thread counts.",
+      "test_mode": "comparison (protected vs unprotected)",
+      "iterations": 10,
+      "threads": 8,
+      "passed": 8,
+      "failed": 2,
+      "crashes": 0,
+      "max_diff": 87.75361633300781,
+      "result": "PASS",
+      "evidence": "No difference: protected=8/10, unprotected=8/10",
+      "duration_ms": 272.33290672302246
+    }
+  ]
+}

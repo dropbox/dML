@@ -1,0 +1,28 @@
+diff --git a/aten/src/ATen/mps/MPSStream.mm b/aten/src/ATen/mps/MPSStream.mm
+index 03a81f82..2fc2dd1f 100644
+--- a/aten/src/ATen/mps/MPSStream.mm
++++ b/aten/src/ATen/mps/MPSStream.mm
+@@ -362,6 +362,10 @@ void MPSStream::addScheduledHandler(MTLCommandBufferHandler block) {
+       if (cb) {
+         MTLCommandBufferStatus status = [cb status];
+         if (status != MTLCommandBufferStatusNotEnqueued) {
++          // 32.291 fix: Buffer already committed - must nil out _commandBuffer
++          // so commandBuffer() creates a fresh one.
++          [_commandBuffer release];
++          _commandBuffer = nil;
+           cb = nil;
+         }
+       }
+@@ -404,7 +408,11 @@ void MPSStream::addCompletedHandler(MTLCommandBufferHandler block) {
+       if (cb) {
+         MTLCommandBufferStatus status = [cb status];
+         if (status != MTLCommandBufferStatusNotEnqueued) {
+-          // Buffer already committed - need a fresh one
++          // 32.291 fix: Buffer already committed - must nil out _commandBuffer
++          // so commandBuffer() creates a fresh one. Previous code only set local
++          // cb=nil but commandBuffer() still returned the committed _commandBuffer.
++          [_commandBuffer release];
++          _commandBuffer = nil;
+           cb = nil;
+         }
+       }

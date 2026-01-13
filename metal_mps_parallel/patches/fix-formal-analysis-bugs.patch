@@ -1,0 +1,211 @@
+From 720330572413f6e76743abf54236877d9aace406 Mon Sep 17 00:00:00 2001
+From: AI Worker <ayates@example.com>
+Date: Mon, 22 Dec 2025 20:01:24 -0800
+Subject: [PATCH] Fix addScheduledHandler and TensorLifetime bugs found by
+ formal analysis
+
+BUGS FIXED:
+
+1. addScheduledHandler crash (MPSStream.mm)
+   Same bug as addCompletedHandler - Metal requires handlers be added
+   before command buffer commit. Fixed by checking buffer status.
+
+2. layer_norm_backward_mps use-after-free (Normalization.mm)
+   MaybeOwned from expect_contiguous() may borrow tensor without
+   incrementing refcount. GC can free tensor during async graph execution.
+   Fixed by creating owned copies before runMPSGraph.
+
+3. layer_norm_mps_graph use-after-free (Normalization.mm)
+   Same pattern as #2. Fixed with owned copy.
+
+FORMAL VERIFICATION PROCESS:
+- Analyzed TLA+ specs (TensorLifetime.tla, MPSCommandBuffer.tla)
+- Cross-referenced spec invariants with actual code
+- Found gaps where code didn't implement spec requirements
+- Three iterations of verification found these bugs
+
+These bugs were identified through systematic formal analysis of the
+patches and their corresponding TLA+ specifications.
+---
+ aten/src/ATen/mps/MPSStream.mm                | 16 ++++-
+ .../native/mps/operations/Normalization.mm    | 69 ++++++++++++++-----
+ 2 files changed, 67 insertions(+), 18 deletions(-)
+
+diff --git a/aten/src/ATen/mps/MPSStream.mm b/aten/src/ATen/mps/MPSStream.mm
+index 27139c60..03a81f82 100644
+--- a/aten/src/ATen/mps/MPSStream.mm
++++ b/aten/src/ATen/mps/MPSStream.mm
+@@ -354,7 +354,21 @@ void MPSStream::addScheduledHandler(MTLCommandBufferHandler block) {
+   dispatch_block_t dispatch_block = ^() {
+     @autoreleasepool {
+       std::lock_guard<std::recursive_mutex> lock(_streamMutex);
+-      [commandBuffer() addScheduledHandler:block];
++
++      // FIX: Same pattern as addCompletedHandler - Metal requires scheduled handlers
++      // be added BEFORE the command buffer is committed. Check buffer status and
++      // create a new one if needed.
++      MPSCommandBuffer* cb = _commandBuffer;
++      if (cb) {
++        MTLCommandBufferStatus status = [cb status];
++        if (status != MTLCommandBufferStatusNotEnqueued) {
++          cb = nil;
++        }
++      }
++      if (!cb) {
++        cb = commandBuffer();
++      }
++      [cb addScheduledHandler:block];
+     }
+   };
+   if (dispatch_get_specific(&kMPSStreamQueueSpecificKey) == static_cast<void*>(this)) {
+diff --git a/aten/src/ATen/native/mps/operations/Normalization.mm b/aten/src/ATen/native/mps/operations/Normalization.mm
+index 1cbd8375..d327dd2a 100644
+--- a/aten/src/ATen/native/mps/operations/Normalization.mm
++++ b/aten/src/ATen/native/mps/operations/Normalization.mm
+@@ -913,6 +913,10 @@ static std::tuple<Tensor, Tensor, Tensor> layer_norm_mps_graph(const Tensor& inp
+   auto rstd = at::empty(batch_shape, input.options(), MemoryFormat::Contiguous);
+   auto X = input.expect_contiguous();
+ 
++  // FIX: Create owned copy to prevent use-after-free race condition.
++  // MaybeOwned from expect_contiguous() may borrow without incrementing refcount.
++  Tensor X_owned = X->contiguous();
++
+   if (M == 0) {
+     return std::make_tuple(out, mean, rstd);
+   }
+@@ -934,7 +938,7 @@ static std::tuple<Tensor, Tensor, Tensor> layer_norm_mps_graph(const Tensor& inp
+         ":" + std::to_string(eps);
+ 
+     auto cachedGraph = LookUpOrCreateCachedGraph<CachedGraph>(key, [&](auto* mpsGraph, auto* newCachedGraph) {
+-      MPSGraphTensor* inputTensor = mpsGraphRankedPlaceHolder(mpsGraph, *X);
++      MPSGraphTensor* inputTensor = mpsGraphRankedPlaceHolder(mpsGraph, X_owned);
+ 
+       // Compute mean and variance along normalized axes
+       NSMutableArray<NSNumber*>* axes = [NSMutableArray arrayWithCapacity:normalized_shape.size()];
+@@ -1004,7 +1008,7 @@ static std::tuple<Tensor, Tensor, Tensor> layer_norm_mps_graph(const Tensor& inp
+       newCachedGraph->rstdTensor_ = rstdReduced;
+     });
+ 
+-    Placeholder inputPlaceholder = Placeholder(cachedGraph->inputTensor_, *X);
++    Placeholder inputPlaceholder = Placeholder(cachedGraph->inputTensor_, X_owned);
+     Placeholder outputPlaceholder = Placeholder(cachedGraph->outputTensor_, out);
+     Placeholder meanPlaceholder = Placeholder(cachedGraph->meanTensor_, mean);
+     Placeholder rstdPlaceholder = Placeholder(cachedGraph->rstdTensor_, rstd);
+@@ -1099,6 +1103,17 @@ std::tuple<Tensor, Tensor, Tensor> layer_norm_mps(const Tensor& input,
+   // THREAD-SAFETY: Serialize LayerNorm kernel encoding to prevent crashes at 4+ threads.
+   // Apple's Metal compute kernels have internal shared state issues.
+   std::lock_guard<std::mutex> lock(mps::s_layer_norm_mutex);
++
++  // 32.311 FIX: Capture tensors by value to prevent use-after-free race condition.
++  // In multi-threaded scenarios, Python GC can free tensors while we're inside
++  // dispatch_sync_with_rethrow. MaybeOwned<Tensor> from expect_contiguous() may
++  // just borrow the original tensor, so we need owned copies for the dispatch block.
++  // See CRASH_FIX_ANALYSIS_2025-12-22.md for detailed analysis.
++  // CRITICAL: ALL input tensors must be owned, including bias (proven by TensorLifetimeMulti.tla)
++  Tensor X_owned = X->contiguous();  // Force owned copy
++  Tensor gamma_owned = gamma->defined() ? gamma->contiguous() : Tensor();
++  Tensor bias_owned = bias.defined() ? bias.contiguous() : Tensor();  // FIX: bias must also be owned!
++
+   @autoreleasepool {
+     // which kernel variant to use based on the normalized axis N size
+     const int N_READS = 4;
+@@ -1109,17 +1124,25 @@ std::tuple<Tensor, Tensor, Tensor> layer_norm_mps(const Tensor& input,
+     } else {
+       layerNormKernel = mps::lib.getPipelineStateForFunc("layer_norm_looped_" + metalType);
+     }
++    // Capture tensors by value (__block ensures Objective-C block owns the tensor objects)
++    __block Tensor X_block = X_owned;
++    __block Tensor out_block = out;
++    __block Tensor mean_block = mean;
++    __block Tensor rstd_block = rstd;
++    __block Tensor gamma_block = gamma_owned;
++    __block Tensor bias_block = bias_owned;
++
+     mps::dispatch_sync_with_rethrow(stream->queue(), ^() {
+       id<MTLComputeCommandEncoder> computeEncoder = stream->commandEncoder();
+       [computeEncoder setComputePipelineState:layerNormKernel];
+ 
+-      mps::mtl_setArgs(computeEncoder, *X, out, mean, rstd, axis_size, epsilon_buf, use_weight_buf, use_bias_buf);
++      mps::mtl_setArgs(computeEncoder, X_block, out_block, mean_block, rstd_block, axis_size, epsilon_buf, use_weight_buf, use_bias_buf);
+       if (use_weight_and_bias_buf) {
+-        mps::mtl_setArgs<8>(computeEncoder, *gamma, bias);
++        mps::mtl_setArgs<8>(computeEncoder, gamma_block, bias_block);
+       } else if (use_weight_buf) {
+-        mps::mtl_setArgs<8>(computeEncoder, *gamma);
++        mps::mtl_setArgs<8>(computeEncoder, gamma_block);
+       } else if (use_bias_buf) {
+-        mps::mtl_setArgs<9>(computeEncoder, bias);
++        mps::mtl_setArgs<9>(computeEncoder, bias_block);
+       }
+       MTLSize numThreads = MTLSizeMake(std::min((axis_size + N_READS - 1) / N_READS, 1024), 1, 1);
+       MTLSize numThreadgroups = MTLSizeMake(M, 1, 1);
+@@ -1160,6 +1183,17 @@ std::tuple<Tensor, Tensor, Tensor> layer_norm_backward_mps(const Tensor& grad_ou
+   auto beta = bias.expect_contiguous();
+   auto dOut = grad_out.expect_contiguous();
+ 
++  // FIX: Create owned copies to prevent use-after-free race condition.
++  // Same pattern as layer_norm_mps forward pass. MaybeOwned from expect_contiguous()
++  // may just borrow the tensor, allowing GC to free it during async graph execution.
++  // GAP 4 (Iteration 2): mean and rstd also need owned copies as they're const Tensor& params
++  Tensor X_owned = X->contiguous();
++  Tensor gamma_owned = gamma->defined() ? gamma->contiguous() : Tensor();
++  Tensor beta_owned = beta->defined() ? beta->contiguous() : Tensor();
++  Tensor dOut_owned = dOut->contiguous();
++  Tensor mean_owned = mean.contiguous();   // GAP 4 FIX
++  Tensor rstd_owned = rstd.contiguous();   // GAP 4 FIX
++
+   Tensor grad_input;
+   Tensor grad_weight;
+   Tensor grad_bias;
+@@ -1226,7 +1260,7 @@ std::tuple<Tensor, Tensor, Tensor> layer_norm_backward_mps(const Tensor& grad_ou
+     // const auto memory_format = input.suggest_memory_format();
+ 
+     @autoreleasepool {
+-      MPSShape* input_shape = mps::getMPSShape(*X);
++      MPSShape* input_shape = mps::getMPSShape(X_owned);
+       MPSShape* gamma_shape = mps::getMPSShape(normalized_shape);
+ 
+       auto num_normalized_dims = [gamma_shape count];
+@@ -1270,14 +1304,14 @@ std::tuple<Tensor, Tensor, Tensor> layer_norm_backward_mps(const Tensor& grad_ou
+         bn_gamma_shape[i + 2] = input_shape[i + num_channel_dims];
+ 
+       std::string key = "layer_norm_backward_mps:" + std::to_string(has_weight) + ":" +
+-          getArrayRefString(normalized_shape) + ":" + getArrayRefString((*X).sizes()) + ":" +
+-          c10::Join(",", grad_input_mask) + ":" + getMPSTypeString(*X);
++          getArrayRefString(normalized_shape) + ":" + getArrayRefString(X_owned.sizes()) + ":" +
++          c10::Join(",", grad_input_mask) + ":" + getMPSTypeString(X_owned);
+       auto cachedGraph = LookUpOrCreateCachedGraph<CachedGraph>(key, [&](auto mpsGraph, auto newCachedGraph) {
+-        MPSGraphTensor* inputTensor = mpsGraphRankedPlaceHolder(mpsGraph, *X);
+-        MPSGraphTensor* gradOutputTensor = mpsGraphRankedPlaceHolder(mpsGraph, *dOut);
++        MPSGraphTensor* inputTensor = mpsGraphRankedPlaceHolder(mpsGraph, X_owned);
++        MPSGraphTensor* gradOutputTensor = mpsGraphRankedPlaceHolder(mpsGraph, dOut_owned);
+         MPSGraphTensor* weightTensor = nil;
+         if (has_weight)
+-          weightTensor = mpsGraphRankedPlaceHolder(mpsGraph, *gamma);
++          weightTensor = mpsGraphRankedPlaceHolder(mpsGraph, gamma_owned);
+ 
+         // Mean and inv std tensors to be saved and returned
+         MPSGraphTensor* meanTensor = mpsGraphRankedPlaceHolder(mpsGraph, mean);
+@@ -1400,13 +1434,14 @@ std::tuple<Tensor, Tensor, Tensor> layer_norm_backward_mps(const Tensor& grad_ou
+         newCachedGraph->gradBiasTensor_ = gradBiasTensor;
+       });
+ 
+-      auto inputPlaceholder = Placeholder(cachedGraph->inputTensor_, *X);
+-      auto gradOutputPlaceholder = Placeholder(cachedGraph->gradOutputTensor_, *dOut);
++      // FIX: Use owned copies to prevent use-after-free during runMPSGraph
++      auto inputPlaceholder = Placeholder(cachedGraph->inputTensor_, X_owned);
++      auto gradOutputPlaceholder = Placeholder(cachedGraph->gradOutputTensor_, dOut_owned);
+       auto weightPlaceholder = Placeholder();
+       if (has_weight)
+-        weightPlaceholder = Placeholder(cachedGraph->weightTensor_, *gamma);
+-      auto saveMeanPlaceholder = Placeholder(cachedGraph->meanTensor_, mean);
+-      auto saveVarPlaceholder = Placeholder(cachedGraph->rstdTensor_, rstd);
++        weightPlaceholder = Placeholder(cachedGraph->weightTensor_, gamma_owned);
++      auto saveMeanPlaceholder = Placeholder(cachedGraph->meanTensor_, mean_owned);   // GAP 4 FIX
++      auto saveVarPlaceholder = Placeholder(cachedGraph->rstdTensor_, rstd_owned);   // GAP 4 FIX
+ 
+       auto gradInputPlaceholder = Placeholder();
+       if (grad_input_mask[0])
+-- 
+2.46.0.dropbox.13
+

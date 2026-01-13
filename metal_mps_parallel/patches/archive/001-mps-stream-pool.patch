@@ -1,0 +1,278 @@
+diff --git a/aten/src/ATen/mps/MPSStream.h b/aten/src/ATen/mps/MPSStream.h
+index 10627cfc..f84bf2ac 100644
+--- a/aten/src/ATen/mps/MPSStream.h
++++ b/aten/src/ATen/mps/MPSStream.h
+@@ -4,6 +4,9 @@
+ 
+ #include <cstdint>
+ #include <utility>
++#include <array>
++#include <atomic>
++#include <memory>
+ 
+ #include <ATen/mps/MPSDevice.h>
+ #include <c10/core/DeviceGuard.h>
+@@ -130,23 +133,121 @@ class TORCH_API MPSStream {
+ };
+ 
+ /**
+- * Get the current MPS stream
++ * Get the current MPS stream for the calling thread.
++ * Returns the thread-local current stream, or default stream if not set.
+  */
+ TORCH_API MPSStream* getCurrentMPSStream();
+ 
+ /**
+- * Get the default MPS stream
++ * Get the default MPS stream (stream 0).
++ * This is the stream used by single-threaded code and is always available.
+  */
+ TORCH_API MPSStream* getDefaultMPSStream();
+ 
++/**
++ * Get a stream from the MPS stream pool using round-robin allocation.
++ * Use this when you need a dedicated stream for parallel execution.
++ */
++TORCH_API MPSStream* getStreamFromPool();
++
++/**
++ * Set the current stream for the calling thread.
++ * This affects subsequent getCurrentMPSStream() calls from this thread.
++ */
++TORCH_API void setCurrentMPSStream(MPSStream* stream);
++
++//-----------------------------------------------------------------
++//  MPSStreamPool
++//-----------------------------------------------------------------
++// Stream pool for enabling parallel MPS inference.
++// Modeled after c10::cuda::CUDAStream pool design.
++//
++// Key design principles:
++// - 32 streams per pool (matching CUDA's kStreamsPerPool)
++// - Round-robin allocation via atomic counter
++// - Thread-local current stream tracking
++// - Lazy initialization on first use
++// - Default stream (index 0) always available for backward compatibility
++
++static constexpr int kMPSStreamsPerPoolBits = 5;
++static constexpr int kMPSStreamsPerPool = 1 << kMPSStreamsPerPoolBits;  // 32 streams
++
++class TORCH_API MPSStreamPool {
++ public:
++  /**
++   * Get the singleton MPSStreamPool instance.
++   * Thread-safe via static initialization.
++   */
++  static MPSStreamPool& instance();
++
++  /**
++   * Get a stream from the pool using round-robin allocation.
++   * Returns streams 1 through kMPSStreamsPerPool-1 (stream 0 is default).
++   */
++  MPSStream* acquireStream();
++
++  /**
++   * Get the default stream (stream 0).
++   * This is always the same stream, used for single-threaded code.
++   */
++  MPSStream* getDefaultStream();
++
++  /**
++   * Get stream by index (0 to kMPSStreamsPerPool-1).
++   * Used internally and for advanced use cases.
++   */
++  MPSStream* getStream(size_t index);
++
++  /**
++   * Get the thread-local current stream.
++   * Returns default stream if no stream has been set for this thread.
++   */
++  static MPSStream* getCurrentStream();
++
++  /**
++   * Set the thread-local current stream.
++   */
++  static void setCurrentStream(MPSStream* stream);
++
++  /**
++   * Get number of streams in the pool.
++   */
++  static constexpr size_t poolSize() { return kMPSStreamsPerPool; }
++
++ private:
++  MPSStreamPool();
++  ~MPSStreamPool();
++
++  // Non-copyable, non-movable
++  MPSStreamPool(const MPSStreamPool&) = delete;
++  MPSStreamPool& operator=(const MPSStreamPool&) = delete;
++  MPSStreamPool(MPSStreamPool&&) = delete;
++  MPSStreamPool& operator=(MPSStreamPool&&) = delete;
++
++  // Stream storage - lazily initialized
++  std::array<std::unique_ptr<MPSStream>, kMPSStreamsPerPool> streams_;
++
++  // Atomic counter for round-robin allocation (starts at 1 to skip default stream)
++  std::atomic<uint32_t> next_stream_idx_{1};
++
++  // Initialization flag and mutex for lazy stream creation
++  std::atomic<bool> initialized_{false};
++
++  void ensureInitialized();
++  MPSStream* createStream(size_t index);
++};
++
+ //-----------------------------------------------------------------
+-//  MPSStreamImpl
++//  MPSStreamImpl (DEPRECATED - for backward compatibility)
+ //-----------------------------------------------------------------
++// NOTE: MPSStreamImpl is kept for backward compatibility with existing code.
++// New code should use MPSStreamPool directly.
+ 
+ class TORCH_API MPSStreamImpl {
+  public:
+   /**
+    * Gets single instance of the MPSStream.
++   * DEPRECATED: Use getDefaultMPSStream() or MPSStreamPool instead.
+    */
+   static MPSStream* getInstance();
+ 
+diff --git a/aten/src/ATen/mps/MPSStream.mm b/aten/src/ATen/mps/MPSStream.mm
+index 71325bd6..1cb7d897 100644
+--- a/aten/src/ATen/mps/MPSStream.mm
++++ b/aten/src/ATen/mps/MPSStream.mm
+@@ -267,26 +267,127 @@ void MPSStream::executeMPSGraph(MPSGraph* mpsGraph, NSDictionary* feeds, NSDicti
+ }
+ 
+ //-----------------------------------------------------------------
+-//  MPSStreamImpl
++//  MPSStreamPool
++//-----------------------------------------------------------------
++
++// Thread-local storage for current stream per thread
++// nullptr means use the default stream (stream 0)
++static thread_local MPSStream* tls_current_stream = nullptr;
++
++MPSStreamPool& MPSStreamPool::instance() {
++  // Thread-safe singleton via static local variable (C++11 guarantee)
++  static MPSStreamPool pool;
++  return pool;
++}
++
++MPSStreamPool::MPSStreamPool() {
++  // Streams are lazily initialized on first access
++}
++
++MPSStreamPool::~MPSStreamPool() {
++  // Streams are cleaned up automatically via unique_ptr
++}
++
++void MPSStreamPool::ensureInitialized() {
++  // Double-checked locking pattern for lazy initialization
++  if (!initialized_.load(std::memory_order_acquire)) {
++    // Only stream 0 (default) needs to exist initially
++    // Other streams are created on-demand
++    if (streams_[0] == nullptr) {
++      streams_[0] = std::unique_ptr<MPSStream>(
++          new MPSStream(Stream(Stream::UNSAFE, c10::Device(DeviceType::MPS, 0), 0)));
++    }
++    initialized_.store(true, std::memory_order_release);
++  }
++}
++
++MPSStream* MPSStreamPool::createStream(size_t index) {
++  TORCH_CHECK(index < kMPSStreamsPerPool,
++              "Stream index ", index, " out of range [0, ", kMPSStreamsPerPool, ")");
++
++  if (streams_[index] == nullptr) {
++    // Create a new stream with unique stream ID
++    // Stream IDs are index values for simplicity
++    streams_[index] = std::unique_ptr<MPSStream>(
++        new MPSStream(Stream(Stream::UNSAFE, c10::Device(DeviceType::MPS, 0),
++                            static_cast<StreamId>(index))));
++  }
++  return streams_[index].get();
++}
++
++MPSStream* MPSStreamPool::getDefaultStream() {
++  ensureInitialized();
++  return streams_[0].get();
++}
++
++MPSStream* MPSStreamPool::getStream(size_t index) {
++  ensureInitialized();
++  if (index >= kMPSStreamsPerPool) {
++    return getDefaultStream();
++  }
++  if (streams_[index] == nullptr) {
++    return createStream(index);
++  }
++  return streams_[index].get();
++}
++
++MPSStream* MPSStreamPool::acquireStream() {
++  ensureInitialized();
++
++  // Round-robin allocation starting from stream 1
++  // (stream 0 is reserved as the default stream)
++  uint32_t idx = next_stream_idx_.fetch_add(1, std::memory_order_relaxed);
++
++  // Map to range [1, kMPSStreamsPerPool-1]
++  // This ensures we never return stream 0 from acquireStream()
++  size_t stream_idx = 1 + (idx % (kMPSStreamsPerPool - 1));
++
++  return getStream(stream_idx);
++}
++
++MPSStream* MPSStreamPool::getCurrentStream() {
++  if (tls_current_stream != nullptr) {
++    return tls_current_stream;
++  }
++  // Default to stream 0 if no current stream is set
++  return MPSStreamPool::instance().getDefaultStream();
++}
++
++void MPSStreamPool::setCurrentStream(MPSStream* stream) {
++  tls_current_stream = stream;
++}
++
++//-----------------------------------------------------------------
++//  MPSStreamImpl (DEPRECATED - for backward compatibility)
+ //-----------------------------------------------------------------
+ 
+ MPSStream* MPSStreamImpl::_stream = nullptr;
+ 
+ MPSStream* MPSStreamImpl::getInstance() {
+-  if (_stream == nullptr) {
+-    _stream = new MPSStream(Stream(Stream::UNSAFE, c10::Device(DeviceType::MPS, 0), 0));
+-  }
+-  return _stream;
++  // Redirect to the pool's default stream for backward compatibility
++  return MPSStreamPool::instance().getDefaultStream();
+ }
+ 
+ MPSStreamImpl::MPSStreamImpl() {}
+ 
++//-----------------------------------------------------------------
++//  Public API Functions
++//-----------------------------------------------------------------
++
+ MPSStream* getCurrentMPSStream() {
+-  return getDefaultMPSStream();
++  return MPSStreamPool::getCurrentStream();
+ }
+ 
+ MPSStream* getDefaultMPSStream() {
+-  return MPSStreamImpl::getInstance();
++  return MPSStreamPool::instance().getDefaultStream();
++}
++
++MPSStream* getStreamFromPool() {
++  return MPSStreamPool::instance().acquireStream();
++}
++
++void setCurrentMPSStream(MPSStream* stream) {
++  MPSStreamPool::setCurrentStream(stream);
+ }
+ 
+ } // namespace at::mps

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libkokoro_tokenizer.a CMakeFiles/kokoro_tokenizer.dir/tokenizer.cpp.o
+/usr/bin/ranlib libkokoro_tokenizer.a

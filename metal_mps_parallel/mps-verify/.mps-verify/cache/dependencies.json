@@ -1,0 +1,29 @@
+{
+  "version": "1",
+  "dependencies": [
+    {
+      "spec": "specs/MPSStreamPool.tla",
+      "sources": [
+        "../pytorch-mps-fork/aten/src/ATen/mps/MPSStream.mm",
+        "../pytorch-mps-fork/aten/src/ATen/mps/MPSStream.h"
+      ],
+      "verifiers": ["tla", "lean"]
+    },
+    {
+      "spec": "specs/MPSAllocator.tla",
+      "sources": [
+        "../pytorch-mps-fork/aten/src/ATen/mps/MPSAllocator.mm",
+        "../pytorch-mps-fork/aten/src/ATen/mps/MPSAllocator.h"
+      ],
+      "verifiers": ["tla", "lean", "cbmc"]
+    },
+    {
+      "spec": "specs/MPSEvent.tla",
+      "sources": [
+        "../pytorch-mps-fork/aten/src/ATen/mps/MPSEvent.mm",
+        "../pytorch-mps-fork/aten/src/ATen/mps/MPSEvent.h"
+      ],
+      "verifiers": ["tla", "lean"]
+    }
+  ]
+}

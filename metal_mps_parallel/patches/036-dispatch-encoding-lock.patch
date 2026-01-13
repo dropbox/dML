@@ -1,0 +1,47 @@
+From e22ce50058627a0bcd1161e3415e4ae6a88af71e Mon Sep 17 00:00:00 2001
+From: AI Worker <ayates@example.com>
+Date: Thu, 18 Dec 2025 00:30:37 -0800
+Subject: [PATCH] Add MPSEncodingLock to MetalKernelFunction::dispatch()
+ methods
+
+Defense-in-depth: Add explicit MPSEncodingLock protection to both
+dispatch() method overloads. These methods are already protected via
+the calling convention (runCommandBlock -> dispatch_sync_with_rethrow
+holds the lock), but adding explicit locks provides:
+
+1. Extra safety if dispatch() is ever called outside runCommandBlock
+2. Silences the static checker (tools/check_metal_lock.py)
+3. Makes the thread-safety guarantee explicit in the code
+
+The recursive mutex makes it safe to acquire the lock multiple times
+from the same thread, so this has zero runtime cost when called
+via the normal path.
+---
+ aten/src/ATen/native/mps/OperationUtils.mm | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/aten/src/ATen/native/mps/OperationUtils.mm b/aten/src/ATen/native/mps/OperationUtils.mm
+index 127d65b1..29ffeb20 100644
+--- a/aten/src/ATen/native/mps/OperationUtils.mm
++++ b/aten/src/ATen/native/mps/OperationUtils.mm
+@@ -1255,6 +1255,8 @@ void MetalKernelFunction::startEncoding() {
+ }
+ 
+ void MetalKernelFunction::dispatch(uint64_t length, std::optional<uint64_t> group_size) {
++  // Defense-in-depth: recursive mutex is safe if already held by caller (runCommandBlock)
++  at::mps::MPSEncodingLock encodingLock;
+   const auto max_tg_size = getMaxThreadsPerThreadgroup();
+   const auto group_size_val = group_size.value_or(std::min(length, max_tg_size));
+   TORCH_CHECK_VALUE(group_size_val <= max_tg_size, "Threadgroup size exceeds ", max_tg_size, " limit");
+@@ -1262,6 +1264,8 @@ void MetalKernelFunction::dispatch(uint64_t length, std::optional<uint64_t> grou
+ }
+ 
+ void MetalKernelFunction::dispatch(c10::ArrayRef<uint64_t> length, c10::OptionalArrayRef<uint64_t> group_size) {
++  // Defense-in-depth: recursive mutex is safe if already held by caller (runCommandBlock)
++  at::mps::MPSEncodingLock encodingLock;
+   TORCH_CHECK(!length.empty() && length.size() < 4, "Dispatch dimentions must be less than 3 and non-empty");
+   TORCH_CHECK(!group_size.has_value() || group_size->size() == length.size(),
+               "size and group_size must have same number of dimentions");
+-- 
+2.46.0.dropbox.13
+

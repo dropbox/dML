@@ -1,0 +1,47 @@
+diff --git a/aten/src/ATen/mps/MPSGuardImpl.h b/aten/src/ATen/mps/MPSGuardImpl.h
+index 008a8d57..bfcf213a 100644
+--- a/aten/src/ATen/mps/MPSGuardImpl.h
++++ b/aten/src/ATen/mps/MPSGuardImpl.h
+@@ -68,21 +68,38 @@ struct TORCH_API MPSGuardImpl final
+   }
+ 
+   Stream getStream(Device d) const override {
+-    return Stream(Stream::DEFAULT, Device(c10::DeviceType::MPS, 0));
++    // Return the thread-local current stream (or default if not set)
++    MPSStream* current = getCurrentMPSStream();
++    return current->unwrap();
+   }
+ 
+   Stream getNewStream(Device, int priority = 0) const override {
+     (void)priority;
+-    return Stream(Stream::DEFAULT, Device(c10::DeviceType::MPS, 0));
++    // Acquire a stream from the pool for parallel execution
++    MPSStream* stream = getStreamFromPool();
++    return stream->unwrap();
+   }
+ 
+   Stream getDefaultStream(Device d) const override {
+-    return Stream(Stream::DEFAULT, Device(c10::DeviceType::MPS, 0));
++    // Return stream 0 (the default stream)
++    MPSStream* defaultStream = getDefaultMPSStream();
++    return defaultStream->unwrap();
+   }
+ 
+   // NB: These do NOT set the current device
+   Stream exchangeStream(Stream s) const override {
+-    return Stream(Stream::DEFAULT, Device(c10::DeviceType::MPS, 0));
++    // Get the current stream before setting new one
++    MPSStream* prev = getCurrentMPSStream();
++    Stream prevStream = prev->unwrap();
++
++    // Set the new stream as current for this thread
++    // Note: We need to map from Stream to MPSStream*
++    // For now, if the stream ID matches, use it from pool
++    MPSStream* newStream = MPSStreamPool::instance().getStream(
++        static_cast<size_t>(s.id()));
++    setCurrentMPSStream(newStream);
++
++    return prevStream;
+   }
+   DeviceIndex deviceCount() const noexcept override {
+     if (at::hasMPS()) {

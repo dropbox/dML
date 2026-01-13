@@ -1,0 +1,8 @@
+# Optional ONNX dependencies
+# For wake word models and CosyVoice2 speaker embedding
+# These require Python < 3.14 (as of December 2025)
+#
+# Install with: pip install -r requirements-onnx.txt
+
+onnx>=1.14.0
+onnxruntime>=1.15.0

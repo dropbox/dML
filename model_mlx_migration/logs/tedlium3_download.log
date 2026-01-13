@@ -1,0 +1,23 @@
+--2026-01-05 18:14:20--  https://www.openslr.org/resources/51/TEDLIUM_release-3.tgz
+Resolving www.openslr.org (www.openslr.org)... 136.243.171.4
+Connecting to www.openslr.org (www.openslr.org)|136.243.171.4|:443... connected.
+HTTP request sent, awaiting response... 403 Forbidden
+2026-01-05 18:14:21 ERROR 403: Forbidden.
+
+[18:14:20] [INFO] Downloading 1 datasets: ['tedlium3']
+[18:14:20] [INFO] === Downloading TEDLIUM-3 ===
+[18:14:20] [INFO] Downloading from https://www.openslr.org/resources/51/TEDLIUM_release-3.tgz...
+Traceback (most recent call last):
+  File "/Users/ayates/model_mlx_migration/scripts/download_all_datasets.py", line 336, in <module>
+    main()
+    ~~~~^^
+  File "/Users/ayates/model_mlx_migration/scripts/download_all_datasets.py", line 326, in main
+    download_tedlium3()
+    ~~~~~~~~~~~~~~~~~^^
+  File "/Users/ayates/model_mlx_migration/scripts/download_all_datasets.py", line 217, in download_tedlium3
+    subprocess.run(cmd, check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['wget', '-c', '-O', '/Users/ayates/model_mlx_migration/data/tedlium3/TEDLIUM_release-3.tgz', 'https://www.openslr.org/resources/51/TEDLIUM_release-3.tgz']' returned non-zero exit status 8.

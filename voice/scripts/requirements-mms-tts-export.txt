@@ -1,0 +1,17 @@
+# MMS-TTS Export Requirements
+# Isolated venv for reproducible MMS-TTS model export
+#
+# Usage: Use with scripts/export_mms_tts.sh
+
+# PyTorch 2.5.1 for consistent TorchScript export
+torch==2.5.1
+torchaudio==2.5.1
+
+# Transformers for MMS-TTS models
+transformers>=4.40.0,<4.52.0
+
+# Scipy for audio processing
+scipy>=1.10.0
+
+# NumPy for array operations
+numpy>=1.24.0

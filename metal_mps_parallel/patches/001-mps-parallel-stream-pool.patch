@@ -1,0 +1,197 @@
+diff --git a/aten/src/ATen/mps/MPSStream.mm b/aten/src/ATen/mps/MPSStream.mm
+index 122387c0..6be47e09 100644
+--- a/aten/src/ATen/mps/MPSStream.mm
++++ b/aten/src/ATen/mps/MPSStream.mm
+@@ -279,23 +279,34 @@ void MPSStream::commit() {
+ }
+ 
+ void MPSStream::commitAndWait() {
+-  // 32.63: Take lock for thread-safety. With round-robin stream allocation (33.1),
+-  // multiple threads may share the same stream. Protects _prevCommandBuffer and
+-  // _commandBuffer access from concurrent modification.
+-  std::lock_guard<std::recursive_mutex> lock(_streamMutex);
+-  if (_prevCommandBuffer) {
+-    // the previous command buffer (if exists) has already been committed,
+-    // so we just wait until it's completed and then dispose it.
+-    [_prevCommandBuffer waitUntilCompleted];
+-    [_prevCommandBuffer release];
+-    _prevCommandBuffer = nil;
++  // 32.306 fix: Release mutex before blocking waitUntilCompleted() to avoid holding
++  // lock during potentially long GPU waits (similar to 32.286 in allocator).
++  // Capture buffers under lock, then release lock before waiting.
++  id<MTLCommandBuffer> prevToWait = nil;
++  id<MTLCommandBuffer> currToWait = nil;
++
++  {
++    std::lock_guard<std::recursive_mutex> lock(_streamMutex);
++    if (_prevCommandBuffer) {
++      prevToWait = _prevCommandBuffer;
++      _prevCommandBuffer = nil;  // Take ownership
++    }
++    if (_commandBuffer) {
++      [_commandBuffer commit];
++      currToWait = _commandBuffer;
++      _commandBuffer = nil;  // Take ownership
++    }
+   }
++  // Lock released - other threads can now queue work on this stream
+ 
+-  if (_commandBuffer) {
+-    [_commandBuffer commit];
+-    [_commandBuffer waitUntilCompleted];
+-    [_commandBuffer release];
+-    _commandBuffer = nil;
++  // Wait and release outside the lock
++  if (prevToWait) {
++    [prevToWait waitUntilCompleted];
++    [prevToWait release];
++  }
++  if (currToWait) {
++    [currToWait waitUntilCompleted];
++    [currToWait release];
+   }
+ }
+ 
+diff --git a/aten/src/ATen/native/mps/operations/MultiTensorApply.h b/aten/src/ATen/native/mps/operations/MultiTensorApply.h
+index 7a5458fb..552fdd60 100644
+--- a/aten/src/ATen/native/mps/operations/MultiTensorApply.h
++++ b/aten/src/ATen/native/mps/operations/MultiTensorApply.h
+@@ -150,10 +150,15 @@ static void multi_tensor_apply_for_fused_optimizer(const std::string& kernel_nam
+   });
+   */
+ 
++  // 32.307 fix: Fetch PSO outside dispatch_sync to avoid deadlock
++  // Note: Cannot use structured bindings - ObjC blocks cannot capture them
++  auto psoFuncPair = getFusedAdamCPLState(kernel_name);
++  id<MTLComputePipelineState> fusedOptimizerPSO = psoFuncPair.first;
++  id<MTLFunction> fusedOptimizerFunc = psoFuncPair.second;
++
+   dispatch_sync_with_rethrow(mpsStream->queue(), ^() {
+     @autoreleasepool {
+       id<MTLComputeCommandEncoder> computeEncoder = mpsStream->commandEncoder();
+-      auto [fusedOptimizerPSO, fusedOptimizerFunc] = getFusedAdamCPLState(kernel_name);
+ 
+       // this function call is a no-op if MPS Profiler is not enabled
+       getMPSProfiler().beginProfileKernel(fusedOptimizerPSO, kernel_name, {tensor_lists[0]});
+@@ -278,10 +283,15 @@ void multi_tensor_apply(const std::string& kernel_name,
+   MPSStream* mpsStream = getCurrentMPSStream();
+   TORCH_CHECK(mpsStream != nullptr, "MPS stream pool not available. Cannot run multi-tensor apply kernel.");
+ 
++  // 32.308 fix: Fetch PSO outside dispatch_sync to avoid deadlock
++  // Note: Cannot use structured bindings - ObjC blocks cannot capture them
++  auto ampPsoFuncPair = getAmpCPLState(kernel_name);
++  id<MTLComputePipelineState> pipeline = ampPsoFuncPair.first;
++  id<MTLFunction> function = ampPsoFuncPair.second;
++
+   dispatch_sync_with_rethrow(mpsStream->queue(), ^() {
+     @autoreleasepool {
+       id<MTLComputeCommandEncoder> computeEncoder = mpsStream->commandEncoder();
+-      auto [pipeline, function] = getAmpCPLState(kernel_name);
+       [computeEncoder setComputePipelineState:pipeline];
+ 
+       id<MTLArgumentEncoder> argumentEncoder = [function newArgumentEncoderWithBufferIndex:0];
+diff --git a/aten/src/ATen/native/sparse/mps/FlattenIndices.mm b/aten/src/ATen/native/sparse/mps/FlattenIndices.mm
+index 41efa545..c7eebb9b 100644
+--- a/aten/src/ATen/native/sparse/mps/FlattenIndices.mm
++++ b/aten/src/ATen/native/sparse/mps/FlattenIndices.mm
+@@ -49,9 +49,10 @@ Tensor flatten_indices_mps(const Tensor& indices, IntArrayRef size) {
+   auto flat_indices = at::empty({nnz}, indices.options().dtype(kLong));
+ 
+   auto stream = getCurrentMPSStream();
++  // 32.305 fix: Fetch PSO outside dispatch_sync to avoid deadlock
++  auto pipeline = lib.getPipelineStateForFunc("flatten_indices_kernel");
+   dispatch_sync_with_rethrow(stream->queue(), ^() {
+     @autoreleasepool {
+-      auto pipeline = lib.getPipelineStateForFunc("flatten_indices_kernel");
+       auto encoder = stream->commandEncoder();
+       [encoder setComputePipelineState:pipeline];
+       mtl_setArgs(encoder,
+diff --git a/aten/src/ATen/native/sparse/mps/SparseMPSTensor.mm b/aten/src/ATen/native/sparse/mps/SparseMPSTensor.mm
+index 3e0ac4e3..d54a532a 100644
+--- a/aten/src/ATen/native/sparse/mps/SparseMPSTensor.mm
++++ b/aten/src/ATen/native/sparse/mps/SparseMPSTensor.mm
+@@ -33,9 +33,10 @@ static Tensor compute_output_positions(const Tensor& is_unique) {
+   Tensor positions = at::empty({nnz}, TensorOptions().device(kMPS).dtype(kInt));
+ 
+   auto stream = getCurrentMPSStream();
++  // 32.300 fix: Fetch PSO outside dispatch_sync to avoid deadlock
++  auto pipeline = lib.getPipelineStateForFunc("compute_output_positions_kernel");
+   dispatch_sync_with_rethrow(stream->queue(), ^() {
+     @autoreleasepool {
+-      auto pipeline = lib.getPipelineStateForFunc("compute_output_positions_kernel");
+       auto encoder = stream->commandEncoder();
+       [encoder setComputePipelineState:pipeline];
+ 
+@@ -64,28 +65,30 @@ static Tensor compute_output_positions_parallel(const Tensor& is_unique) {
+   // Kogge-Stone parallel prefix sum
+   Tensor positions_cloned = positions.clone();
+ 
++  // 32.301 fix: Fetch PSO outside dispatch_sync to avoid deadlock
++  auto kogge_stone_pipeline = lib.getPipelineStateForFunc("kogge_stone_step");
+   for (int64_t stride = 1; stride < nnz; stride *= 2) {
+     dispatch_sync_with_rethrow(stream->queue(), ^() {
+       @autoreleasepool {
+-        auto pipeline = lib.getPipelineStateForFunc("kogge_stone_step");
+         auto encoder = stream->commandEncoder();
+-        [encoder setComputePipelineState:pipeline];
++        [encoder setComputePipelineState:kogge_stone_pipeline];
+ 
+         mtl_setArgs(encoder, positions, positions_cloned, stride);
+-        mtl_dispatch1DJob(encoder, pipeline, nnz);
++        mtl_dispatch1DJob(encoder, kogge_stone_pipeline, nnz);
+       }
+     });
+     std::swap(positions, positions_cloned);
+   }
+ 
++  // 32.302 fix: Fetch PSO outside dispatch_sync to avoid deadlock
++  auto shift_right_pipeline = lib.getPipelineStateForFunc("shift_right_kernel");
+   dispatch_sync_with_rethrow(stream->queue(), ^() {
+     @autoreleasepool {
+-      auto pipeline = lib.getPipelineStateForFunc("shift_right_kernel");
+       auto encoder = stream->commandEncoder();
+-      [encoder setComputePipelineState:pipeline];
++      [encoder setComputePipelineState:shift_right_pipeline];
+ 
+       mtl_setArgs(encoder, positions, positions_cloned);
+-      mtl_dispatch1DJob(encoder, pipeline, nnz);
++      mtl_dispatch1DJob(encoder, shift_right_pipeline, nnz);
+     }
+   });
+ 
+@@ -103,9 +106,10 @@ static std::pair<Tensor, int32_t> mark_unique_and_count(const Tensor& flat_indic
+   Tensor count_result = at::zeros({1}, flat_indices.options().dtype(kInt));
+ 
+   auto stream = getCurrentMPSStream();
++  // 32.303 fix: Fetch PSO outside dispatch_sync to avoid deadlock
++  auto pipeline = lib.getPipelineStateForFunc("mark_unique_positions_and_count_kernel");
+   dispatch_sync_with_rethrow(stream->queue(), ^() {
+     @autoreleasepool {
+-      auto pipeline = lib.getPipelineStateForFunc("mark_unique_positions_and_count_kernel");
+       auto encoder = stream->commandEncoder();
+       [encoder setComputePipelineState:pipeline];
+ 
+@@ -152,11 +156,12 @@ SparseTensor _coalesce_sparse_mps(const SparseTensor& self) {
+   int64_t sparse_dim = indices.size(0);
+ 
+   auto stream = getCurrentMPSStream();
++  // 32.304 fix: Fetch PSO outside dispatch_sync to avoid deadlock
++  auto coalesce_pipeline = lib.getPipelineStateForFunc("coalesce_with_positions_kernel_" + scalarToMetalTypeString(values));
+   dispatch_sync_with_rethrow(stream->queue(), ^() {
+     @autoreleasepool {
+-      auto pipeline = lib.getPipelineStateForFunc("coalesce_with_positions_kernel_" + scalarToMetalTypeString(values));
+       auto encoder = stream->commandEncoder();
+-      [encoder setComputePipelineState:pipeline];
++      [encoder setComputePipelineState:coalesce_pipeline];
+ 
+       const uint32_t numThreads = static_cast<uint32_t>(nnz);
+       const uint32_t valueSize = static_cast<uint32_t>(values.numel() / nnz);
+@@ -172,7 +177,7 @@ SparseTensor _coalesce_sparse_mps(const SparseTensor& self) {
+                   valueSize,
+                   sparse_dim,
+                   newNnz);
+-      mtl_dispatch1DJob(encoder, pipeline, nnz);
++      mtl_dispatch1DJob(encoder, coalesce_pipeline, nnz);
+     }
+   });
+ 

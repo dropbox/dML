@@ -1,0 +1,50 @@
+diff --git a/aten/src/ATen/native/mps/operations/Normalization.mm b/aten/src/ATen/native/mps/operations/Normalization.mm
+index 1cbd8375..1830afd1 100644
+--- a/aten/src/ATen/native/mps/operations/Normalization.mm
++++ b/aten/src/ATen/native/mps/operations/Normalization.mm
+@@ -1099,6 +1099,15 @@ std::tuple<Tensor, Tensor, Tensor> layer_norm_mps(const Tensor& input,
+   // THREAD-SAFETY: Serialize LayerNorm kernel encoding to prevent crashes at 4+ threads.
+   // Apple's Metal compute kernels have internal shared state issues.
+   std::lock_guard<std::mutex> lock(mps::s_layer_norm_mutex);
++
++  // 32.311 FIX: Capture tensors by value to prevent use-after-free race condition.
++  // In multi-threaded scenarios, Python GC can free tensors while we're inside
++  // dispatch_sync_with_rethrow. MaybeOwned<Tensor> from expect_contiguous() may
++  // just borrow the original tensor, so we need owned copies for the dispatch block.
++  // See CRASH_FIX_ANALYSIS_2025-12-22.md for detailed analysis.
++  Tensor X_owned = X->contiguous();  // Force owned copy
++  Tensor gamma_owned = gamma->defined() ? gamma->contiguous() : Tensor();
++
+   @autoreleasepool {
+     // which kernel variant to use based on the normalized axis N size
+     const int N_READS = 4;
+@@ -1109,17 +1118,25 @@ std::tuple<Tensor, Tensor, Tensor> layer_norm_mps(const Tensor& input,
+     } else {
+       layerNormKernel = mps::lib.getPipelineStateForFunc("layer_norm_looped_" + metalType);
+     }
++    // Capture tensors by value (__block ensures Objective-C block owns the tensor objects)
++    __block Tensor X_block = X_owned;
++    __block Tensor out_block = out;
++    __block Tensor mean_block = mean;
++    __block Tensor rstd_block = rstd;
++    __block Tensor gamma_block = gamma_owned;
++    __block Tensor bias_block = bias;
++
+     mps::dispatch_sync_with_rethrow(stream->queue(), ^() {
+       id<MTLComputeCommandEncoder> computeEncoder = stream->commandEncoder();
+       [computeEncoder setComputePipelineState:layerNormKernel];
+ 
+-      mps::mtl_setArgs(computeEncoder, *X, out, mean, rstd, axis_size, epsilon_buf, use_weight_buf, use_bias_buf);
++      mps::mtl_setArgs(computeEncoder, X_block, out_block, mean_block, rstd_block, axis_size, epsilon_buf, use_weight_buf, use_bias_buf);
+       if (use_weight_and_bias_buf) {
+-        mps::mtl_setArgs<8>(computeEncoder, *gamma, bias);
++        mps::mtl_setArgs<8>(computeEncoder, gamma_block, bias_block);
+       } else if (use_weight_buf) {
+-        mps::mtl_setArgs<8>(computeEncoder, *gamma);
++        mps::mtl_setArgs<8>(computeEncoder, gamma_block);
+       } else if (use_bias_buf) {
+-        mps::mtl_setArgs<9>(computeEncoder, bias);
++        mps::mtl_setArgs<9>(computeEncoder, bias_block);
+       }
+       MTLSize numThreads = MTLSizeMake(std::min((axis_size + N_READS - 1) / N_READS, 1024), 1, 1);
+       MTLSize numThreadgroups = MTLSizeMake(M, 1, 1);

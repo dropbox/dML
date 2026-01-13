@@ -1,0 +1,50 @@
+[2025-12-29 12:34:20] ========================================
+[2025-12-29 12:34:20] Starting data extraction
+[2025-12-29 12:34:20] ========================================
+[2025-12-29 12:34:20] 
+[2025-12-29 12:34:20] === MLS Datasets ===
+[2025-12-29 12:34:20] EXTRACTING: data/mls/mls_dutch_opus.tar.gz -> data/mls
+[2025-12-29 12:35:52] DONE: data/mls/mls_dutch_opus.tar.gz
+[2025-12-29 12:35:52] EXTRACTING: data/mls/mls_french_opus.tar.gz -> data/mls
+[2025-12-29 12:36:56] DONE: data/mls/mls_french_opus.tar.gz
+[2025-12-29 12:36:56] EXTRACTING: data/mls/mls_german_opus.tar.gz -> data/mls
+[2025-12-29 12:38:57] DONE: data/mls/mls_german_opus.tar.gz
+[2025-12-29 12:38:57] SKIP: data/mls/mls_italian_opus already extracted
+[2025-12-29 12:38:57] SKIP: data/mls/mls_polish_opus already extracted
+[2025-12-29 12:38:57] SKIP: data/mls/mls_portuguese_opus already extracted
+[2025-12-29 12:38:57] EXTRACTING: data/mls/mls_spanish_opus.tar.gz -> data/mls
+[2025-12-29 12:39:54] DONE: data/mls/mls_spanish_opus.tar.gz
+[2025-12-29 12:39:54] 
+[2025-12-29 12:39:54] === CommonVoice Datasets ===
+[2025-12-29 12:39:54] EXTRACTING: data/commonvoice/mcv-scripted-en-v24.0.tar.gz -> data/commonvoice
+[2025-12-29 12:40:03] FAILED: data/commonvoice/mcv-scripted-en-v24.0.tar.gz
+[2025-12-29 12:40:03] EXTRACTING: data/commonvoice/mcv-scripted-hi-v24.0.tar.gz -> data/commonvoice
+[2025-12-29 12:40:08] DONE: data/commonvoice/mcv-scripted-hi-v24.0.tar.gz
+[2025-12-29 12:40:08] EXTRACTING: data/commonvoice/mcv-scripted-ja-v24.0.tar.gz -> data/commonvoice
+[2025-12-29 12:41:53] DONE: data/commonvoice/mcv-scripted-ja-v24.0.tar.gz
+[2025-12-29 12:41:53] EXTRACTING: data/commonvoice/mcv-scripted-zh-CN-v24.0.tar.gz -> data/commonvoice
+[2025-12-29 12:44:40] DONE: data/commonvoice/mcv-scripted-zh-CN-v24.0.tar.gz
+[2025-12-29 12:44:40] 
+[2025-12-29 12:44:40] === Multilingual Datasets ===
+[2025-12-29 12:44:40] SKIP: data/multilingual/hindi/Gramvaani_1000hrData_Part1 already extracted
+[2025-12-29 12:44:40] SKIP: data/multilingual/hindi/Gramvaani_1000hrData_Part2 already extracted
+[2025-12-29 12:44:40] SKIP: data/multilingual/hindi/Gramvaani_1000hrData_Part3 already extracted
+[2025-12-29 12:44:40] SKIP: data/multilingual/hindi/Gramvaani_1000hrData_Part4 already extracted
+[2025-12-29 12:44:40] SKIP: data/multilingual/hindi/Gramvaani_1000hrData_Part5 already extracted
+[2025-12-29 12:44:40] EXTRACTING: data/multilingual/hindi/GV_Dev_5h.tar.gz -> data/multilingual/hindi
+[2025-12-29 12:44:41] DONE: data/multilingual/hindi/GV_Dev_5h.tar.gz
+[2025-12-29 12:44:41] SKIP: data/multilingual/hindi/GV_Eval_3h already extracted
+[2025-12-29 12:44:41] SKIP: data/multilingual/hindi/GV_Train_100h already extracted
+[2025-12-29 12:44:41] EXTRACTING: data/multilingual/hindi_mucs/Hindi_test.tar.gz -> data/multilingual/hindi_mucs
+[2025-12-29 12:44:42] DONE: data/multilingual/hindi_mucs/Hindi_test.tar.gz
+[2025-12-29 12:44:42] EXTRACTING: data/multilingual/hindi_mucs/Hindi_train.tar.gz -> data/multilingual/hindi_mucs
+[2025-12-29 12:45:12] DONE: data/multilingual/hindi_mucs/Hindi_train.tar.gz
+[2025-12-29 12:45:12] EXTRACTING: data/multilingual/korean/zeroth_korean.tar.gz -> data/multilingual/korean
+[2025-12-29 12:45:22] DONE: data/multilingual/korean/zeroth_korean.tar.gz
+[2025-12-29 12:45:22] EXTRACTING: data/multilingual/chinese/Hindi_train.tar.gz -> data/multilingual/chinese
+[2025-12-29 12:45:23] FAILED: data/multilingual/chinese/Hindi_train.tar.gz
+[2025-12-29 12:45:29] SKIP: data/multilingual/chinese/ST-CMDS-20170001_1-OS already extracted
+[2025-12-29 12:45:29] EXTRACTING: data/multilingual/kashmiri/kashmiri.tar.gz -> data/multilingual/kashmiri
+[2025-12-29 12:45:30] DONE: data/multilingual/kashmiri/kashmiri.tar.gz
+[2025-12-29 12:45:30] 
+[2025-12-29 12:45:30] === OpenSLR Datasets ===

@@ -1,0 +1,110 @@
+2026-01-06 21:19:25,452 [INFO] Acquired training lock
+2026-01-06 21:19:25,453 [INFO] Loading encoder from checkpoints/zipformer/en-streaming/exp/pretrained.pt
+2026-01-06 21:19:25,536 [INFO] Encoder loaded: output_dim=512
+2026-01-06 21:19:25,536 [INFO] Loading data from data/emotion/combined_emotion_hf (dataset=combined)
+2026-01-06 21:19:25,968 [INFO] Train batches: 237
+2026-01-06 21:19:25,968 [INFO] Val batches: 26
+2026-01-06 21:19:25,995 [INFO] Head num_classes: 6
+2026-01-06 21:19:25,996 [INFO] Created emotion head with 988,166 parameters
+2026-01-06 21:19:25,997 [INFO] Stage 4: 11,754,487 params (UNFROZEN)
+2026-01-06 21:19:25,997 [INFO] Stage 5: 3,906,660 params (UNFROZEN)
+2026-01-06 21:19:25,997 [INFO] Total unfrozen encoder params: 15,661,147
+2026-01-06 21:19:25,997 [INFO] Total trainable parameters: 16,649,313
+2026-01-06 21:19:25,997 [WARNING] Learning rate 0.001 is too high for encoder fine-tuning. This can cause NaN values during training. Automatically reducing to 0.0001.
+2026-01-06 21:19:25,997 [INFO] Fine-tuning with encoder unfreezing: lr=0.0001 (encoder_lr parameter is ignored - both encoder and head use same lr)
+2026-01-06 21:19:25,997 [INFO] ============================================================
+2026-01-06 21:19:25,997 [INFO] Training Configuration
+2026-01-06 21:19:25,997 [INFO] ============================================================
+2026-01-06 21:19:25,997 [INFO] Head type: emotion
+2026-01-06 21:19:25,997 [INFO] Encoder dim: 512
+2026-01-06 21:19:25,997 [INFO] Batch size: 32
+2026-01-06 21:19:25,997 [INFO] Head learning rate: 0.0001
+2026-01-06 21:19:25,997 [INFO] Encoder learning rate: 1e-05
+2026-01-06 21:19:25,997 [INFO] Unfrozen encoder stages: 2
+2026-01-06 21:19:25,997 [INFO] Gradient clipping: 1.0
+2026-01-06 21:19:25,997 [INFO] Cache clearing: every 100 steps
+2026-01-06 21:19:25,997 [INFO] Label smoothing: 0.1
+2026-01-06 21:19:25,997 [INFO] SpecAugment: True
+2026-01-06 21:19:25,997 [INFO] Param dtype: float32
+2026-01-06 21:19:25,997 [INFO] Epochs: 10
+2026-01-06 21:19:25,997 [INFO] Max steps: 2370
+2026-01-06 21:19:25,997 [INFO] Label key: emotion_labels
+2026-01-06 21:19:25,997 [INFO] ============================================================
+2026-01-06 21:19:25,998 [INFO] Created EncoderHeadModel for fine-tuning (reused across all steps)
+2026-01-06 21:19:25,998 [INFO] Epoch 1/10
+2026-01-06 21:19:28,844 [INFO] Step 10/2370 | Loss: 1.7964 | Acc: 0.1250 | LR: 1.80e-06
+2026-01-06 21:19:31,573 [INFO] Step 20/2370 | Loss: 1.7977 | Acc: 0.1250 | LR: 3.80e-06
+2026-01-06 21:19:34,065 [INFO] Step 30/2370 | Loss: 1.7942 | Acc: 0.0625 | LR: 5.80e-06
+2026-01-06 21:19:36,585 [INFO] Step 40/2370 | Loss: 1.7874 | Acc: 0.1875 | LR: 7.80e-06
+2026-01-06 21:19:38,907 [INFO] Step 50/2370 | Loss: 1.7837 | Acc: 0.1875 | LR: 9.80e-06
+2026-01-06 21:19:41,324 [INFO] Step 60/2370 | Loss: 1.7920 | Acc: 0.2188 | LR: 1.18e-05
+2026-01-06 21:19:44,142 [INFO] Step 70/2370 | Loss: 1.7946 | Acc: 0.2500 | LR: 1.38e-05
+2026-01-06 21:19:46,556 [INFO] Step 80/2370 | Loss: 1.7979 | Acc: 0.1250 | LR: 1.58e-05
+2026-01-06 21:19:49,124 [INFO] Step 90/2370 | Loss: 1.7790 | Acc: 0.2188 | LR: 1.78e-05
+2026-01-06 21:19:51,847 [INFO] Step 100/2370 | Loss: 1.7906 | Acc: 0.1875 | LR: 1.98e-05
+2026-01-06 21:19:55,627 [INFO] [EVAL] Step 100 | Val Loss: 1.7864 | Val Acc: 0.2272
+2026-01-06 21:19:55,629 [INFO] New best validation accuracy: 0.2272
+2026-01-06 21:19:58,276 [INFO] Step 110/2370 | Loss: 1.7830 | Acc: 0.1875 | LR: 2.18e-05
+2026-01-06 21:20:00,897 [INFO] Step 120/2370 | Loss: 1.7476 | Acc: 0.2812 | LR: 2.38e-05
+2026-01-06 21:20:03,558 [INFO] Step 130/2370 | Loss: 1.7919 | Acc: 0.1875 | LR: 2.58e-05
+2026-01-06 21:20:06,400 [INFO] Step 140/2370 | Loss: 1.7761 | Acc: 0.2188 | LR: 2.78e-05
+2026-01-06 21:20:08,920 [INFO] Step 150/2370 | Loss: 1.7881 | Acc: 0.1250 | LR: 2.98e-05
+2026-01-06 21:20:11,669 [INFO] Step 160/2370 | Loss: 1.7764 | Acc: 0.1562 | LR: 3.18e-05
+2026-01-06 21:20:14,038 [INFO] Step 170/2370 | Loss: 1.8089 | Acc: 0.1250 | LR: 3.38e-05
+2026-01-06 21:20:16,485 [INFO] Step 180/2370 | Loss: 1.7920 | Acc: 0.1250 | LR: 3.58e-05
+2026-01-06 21:20:19,091 [INFO] Step 190/2370 | Loss: 1.7735 | Acc: 0.2812 | LR: 3.78e-05
+2026-01-06 21:20:23,287 [INFO] Step 200/2370 | Loss: 1.7759 | Acc: 0.1250 | LR: 3.98e-05
+2026-01-06 21:20:26,993 [INFO] [EVAL] Step 200 | Val Loss: 1.7927 | Val Acc: 0.1971
+2026-01-06 21:20:29,236 [INFO] Step 210/2370 | Loss: 1.8229 | Acc: 0.1250 | LR: 4.18e-05
+2026-01-06 21:20:31,090 [INFO] Epoch 1 complete | Avg Loss: 1.7891 | Avg Acc: 0.1835
+2026-01-06 21:20:31,090 [INFO] Epoch 2/10
+2026-01-06 21:20:31,644 [INFO] Step 220/2370 | Loss: 1.8171 | Acc: 0.1250 | LR: 4.38e-05
+2026-01-06 21:20:33,846 [INFO] Step 230/2370 | Loss: 1.7931 | Acc: 0.2188 | LR: 4.58e-05
+2026-01-06 21:20:36,113 [INFO] Step 240/2370 | Loss: 1.7896 | Acc: 0.2188 | LR: 4.78e-05
+2026-01-06 21:20:38,370 [INFO] Step 250/2370 | Loss: 1.7860 | Acc: 0.2188 | LR: 4.98e-05
+2026-01-06 21:20:40,564 [INFO] Step 260/2370 | Loss: 1.7576 | Acc: 0.1875 | LR: 5.18e-05
+2026-01-06 21:20:42,806 [INFO] Step 270/2370 | Loss: 1.7854 | Acc: 0.1562 | LR: 5.38e-05
+2026-01-06 21:20:45,171 [INFO] Step 280/2370 | Loss: 1.7481 | Acc: 0.3125 | LR: 5.58e-05
+2026-01-06 21:20:47,458 [INFO] Step 290/2370 | Loss: 1.7686 | Acc: 0.2188 | LR: 5.78e-05
+2026-01-06 21:20:50,589 [INFO] Step 300/2370 | Loss: 1.7569 | Acc: 0.1250 | LR: 5.98e-05
+2026-01-06 21:20:54,341 [INFO] [EVAL] Step 300 | Val Loss: 1.7875 | Val Acc: 0.1683
+2026-01-06 21:20:56,497 [INFO] Step 310/2370 | Loss: 1.8023 | Acc: 0.1875 | LR: 6.18e-05
+2026-01-06 21:20:58,525 [INFO] Step 320/2370 | Loss: 1.8038 | Acc: 0.0938 | LR: 6.38e-05
+2026-01-06 21:21:00,713 [INFO] Step 330/2370 | Loss: 1.7750 | Acc: 0.2500 | LR: 6.58e-05
+2026-01-06 21:21:02,900 [INFO] Step 340/2370 | Loss: 1.8130 | Acc: 0.2500 | LR: 6.78e-05
+2026-01-06 21:21:05,330 [INFO] Step 350/2370 | Loss: 1.7915 | Acc: 0.2188 | LR: 6.98e-05
+2026-01-06 21:21:08,366 [INFO] Step 360/2370 | Loss: 1.7769 | Acc: 0.2188 | LR: 7.18e-05
+2026-01-06 21:21:10,565 [INFO] Step 370/2370 | Loss: 1.7828 | Acc: 0.2500 | LR: 7.38e-05
+2026-01-06 21:21:12,626 [INFO] Step 380/2370 | Loss: 1.7269 | Acc: 0.3125 | LR: 7.58e-05
+2026-01-06 21:21:15,568 [INFO] Step 390/2370 | Loss: 1.7425 | Acc: 0.2500 | LR: 7.78e-05
+2026-01-06 21:21:18,392 [INFO] Step 400/2370 | Loss: 1.8118 | Acc: 0.0938 | LR: 7.98e-05
+2026-01-06 21:21:22,185 [INFO] [EVAL] Step 400 | Val Loss: 1.7775 | Val Acc: 0.2175
+2026-01-06 21:21:24,757 [INFO] Step 410/2370 | Loss: 1.7137 | Acc: 0.3125 | LR: 8.18e-05
+2026-01-06 21:21:26,897 [INFO] Step 420/2370 | Loss: 1.7345 | Acc: 0.3125 | LR: 8.38e-05
+2026-01-06 21:21:30,857 [INFO] Epoch 2 complete | Avg Loss: 1.7771 | Avg Acc: 0.2102
+2026-01-06 21:21:30,857 [INFO] Epoch 3/10
+2026-01-06 21:21:31,186 [INFO] Step 430/2370 | Loss: 1.7635 | Acc: 0.2188 | LR: 8.58e-05
+2026-01-06 21:21:42,342 [INFO] Step 440/2370 | Loss: 1.7667 | Acc: 0.1875 | LR: 8.78e-05
+2026-01-06 21:22:16,399 [INFO] Epoch 3 complete | Avg Loss: 1.7714 | Avg Acc: 0.1942
+2026-01-06 21:22:16,399 [INFO] Epoch 4/10
+2026-01-06 21:23:06,116 [INFO] Epoch 4 complete | Avg Loss: 1.7901 | Avg Acc: 0.1875
+2026-01-06 21:23:06,116 [INFO] Epoch 5/10
+2026-01-06 21:23:24,347 [INFO] Step 450/2370 | Loss: 1.7743 | Acc: 0.2812 | LR: 8.98e-05
+2026-01-06 21:23:55,191 [INFO] Epoch 5 complete | Avg Loss: 1.7793 | Avg Acc: 0.2083
+2026-01-06 21:23:55,191 [INFO] Epoch 6/10
+2026-01-06 21:24:03,491 [INFO] Step 460/2370 | Loss: 1.7433 | Acc: 0.2188 | LR: 9.18e-05
+2026-01-06 21:24:42,606 [INFO] Epoch 6 complete | Avg Loss: 1.7658 | Avg Acc: 0.2125
+2026-01-06 21:24:42,606 [INFO] Epoch 7/10
+2026-01-06 21:24:49,849 [INFO] Step 470/2370 | Loss: 1.7917 | Acc: 0.1250 | LR: 9.38e-05
+2026-01-06 21:24:52,146 [INFO] Step 480/2370 | Loss: 1.7583 | Acc: 0.2500 | LR: 9.58e-05
+2026-01-06 21:24:59,232 [INFO] Step 490/2370 | Loss: 1.7809 | Acc: 0.1875 | LR: 9.78e-05
+2026-01-06 21:25:29,952 [INFO] Epoch 7 complete | Avg Loss: 1.7672 | Avg Acc: 0.2308
+2026-01-06 21:25:29,952 [INFO] Epoch 8/10
+2026-01-06 21:26:15,906 [INFO] Epoch 8 complete | Avg Loss: 1.7355 | Avg Acc: 0.2812
+2026-01-06 21:26:15,906 [INFO] Epoch 9/10
+2026-01-06 21:27:01,549 [INFO] Epoch 9 complete | Avg Loss: 0.0000 | Avg Acc: 0.0000
+2026-01-06 21:27:01,549 [INFO] Epoch 10/10
+2026-01-06 21:27:48,090 [INFO] Epoch 10 complete | Avg Loss: 1.7691 | Avg Acc: 0.2500
+2026-01-06 21:27:52,186 [INFO] Final validation: Loss=0.0000, Acc=0.0000
+2026-01-06 21:27:52,189 [INFO] Training completed in 506.19s (0.14h)
+2026-01-06 21:27:52,189 [INFO] Best validation accuracy: 0.2272

@@ -1,0 +1,33 @@
+TLC2 Version 2.20 of Day Month 20?? (rev: bb62e53)
+Running breadth-first search Model-Checking with fp 0 and seed -5321121638665706687 with 16 workers on 16 cores with 14564MB heap and 64MB offheap memory [pid: 13259] (Mac OS X 15.7.3 aarch64, Homebrew 25.0.1 x86_64, MSBDiskFPSet, DiskStateQueue).
+Parsing file /Users/ayates/metal_mps_parallel/mps-verify/specs/AGXV2_3.tla
+Parsing file /private/var/folders/jw/79rkq4_54s71fhhbcy1gq5vr0000gn/T/tlc-3871757683621575088/Integers.tla (jar:file:/Users/ayates/metal_mps_parallel/mps-verify/tools/tla2tools.jar!/tla2sany/StandardModules/Integers.tla)
+Parsing file /private/var/folders/jw/79rkq4_54s71fhhbcy1gq5vr0000gn/T/tlc-3871757683621575088/FiniteSets.tla (jar:file:/Users/ayates/metal_mps_parallel/mps-verify/tools/tla2tools.jar!/tla2sany/StandardModules/FiniteSets.tla)
+Parsing file /private/var/folders/jw/79rkq4_54s71fhhbcy1gq5vr0000gn/T/tlc-3871757683621575088/_TLCTrace.tla (jar:file:/Users/ayates/metal_mps_parallel/mps-verify/tools/tla2tools.jar!/tla2sany/StandardModules/_TLCTrace.tla)
+Parsing file /private/var/folders/jw/79rkq4_54s71fhhbcy1gq5vr0000gn/T/tlc-3871757683621575088/Naturals.tla (jar:file:/Users/ayates/metal_mps_parallel/mps-verify/tools/tla2tools.jar!/tla2sany/StandardModules/Naturals.tla)
+Parsing file /private/var/folders/jw/79rkq4_54s71fhhbcy1gq5vr0000gn/T/tlc-3871757683621575088/Sequences.tla (jar:file:/Users/ayates/metal_mps_parallel/mps-verify/tools/tla2tools.jar!/tla2sany/StandardModules/Sequences.tla)
+Parsing file /private/var/folders/jw/79rkq4_54s71fhhbcy1gq5vr0000gn/T/tlc-3871757683621575088/TLC.tla (jar:file:/Users/ayates/metal_mps_parallel/mps-verify/tools/tla2tools.jar!/tla2sany/StandardModules/TLC.tla)
+Parsing file /private/var/folders/jw/79rkq4_54s71fhhbcy1gq5vr0000gn/T/tlc-3871757683621575088/TLCExt.tla (jar:file:/Users/ayates/metal_mps_parallel/mps-verify/tools/tla2tools.jar!/tla2sany/StandardModules/TLCExt.tla)
+Semantic processing of module Naturals
+Semantic processing of module Integers
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module TLCExt
+Semantic processing of module _TLCTrace
+Semantic processing of module AGXV2_3
+Linting of module TLCExt
+Linting of module _TLCTrace
+Linting of module AGXV2_3
+Starting... (2025-12-25 10:57:29)
+Computing initial states...
+Finished computing initial states: 1 distinct state generated at 2025-12-25 10:57:29.
+Model checking completed. No error has been found.
+  Estimates of the probability that TLC did not check all reachable states
+  because two distinct states had the same fingerprint:
+  calculated (optimistic):  val = 2.3E-10
+  based on the actual fingerprints:  val = 5.6E-9
+130785 states generated, 59168 distinct states found, 0 states left on queue.
+The depth of the complete state graph search is 17.
+The average outdegree of the complete state graph is 1 (minimum is 0, the maximum 31 and the 95th percentile is 8).
+Finished in 00s at (2025-12-25 10:57:29)

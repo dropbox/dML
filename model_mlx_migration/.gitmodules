@@ -1,0 +1,6 @@
+[submodule "tools/mlx_audio/extern/nanobind"]
+	path = tools/mlx_audio/extern/nanobind
+	url = https://github.com/wjakob/nanobind
+[submodule "reference/whisper.cpp"]
+	path = reference/whisper.cpp
+	url = https://github.com/ggml-org/whisper.cpp.git

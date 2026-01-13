@@ -1,0 +1,28 @@
+diff --git a/aten/src/ATen/mps/MPSStream.mm b/aten/src/ATen/mps/MPSStream.mm
+index 59c0de93..eb6d8d89 100644
+--- a/aten/src/ATen/mps/MPSStream.mm
++++ b/aten/src/ATen/mps/MPSStream.mm
+@@ -242,6 +242,11 @@ void MPSStream::executeMPSGraph(MPSGraph* mpsGraph, NSDictionary* feeds, NSDicti
+   auto& profiler = getMPSProfiler();
+   const bool isGraphProfilingEnabled = profiler.isOperationProfilingEnabled();
+ 
++  // Acquire global mutex to serialize MPSGraph encoding across all streams
++  // This is needed because Apple's MPSGraph may have internal global state that
++  // is not thread-safe when encoding to different command buffers simultaneously
++  std::lock_guard<std::mutex> encode_lock(g_mpsgraph_encode_mutex);
++
+   dispatch_sync(_serialQueue, ^() {
+     endKernelCoalescing();
+     if (isGraphProfilingEnabled) {
+@@ -279,6 +284,11 @@ void MPSStream::executeMPSGraph(MPSGraph* mpsGraph, NSDictionary* feeds, NSDicti
+ // Global flag to track if pool is still alive (for safe TLS destruction)
+ static std::atomic<bool> g_pool_alive{false};
+ 
++// Global mutex to serialize MPSGraph encoding across all threads
++// This is needed because Apple's MPSGraph/Metal may have threading limitations
++// when encoding to different command buffers simultaneously
++static std::mutex g_mpsgraph_encode_mutex;
++
+ // TLS RAII wrapper that returns stream slot to freelist on thread exit
+ struct ThreadStreamSlot {
+   size_t slot_index = 0;  // 0 = default stream (not recyclable), >0 = worker slot

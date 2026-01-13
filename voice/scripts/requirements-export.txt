@@ -1,0 +1,31 @@
+# Requirements for Kokoro model export
+# These versions are tested and verified to work together
+#
+# Usage:
+#   python -m venv .venv-export
+#   source .venv-export/bin/activate
+#   pip install -r scripts/requirements-export.txt
+#   python scripts/export_kokoro_torchscript.py --device mps --output models/kokoro
+
+# Core PyTorch - 2.9.1 for native MPS torch.angle() support
+torch==2.9.1
+
+# Kokoro TTS
+kokoro==0.9.4
+
+# Misaki phonemizer (kokoro dependency)
+misaki==0.9.4
+
+# Phonemizer - 3.2.1 has set_data_path(), 3.3.0 removed it (breaks misaki)
+phonemizer==3.2.1
+
+# espeakng-loader for phonemizer backend
+espeakng-loader>=0.2.4
+
+# HuggingFace for model download
+huggingface-hub>=0.20.0
+transformers>=4.40.0
+
+# Other dependencies
+numpy>=1.24.0
+loguru>=0.7.0

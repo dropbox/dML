@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/ayates/model_mlx_migration/src/kokoro/build_full/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

@@ -1,0 +1,67 @@
+#!/bin/bash
+# Pre-commit hook: Run smoke tests before allowing commit
+# Fast validation (<10s) - blocks commits on failure
+#
+# Install: make install-hooks
+# Skip: git commit --no-verify
+# Updated 2025-12-05: Worker #98 - Use Makefile targets
+
+set -e
+
+cd "$(git rev-parse --show-toplevel)"
+
+echo "=============================================="
+echo "  Pre-commit Hook - Smoke Tests"
+echo "=============================================="
+echo ""
+
+# Run smoke tests via Makefile (uses venv pytest automatically)
+echo "Running smoke tests..."
+if make test-smoke; then
+    echo ""
+else
+    echo ""
+    echo "Smoke tests FAILED!"
+    echo ""
+    echo "Fix issues before committing, or use 'git commit --no-verify' to skip."
+    exit 1
+fi
+
+# Check what files are being committed
+STAGED_FILES=$(git diff --cached --name-only)
+
+# Run C++ unit tests if queue-related files changed
+if echo "$STAGED_FILES" | grep -qE "tts_queue|TTSQueueEngine|async_pipeline|streaming_pipeline|lock_free_queue|speech_queue"; then
+    echo ""
+    echo "Queue/pipeline files changed - running C++ queue tests..."
+    if make test-cpp; then
+        echo "C++ queue tests passed"
+    else
+        echo "C++ queue tests FAILED!"
+        exit 1
+    fi
+fi
+
+# Run full integration tests if CLAUDE.md claims WORKING
+if echo "$STAGED_FILES" | grep -q "CLAUDE.md"; then
+    if git diff --cached CLAUDE.md | grep -qE "WORKING|VERIFIED|Working"; then
+        echo ""
+        echo "CLAUDE.md claims system is working - running integration tests..."
+        if make test-integration; then
+            echo "Integration tests passed"
+        else
+            echo ""
+            echo "Integration tests FAILED!"
+            echo "Cannot commit CLAUDE.md with working claims until tests pass."
+            echo ""
+            echo "Either:"
+            echo "  1. Fix the system so tests pass"
+            echo "  2. Update CLAUDE.md to reflect actual broken state"
+            exit 1
+        fi
+    fi
+fi
+
+echo ""
+echo "Pre-commit checks passed."
+exit 0

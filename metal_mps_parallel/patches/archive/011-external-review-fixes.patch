@@ -1,0 +1,177 @@
+diff --git a/aten/src/ATen/mps/MPSAllocator.mm b/aten/src/ATen/mps/MPSAllocator.mm
+index 5de0ca26..79f3ea01 100644
+--- a/aten/src/ATen/mps/MPSAllocator.mm
++++ b/aten/src/ATen/mps/MPSAllocator.mm
+@@ -558,12 +558,17 @@ bool MPSHeapAllocatorImpl::recordEvents(c10::ArrayRef<const void*> buffers) {
+   bool recordedEvent = false;
+   std::lock_guard<std::recursive_mutex> lock(m_mutex);
+ 
++  // THREAD-SAFETY FIX: Get the current thread's stream instead of using nullptr
++  // which would default to stream 0 and cause cross-stream race conditions.
++  // Each thread should record events on its own stream.
++  MPSStream* currentStream = getCurrentMPSStream();
++
+   for (const auto& buffer : buffers) {
+     BufferBlock* buffer_block = get_allocated_buffer_block(buffer);
+     // return if buffer was not allocated on MPSAllocator or isn't a Shared buffer
+     if (buffer_block && (buffer_block->heap->pool->usage & UsageFlags::SHARED)) {
+       if (!buffer_block->event) {
+-        buffer_block->event = m_event_pool->acquireEvent(false, nullptr);
++        buffer_block->event = m_event_pool->acquireEvent(false, currentStream);
+         TORCH_INTERNAL_ASSERT_DEBUG_ONLY(buffer_block->event);
+       }
+       buffer_block->event->record(/*needsLock*/ false);
+diff --git a/aten/src/ATen/mps/MPSHooks.mm b/aten/src/ATen/mps/MPSHooks.mm
+index 91b82b1f..14aebbb9 100644
+--- a/aten/src/ATen/mps/MPSHooks.mm
++++ b/aten/src/ATen/mps/MPSHooks.mm
+@@ -62,9 +62,10 @@ Generator MPSHooks::getNewGenerator([[maybe_unused]] DeviceIndex device_index) c
+ }
+ 
+ void MPSHooks::deviceSynchronize() const {
+-  // THREAD-SAFETY FIX: Use current thread's stream instead of always default stream
+-  // This ensures each thread synchronizes its own stream when calling torch.mps.synchronize()
+-  at::mps::getCurrentMPSStream()->synchronize(SyncType::COMMIT_AND_WAIT);
++  // DEVICE-WIDE SYNC: Synchronize ALL streams in the pool, not just current thread's stream.
++  // This matches CUDA semantics where cudaDeviceSynchronize() waits for all streams.
++  // Python docs promise: "Waits for all kernels in all streams on a MPS device to complete."
++  at::mps::MPSStreamPool::instance().synchronizeAllStreams();
+ }
+ 
+ void MPSHooks::commitStream() const {
+@@ -81,7 +82,8 @@ void* MPSHooks::getCommandBuffer() const {
+ }
+ 
+ void* MPSHooks::getDispatchQueue() const {
+-  return at::mps::getDefaultMPSStream()->queue();
++  // THREAD-SAFETY FIX: Use current thread's stream for proper parallel execution
++  return at::mps::getCurrentMPSStream()->queue();
+ }
+ 
+ void MPSHooks::emptyCache() const {
+diff --git a/aten/src/ATen/mps/MPSStream.h b/aten/src/ATen/mps/MPSStream.h
+index 9f3cbf96..4f9c0f01 100644
+--- a/aten/src/ATen/mps/MPSStream.h
++++ b/aten/src/ATen/mps/MPSStream.h
+@@ -147,7 +147,19 @@ TORCH_API MPSStream* getDefaultMPSStream();
+ 
+ /**
+  * Get a stream from the MPS stream pool using round-robin allocation.
+- * Use this when you need a dedicated stream for parallel execution.
++ *
++ * WARNING: This function increments an internal counter that never resets.
++ * Each call allocates a new stream slot (up to 31 worker streams).
++ * For thread-local stream assignment, use getCurrentMPSStream() instead,
++ * which caches the stream per thread and avoids pool exhaustion.
++ *
++ * Thread churn limitation: If >31 distinct threads call getCurrentMPSStream()
++ * over the process lifetime, a RuntimeError will be thrown. This is a design
++ * limitation of the fixed-size pool. For workloads with high thread churn,
++ * consider reusing threads or using a thread pool.
++ *
++ * Typical usage: Call getCurrentMPSStream() from worker threads, which
++ * automatically acquires and caches a stream per thread.
+  */
+ TORCH_API MPSStream* getStreamFromPool();
+ 
+@@ -215,6 +227,13 @@ class TORCH_API MPSStreamPool {
+    */
+   static constexpr size_t poolSize() { return kMPSStreamsPerPool; }
+ 
++  /**
++   * Synchronize ALL active streams in the pool.
++   * This is used by torch.mps.synchronize() to implement true device-wide sync.
++   * Matches CUDA semantics where cudaDeviceSynchronize() waits for all streams.
++   */
++  void synchronizeAllStreams();
++
+  private:
+   MPSStreamPool();
+   ~MPSStreamPool();
+diff --git a/aten/src/ATen/mps/MPSStream.mm b/aten/src/ATen/mps/MPSStream.mm
+index c12c7f22..5a3ed09a 100644
+--- a/aten/src/ATen/mps/MPSStream.mm
++++ b/aten/src/ATen/mps/MPSStream.mm
+@@ -346,6 +346,18 @@ MPSStream* MPSStreamPool::getStream(size_t index) {
+   return streams_[index].get();
+ }
+ 
++void MPSStreamPool::synchronizeAllStreams() {
++  ensureInitialized();
++
++  // Synchronize all active (non-null) streams
++  // This implements true device-wide sync matching CUDA semantics
++  for (size_t i = 0; i < kMPSStreamsPerPool; ++i) {
++    if (streams_[i] != nullptr) {
++      streams_[i]->synchronize(SyncType::COMMIT_AND_WAIT);
++    }
++  }
++}
++
+ MPSStream* MPSStreamPool::acquireStream() {
+   ensureInitialized();
+ 
+diff --git a/aten/src/ATen/native/mps/MetalShaderLibrary.h b/aten/src/ATen/native/mps/MetalShaderLibrary.h
+index 08cfe88e..80402f39 100644
+--- a/aten/src/ATen/native/mps/MetalShaderLibrary.h
++++ b/aten/src/ATen/native/mps/MetalShaderLibrary.h
+@@ -167,6 +167,8 @@ class MetalShaderLibrary {
+       cplMap;
+   // Mutex to protect libMap and cplMap for thread-safe access
+   mutable std::mutex cacheMutex_;
++  // Thread-safe one-time initialization flag for the no-params library
++  mutable std::once_flag libraryOnceFlag_;
+ };
+ 
+ class DynamicMetalShaderLibrary : public MetalShaderLibrary {
+diff --git a/aten/src/ATen/native/mps/OperationUtils.mm b/aten/src/ATen/native/mps/OperationUtils.mm
+index b055f616..ea03a9a7 100644
+--- a/aten/src/ATen/native/mps/OperationUtils.mm
++++ b/aten/src/ATen/native/mps/OperationUtils.mm
+@@ -810,17 +810,15 @@ MetalShaderLibrary::~MetalShaderLibrary() {
+ }
+ 
+ id<MTLLibrary> MetalShaderLibrary::getLibrary() {
+-  // Fast path: check without lock first
+-  if (C10_LIKELY(library)) {
+-    return library;
+-  }
+-  // Slow path: compile with lock
+-  std::lock_guard<std::mutex> lock(cacheMutex_);
+-  // Re-check under lock
+-  if (!library) {
++  // THREAD-SAFETY FIX: Use std::call_once for proper thread-safe initialization.
++  // The previous double-checked locking pattern had a race condition:
++  // fast path reads `library` without synchronization while slow path writes it.
++  // std::call_once guarantees that initialization happens exactly once and
++  // is visible to all threads with proper memory ordering.
++  std::call_once(libraryOnceFlag_, [this]() {
+     TORCH_INTERNAL_ASSERT(nparams == 0);
+     library = compileLibrary(shaderSource);
+-  }
++  });
+   return library;
+ }
+ 
+diff --git a/aten/src/ATen/native/mps/operations/Linear.mm b/aten/src/ATen/native/mps/operations/Linear.mm
+index 972b567a..11adfca9 100644
+--- a/aten/src/ATen/native/mps/operations/Linear.mm
++++ b/aten/src/ATen/native/mps/operations/Linear.mm
+@@ -137,7 +137,16 @@ Tensor _mps_linear(const Tensor& input, const Tensor& weight_arg, const std::opt
+   // No-graph execution causes nonsense if these are non-contiguous.
+   const bool is_contiguous = input.is_contiguous() && weight.is_contiguous() && bias.is_contiguous();
+ 
+-  if (is_macos_13_or_newer(MacOSVersion::MACOS_VER_15_0_PLUS) && is_contiguous) {
++  // THREAD-SAFETY: Check environment variable for forcing graph path.
++  // The no-graph path requires a global mutex due to Apple's internal thread-safety issues.
++  // Set MPS_FORCE_GRAPH_PATH=1 to always use the graph path, avoiding the mutex.
++  // Trade-off: Graph path has compilation overhead but better parallelism.
++  static const bool force_graph_path = []() {
++    auto val = c10::utils::get_env("MPS_FORCE_GRAPH_PATH");
++    return val.has_value() && val.value() == "1";
++  }();
++
++  if (!force_graph_path && is_macos_13_or_newer(MacOSVersion::MACOS_VER_15_0_PLUS) && is_contiguous) {
+     _mps_linear_nograph(input, weight, bias, output);
+     // Squeeze last dim of 1D linear
+     return weight_arg.dim() != 1 ? output : output.squeeze(-1);

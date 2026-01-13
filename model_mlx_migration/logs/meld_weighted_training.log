@@ -1,0 +1,75 @@
+2026-01-07 08:49:52,290 [INFO] Acquired training lock
+2026-01-07 08:49:52,290 [INFO] Loading encoder from checkpoints/zipformer/en-streaming/exp/pretrained.pt
+2026-01-07 08:49:52,371 [INFO] Encoder loaded: output_dim=512
+2026-01-07 08:49:52,371 [INFO] Loading data from data/emotion_punctuation/MELD.Raw (dataset=meld)
+2026-01-07 08:49:52,718 [INFO] Train batches: 624
+2026-01-07 08:49:52,718 [INFO] Val batches: 69
+2026-01-07 08:49:52,718 [INFO] Head num_classes: 7
+2026-01-07 08:49:52,719 [INFO] Created emotion head with 988,423 parameters
+2026-01-07 08:49:52,719 [INFO] Stage 4: 11,754,487 params (UNFROZEN)
+2026-01-07 08:49:52,719 [INFO] Stage 5: 3,906,660 params (UNFROZEN)
+2026-01-07 08:49:52,719 [INFO] Total unfrozen encoder params: 15,661,147
+2026-01-07 08:49:52,719 [INFO] Total trainable parameters: 16,649,570
+2026-01-07 08:49:52,720 [INFO] Using class weights for emotion: [1.2866159677505493, 5.26515531539917, 5.324093818664551, 0.8186213970184326, 0.3030064105987549, 2.0891027450561523, 1.18411386013031]
+2026-01-07 08:49:52,720 [WARNING] Learning rate 0.001 is too high for encoder fine-tuning. This can cause NaN values during training. Automatically reducing to 5e-05.
+2026-01-07 08:49:52,720 [INFO] Fine-tuning with encoder unfreezing: lr=5e-05 (encoder_lr parameter is ignored - both encoder and head use same lr)
+2026-01-07 08:49:52,720 [INFO] ============================================================
+2026-01-07 08:49:52,720 [INFO] Training Configuration
+2026-01-07 08:49:52,720 [INFO] ============================================================
+2026-01-07 08:49:52,720 [INFO] Head type: emotion
+2026-01-07 08:49:52,720 [INFO] Encoder dim: 512
+2026-01-07 08:49:52,720 [INFO] Batch size: 16
+2026-01-07 08:49:52,720 [INFO] Head learning rate: 5e-05
+2026-01-07 08:49:52,720 [INFO] Encoder learning rate: 1e-05
+2026-01-07 08:49:52,720 [INFO] Unfrozen encoder stages: 2
+2026-01-07 08:49:52,720 [INFO] Gradient clipping: 1.0
+2026-01-07 08:49:52,720 [INFO] Cache clearing: every 100 steps
+2026-01-07 08:49:52,720 [INFO] Label smoothing: 0.1
+2026-01-07 08:49:52,720 [INFO] SpecAugment: True
+2026-01-07 08:49:52,720 [INFO] Param dtype: float32
+2026-01-07 08:49:52,720 [INFO] Epochs: 3
+2026-01-07 08:49:52,720 [INFO] Max steps: 1872
+2026-01-07 08:49:52,720 [INFO] Label key: emotion_labels
+2026-01-07 08:49:52,720 [INFO] ============================================================
+2026-01-07 08:49:52,721 [INFO] Created EncoderHeadModel for fine-tuning (reused across all steps)
+2026-01-07 08:49:52,721 [INFO] Epoch 1/3
+Traceback (most recent call last):
+  File "/Users/ayates/model_mlx_migration/scripts/train_rich_audio_heads.py", line 1303, in <module>
+    main()
+    ~~~~^^
+  File "/Users/ayates/model_mlx_migration/scripts/train_rich_audio_heads.py", line 1299, in main
+    train(args)
+    ~~~~~^^^^^^
+  File "/Users/ayates/model_mlx_migration/scripts/train_rich_audio_heads.py", line 1101, in train
+    loss, logits, grads = _compute_loss_and_grads(
+                          ~~~~~~~~~~~~~~~~~~~~~~~^
+        encoder=encoder,
+        ^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        encoder_grad_scale=encoder_grad_scale,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ayates/model_mlx_migration/scripts/train_rich_audio_heads.py", line 634, in _compute_loss_and_grads
+    loss, grads = loss_and_grad_fn(combined_model)
+                  ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/Users/ayates/Library/Python/3.14/lib/python/site-packages/mlx/nn/utils.py", line 35, in wrapped_value_grad_fn
+    value, grad = value_grad_fn(model.trainable_parameters(), *args, **kwargs)
+                  ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ayates/Library/Python/3.14/lib/python/site-packages/mlx/nn/utils.py", line 29, in inner_fn
+    return fn(*args, **kwargs)
+  File "/Users/ayates/model_mlx_migration/scripts/train_rich_audio_heads.py", line 625, in loss_fn
+    return nn.losses.cross_entropy(
+           ~~~~~~~~~~~~~~~~~~~~~~~^
+        logits,
+        ^^^^^^^
+    ...<3 lines>...
+        reduction="mean",
+        ^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ayates/Library/Python/3.14/lib/python/site-packages/mlx/nn/losses.py", line 110, in cross_entropy
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: Weights with shape (7,) is not the same as output loss with shape (16,).

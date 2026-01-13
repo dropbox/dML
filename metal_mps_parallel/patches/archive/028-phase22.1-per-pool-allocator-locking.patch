@@ -1,0 +1,555 @@
+diff --git a/aten/src/ATen/mps/MPSAllocator.h b/aten/src/ATen/mps/MPSAllocator.h
+index 304a51b7..fb819bbb 100644
+--- a/aten/src/ATen/mps/MPSAllocator.h
++++ b/aten/src/ATen/mps/MPSAllocator.h
+@@ -66,12 +66,16 @@ struct BufferBlock {
+   uint32_t gc_count = 0;
+   uint32_t use_count = 0;
+   // counter to assign unique ids to buffer blocks
+-  static uint64_t buffer_counter;
++  static std::atomic<uint64_t> buffer_counter;
+   // Metal events used to sync GPU/CPU operations on the shared-storage buffers
+   MPSEventPtr event;
+ 
+   BufferBlock(size_t Size, size_t RequestedSize = 0, const id<MTLBuffer> Buffer = nullptr, HeapBlock* Heap = nullptr)
+-      : buffer(Buffer), size(Size), requested_size(RequestedSize), heap(Heap), buf_id(Buffer ? ++buffer_counter : 0) {}
++      : buffer(Buffer),
++        size(Size),
++        requested_size(RequestedSize),
++        heap(Heap),
++        buf_id(Buffer ? (buffer_counter.fetch_add(1, std::memory_order_relaxed) + 1) : 0) {}
+ 
+   static bool Comparator(const BufferBlock* a, const BufferBlock* b) {
+     return (a->size != b->size) ? a->size < b->size : (uintptr_t)a->buffer < (uintptr_t)b->buffer;
+@@ -116,13 +120,13 @@ struct HeapBlock {
+   // indicates if we split this heap to sub-allocate 'several' buffers (otherwise single buffer)
+   bool is_split;
+   // counter to assign unique ids to heap blocks
+-  static uint64_t heap_counter;
++  static std::atomic<uint64_t> heap_counter;
+ 
+   HeapBlock(size_t Size, const id<MTLHeap> Heap = nullptr, BufferPool* Pool = nullptr)
+       : heap(Heap),
+         size({.total = Size, .available = Size}),
+         pool(Pool),
+-        heap_id(Heap ? ++heap_counter : 0),
++        heap_id(Heap ? (heap_counter.fetch_add(1, std::memory_order_relaxed) + 1) : 0),
+         is_split(true) {}
+ 
+   static MTLResourceOptions getOptions(uint32_t usage) {
+@@ -401,18 +405,18 @@ class MPSHeapAllocatorImpl {
+   void init_allocator();
+   void init_buffer_pools();
+   HeapBlock* get_free_heap(AllocParams& params);
+-  bool get_free_buffer(AllocParams& params);
++  bool get_free_buffer(AllocParams& params, std::unique_lock<std::mutex>& pool_lock);
+   BufferBlock* get_allocated_buffer_block(const void* ptr);
+   BufferBlock* alloc_buffer_block(size_t size, uint32_t usage);
+   bool alloc_buffer(AllocParams& params);
+   void free_buffer(BufferBlock* buffer_block);
+   // returns true if the container heap is also released
+-  bool release_buffer(BufferBlock* buffer_block, bool remove_empty_heap = true);
+-  void release_buffers(BufferPool& pool);
+-  bool release_available_cached_buffers(AllocParams& params);
++  bool release_buffer(BufferBlock* buffer_block, std::unique_lock<std::mutex>& pool_lock, bool remove_empty_heap = true);
++  void release_buffers(BufferPool& pool, std::unique_lock<std::mutex>& pool_lock);
++  bool release_available_cached_buffers(AllocParams& params, std::unique_lock<std::mutex>& pool_lock);
+   bool release_cached_buffers();
+   // free unused cached blocks to reclaim GPU memory if memory pressure is high
+-  void garbage_collect_cached_buffers(AllocParams& params);
++  void garbage_collect_cached_buffers(AllocParams& params, std::unique_lock<std::mutex>& pool_lock);
+   // returns the suitable buffer pool type for the usage or
+   // requested/allocated sizes
+   BufferPool& get_pool(size_t requested_size, size_t aligned_size, uint32_t usage);
+diff --git a/aten/src/ATen/mps/MPSAllocator.mm b/aten/src/ATen/mps/MPSAllocator.mm
+index d33146f3..0acfa5a2 100644
+--- a/aten/src/ATen/mps/MPSAllocator.mm
++++ b/aten/src/ATen/mps/MPSAllocator.mm
+@@ -15,8 +15,8 @@ C10_DEFINE_REGISTRY(MPSAllocatorCallbacksRegistry, IMpsAllocatorCallback)
+ 
+ namespace HeapAllocator {
+ 
+-uint64_t BufferBlock::buffer_counter = 0;
+-uint64_t HeapBlock::heap_counter = 0;
++std::atomic<uint64_t> BufferBlock::buffer_counter{0};
++std::atomic<uint64_t> HeapBlock::heap_counter{0};
+ 
+ void MPSHeapAllocatorImpl::init_allocator() {
+   init_buffer_pools();
+@@ -148,7 +148,10 @@ bool MPSHeapAllocatorImpl::alloc_buffer(AllocParams& params) {
+   // insert heap after a buffer was created on it to update the order of heap's set
+   pool.heaps.insert(heap);
+   params.buffer_block = new BufferBlock(params.size(), params.requested_size, buffer, heap);
+-  m_allocated_buffers[params.buffer_block->buffer] = params.buffer_block;
++  {
++    std::lock_guard<std::recursive_mutex> lock(m_mutex);
++    m_allocated_buffers[params.buffer_block->buffer] = params.buffer_block;
++  }
+   pool.allocated_size += params.size();
+   pool.n_buffers++;
+ 
+@@ -165,7 +168,7 @@ bool MPSHeapAllocatorImpl::alloc_buffer(AllocParams& params) {
+   return true;
+ }
+ 
+-bool MPSHeapAllocatorImpl::get_free_buffer(AllocParams& params) {
++bool MPSHeapAllocatorImpl::get_free_buffer(AllocParams& params, std::unique_lock<std::mutex>& pool_lock) {
+   // this helps to monitor "implicit" allocations from MPS backend and to prevent OOM and system failure.
+   if (m_high_watermark_ratio > 0.0 && current_allocated_size() + params.size() > m_max_total_allowed_size) {
+     return false;
+@@ -195,13 +198,13 @@ bool MPSHeapAllocatorImpl::get_free_buffer(AllocParams& params) {
+       } else if (buffer_block->retainCount() <= 1) {
+         // otherwise if buffer is releasable immediately, we make room by releasing the
+         // buffer and reuse the new space within its heap container for the new smaller buffer allocation
+-        release_buffer(buffer_block, false);
++        release_buffer(buffer_block, pool_lock, false);
+         // this will skip unnecessary garbage collection as we'll reuse the newly released space
+         params.has_memory_pressure = false;
+       } else if (params.has_memory_pressure) {
+         // the oversized buffer is busy and not reusable at the moment. So release it (and potentially its heap
+         // container) in allocator, and ARC will later free up its backing memory when the busy command buffer finishes.
+-        release_buffer(buffer_block, true);
++        release_buffer(buffer_block, pool_lock, true);
+       } else {
+         // only if there's no memory pressure, we'll reuse the oversized buffer
+         params.buffer_block = buffer_block;
+@@ -234,6 +237,7 @@ BufferBlock* MPSHeapAllocatorImpl::alloc_buffer_block(size_t size, uint32_t usag
+ 
+   size_t alloc_size = get_allocation_size(size, usage);
+   auto& pool = get_pool(size, alloc_size, usage);
++  std::unique_lock<std::mutex> pool_lock(pool.pool_mutex);
+   AllocParams params(alloc_size, size, &pool);
+   // we care about memory pressure if only we're allocating large buffers when the
+   // low watermark limit has been reached
+@@ -241,24 +245,37 @@ BufferBlock* MPSHeapAllocatorImpl::alloc_buffer_block(size_t size, uint32_t usag
+   params.has_unified_memory = m_device.hasUnifiedMemory;
+ 
+   // first, try to get a block from the existing pool.
+-  bool block_found = get_free_buffer(params);
++  bool block_found = get_free_buffer(params, pool_lock);
+   if (!block_found) {
+     // do garbage collection if memory pressure is high and there's enough memory in pool
+     if (params.has_memory_pressure && alloc_size < pool.available_size) {
+-      garbage_collect_cached_buffers(params);
++      garbage_collect_cached_buffers(params, pool_lock);
+     }
+ 
+-    block_found =
+-        // Attempt allocate
+-        alloc_buffer(params) ||
+-        // Callbacks might release more memory (eg. by forcing a GC in the host language) thus
+-        // we can retry getting a free buffer in the pool, before trying to alloc again.
+-        (trigger_memory_callbacks(nullptr, IMpsAllocatorCallback::EventType::ALLOCATION_FAILED) &&
+-         get_free_buffer(params)) ||
+-        // Free enough available cached blocks to satisfy alloc and retry alloc.
+-        (release_available_cached_buffers(params) && alloc_buffer(params)) ||
+-        // Free all cached buffers and retry alloc.
+-        (release_cached_buffers() && alloc_buffer(params));
++    // Attempt allocate
++    block_found = alloc_buffer(params);
++
++    // Callbacks might release more memory (eg. by forcing a GC in the host language) thus
++    // we can retry getting a free buffer in the pool, before trying to alloc again.
++    if (!block_found) {
++      pool_lock.unlock();
++      trigger_memory_callbacks(nullptr, IMpsAllocatorCallback::EventType::ALLOCATION_FAILED);
++      pool_lock.lock();
++      block_found = get_free_buffer(params, pool_lock);
++    }
++
++    // Free enough available cached blocks to satisfy alloc and retry alloc.
++    if (!block_found) {
++      block_found = release_available_cached_buffers(params, pool_lock) && alloc_buffer(params);
++    }
++
++    // Free all cached buffers and retry alloc.
++    if (!block_found) {
++      pool_lock.unlock();
++      const bool released = release_cached_buffers();
++      pool_lock.lock();
++      block_found = released && alloc_buffer(params);
++    }
+   }
+ 
+   BufferBlock* buffer_block = params.buffer_block;
+@@ -320,6 +337,7 @@ void MPSHeapAllocatorImpl::free_buffer(BufferBlock* buffer_block) {
+ }
+ 
+ BufferBlock* MPSHeapAllocatorImpl::get_allocated_buffer_block(const void* ptr) {
++  std::lock_guard<std::recursive_mutex> lock(m_mutex);
+   auto it = m_allocated_buffers.find(ptr);
+   if (it == m_allocated_buffers.end()) {
+     return nullptr;
+@@ -327,12 +345,18 @@ BufferBlock* MPSHeapAllocatorImpl::get_allocated_buffer_block(const void* ptr) {
+   return it->second;
+ }
+ 
+-bool MPSHeapAllocatorImpl::release_buffer(BufferBlock* buffer_block, bool remove_empty_heap) {
++bool MPSHeapAllocatorImpl::release_buffer(
++    BufferBlock* buffer_block,
++    std::unique_lock<std::mutex>& pool_lock,
++    bool remove_empty_heap) {
+   HeapBlock* heap_block = buffer_block->heap;
+   BufferPool& pool = *heap_block->pool;
+   pool.allocated_size -= buffer_block->size;
+   pool.available_size -= buffer_block->size;
+-  m_allocated_buffers.erase(buffer_block->buffer);
++  {
++    std::lock_guard<std::recursive_mutex> lock(m_mutex);
++    m_allocated_buffers.erase(buffer_block->buffer);
++  }
+   pool.available_buffers.erase(buffer_block);
+   pool.n_buffers--;
+   // will re-insert later to keep the heaps list sorted based on heap's new available size (if heap not empty)
+@@ -365,10 +389,10 @@ bool MPSHeapAllocatorImpl::release_buffer(BufferBlock* buffer_block, bool remove
+     // size of the heap cannot be updated and we should defer updating until command buffer finishes.
+     if (retainCount > 1) {
+       pool.heaps_pending_update.insert(heap_block);
+-      m_mutex.unlock();
++      pool_lock.unlock();
+       MPSStream* stream = getCurrentMPSStream();
+       stream->addCompletedHandler(^(id<MTLCommandBuffer>) {
+-        std::lock_guard<std::recursive_mutex> lock(m_mutex);
++        std::lock_guard<std::mutex> lock(pool.pool_mutex);
+         // check if the heap block still exists
+         if (pool.heaps_pending_update.find(heap_block) != pool.heaps_pending_update.end()) {
+           pool.heaps_pending_update.erase(heap_block);
+@@ -377,13 +401,13 @@ bool MPSHeapAllocatorImpl::release_buffer(BufferBlock* buffer_block, bool remove
+           pool.heaps.insert(heap_block);
+         }
+       });
+-      m_mutex.lock();
++      pool_lock.lock();
+     }
+   }
+   return false;
+ }
+ 
+-void MPSHeapAllocatorImpl::release_buffers(BufferPool& pool) {
++void MPSHeapAllocatorImpl::release_buffers(BufferPool& pool, std::unique_lock<std::mutex>& pool_lock) {
+   if (pool.available_buffers.empty()) {
+     return;
+   }
+@@ -394,15 +418,13 @@ void MPSHeapAllocatorImpl::release_buffers(BufferPool& pool) {
+               << ((pool.usage & UsageFlags::SCALAR) ? " scalar" : "")
+               << " pool (total size: " << format_size(pool.allocated_size) << ", #buffers: " << pool.n_buffers << ")\n";
+   }
+-  auto it = pool.available_buffers.begin();
+-  while (it != pool.available_buffers.end()) {
+-    BufferBlock* buffer_block = *it;
+-    ++it;
+-    release_buffer(buffer_block);
++  while (!pool.available_buffers.empty()) {
++    BufferBlock* buffer_block = *pool.available_buffers.begin();
++    release_buffer(buffer_block, pool_lock);
+   }
+ }
+ 
+-bool MPSHeapAllocatorImpl::release_available_cached_buffers(AllocParams& params) {
++bool MPSHeapAllocatorImpl::release_available_cached_buffers(AllocParams& params, std::unique_lock<std::mutex>& pool_lock) {
+   BufferPool& pool = *params.pool;
+ 
+   if (pool.available_buffers.empty()) {
+@@ -417,9 +439,9 @@ bool MPSHeapAllocatorImpl::release_available_cached_buffers(AllocParams& params)
+       totalReleased += (*it)->size;
+       if (it != pool.available_buffers.begin()) {
+         --it;
+-        release_buffer(*cur);
++        release_buffer(*cur, pool_lock);
+       } else {
+-        release_buffer(*cur);
++        release_buffer(*cur, pool_lock);
+         break;
+       }
+     }
+@@ -427,7 +449,7 @@ bool MPSHeapAllocatorImpl::release_available_cached_buffers(AllocParams& params)
+       return false;
+     }
+   } else {
+-    release_buffer(*it);
++    release_buffer(*it, pool_lock);
+   }
+   return true;
+ }
+@@ -438,29 +460,34 @@ bool MPSHeapAllocatorImpl::release_cached_buffers() {
+               << ", other allocations: " << format_size(current_allocated_size() - m_total_allocated_memory) << ")\n";
+   }
+   // before releasing the buffers make sure the command buffer has finished.
+-  // we need to release the lock temporarily as synchronizing may cause deadlock with completion handlers.
+-  m_mutex.unlock();
+   auto stream = getDefaultMPSStream();
+-  dispatch_sync(stream->queue(), ^() {
+-    stream->synchronize(SyncType::COMMIT_AND_WAIT);
+-  });
+-  m_mutex.lock();
++  dispatch_block_t dispatch_block = ^() {
++    @autoreleasepool {
++      stream->synchronize(SyncType::COMMIT_AND_WAIT);
++    }
++  };
++  if (dispatch_get_specific(getMPSStreamQueueSpecificKey()) == static_cast<void*>(stream)) {
++    dispatch_block();
++  } else {
++    dispatch_sync(stream->queue(), dispatch_block);
++  }
+   // Free all cached blocks to system allocator
+   for (const auto& poolIt : m_pools) {
+     BufferPool& pool = *poolIt.second;
+-    release_buffers(pool);
++    std::unique_lock<std::mutex> pool_lock(pool.pool_mutex);
++    release_buffers(pool, pool_lock);
+   }
+   return true;
+ }
+ 
+-void MPSHeapAllocatorImpl::garbage_collect_cached_buffers(AllocParams& params) {
++void MPSHeapAllocatorImpl::garbage_collect_cached_buffers(AllocParams& params, std::unique_lock<std::mutex>& pool_lock) {
+   // skip garbage collection if memory pressure has already relieved
+   if (current_allocated_size() < m_low_watermark_limit) {
+     return;
+   }
+   // attempt to collect garbage until we reach below low watermark limit
+   const auto target_size = current_allocated_size() - m_low_watermark_limit;
+-  const BufferPool& pool = *params.pool;
++  BufferPool& pool = *params.pool;
+   // calculate the total age of the free-able blocks. We'll use it later to get the average age threshold.
+   double total_age = 0.0;
+   unsigned int freeable_block_count = 0, freed_count = 0;
+@@ -493,7 +520,7 @@ void MPSHeapAllocatorImpl::garbage_collect_cached_buffers(AllocParams& params) {
+         total_age -= buffer_block->gc_count;
+         freeable_block_count--;
+         freed_count++;
+-        release_buffer(buffer_block, !buffer_block->heap->is_split);
++        release_buffer(buffer_block, pool_lock, !buffer_block->heap->is_split);
+       }
+     }
+   }
+@@ -507,29 +534,23 @@ void MPSHeapAllocatorImpl::garbage_collect_cached_buffers(AllocParams& params) {
+ 
+ // public interface to MPSAllocator
+ id<MTLBuffer> MPSHeapAllocatorImpl::malloc(size_t size, uint32_t usage) {
+-  std::lock_guard<std::recursive_mutex> lock(m_mutex);
+-
+   BufferBlock* buffer_block = alloc_buffer_block(size, usage);
+   return buffer_block ? buffer_block->buffer : nullptr;
+ }
+ 
+ bool MPSHeapAllocatorImpl::isSharedBuffer(const void* ptr) {
+-  std::lock_guard<std::recursive_mutex> lock(m_mutex);
+-
+   BufferBlock* buffer_block = get_allocated_buffer_block(ptr);
+   // it's OK for the buffer_block to not exist yet
+   return buffer_block && (buffer_block->heap->pool->usage & UsageFlags::SHARED);
+ }
+ 
+ id<MTLBuffer> MPSHeapAllocatorImpl::allocScalarBufferWithValue(void* value, size_t size) {
+-  BufferBlock* buffer_block = nullptr;
++  BufferBlock* buffer_block = alloc_buffer_block(size, UsageFlags::SCALAR);
++  if (!buffer_block) {
++    return nullptr;
++  }
+   {
+-    std::lock_guard<std::recursive_mutex> lock(m_mutex);
+-
+-    buffer_block = alloc_buffer_block(size, UsageFlags::SCALAR);
+-    if (!buffer_block) {
+-      return nullptr;
+-    }
++    std::lock_guard<std::mutex> lock(buffer_block->heap->pool->pool_mutex);
+     if (!buffer_block->cpu_ptr) {
+       buffer_block->cpu_ptr = [buffer_block->buffer contents];
+     }
+@@ -540,13 +561,13 @@ id<MTLBuffer> MPSHeapAllocatorImpl::allocScalarBufferWithValue(void* value, size
+ }
+ 
+ std::pair<const void*, uint32_t> MPSHeapAllocatorImpl::getSharedBufferPtr(const void* ptr) {
+-  std::lock_guard<std::recursive_mutex> lock(m_mutex);
+-
+   BufferBlock* buffer_block = get_allocated_buffer_block(ptr);
+   // return if buffer was not allocated on MPSAllocator or isn't a Shared buffer
+   if (!buffer_block || !(buffer_block->heap->pool->usage & UsageFlags::SHARED)) {
+     return {nullptr, 0};
+   }
++  BufferPool& pool = *buffer_block->heap->pool;
++  std::lock_guard<std::mutex> lock(pool.pool_mutex);
+   if (!buffer_block->cpu_ptr) {
+     buffer_block->cpu_ptr = [buffer_block->buffer contents];
+   }
+@@ -555,7 +576,6 @@ std::pair<const void*, uint32_t> MPSHeapAllocatorImpl::getSharedBufferPtr(const
+ 
+ bool MPSHeapAllocatorImpl::recordEvents(c10::ArrayRef<const void*> buffers) {
+   bool recordedEvent = false;
+-  std::lock_guard<std::recursive_mutex> lock(m_mutex);
+ 
+   // THREAD-SAFETY FIX: Get the current thread's stream instead of using nullptr
+   // which would default to stream 0 and cause cross-stream race conditions.
+@@ -566,6 +586,8 @@ bool MPSHeapAllocatorImpl::recordEvents(c10::ArrayRef<const void*> buffers) {
+     BufferBlock* buffer_block = get_allocated_buffer_block(buffer);
+     // return if buffer was not allocated on MPSAllocator or isn't a Shared buffer
+     if (buffer_block && (buffer_block->heap->pool->usage & UsageFlags::SHARED)) {
++      BufferPool& pool = *buffer_block->heap->pool;
++      std::lock_guard<std::mutex> lock(pool.pool_mutex);
+       if (!buffer_block->event) {
+         buffer_block->event = m_event_pool->acquireEvent(false, currentStream);
+         TORCH_INTERNAL_ASSERT_DEBUG_ONLY(buffer_block->event);
+@@ -578,52 +600,53 @@ bool MPSHeapAllocatorImpl::recordEvents(c10::ArrayRef<const void*> buffers) {
+ }
+ 
+ bool MPSHeapAllocatorImpl::waitForEvents(c10::ArrayRef<const void*> buffers) {
+-  std::vector<BufferBlock*> buffer_blocks;
+-  {
+-    std::lock_guard<std::recursive_mutex> lock(m_mutex);
+-    for (const auto& buffer : buffers) {
+-      BufferBlock* buffer_block = get_allocated_buffer_block(buffer);
+-      // wait on event if "shared" buffer was allocated on MPSAllocator and
+-      // or actually needs waiting (based on retainCount)
+-      if (buffer_block && (buffer_block->heap->pool->usage & UsageFlags::SHARED) && buffer_block->retainCount() > 1 &&
+-          buffer_block->event) {
+-        buffer_blocks.push_back(buffer_block);
++  std::vector<MPSEvent*> events;
++  events.reserve(buffers.size());
++
++  for (const auto& buffer : buffers) {
++    BufferBlock* buffer_block = get_allocated_buffer_block(buffer);
++    if (!buffer_block || !(buffer_block->heap->pool->usage & UsageFlags::SHARED)) {
++      continue;
++    }
++    BufferPool& pool = *buffer_block->heap->pool;
++    std::lock_guard<std::mutex> lock(pool.pool_mutex);
++    // wait on event if "shared" buffer was allocated on MPSAllocator and
++    // or actually needs waiting (based on retainCount)
++    if (buffer_block->retainCount() > 1) {
++      if (!buffer_block->event) {
++        return false;
+       }
++      events.push_back(buffer_block->event.get());
+     }
+   }
+   bool waitedForEvent = false;
+ 
+-  for (const auto& buffer_block : buffer_blocks) {
+-    // check for retain count again as the previous wait might have released the buffer
+-    if (buffer_block->retainCount() > 1) {
+-      bool waitedOnCPU = buffer_block->event->synchronize();
+-      if (waitedOnCPU) {
+-        // after waiting, it's a good time to free some pending inactive buffers
+-        freeInactiveBuffers();
+-        waitedForEvent |= buffer_block->retainCount() <= 1;
+-      } else {
+-        // even if one of the buffers weren't recorded beforehand, we return
+-        // without continuing with other buffers since retainCount > 1
+-        waitedForEvent = false;
+-        break;
+-      }
++  for (MPSEvent* event : events) {
++    bool waitedOnCPU = event->synchronize();
++    if (waitedOnCPU) {
++      // after waiting, it's a good time to free some pending inactive buffers
++      freeInactiveBuffers();
++      waitedForEvent = true;
++    } else {
++      // The event has not been recorded (or was already signaled); callers
++      // expect "did wait" semantics here, so stop early.
++      waitedForEvent = false;
++      break;
+     }
+   }
+   return waitedForEvent;
+ }
+ 
+ id_t MPSHeapAllocatorImpl::getBufferId(const void* ptr) {
+-  std::lock_guard<std::recursive_mutex> lock(m_mutex);
+-
+   BufferBlock* buffer_block = get_allocated_buffer_block(ptr);
+   return buffer_block ? buffer_block->buf_id : 0;
+ }
+ 
+ ssize_t MPSHeapAllocatorImpl::getUnalignedBufferSize(const void* ptr) {
+-  std::lock_guard<std::recursive_mutex> lock(m_mutex);
+-
+   BufferBlock* buffer_block = get_allocated_buffer_block(ptr);
+   if (buffer_block) {
++    BufferPool& pool = *buffer_block->heap->pool;
++    std::lock_guard<std::mutex> lock(pool.pool_mutex);
+     return (ssize_t)buffer_block->requested_size;
+   }
+   // -1 indicates the passed buffer pointer wasn't found
+@@ -631,10 +654,10 @@ ssize_t MPSHeapAllocatorImpl::getUnalignedBufferSize(const void* ptr) {
+ }
+ 
+ void MPSHeapAllocatorImpl::setBufferShape(const void* ptr, const IntArrayRef& shape) {
+-  std::lock_guard<std::recursive_mutex> lock(m_mutex);
+-
+   BufferBlock* buffer_block = get_allocated_buffer_block(ptr);
+   TORCH_INTERNAL_ASSERT(buffer_block, "failed to find the buffer ", ptr);
++  BufferPool& pool = *buffer_block->heap->pool;
++  std::lock_guard<std::mutex> lock(pool.pool_mutex);
+   // note that the IntArrayRef doesn't own the underlying data, and the backing
+   // memory for shape data must persist as long as the buffer is in use.
+   // So we need to copy to vector.
+@@ -642,42 +665,39 @@ void MPSHeapAllocatorImpl::setBufferShape(const void* ptr, const IntArrayRef& sh
+ }
+ 
+ IntArrayRef MPSHeapAllocatorImpl::getBufferShape(const void* ptr) {
+-  std::lock_guard<std::recursive_mutex> lock(m_mutex);
+-
+   BufferBlock* buffer_block = get_allocated_buffer_block(ptr);
+-  if (buffer_block && !buffer_block->shape.empty()) {
+-    return IntArrayRef{buffer_block->shape};
++  if (buffer_block) {
++    BufferPool& pool = *buffer_block->heap->pool;
++    std::lock_guard<std::mutex> lock(pool.pool_mutex);
++    if (!buffer_block->shape.empty()) {
++      return IntArrayRef{buffer_block->shape};
++    }
+   }
+   return IntArrayRef();
+ }
+ 
+ void MPSHeapAllocatorImpl::free(void* ptr) {
+-  BufferBlock* buffer_block = nullptr;
+-  {
+-    std::lock_guard<std::recursive_mutex> lock(m_mutex);
+-
+-    buffer_block = get_allocated_buffer_block(ptr);
+-    TORCH_INTERNAL_ASSERT(buffer_block);
+-    const BufferPool& pool = *buffer_block->heap->pool;
+-    if (!(pool.usage & UsageFlags::SCALAR)) {
+-      free_buffer(buffer_block);
+-      return;
+-    }
++  BufferBlock* buffer_block = get_allocated_buffer_block(ptr);
++  TORCH_INTERNAL_ASSERT(buffer_block);
++  BufferPool& pool = *buffer_block->heap->pool;
++  if (!(pool.usage & UsageFlags::SCALAR)) {
++    std::lock_guard<std::mutex> lock(pool.pool_mutex);
++    free_buffer(buffer_block);
++    return;
+   }
+   // we sync the scalar pool manually with completion handler at the time buffer is
+   // freed when the MPSScalar instance goes out of scope
+   MPSStream* stream = getCurrentMPSStream();
+   stream->addCompletedHandler(^(id<MTLCommandBuffer>) {
+-    std::lock_guard<std::recursive_mutex> lock(m_mutex);
++    std::lock_guard<std::mutex> lock(pool.pool_mutex);
+     free_buffer(buffer_block);
+   });
+ }
+ 
+ void MPSHeapAllocatorImpl::freeInactiveBuffers() {
+-  std::lock_guard<std::recursive_mutex> lock(m_mutex);
+-
+   for (const auto& poolIt : m_pools) {
+     BufferPool& pool = *poolIt.second;
++    std::lock_guard<std::mutex> lock(pool.pool_mutex);
+     if (!pool.buffers_pending_free.empty()) {
+       for (auto it = pool.buffers_pending_free.begin(), last = pool.buffers_pending_free.end(); it != last;) {
+         BufferBlock* buffer_block = *it;
+@@ -693,7 +713,6 @@ void MPSHeapAllocatorImpl::freeInactiveBuffers() {
+ }
+ 
+ void MPSHeapAllocatorImpl::emptyCache() {
+-  std::lock_guard<std::recursive_mutex> lock(m_mutex);
+   release_cached_buffers();
+ }
+ 

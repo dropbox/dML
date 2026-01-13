@@ -1,0 +1,56 @@
+[
+  {
+    "model": "ECAPA-TDNN",
+    "params_millions": 14.0,
+    "eager_ms": 23.65422074799426,
+    "eager_std": 18.8253779018462,
+    "compiled_ms": 46.04976449627429,
+    "compiled_std": 12.22572717130711,
+    "speedup": 0.5136664868266162
+  },
+  {
+    "model": "AST",
+    "params_millions": 87.0,
+    "eager_ms": 189.97293130960315,
+    "eager_std": 20.78678313914684,
+    "compiled_ms": 179.23015220148955,
+    "compiled_std": 44.79738147273534,
+    "speedup": 1.0599384588818328
+  },
+  {
+    "model": "Emotion2vec",
+    "params_millions": 94.0,
+    "eager_ms": 74.73355814872775,
+    "eager_std": 18.881350436302597,
+    "compiled_ms": 80.02360209648032,
+    "compiled_std": 14.524504398726267,
+    "speedup": 0.9338939536691359
+  },
+  {
+    "model": "Wav2Vec2-XLSR",
+    "params_millions": 315.0,
+    "eager_ms": 140.29923115449492,
+    "eager_std": 50.89727855287514,
+    "compiled_ms": 134.74808739265427,
+    "compiled_std": 55.625971269023154,
+    "speedup": 1.041196456805095
+  },
+  {
+    "model": "BEATs",
+    "params_millions": 90.0,
+    "eager_ms": 84.72761446028017,
+    "eager_std": 37.20308228109595,
+    "compiled_ms": 110.356804143521,
+    "compiled_std": 12.33029494869306,
+    "speedup": 0.7677606751831122
+  },
+  {
+    "model": "WavLM-large",
+    "params_millions": 316.0,
+    "eager_ms": 183.8553186476929,
+    "eager_std": 66.73649820073204,
+    "compiled_ms": 181.66069580474868,
+    "compiled_std": 65.5864632820403,
+    "speedup": 1.0120808897776272
+  }
+]

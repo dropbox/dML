@@ -1,0 +1,30 @@
+{
+  "test": "bounded_wait",
+  "passed": true,
+  "config": {
+    "num_threads": 8,
+    "iterations_per_thread": 50,
+    "max_wait_threshold_ms": 2000.0,
+    "pool_size": 4,
+    "used_mps": true
+  },
+  "statistics": {
+    "total_measurements": 400,
+    "total_waits": 400,
+    "min_wait_ns": 125000,
+    "max_wait_ns": 30825000,
+    "mean_wait_ns": 1738912.5,
+    "median_wait_ns": 1136000.0,
+    "p95_wait_ns": 2149000,
+    "p99_wait_ns": 29851000,
+    "histogram_ms": {
+      "0-1ms": 154,
+      "1-10ms": 238,
+      "10-100ms": 8,
+      "100-1000ms": 0,
+      "1000ms+": 0
+    }
+  },
+  "violations_count": 0,
+  "timestamp": "2025-12-19T19:28:27Z"
+}

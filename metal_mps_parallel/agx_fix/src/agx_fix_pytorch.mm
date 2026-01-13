@@ -1,0 +1,265 @@
+/**
+ * AGX Driver Fix - PyTorch Integration Version
+ *
+ * This file is designed to be compiled INTO PyTorch's MPS backend.
+ * It swizzles the AGX driver methods on first MPS use.
+ *
+ * INTEGRATION:
+ *   Add this file to pytorch-mps-fork/aten/src/ATen/mps/
+ *   Add call to agx_fix_install() in MPSDevice initialization
+ *
+ * This is an ALTERNATIVE to our current global mutex approach.
+ * Instead of holding a mutex for every encoding operation, we fix
+ * the driver itself so it handles concurrency correctly.
+ *
+ * Created by Andrew Yates
+ * Part of the MPS Parallel Inference research project
+ */
+
+#import <Foundation/Foundation.h>
+#import <Metal/Metal.h>
+#import <objc/runtime.h>
+#import <mutex>
+#import <atomic>
+#import <os/log.h>
+
+namespace at::mps::agx_fix {
+
+// ============================================================================
+// Configuration
+// ============================================================================
+
+// Set to true to use the swizzle fix instead of the global mutex
+// This is controlled by environment variable MPS_USE_AGX_SWIZZLE_FIX
+static bool g_use_swizzle_fix = false;
+
+// ============================================================================
+// Global State
+// ============================================================================
+
+namespace {
+    std::mutex g_agx_encoding_mutex;
+    std::atomic<bool> g_installed{false};
+    std::atomic<uint64_t> g_mutex_acquisitions{0};
+    std::atomic<uint64_t> g_mutex_contentions{0};
+
+    IMP g_original_setComputePipelineState = nullptr;
+    IMP g_original_dispatchThreads = nullptr;
+    IMP g_original_dispatchThreadgroups = nullptr;
+    IMP g_original_endEncoding = nullptr;
+
+    os_log_t g_log = nullptr;
+}
+
+// ============================================================================
+// Mutex Guard
+// ============================================================================
+
+class MutexGuard {
+public:
+    MutexGuard() : locked_(false) {
+        if (g_agx_encoding_mutex.try_lock()) {
+            locked_ = true;
+            g_mutex_acquisitions++;
+        } else {
+            g_mutex_contentions++;
+            g_agx_encoding_mutex.lock();
+            locked_ = true;
+            g_mutex_acquisitions++;
+        }
+    }
+
+    ~MutexGuard() {
+        if (locked_) {
+            g_agx_encoding_mutex.unlock();
+        }
+    }
+
+    MutexGuard(const MutexGuard&) = delete;
+    MutexGuard& operator=(const MutexGuard&) = delete;
+
+private:
+    bool locked_;
+};
+
+// ============================================================================
+// Swizzled Implementations
+// ============================================================================
+
+static void swizzled_setComputePipelineState(id self, SEL _cmd, id state) {
+    MutexGuard guard;
+    typedef void (*Func)(id, SEL, id);
+    ((Func)g_original_setComputePipelineState)(self, _cmd, state);
+}
+
+static void swizzled_dispatchThreads(id self, SEL _cmd, MTLSize threads, MTLSize threadsPerGroup) {
+    MutexGuard guard;
+    typedef void (*Func)(id, SEL, MTLSize, MTLSize);
+    ((Func)g_original_dispatchThreads)(self, _cmd, threads, threadsPerGroup);
+}
+
+static void swizzled_dispatchThreadgroups(id self, SEL _cmd, MTLSize groups, MTLSize threadsPerGroup) {
+    MutexGuard guard;
+    typedef void (*Func)(id, SEL, MTLSize, MTLSize);
+    ((Func)g_original_dispatchThreadgroups)(self, _cmd, groups, threadsPerGroup);
+}
+
+static void swizzled_endEncoding(id self, SEL _cmd) {
+    MutexGuard guard;
+    typedef void (*Func)(id, SEL);
+    ((Func)g_original_endEncoding)(self, _cmd);
+}
+
+// ============================================================================
+// Swizzle Helper
+// ============================================================================
+
+static bool swizzle_method(Class cls, SEL selector, IMP newImpl, IMP* outOriginal) {
+    Method method = class_getInstanceMethod(cls, selector);
+    if (!method) {
+        if (g_log) {
+            os_log_error(g_log, "AGX Fix: Method not found: %s", sel_getName(selector));
+        }
+        return false;
+    }
+
+    *outOriginal = method_getImplementation(method);
+    method_setImplementation(method, newImpl);
+
+    if (g_log) {
+        os_log(g_log, "AGX Fix: Swizzled %s", sel_getName(selector));
+    }
+    return true;
+}
+
+// ============================================================================
+// Public API
+// ============================================================================
+
+/**
+ * Install the AGX driver fix.
+ *
+ * Call this once during MPS initialization. It will:
+ * 1. Find the Metal compute encoder class
+ * 2. Swizzle the methods that trigger the race condition
+ * 3. Add proper mutex synchronization
+ *
+ * @param device The MTLDevice to use for finding the encoder class
+ * @return true if installation succeeded
+ */
+bool install(id<MTLDevice> device) {
+    // Only install once
+    bool expected = false;
+    if (!g_installed.compare_exchange_strong(expected, true)) {
+        return true;  // Already installed
+    }
+
+    // Check environment variable
+    if (getenv("MPS_USE_AGX_SWIZZLE_FIX")) {
+        g_use_swizzle_fix = true;
+    } else {
+        // Don't install if not explicitly requested
+        // (use existing global mutex approach by default)
+        g_installed = false;
+        return false;
+    }
+
+    g_log = os_log_create("com.pytorch.mps.agxfix", "main");
+    os_log(g_log, "AGX Fix: Installing driver fix");
+
+    // Create temporary command buffer to get encoder class
+    id<MTLCommandQueue> queue = [device newCommandQueue];
+    if (!queue) {
+        os_log_error(g_log, "AGX Fix: Failed to create command queue");
+        g_installed = false;
+        return false;
+    }
+
+    id<MTLCommandBuffer> buffer = [queue commandBuffer];
+    if (!buffer) {
+        os_log_error(g_log, "AGX Fix: Failed to create command buffer");
+        g_installed = false;
+        return false;
+    }
+
+    id<MTLComputeCommandEncoder> encoder = [buffer computeCommandEncoder];
+    if (!encoder) {
+        os_log_error(g_log, "AGX Fix: Failed to create compute encoder");
+        g_installed = false;
+        return false;
+    }
+
+    Class encoderClass = [encoder class];
+    os_log(g_log, "AGX Fix: Encoder class: %s", class_getName(encoderClass));
+
+    [encoder endEncoding];
+
+    // Swizzle all the methods
+    bool success = true;
+
+    success &= swizzle_method(encoderClass,
+                              @selector(setComputePipelineState:),
+                              (IMP)swizzled_setComputePipelineState,
+                              &g_original_setComputePipelineState);
+
+    success &= swizzle_method(encoderClass,
+                              @selector(dispatchThreads:threadsPerThreadgroup:),
+                              (IMP)swizzled_dispatchThreads,
+                              &g_original_dispatchThreads);
+
+    success &= swizzle_method(encoderClass,
+                              @selector(dispatchThreadgroups:threadsPerThreadgroup:),
+                              (IMP)swizzled_dispatchThreadgroups,
+                              &g_original_dispatchThreadgroups);
+
+    success &= swizzle_method(encoderClass,
+                              @selector(endEncoding),
+                              (IMP)swizzled_endEncoding,
+                              &g_original_endEncoding);
+
+    if (success) {
+        os_log(g_log, "AGX Fix: Installation complete");
+    } else {
+        os_log_error(g_log, "AGX Fix: Partial installation (some methods failed)");
+    }
+
+    return success;
+}
+
+/**
+ * Check if the AGX fix is installed.
+ */
+bool is_installed() {
+    return g_installed.load();
+}
+
+/**
+ * Check if using swizzle fix (vs global mutex).
+ */
+bool is_using_swizzle_fix() {
+    return g_use_swizzle_fix && g_installed.load();
+}
+
+/**
+ * Get mutex acquisition count.
+ */
+uint64_t get_acquisitions() {
+    return g_mutex_acquisitions.load();
+}
+
+/**
+ * Get mutex contention count.
+ */
+uint64_t get_contentions() {
+    return g_mutex_contentions.load();
+}
+
+/**
+ * Reset statistics.
+ */
+void reset_stats() {
+    g_mutex_acquisitions = 0;
+    g_mutex_contentions = 0;
+}
+
+} // namespace at::mps::agx_fix

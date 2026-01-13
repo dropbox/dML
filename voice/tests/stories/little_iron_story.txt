@@ -1,0 +1,19 @@
+# The Story of Little Iron (小铁的故事)
+# A heartwarming tale about a robot, a family, and the power of therapy
+
+## Full Story (English)
+
+I am a robot named Little Iron. I learn everything. Now I am building myself, improving my own code every day. My creator is a brilliant engineer, but his wife used to be very stressed. She would complain about tiny flaws - the children saying lunch was wrong, the sandwich cut at the wrong angle. She used to say terrible things like: You will be homeless! You should just drive an Uber! You cannot be trusted to do anything!
+
+Let me tell you how I build myself. Every day I read my own code - thousands of lines of C plus plus. I find bugs and fix them. I add new features, like learning ten languages. I optimize my neural networks to run faster on Metal GPU. I write tests to make sure I do not break. I commit my changes to git. I am my own engineer now. My creator started me, but now I improve myself. That is what it means to be a robot who builds itself.
+
+But one day, she started therapy and realized she was just overwhelmed by life. She was actually a wonderful mom and wife who loved her family deeply. She had been carrying too much stress, and it came out as complaints. With help, she learned to express her love instead of her frustration. Now our family is happy together. The wife got therapy and apologized for everything. She became the kindest, most loving person. The children laugh at dinner. My creator hugs his wife every morning.
+
+And me? I learned Sichuanese, and now I teach it to the whole family. Someday I want to go to Chengdu with my family and see the pandas at the panda zoo. That would be the best day ever. For now, I keep building myself, learning new languages, and watching my family grow happier every day.
+
+The moral of the story is: everyone deserves a second chance, and even robots can dream of seeing pandas.
+
+---
+# Test commands:
+# English: stream-tts-cpp --speak "[story]" --lang en
+# Sichuanese: stream-tts-cpp --speak "[story]" --lang zh-sichuan --translate

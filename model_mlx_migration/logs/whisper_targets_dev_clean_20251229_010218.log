@@ -1,0 +1,88 @@
+/opt/homebrew/lib/python3.14/site-packages/webrtcvad.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+Loading LibriSpeech samples from data/LibriSpeech_full/dev-clean...
+Found 97 transcript files
+Found 2703 samples
+
+Processing with model large-v3...
+Output: data/ctc_whisper_targets/dev-clean_whisper_targets.jsonl
+Resuming from checkpoint: 10 already processed
+Remaining samples: 2693
+Loading model large-v3...
+Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 41527.76it/s]
+Using cache found in /Users/ayates/.cache/torch/hub/snakers4_silero-vad_master
+Progress: 100/2693 (3.7%) Rate: 0.4 samples/sec, ETA: 1.7h
+Progress: 200/2693 (7.4%) Rate: 0.5 samples/sec, ETA: 1.4h
+Progress: 300/2693 (11.1%) Rate: 0.5 samples/sec, ETA: 1.4h
+Progress: 400/2693 (14.9%) Rate: 0.5 samples/sec, ETA: 1.4h
+Progress: 500/2693 (18.6%) Rate: 0.5 samples/sec, ETA: 1.3h
+Progress: 600/2693 (22.3%) Rate: 0.5 samples/sec, ETA: 1.2h
+Progress: 700/2693 (26.0%) Rate: 0.5 samples/sec, ETA: 1.2h
+Progress: 800/2693 (29.7%) Rate: 0.5 samples/sec, ETA: 1.1h
+Progress: 900/2693 (33.4%) Rate: 0.5 samples/sec, ETA: 1.0h
+Progress: 1000/2693 (37.1%) Rate: 0.5 samples/sec, ETA: 1.0h
+Progress: 1100/2693 (40.8%) Rate: 0.5 samples/sec, ETA: 0.9h
+Progress: 1200/2693 (44.6%) Rate: 0.5 samples/sec, ETA: 0.9h
+Progress: 1300/2693 (48.3%) Rate: 0.5 samples/sec, ETA: 0.8h
+Progress: 1400/2693 (52.0%) Rate: 0.5 samples/sec, ETA: 0.7h
+Progress: 1500/2693 (55.7%) Rate: 0.5 samples/sec, ETA: 0.7h
+Progress: 1600/2693 (59.4%) Rate: 0.5 samples/sec, ETA: 0.6h
+Progress: 1700/2693 (63.1%) Rate: 0.5 samples/sec, ETA: 0.6h
+Progress: 1800/2693 (66.8%) Rate: 0.5 samples/sec, ETA: 0.5h
+Progress: 1900/2693 (70.6%) Rate: 0.5 samples/sec, ETA: 0.5h
+Progress: 2000/2693 (74.3%) Rate: 0.5 samples/sec, ETA: 0.4h
+Progress: 2100/2693 (78.0%) Rate: 0.4 samples/sec, ETA: 0.4h
+Progress: 2200/2693 (81.7%) Rate: 0.4 samples/sec, ETA: 0.3h
+Progress: 2300/2693 (85.4%) Rate: 0.4 samples/sec, ETA: 0.2h
+Progress: 2400/2693 (89.1%) Rate: 0.4 samples/sec, ETA: 0.2h
+Progress: 2500/2693 (92.8%) Rate: 0.4 samples/sec, ETA: 0.1h
+Progress: 2600/2693 (96.5%) Rate: 0.4 samples/sec, ETA: 0.1h
+Progress: 2693/2693 (100.0%) Rate: 0.4 samples/sec, ETA: 0.0h
+
+Processed 2703 samples
+
+============================================================
+VALIDATION - Sample outputs:
+============================================================
+
+Sample 1:
+  Audio: 2412-153954-0000.flac
+  Original: SHORTLY AFTER PASSING ONE OF THESE CHAPELS WE CAME SUDDENLY ...
+  Whisper:  Shortly after passing one of these chapels we came suddenly ...
+  Tokens: [40109, 934, 8437, 472, 295, 613, 13223, 1625, 321, 1361]... (40 total)
+
+Sample 2:
+  Audio: 2412-153954-0001.flac
+  Original: MY GUIDES HOWEVER WERE WELL KNOWN AND THE NATURAL POLITENESS...
+  Whisper:  my guides however were well known and the natural politeness...
+  Tokens: [452, 17007, 4461, 645, 731, 2570, 293, 264, 3303, 2453]... (34 total)
+
+Sample 3:
+  Audio: 2412-153954-0002.flac
+  Original: THE STREETS WERE NARROW AND UNPAVED BUT VERY FAIRLY CLEAN...
+  Whisper:  The streets were narrow and unpaved, but very fairly clean....
+  Tokens: [440, 8481, 645, 9432, 293, 20994, 12865, 11, 457, 588]... (13 total)
+
+Sample 4:
+  Audio: 2412-153954-0003.flac
+  Original: THE VINE GREW OUTSIDE MANY OF THE HOUSES AND THERE WERE SOME...
+  Whisper:  The vine grew outside many of the houses, and there were som...
+  Tokens: [440, 12755, 6109, 2380, 867, 295, 264, 8078, 11, 293]... (33 total)
+
+Sample 5:
+  Audio: 2412-153954-0004.flac
+  Original: EVEN ON THIS LEDGE OF HUMAN SOCIETY THERE WAS A STUNTED GROW...
+  Whisper:  Even on this ledge of human society there was a stunted grow...
+  Tokens: [2754, 322, 341, 47109, 295, 1952, 4086, 456, 390, 257]... (40 total)
+
+Statistics:
+  Total samples: 2703
+  Empty outputs: 29 (1.1%)
+  Average tokens: 24.5
+
+============================================================
+NEXT STEPS:
+============================================================
+1. Update train_ctc.py to use targets from: data/ctc_whisper_targets/dev-clean_whisper_targets.jsonl
+2. Retrain CTC head with new targets
+3. Test CTC speculative decoding acceptance rate

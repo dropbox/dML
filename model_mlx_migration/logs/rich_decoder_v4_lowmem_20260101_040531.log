@@ -1,0 +1,305 @@
+/opt/homebrew/lib/python3.14/site-packages/webrtcvad.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+Train: 19734 samples
+Val: 2193 samples
+Cache-only mode: 14466/19734 samples (73.3% cached)
+Cache-only mode: 2193/2193 samples (100.0% cached)
+Using cached encoder features from: data/v3_multitask/encoder_cache
+Prosody features: ENABLED (from cache)
+Model parameters:
+  Total: 4,032,008
+  Encoder LoRA: 737,280
+  Classification head: 3,294,728
+  Converted model parameters to bfloat16
+Loading weights from checkpoints/rich_decoder_v4_lora_memfix/best.npz
+  Loaded 78 weight tensors
+
+============================================================
+Training RichDecoder v4 (Optimized)
+============================================================
+  Epochs: 10
+  Batch size: 2 x 8 = 16
+  Total steps: 72330
+  bfloat16: True
+  Prefetch: 4 batches
+  Early stopping: True (patience=3)
+
+Epoch 1/10
+  Step 50: loss=1.9335, acc=0.00%, lr=2.00e-06
+  Step 100: loss=1.7069, acc=0.00%, lr=4.00e-06
+  Step 150: loss=0.0027, acc=100.00%, lr=6.00e-06
+  Step 200: loss=0.0090, acc=100.00%, lr=8.00e-06
+  Step 250: loss=1.2511, acc=50.00%, lr=1.00e-05
+  Step 300: loss=0.0943, acc=100.00%, lr=1.20e-05
+  Step 350: loss=0.6774, acc=100.00%, lr=1.40e-05
+  Step 400: loss=0.0389, acc=100.00%, lr=1.60e-05
+  Step 450: loss=2.0447, acc=0.00%, lr=1.80e-05
+  Step 500: loss=0.8084, acc=50.00%, lr=2.00e-05
+  Step 550: loss=0.8706, acc=50.00%, lr=2.00e-05
+  Step 600: loss=0.0031, acc=100.00%, lr=2.00e-05
+  Step 650: loss=0.6911, acc=50.00%, lr=2.00e-05
+  Step 700: loss=1.3707, acc=50.00%, lr=2.00e-05
+  Step 750: loss=0.8782, acc=50.00%, lr=2.00e-05
+  Step 800: loss=0.9582, acc=50.00%, lr=2.00e-05
+  Step 850: loss=1.5183, acc=50.00%, lr=2.00e-05
+  Step 900: loss=2.4885, acc=0.00%, lr=2.00e-05
+  Step 950: loss=0.5849, acc=100.00%, lr=2.00e-05
+  Step 1000: loss=0.7830, acc=50.00%, lr=2.00e-05
+  Validation: loss=0.7465, acc=67.72%
+  New best model! acc=67.72%
+  Step 1050: loss=0.7492, acc=50.00%, lr=2.00e-05
+  Step 1100: loss=0.0896, acc=100.00%, lr=2.00e-05
+  Step 1150: loss=1.1239, acc=50.00%, lr=2.00e-05
+  Step 1200: loss=0.3066, acc=100.00%, lr=2.00e-05
+  Step 1250: loss=0.0410, acc=100.00%, lr=2.00e-05
+  Step 1300: loss=1.2309, acc=50.00%, lr=2.00e-05
+  Step 1350: loss=0.0178, acc=100.00%, lr=2.00e-05
+  Step 1400: loss=0.9538, acc=50.00%, lr=2.00e-05
+  Step 1450: loss=0.8280, acc=50.00%, lr=2.00e-05
+  Step 1500: loss=0.8255, acc=50.00%, lr=2.00e-05
+  Step 1550: loss=0.0244, acc=100.00%, lr=2.00e-05
+  Step 1600: loss=0.0832, acc=100.00%, lr=2.00e-05
+  Step 1650: loss=1.6735, acc=50.00%, lr=2.00e-05
+  Step 1700: loss=0.6620, acc=100.00%, lr=2.00e-05
+  Step 1750: loss=0.0237, acc=100.00%, lr=2.00e-05
+  Step 1800: loss=1.2208, acc=50.00%, lr=2.00e-05
+  Step 1850: loss=0.9595, acc=100.00%, lr=2.00e-05
+  Step 1900: loss=0.7913, acc=50.00%, lr=2.00e-05
+  Step 1950: loss=0.1185, acc=100.00%, lr=2.00e-05
+  Step 2000: loss=1.9925, acc=50.00%, lr=2.00e-05
+  Validation: loss=0.6930, acc=73.32%
+  New best model! acc=73.32%
+  Step 2050: loss=0.1104, acc=100.00%, lr=2.00e-05
+  Step 2100: loss=2.0760, acc=0.00%, lr=2.00e-05
+  Step 2150: loss=0.7994, acc=100.00%, lr=2.00e-05
+  Step 2200: loss=1.0597, acc=50.00%, lr=2.00e-05
+  Step 2250: loss=0.7534, acc=50.00%, lr=2.00e-05
+  Step 2300: loss=0.7758, acc=100.00%, lr=2.00e-05
+  Step 2350: loss=0.0174, acc=100.00%, lr=2.00e-05
+  Step 2400: loss=0.8287, acc=50.00%, lr=2.00e-05
+  Step 2450: loss=0.0035, acc=100.00%, lr=2.00e-05
+  Step 2500: loss=0.8958, acc=50.00%, lr=2.00e-05
+  Step 2550: loss=0.9968, acc=50.00%, lr=2.00e-05
+  Step 2600: loss=0.5530, acc=100.00%, lr=2.00e-05
+  Step 2650: loss=0.0670, acc=100.00%, lr=2.00e-05
+  Step 2700: loss=0.9586, acc=50.00%, lr=2.00e-05
+  Step 2750: loss=0.2771, acc=100.00%, lr=2.00e-05
+  Step 2800: loss=1.0018, acc=50.00%, lr=2.00e-05
+  Step 2850: loss=0.7127, acc=100.00%, lr=1.99e-05
+  Step 2900: loss=1.0061, acc=50.00%, lr=1.99e-05
+  Step 2950: loss=1.4489, acc=50.00%, lr=1.99e-05
+  Step 3000: loss=1.5861, acc=50.00%, lr=1.99e-05
+  Validation: loss=0.6933, acc=73.10%
+  Step 3050: loss=0.0556, acc=100.00%, lr=1.99e-05
+  Step 3100: loss=1.0461, acc=50.00%, lr=1.99e-05
+  Step 3150: loss=0.0030, acc=100.00%, lr=1.99e-05
+  Step 3200: loss=0.0102, acc=100.00%, lr=1.99e-05
+  Step 3250: loss=2.1471, acc=0.00%, lr=1.99e-05
+  Step 3300: loss=0.0160, acc=100.00%, lr=1.99e-05
+  Step 3350: loss=1.0718, acc=50.00%, lr=1.99e-05
+  Step 3400: loss=0.5583, acc=100.00%, lr=1.99e-05
+  Step 3450: loss=0.0226, acc=100.00%, lr=1.99e-05
+  Step 3500: loss=0.9595, acc=50.00%, lr=1.99e-05
+  Step 3550: loss=0.9321, acc=50.00%, lr=1.99e-05
+  Step 3600: loss=0.0073, acc=100.00%, lr=1.99e-05
+  Step 3650: loss=0.9225, acc=50.00%, lr=1.99e-05
+  Step 3700: loss=0.0081, acc=100.00%, lr=1.99e-05
+  Step 3750: loss=0.8818, acc=50.00%, lr=1.99e-05
+  Step 3800: loss=0.8297, acc=100.00%, lr=1.99e-05
+  Step 3850: loss=0.0320, acc=100.00%, lr=1.99e-05
+  Step 3900: loss=0.0092, acc=100.00%, lr=1.99e-05
+  Step 3950: loss=0.7557, acc=50.00%, lr=1.99e-05
+  Step 4000: loss=0.0068, acc=100.00%, lr=1.99e-05
+  Validation: loss=0.6926, acc=73.19%
+  Step 4050: loss=0.0890, acc=100.00%, lr=1.99e-05
+  Step 4100: loss=1.6539, acc=0.00%, lr=1.99e-05
+  Step 4150: loss=0.0096, acc=100.00%, lr=1.99e-05
+  Step 4200: loss=0.0012, acc=100.00%, lr=1.99e-05
+  Step 4250: loss=0.6558, acc=100.00%, lr=1.99e-05
+  Step 4300: loss=0.0761, acc=100.00%, lr=1.99e-05
+  Step 4350: loss=1.7890, acc=0.00%, lr=1.99e-05
+  Step 4400: loss=0.0161, acc=100.00%, lr=1.99e-05
+  Step 4450: loss=0.8911, acc=50.00%, lr=1.99e-05
+  Step 4500: loss=0.8347, acc=50.00%, lr=1.99e-05
+  Step 4550: loss=0.9729, acc=50.00%, lr=1.99e-05
+  Step 4600: loss=1.5613, acc=0.00%, lr=1.98e-05
+  Step 4650: loss=0.0138, acc=100.00%, lr=1.98e-05
+  Step 4700: loss=0.0065, acc=100.00%, lr=1.98e-05
+  Step 4750: loss=1.2859, acc=50.00%, lr=1.98e-05
+  Step 4800: loss=0.0221, acc=100.00%, lr=1.98e-05
+  Step 4850: loss=0.8301, acc=50.00%, lr=1.98e-05
+  Step 4900: loss=1.5588, acc=50.00%, lr=1.98e-05
+  Step 4950: loss=0.8407, acc=50.00%, lr=1.98e-05
+  Step 5000: loss=0.7975, acc=50.00%, lr=1.98e-05
+  Validation: loss=0.6895, acc=74.01%
+  New best model! acc=74.01%
+  Step 5050: loss=0.7516, acc=50.00%, lr=1.98e-05
+  Step 5100: loss=0.7671, acc=100.00%, lr=1.98e-05
+  Step 5150: loss=1.2483, acc=50.00%, lr=1.98e-05
+  Step 5200: loss=0.9804, acc=50.00%, lr=1.98e-05
+  Step 5250: loss=0.6958, acc=100.00%, lr=1.98e-05
+  Step 5300: loss=0.6486, acc=100.00%, lr=1.98e-05
+  Step 5350: loss=0.0084, acc=100.00%, lr=1.98e-05
+  Step 5400: loss=1.0462, acc=50.00%, lr=1.98e-05
+  Step 5450: loss=0.9634, acc=50.00%, lr=1.98e-05
+  Step 5500: loss=0.8283, acc=50.00%, lr=1.98e-05
+  Step 5550: loss=0.0170, acc=100.00%, lr=1.98e-05
+  Step 5600: loss=0.8327, acc=50.00%, lr=1.98e-05
+  Step 5650: loss=0.9037, acc=50.00%, lr=1.98e-05
+  Step 5700: loss=2.0707, acc=0.00%, lr=1.98e-05
+  Step 5750: loss=0.7943, acc=50.00%, lr=1.98e-05
+  Step 5800: loss=0.9352, acc=50.00%, lr=1.97e-05
+  Step 5850: loss=1.5073, acc=50.00%, lr=1.97e-05
+  Step 5900: loss=0.4874, acc=100.00%, lr=1.97e-05
+  Step 5950: loss=0.0054, acc=100.00%, lr=1.97e-05
+  Step 6000: loss=0.9437, acc=50.00%, lr=1.97e-05
+  Validation: loss=0.6897, acc=72.59%
+  Step 6050: loss=1.0819, acc=50.00%, lr=1.97e-05
+  Step 6100: loss=1.6953, acc=50.00%, lr=1.97e-05
+  Step 6150: loss=1.1429, acc=100.00%, lr=1.97e-05
+  Step 6200: loss=1.6393, acc=50.00%, lr=1.97e-05
+  Step 6250: loss=0.1010, acc=100.00%, lr=1.97e-05
+  Step 6300: loss=0.0829, acc=100.00%, lr=1.97e-05
+  Step 6350: loss=1.2090, acc=50.00%, lr=1.97e-05
+  Step 6400: loss=1.9601, acc=50.00%, lr=1.97e-05
+  Step 6450: loss=0.8383, acc=100.00%, lr=1.97e-05
+  Step 6500: loss=1.1509, acc=50.00%, lr=1.97e-05
+  Step 6550: loss=0.8600, acc=50.00%, lr=1.97e-05
+  Step 6600: loss=2.8573, acc=50.00%, lr=1.97e-05
+  Step 6650: loss=0.0065, acc=100.00%, lr=1.97e-05
+  Step 6700: loss=0.9446, acc=100.00%, lr=1.97e-05
+  Step 6750: loss=0.7895, acc=50.00%, lr=1.96e-05
+  Step 6800: loss=0.8540, acc=50.00%, lr=1.96e-05
+  Step 6850: loss=1.3823, acc=100.00%, lr=1.96e-05
+  Step 6900: loss=0.0138, acc=100.00%, lr=1.96e-05
+  Step 6950: loss=0.0068, acc=100.00%, lr=1.96e-05
+  Step 7000: loss=1.1808, acc=50.00%, lr=1.96e-05
+  Validation: loss=0.6914, acc=72.50%
+  Step 7050: loss=1.4138, acc=50.00%, lr=1.96e-05
+  Step 7100: loss=0.8391, acc=50.00%, lr=1.96e-05
+  Step 7150: loss=1.2096, acc=50.00%, lr=1.96e-05
+  Step 7200: loss=0.0082, acc=100.00%, lr=1.96e-05
+  Epoch 1 complete: avg_loss=0.7326, time=519.6s
+  Validation: loss=0.6914, acc=72.46%
+Epoch 2/10
+  Step 7250: loss=0.6507, acc=100.00%, lr=1.96e-05
+  Step 7300: loss=0.9441, acc=50.00%, lr=1.96e-05
+  Step 7350: loss=0.7677, acc=100.00%, lr=1.96e-05
+  Step 7400: loss=0.7716, acc=50.00%, lr=1.96e-05
+  Step 7450: loss=0.8444, acc=100.00%, lr=1.96e-05
+  Step 7500: loss=1.7751, acc=0.00%, lr=1.96e-05
+  Step 7550: loss=0.7010, acc=100.00%, lr=1.96e-05
+  Step 7600: loss=1.9680, acc=0.00%, lr=1.95e-05
+  Step 7650: loss=0.4907, acc=100.00%, lr=1.95e-05
+  Step 7700: loss=1.5879, acc=50.00%, lr=1.95e-05
+  Step 7750: loss=0.0550, acc=100.00%, lr=1.95e-05
+  Step 7800: loss=5.9517, acc=50.00%, lr=1.95e-05
+  Step 7850: loss=1.0160, acc=50.00%, lr=1.95e-05
+  Step 7900: loss=0.0778, acc=100.00%, lr=1.95e-05
+  Step 7950: loss=0.9727, acc=100.00%, lr=1.95e-05
+  Step 8000: loss=2.3206, acc=0.00%, lr=1.95e-05
+  Validation: loss=0.6878, acc=73.19%
+  Step 8050: loss=1.6085, acc=50.00%, lr=1.95e-05
+  Step 8100: loss=0.0482, acc=100.00%, lr=1.95e-05
+  Step 8150: loss=1.1052, acc=50.00%, lr=1.95e-05
+  Step 8200: loss=0.1398, acc=100.00%, lr=1.95e-05
+  Step 8250: loss=0.8108, acc=50.00%, lr=1.95e-05
+  Step 8300: loss=0.7716, acc=50.00%, lr=1.95e-05
+  Step 8350: loss=0.0091, acc=100.00%, lr=1.94e-05
+  Step 8400: loss=1.0193, acc=50.00%, lr=1.94e-05
+  Step 8450: loss=1.6172, acc=50.00%, lr=1.94e-05
+  Step 8500: loss=0.0686, acc=100.00%, lr=1.94e-05
+  Step 8550: loss=0.0302, acc=100.00%, lr=1.94e-05
+  Step 8600: loss=1.6350, acc=50.00%, lr=1.94e-05
+  Step 8650: loss=0.8305, acc=50.00%, lr=1.94e-05
+  Step 8700: loss=0.1888, acc=100.00%, lr=1.94e-05
+  Step 8750: loss=0.0538, acc=100.00%, lr=1.94e-05
+  Step 8800: loss=0.0142, acc=100.00%, lr=1.94e-05
+  Step 8850: loss=0.8925, acc=50.00%, lr=1.94e-05
+  Step 8900: loss=0.7453, acc=100.00%, lr=1.94e-05
+  Step 8950: loss=0.1776, acc=100.00%, lr=1.94e-05
+  Step 9000: loss=0.0166, acc=100.00%, lr=1.94e-05
+  Validation: loss=0.6882, acc=74.05%
+  New best model! acc=74.05%
+  Step 9050: loss=0.0560, acc=100.00%, lr=1.93e-05
+  Step 9100: loss=0.0070, acc=100.00%, lr=1.93e-05
+  Step 9150: loss=0.8559, acc=50.00%, lr=1.93e-05
+  Step 9200: loss=0.0177, acc=100.00%, lr=1.93e-05
+  Step 9250: loss=0.9508, acc=50.00%, lr=1.93e-05
+  Step 9300: loss=1.5803, acc=0.00%, lr=1.93e-05
+  Step 9350: loss=0.0101, acc=100.00%, lr=1.93e-05
+  Step 9400: loss=0.8774, acc=50.00%, lr=1.93e-05
+  Step 9450: loss=0.8838, acc=50.00%, lr=1.93e-05
+  Step 9500: loss=0.9569, acc=50.00%, lr=1.93e-05
+  Step 9550: loss=0.9619, acc=50.00%, lr=1.93e-05
+  Step 9600: loss=0.9407, acc=50.00%, lr=1.93e-05
+  Step 9650: loss=0.9650, acc=50.00%, lr=1.92e-05
+  Step 9700: loss=0.7477, acc=100.00%, lr=1.92e-05
+  Step 9750: loss=0.1071, acc=100.00%, lr=1.92e-05
+  Step 9800: loss=1.7261, acc=0.00%, lr=1.92e-05
+  Step 9850: loss=0.8295, acc=50.00%, lr=1.92e-05
+  Step 9900: loss=0.6807, acc=100.00%, lr=1.92e-05
+  Step 9950: loss=0.8396, acc=50.00%, lr=1.92e-05
+  Step 10000: loss=0.0058, acc=100.00%, lr=1.92e-05
+  Validation: loss=0.6873, acc=72.32%
+  Step 10050: loss=0.0845, acc=100.00%, lr=1.92e-05
+  Step 10100: loss=1.7527, acc=0.00%, lr=1.92e-05
+  Step 10150: loss=0.0164, acc=100.00%, lr=1.92e-05
+  Step 10200: loss=0.0070, acc=100.00%, lr=1.92e-05
+  Step 10250: loss=0.1905, acc=100.00%, lr=1.91e-05
+  Step 10300: loss=0.9159, acc=100.00%, lr=1.91e-05
+  Step 10350: loss=1.1356, acc=50.00%, lr=1.91e-05
+  Step 10400: loss=1.1300, acc=50.00%, lr=1.91e-05
+  Step 10450: loss=0.0125, acc=100.00%, lr=1.91e-05
+  Step 10500: loss=0.9295, acc=50.00%, lr=1.91e-05
+  Step 10550: loss=0.8213, acc=100.00%, lr=1.91e-05
+  Step 10600: loss=0.0395, acc=100.00%, lr=1.91e-05
+  Step 10650: loss=0.5903, acc=100.00%, lr=1.91e-05
+  Step 10700: loss=0.7350, acc=100.00%, lr=1.91e-05
+  Step 10750: loss=1.6615, acc=0.00%, lr=1.91e-05
+  Step 10800: loss=1.1499, acc=100.00%, lr=1.91e-05
+  Step 10850: loss=0.0022, acc=100.00%, lr=1.90e-05
+  Step 10900: loss=0.7670, acc=100.00%, lr=1.90e-05
+  Step 10950: loss=0.0108, acc=100.00%, lr=1.90e-05
+  Step 11000: loss=0.1662, acc=100.00%, lr=1.90e-05
+  Validation: loss=0.6856, acc=73.69%
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/ayates/model_mlx_migration/tools/whisper_mlx/train_rich_decoder_v4.py", line 1033, in <module>
+    main()
+    ~~~~^^
+  File "/Users/ayates/model_mlx_migration/tools/whisper_mlx/train_rich_decoder_v4.py", line 1029, in main
+    trainer.train(train_loader, val_loader)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ayates/model_mlx_migration/tools/whisper_mlx/train_rich_decoder_v4.py", line 800, in train
+    self.optimizer.update(self.model, accumulated_grads)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ayates/Library/Python/3.14/lib/python/site-packages/mlx/optimizers/optimizers.py", line 29, in update
+    model.update(self.apply_gradients(gradients, model))
+                 ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/ayates/Library/Python/3.14/lib/python/site-packages/mlx/optimizers/optimizers.py", line 109, in apply_gradients
+    return tree_map(self.apply_single, gradients, parameters, self.state)
+  File "/Users/ayates/Library/Python/3.14/lib/python/site-packages/mlx/utils.py", line 54, in tree_map
+    k: tree_map(fn, child, *(r[k] for r in rest), is_leaf=is_leaf)
+       ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ayates/Library/Python/3.14/lib/python/site-packages/mlx/utils.py", line 54, in tree_map
+    k: tree_map(fn, child, *(r[k] for r in rest), is_leaf=is_leaf)
+       ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ayates/Library/Python/3.14/lib/python/site-packages/mlx/utils.py", line 54, in tree_map
+    k: tree_map(fn, child, *(r[k] for r in rest), is_leaf=is_leaf)
+       ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  [Previous line repeated 2 more times]
+  File "/Users/ayates/Library/Python/3.14/lib/python/site-packages/mlx/utils.py", line 58, in tree_map
+    return fn(tree, *rest)
+  File "/Users/ayates/Library/Python/3.14/lib/python/site-packages/mlx/optimizers/optimizers.py", line 586, in apply_single
+    return super().apply_single(
+           ~~~~~~~~~~~~~~~~~~~~^
+        gradient, parameter * (1 - lr * self.weight_decay), state
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ayates/Library/Python/3.14/lib/python/site-packages/mlx/optimizers/optimizers.py", line 524, in apply_single
+    v = b2 * v + (1 - b2) * mx.square(gradient)
+        ~~~^~~
+RuntimeError: [metal::malloc] Resource limit (499000) exceeded.

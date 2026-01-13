@@ -1,0 +1,270 @@
+{
+  "language": "zh",
+  "cpp_wins": 1,
+  "python_wins": 2,
+  "ties": 2,
+  "total": 5,
+  "loss_rate": 0.4,
+  "details": [
+    {
+      "audio1": {
+        "accuracy": 5.0,
+        "naturalness": 4.5,
+        "quality": 4.5,
+        "issues": "slightly robotic tone"
+      },
+      "audio2": {
+        "accuracy": 5.0,
+        "naturalness": 5.0,
+        "quality": 5.0,
+        "issues": "none"
+      },
+      "winner": "audio2",
+      "reasoning": "Position-corrected comparison: Round1=audio2, Round2=tie -> Aggregated scores: a1=14.0, a2=15.0",
+      "raw_response": "R1: {\"audio1\": {\"accuracy\": 5, \"naturalness\": 4, \"quality\": 4, \"issues\": \"slightly robotic tone\"}, \"audio2\": {\"accuracy\": 5, \"naturalness\": 5, \"quality\": 5, \"issues\": \"none\"}, \"winner\": \"audio2\", \"reasoning\": \"Audio 2 had perfect accuracy, naturalness, and quality, while Audio 1 had a slightly robotic tone affecting naturalness and overall quality.\"}\n\nR2: {\"audio1\": {\"accuracy\": 5, \"naturalness\": 5, \"quality\": 5, \"issues\": \"none\"}, \"audio2\": {\"accuracy\": 5, \"naturalness\": 5, \"quality\": 5, \"issues\": \"none\"}, \"winner\": \"tie\", \"reasoning\": \"Both audio samples have perfect accuracy, naturalness, and quality for the given text '你好'. There are no discernible issues, and both are equally good.\"}",
+      "round1": {
+        "audio1": {
+          "accuracy": 5,
+          "naturalness": 4,
+          "quality": 4,
+          "issues": "slightly robotic tone"
+        },
+        "audio2": {
+          "accuracy": 5,
+          "naturalness": 5,
+          "quality": 5,
+          "issues": "none"
+        },
+        "winner": "audio2",
+        "reasoning": "Audio 2 had perfect accuracy, naturalness, and quality, while Audio 1 had a slightly robotic tone affecting naturalness and overall quality.",
+        "raw_response": "{\"audio1\": {\"accuracy\": 5, \"naturalness\": 4, \"quality\": 4, \"issues\": \"slightly robotic tone\"}, \"audio2\": {\"accuracy\": 5, \"naturalness\": 5, \"quality\": 5, \"issues\": \"none\"}, \"winner\": \"audio2\", \"reasoning\": \"Audio 2 had perfect accuracy, naturalness, and quality, while Audio 1 had a slightly robotic tone affecting naturalness and overall quality.\"}"
+      },
+      "round2": {
+        "audio1": {
+          "accuracy": 5,
+          "naturalness": 5,
+          "quality": 5,
+          "issues": "none"
+        },
+        "audio2": {
+          "accuracy": 5,
+          "naturalness": 5,
+          "quality": 5,
+          "issues": "none"
+        },
+        "winner": "tie",
+        "reasoning": "Both audio samples have perfect accuracy, naturalness, and quality for the given text '你好'. There are no discernible issues, and both are equally good.",
+        "raw_response": "{\"audio1\": {\"accuracy\": 5, \"naturalness\": 5, \"quality\": 5, \"issues\": \"none\"}, \"audio2\": {\"accuracy\": 5, \"naturalness\": 5, \"quality\": 5, \"issues\": \"none\"}, \"winner\": \"tie\", \"reasoning\": \"Both audio samples have perfect accuracy, naturalness, and quality for the given text '你好'. There are no discernible issues, and both are equally good.\"}"
+      },
+      "text": "你好"
+    },
+    {
+      "audio1": {
+        "accuracy": 5.0,
+        "naturalness": 4.5,
+        "quality": 4.5,
+        "issues": "Slightly less smooth intonation, minor background noise"
+      },
+      "audio2": {
+        "accuracy": 5.0,
+        "naturalness": 4.5,
+        "quality": 4.5,
+        "issues": "none"
+      },
+      "winner": "tie",
+      "reasoning": "Position-corrected comparison: Round1=audio2, Round2=audio1 -> Aggregated scores: a1=14.0, a2=14.0",
+      "raw_response": "R1: {\n  \"audio1\": {\n    \"accuracy\": 5,\n    \"naturalness\": 4,\n    \"quality\": 4,\n    \"issues\": \"Slightly less smooth intonation, minor background noise\"\n  },\n  \"audio2\": {\n    \"accuracy\": 5,\n    \"naturalness\": 5,\n    \"quality\": 5,\n    \"issues\": \"none\"\n  },\n  \"winner\": \"audio2\",\n  \"reasoning\": \"Both audios are accurate, but audio2 has a more natural and smoother intonation and better overall sound quality. Audio1 has slight background noise and less natural prosody.\"\n}\n\nR2: {\n  \"audio1\": {\n    \"accuracy\": 5,\n    \"naturalness\": 4,\n    \"quality\": 4,\n    \"issues\": \"Slight synthetic tone in voice, minor robotic inflection\"\n  },\n  \"audio2\": {\n    \"accuracy\": 5,\n    \"naturalness\": 5,\n    \"quality\": 5,\n    \"issues\": \"none\"\n  },\n  \"winner\": \"audio2\",\n  \"reasoning\": \"Both audio samples accurately matched the expected text. However, audio2 had a more natural and smoother delivery, with higher quality and fewer synthetic artifacts. Audio1 exhibited a slightly robotic tone and less natural cadence, resulting in lower ratings for naturalness and quality.\"\n}",
+      "round1": {
+        "audio1": {
+          "accuracy": 5,
+          "naturalness": 4,
+          "quality": 4,
+          "issues": "Slightly less smooth intonation, minor background noise"
+        },
+        "audio2": {
+          "accuracy": 5,
+          "naturalness": 5,
+          "quality": 5,
+          "issues": "none"
+        },
+        "winner": "audio2",
+        "reasoning": "Both audios are accurate, but audio2 has a more natural and smoother intonation and better overall sound quality. Audio1 has slight background noise and less natural prosody.",
+        "raw_response": "{\n  \"audio1\": {\n    \"accuracy\": 5,\n    \"naturalness\": 4,\n    \"quality\": 4,\n    \"issues\": \"Slightly less smooth intonation, minor background noise\"\n  },\n  \"audio2\": {\n    \"accuracy\": 5,\n    \"naturalness\": 5,\n    \"quality\": 5,\n    \"issues\": \"none\"\n  },\n  \"winner\": \"audio2\",\n  \"reasoning\": \"Both audios are accurate, but audio2 has a more natural and smoother intonation and better overall sound quality. Audio1 has slight background noise and less natural prosody.\"\n}"
+      },
+      "round2": {
+        "audio1": {
+          "accuracy": 5,
+          "naturalness": 4,
+          "quality": 4,
+          "issues": "Slight synthetic tone in voice, minor robotic inflection"
+        },
+        "audio2": {
+          "accuracy": 5,
+          "naturalness": 5,
+          "quality": 5,
+          "issues": "none"
+        },
+        "winner": "audio2",
+        "reasoning": "Both audio samples accurately matched the expected text. However, audio2 had a more natural and smoother delivery, with higher quality and fewer synthetic artifacts. Audio1 exhibited a slightly robotic tone and less natural cadence, resulting in lower ratings for naturalness and quality.",
+        "raw_response": "{\n  \"audio1\": {\n    \"accuracy\": 5,\n    \"naturalness\": 4,\n    \"quality\": 4,\n    \"issues\": \"Slight synthetic tone in voice, minor robotic inflection\"\n  },\n  \"audio2\": {\n    \"accuracy\": 5,\n    \"naturalness\": 5,\n    \"quality\": 5,\n    \"issues\": \"none\"\n  },\n  \"winner\": \"audio2\",\n  \"reasoning\": \"Both audio samples accurately matched the expected text. However, audio2 had a more natural and smoother delivery, with higher quality and fewer synthetic artifacts. Audio1 exhibited a slightly robotic tone and less natural cadence, resulting in lower ratings for naturalness and quality.\"\n}"
+      },
+      "text": "今天天气很好"
+    },
+    {
+      "audio1": {
+        "accuracy": 5.0,
+        "naturalness": 5.0,
+        "quality": 5.0,
+        "issues": "none"
+      },
+      "audio2": {
+        "accuracy": 5.0,
+        "naturalness": 4.0,
+        "quality": 4.0,
+        "issues": "slightly robotic tone, less smooth delivery"
+      },
+      "winner": "audio1",
+      "reasoning": "Position-corrected comparison: Round1=audio1, Round2=audio1 -> Aggregated scores: a1=15.0, a2=13.0",
+      "raw_response": "R1: {\"audio1\": {\"accuracy\": 5, \"naturalness\": 5, \"quality\": 5, \"issues\": \"none\"}, \"audio2\": {\"accuracy\": 5, \"naturalness\": 4, \"quality\": 4, \"issues\": \"slightly robotic tone, less smooth delivery\"}, \"winner\": \"audio1\", \"reasoning\": \"Audio 1 is more natural and higher quality, with smoother pronunciation. Audio 2 has slight robotic tendencies and is less fluid.\"}\n\nR2: {\n  \"audio1\": {\n    \"accuracy\": 5,\n    \"naturalness\": 4,\n    \"quality\": 4,\n    \"issues\": \"Slight robotic tone, slight audio artifacts\"\n  },\n  \"audio2\": {\n    \"accuracy\": 5,\n    \"naturalness\": 5,\n    \"quality\": 5,\n    \"issues\": \"none\"\n  },\n  \"winner\": \"audio2\",\n  \"reasoning\": \"Audio 2 had a more natural delivery, with smoother speech and higher overall quality. Audio 1 showed minor robotic tones and slight background artifacts.\"\n}",
+      "round1": {
+        "audio1": {
+          "accuracy": 5,
+          "naturalness": 5,
+          "quality": 5,
+          "issues": "none"
+        },
+        "audio2": {
+          "accuracy": 5,
+          "naturalness": 4,
+          "quality": 4,
+          "issues": "slightly robotic tone, less smooth delivery"
+        },
+        "winner": "audio1",
+        "reasoning": "Audio 1 is more natural and higher quality, with smoother pronunciation. Audio 2 has slight robotic tendencies and is less fluid.",
+        "raw_response": "{\"audio1\": {\"accuracy\": 5, \"naturalness\": 5, \"quality\": 5, \"issues\": \"none\"}, \"audio2\": {\"accuracy\": 5, \"naturalness\": 4, \"quality\": 4, \"issues\": \"slightly robotic tone, less smooth delivery\"}, \"winner\": \"audio1\", \"reasoning\": \"Audio 1 is more natural and higher quality, with smoother pronunciation. Audio 2 has slight robotic tendencies and is less fluid.\"}"
+      },
+      "round2": {
+        "audio1": {
+          "accuracy": 5,
+          "naturalness": 4,
+          "quality": 4,
+          "issues": "Slight robotic tone, slight audio artifacts"
+        },
+        "audio2": {
+          "accuracy": 5,
+          "naturalness": 5,
+          "quality": 5,
+          "issues": "none"
+        },
+        "winner": "audio2",
+        "reasoning": "Audio 2 had a more natural delivery, with smoother speech and higher overall quality. Audio 1 showed minor robotic tones and slight background artifacts.",
+        "raw_response": "{\n  \"audio1\": {\n    \"accuracy\": 5,\n    \"naturalness\": 4,\n    \"quality\": 4,\n    \"issues\": \"Slight robotic tone, slight audio artifacts\"\n  },\n  \"audio2\": {\n    \"accuracy\": 5,\n    \"naturalness\": 5,\n    \"quality\": 5,\n    \"issues\": \"none\"\n  },\n  \"winner\": \"audio2\",\n  \"reasoning\": \"Audio 2 had a more natural delivery, with smoother speech and higher overall quality. Audio 1 showed minor robotic tones and slight background artifacts.\"\n}"
+      },
+      "text": "谢谢你的帮助"
+    },
+    {
+      "audio1": {
+        "accuracy": 5.0,
+        "naturalness": 4.5,
+        "quality": 4.5,
+        "issues": "none"
+      },
+      "audio2": {
+        "accuracy": 5.0,
+        "naturalness": 4.5,
+        "quality": 4.5,
+        "issues": "slightly robotic, less smooth intonation"
+      },
+      "winner": "tie",
+      "reasoning": "Position-corrected comparison: Round1=audio1, Round2=audio2 -> Aggregated scores: a1=14.0, a2=14.0",
+      "raw_response": "R1: {\n  \"audio1\": {\n    \"accuracy\": 5,\n    \"naturalness\": 5,\n    \"quality\": 5,\n    \"issues\": \"none\"\n  },\n  \"audio2\": {\n    \"accuracy\": 5,\n    \"naturalness\": 4,\n    \"quality\": 4,\n    \"issues\": \"slightly robotic, less smooth intonation\"\n  },\n  \"winner\": \"audio1\",\n  \"reasoning\": \"Audio 1 perfectly matches the expected text with natural and clear pronunciation, while Audio 2 has a slightly more robotic tone and less natural intonation, making Audio 1 the better overall sample.\"\n}\n\nR2: {\n  \"audio1\": {\n    \"accuracy\": 5,\n    \"naturalness\": 5,\n    \"quality\": 5,\n    \"issues\": \"none\"\n  },\n  \"audio2\": {\n    \"accuracy\": 5,\n    \"naturalness\": 4,\n    \"quality\": 4,\n    \"issues\": \"slightly less natural and slightly lower audio quality\"\n  },\n  \"winner\": \"audio1\",\n  \"reasoning\": \"Both audio samples have perfect accuracy in matching the expected text. However, audio1 has slightly better naturalness and audio quality, making it the superior sample overall.\"\n}",
+      "round1": {
+        "audio1": {
+          "accuracy": 5,
+          "naturalness": 5,
+          "quality": 5,
+          "issues": "none"
+        },
+        "audio2": {
+          "accuracy": 5,
+          "naturalness": 4,
+          "quality": 4,
+          "issues": "slightly robotic, less smooth intonation"
+        },
+        "winner": "audio1",
+        "reasoning": "Audio 1 perfectly matches the expected text with natural and clear pronunciation, while Audio 2 has a slightly more robotic tone and less natural intonation, making Audio 1 the better overall sample.",
+        "raw_response": "{\n  \"audio1\": {\n    \"accuracy\": 5,\n    \"naturalness\": 5,\n    \"quality\": 5,\n    \"issues\": \"none\"\n  },\n  \"audio2\": {\n    \"accuracy\": 5,\n    \"naturalness\": 4,\n    \"quality\": 4,\n    \"issues\": \"slightly robotic, less smooth intonation\"\n  },\n  \"winner\": \"audio1\",\n  \"reasoning\": \"Audio 1 perfectly matches the expected text with natural and clear pronunciation, while Audio 2 has a slightly more robotic tone and less natural intonation, making Audio 1 the better overall sample.\"\n}"
+      },
+      "round2": {
+        "audio1": {
+          "accuracy": 5,
+          "naturalness": 5,
+          "quality": 5,
+          "issues": "none"
+        },
+        "audio2": {
+          "accuracy": 5,
+          "naturalness": 4,
+          "quality": 4,
+          "issues": "slightly less natural and slightly lower audio quality"
+        },
+        "winner": "audio1",
+        "reasoning": "Both audio samples have perfect accuracy in matching the expected text. However, audio1 has slightly better naturalness and audio quality, making it the superior sample overall.",
+        "raw_response": "{\n  \"audio1\": {\n    \"accuracy\": 5,\n    \"naturalness\": 5,\n    \"quality\": 5,\n    \"issues\": \"none\"\n  },\n  \"audio2\": {\n    \"accuracy\": 5,\n    \"naturalness\": 4,\n    \"quality\": 4,\n    \"issues\": \"slightly less natural and slightly lower audio quality\"\n  },\n  \"winner\": \"audio1\",\n  \"reasoning\": \"Both audio samples have perfect accuracy in matching the expected text. However, audio1 has slightly better naturalness and audio quality, making it the superior sample overall.\"\n}"
+      },
+      "text": "我正在学习中文"
+    },
+    {
+      "audio1": {
+        "accuracy": 5.0,
+        "naturalness": 4.5,
+        "quality": 4.5,
+        "issues": "Slightly robotic tone, minor background noise"
+      },
+      "audio2": {
+        "accuracy": 5.0,
+        "naturalness": 5.0,
+        "quality": 5.0,
+        "issues": "none"
+      },
+      "winner": "audio2",
+      "reasoning": "Position-corrected comparison: Round1=audio2, Round2=tie -> Aggregated scores: a1=14.0, a2=15.0",
+      "raw_response": "R1: {\"audio1\": {\"accuracy\": 5, \"naturalness\": 4, \"quality\": 4, \"issues\": \"Slightly robotic tone, minor background noise\"}, \"audio2\": {\"accuracy\": 5, \"naturalness\": 5, \"quality\": 5, \"issues\": \"none\"}, \"winner\": \"audio2\", \"reasoning\": \"Audio 2 is more natural and has higher quality with no noticeable issues, while Audio 1 has a slightly robotic tone and minor background noise.\"}\n\nR2: {\n  \"audio1\": {\n    \"accuracy\": 5,\n    \"naturalness\": 5,\n    \"quality\": 5,\n    \"issues\": \"none\"\n  },\n  \"audio2\": {\n    \"accuracy\": 5,\n    \"naturalness\": 5,\n    \"quality\": 5,\n    \"issues\": \"none\"\n  },\n  \"winner\": \"tie\",\n  \"reasoning\": \"Both audio samples perfectly match the expected text, with excellent accuracy, naturalness, and quality. There are no noticeable issues in either sample, resulting in a tie.\"\n}",
+      "round1": {
+        "audio1": {
+          "accuracy": 5,
+          "naturalness": 4,
+          "quality": 4,
+          "issues": "Slightly robotic tone, minor background noise"
+        },
+        "audio2": {
+          "accuracy": 5,
+          "naturalness": 5,
+          "quality": 5,
+          "issues": "none"
+        },
+        "winner": "audio2",
+        "reasoning": "Audio 2 is more natural and has higher quality with no noticeable issues, while Audio 1 has a slightly robotic tone and minor background noise.",
+        "raw_response": "{\"audio1\": {\"accuracy\": 5, \"naturalness\": 4, \"quality\": 4, \"issues\": \"Slightly robotic tone, minor background noise\"}, \"audio2\": {\"accuracy\": 5, \"naturalness\": 5, \"quality\": 5, \"issues\": \"none\"}, \"winner\": \"audio2\", \"reasoning\": \"Audio 2 is more natural and has higher quality with no noticeable issues, while Audio 1 has a slightly robotic tone and minor background noise.\"}"
+      },
+      "round2": {
+        "audio1": {
+          "accuracy": 5,
+          "naturalness": 5,
+          "quality": 5,
+          "issues": "none"
+        },
+        "audio2": {
+          "accuracy": 5,
+          "naturalness": 5,
+          "quality": 5,
+          "issues": "none"
+        },
+        "winner": "tie",
+        "reasoning": "Both audio samples perfectly match the expected text, with excellent accuracy, naturalness, and quality. There are no noticeable issues in either sample, resulting in a tie.",
+        "raw_response": "{\n  \"audio1\": {\n    \"accuracy\": 5,\n    \"naturalness\": 5,\n    \"quality\": 5,\n    \"issues\": \"none\"\n  },\n  \"audio2\": {\n    \"accuracy\": 5,\n    \"naturalness\": 5,\n    \"quality\": 5,\n    \"issues\": \"none\"\n  },\n  \"winner\": \"tie\",\n  \"reasoning\": \"Both audio samples perfectly match the expected text, with excellent accuracy, naturalness, and quality. There are no noticeable issues in either sample, resulting in a tie.\"\n}"
+      },
+      "text": "请问这个多少钱"
+    }
+  ]
+}

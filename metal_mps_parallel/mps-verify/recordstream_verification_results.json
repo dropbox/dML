@@ -1,0 +1,61 @@
+{
+  "timestamp": "2025-12-19T22:49:41Z",
+  "spec": "MPSRecordStream",
+  "spec_file": "specs/MPSRecordStream.tla",
+  "config_file": "specs/MPSRecordStream.cfg",
+  "tlc_version": "2.20",
+  "status": "PASS",
+  "errors": 0,
+  "states_generated": 154923024,
+  "distinct_states": 20287995,
+  "states_left_on_queue": 0,
+  "depth": 24,
+  "runtime_seconds": 49,
+  "constants": {
+    "NumBuffers": 3,
+    "NumStreams": 3,
+    "NumThreads": 2,
+    "MaxOperations": 20
+  },
+  "invariants_verified": [
+    "TypeOK",
+    "RSNoEarlyReuse",
+    "RSEventAccountingConsistent",
+    "RSBoundedPendingEvents",
+    "BufferStateConsistency",
+    "StreamUsesConsistency",
+    "SafetyInvariant",
+    "DeadlockFree"
+  ],
+  "properties_proven": {
+    "RS.NoEarlyReuse": {
+      "description": "Buffer cannot be in available_buffers while pending events exist",
+      "status": "PROVEN"
+    },
+    "RS.EventAccounting": {
+      "description": "Events in pending_events are removed only when query() observes completion",
+      "status": "PROVEN"
+    },
+    "RS.BoundedPendingEvents": {
+      "description": "pending_events size bounded by NumStreams (one event per stream)",
+      "status": "PROVEN"
+    }
+  },
+  "correspondence_notes": {
+    "what_is_modeled": [
+      "recordStream() creates event per unique cross-stream usage",
+      "pending_events tracks events awaiting GPU completion",
+      "free_buffer() defers recycling until all events complete",
+      "Event completion via EventComplete action (models GPU signaling)",
+      "buffers_pending_free set for deferred buffers"
+    ],
+    "what_is_abstracted": [
+      "MPSEvent implementation details (only completion status modeled)",
+      "retainCount check (abstracted as event completion)",
+      "m_event_pool (event acquisition abstracted as per-buffer per-stream)",
+      "process_pending_buffers_locked timing (modeled as ProcessPendingBuffer action)"
+    ]
+  },
+  "worker": "N=1305",
+  "opportunity_map_item": "B1.1"
+}

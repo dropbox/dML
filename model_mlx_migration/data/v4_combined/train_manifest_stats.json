@@ -1,0 +1,32 @@
+{
+  "train_samples": 19734,
+  "pseudo_samples": 16577,
+  "combined_samples": 36311,
+  "confidence_threshold": 0.9,
+  "train_distribution": {
+    "happy": 8613,
+    "neutral": 6007,
+    "fear": 1331,
+    "angry": 1323,
+    "sad": 1302,
+    "disgust": 1158
+  },
+  "pseudo_distribution": {
+    "neutral": 14840,
+    "sad": 1402,
+    "calm": 305,
+    "fearful": 12,
+    "angry": 11,
+    "happy": 7
+  },
+  "combined_distribution": {
+    "neutral": 20847,
+    "happy": 8620,
+    "sad": 2704,
+    "angry": 1334,
+    "fear": 1331,
+    "disgust": 1158,
+    "calm": 305,
+    "fearful": 12
+  }
+}

@@ -1,0 +1,343 @@
+{
+  "timestamp": "2025-12-17 09:40:01",
+  "model_version": "v5",
+  "prosody_embeddings": "models/prosody_embeddings_orthogonal/final.safetensors",
+  "fc_weights": "models/prosody_f0_conditioning_v5/fc_prosody_weights.safetensors",
+  "sentences": [
+    {
+      "context": "angry_context",
+      "text": "How dare you say that to me after everything I have done for you!",
+      "audio_files": {
+        "baseline": "angry_context_baseline.wav",
+        "neutral": "angry_context_neutral.wav",
+        "angry": "angry_context_angry.wav",
+        "sad": "angry_context_sad.wav",
+        "excited": "angry_context_excited.wav",
+        "calm": "angry_context_calm.wav"
+      },
+      "f0_values": {
+        "baseline": {
+          "mean": 194.69271896229606,
+          "std": 78.80069232994396
+        },
+        "neutral": {
+          "mean": 193.1610364762007,
+          "std": 78.38141664804655
+        },
+        "angry": {
+          "mean": 199.13394365291325,
+          "std": 82.12738902480277
+        },
+        "sad": {
+          "mean": 186.71146656981884,
+          "std": 81.45971529644385
+        },
+        "excited": {
+          "mean": 205.93778094718732,
+          "std": 81.37943972414853
+        },
+        "calm": {
+          "mean": 192.6732078526168,
+          "std": 79.44387736763926
+        }
+      },
+      "f0_diffs": {
+        "baseline": 0.0,
+        "neutral": -0.7867179082295176,
+        "angry": 2.2811457533125687,
+        "sad": -4.099409795608667,
+        "excited": 5.775799960484896,
+        "calm": -1.0372812709397485
+      },
+      "transcriptions": {}
+    },
+    {
+      "context": "sad_context",
+      "text": "I just received terrible news about the test results.",
+      "audio_files": {
+        "baseline": "sad_context_baseline.wav",
+        "neutral": "sad_context_neutral.wav",
+        "angry": "sad_context_angry.wav",
+        "sad": "sad_context_sad.wav",
+        "excited": "sad_context_excited.wav",
+        "calm": "sad_context_calm.wav"
+      },
+      "f0_values": {
+        "baseline": {
+          "mean": 190.40339864357978,
+          "std": 82.28869654687713
+        },
+        "neutral": {
+          "mean": 196.0895011472778,
+          "std": 90.48709937413123
+        },
+        "angry": {
+          "mean": 200.96247518414506,
+          "std": 90.26764197459369
+        },
+        "sad": {
+          "mean": 192.41049054723047,
+          "std": 90.523998223793
+        },
+        "excited": {
+          "mean": 209.0381767075525,
+          "std": 96.99110332892856
+        },
+        "calm": {
+          "mean": 202.06930632663247,
+          "std": 95.38898894575763
+        }
+      },
+      "f0_diffs": {
+        "baseline": 0.0,
+        "neutral": 2.9863450674753698,
+        "angry": 5.545634487507782,
+        "sad": 1.0541260912090167,
+        "excited": 9.786998654816857,
+        "calm": 6.126942988496943
+      },
+      "transcriptions": {}
+    },
+    {
+      "context": "excited_context",
+      "text": "We won the championship! This is the best day ever!",
+      "audio_files": {
+        "baseline": "excited_context_baseline.wav",
+        "neutral": "excited_context_neutral.wav",
+        "angry": "excited_context_angry.wav",
+        "sad": "excited_context_sad.wav",
+        "excited": "excited_context_excited.wav",
+        "calm": "excited_context_calm.wav"
+      },
+      "f0_values": {
+        "baseline": {
+          "mean": 175.8126708785877,
+          "std": 80.01509486715602
+        },
+        "neutral": {
+          "mean": 174.24238295349835,
+          "std": 78.47251255363672
+        },
+        "angry": {
+          "mean": 186.6485836901316,
+          "std": 86.15092091222796
+        },
+        "sad": {
+          "mean": 171.60355519534016,
+          "std": 78.57150828476625
+        },
+        "excited": {
+          "mean": 198.5032399127831,
+          "std": 92.13955044788884
+        },
+        "calm": {
+          "mean": 176.97239039453402,
+          "std": 80.87915052687936
+        }
+      },
+      "f0_diffs": {
+        "baseline": 0.0,
+        "neutral": -0.8931597007440754,
+        "angry": 6.163328705146019,
+        "sad": -2.394091200715714,
+        "excited": 12.906105641194083,
+        "calm": 0.6596336374112552
+      },
+      "transcriptions": {}
+    },
+    {
+      "context": "calm_context",
+      "text": "Take a deep breath and relax. Everything will be fine.",
+      "audio_files": {
+        "baseline": "calm_context_baseline.wav",
+        "neutral": "calm_context_neutral.wav",
+        "angry": "calm_context_angry.wav",
+        "sad": "calm_context_sad.wav",
+        "excited": "calm_context_excited.wav",
+        "calm": "calm_context_calm.wav"
+      },
+      "f0_values": {
+        "baseline": {
+          "mean": 196.9872088689633,
+          "std": 82.63614804609263
+        },
+        "neutral": {
+          "mean": 195.4231744961771,
+          "std": 80.79022936104104
+        },
+        "angry": {
+          "mean": 204.33647293856586,
+          "std": 83.23898542225137
+        },
+        "sad": {
+          "mean": 192.7159870689427,
+          "std": 79.0149122564059
+        },
+        "excited": {
+          "mean": 216.8751590301691,
+          "std": 90.47438203881615
+        },
+        "calm": {
+          "mean": 194.65715878789337,
+          "std": 83.7691910195676
+        }
+      },
+      "f0_diffs": {
+        "baseline": 0.0,
+        "neutral": -0.793977630205732,
+        "angry": 3.730833139775748,
+        "sad": -2.16827367855232,
+        "excited": 10.096061706440716,
+        "calm": -1.1828433401581422
+      },
+      "transcriptions": {}
+    },
+    {
+      "context": "surprised_context",
+      "text": "What? You're kidding me! That's absolutely incredible!",
+      "audio_files": {
+        "baseline": "surprised_context_baseline.wav",
+        "neutral": "surprised_context_neutral.wav",
+        "angry": "surprised_context_angry.wav",
+        "sad": "surprised_context_sad.wav",
+        "excited": "surprised_context_excited.wav",
+        "calm": "surprised_context_calm.wav"
+      },
+      "f0_values": {
+        "baseline": {
+          "mean": 184.22086246854195,
+          "std": 76.84331228432174
+        },
+        "neutral": {
+          "mean": 183.88919535529675,
+          "std": 76.52549883806577
+        },
+        "angry": {
+          "mean": 191.52253166721766,
+          "std": 84.77956139150633
+        },
+        "sad": {
+          "mean": 179.56774920907367,
+          "std": 77.2465690983212
+        },
+        "excited": {
+          "mean": 202.9409739404086,
+          "std": 83.53701099115062
+        },
+        "calm": {
+          "mean": 184.51261244512244,
+          "std": 77.41323991499264
+        }
+      },
+      "f0_diffs": {
+        "baseline": 0.0,
+        "neutral": -0.1800377594594311,
+        "angry": 3.963540882847926,
+        "sad": -2.5258340435046343,
+        "excited": 10.161776044807821,
+        "calm": 0.158369672506723
+      },
+      "transcriptions": {}
+    },
+    {
+      "context": "neutral_context",
+      "text": "The weather today is partly cloudy with a chance of rain.",
+      "audio_files": {
+        "baseline": "neutral_context_baseline.wav",
+        "neutral": "neutral_context_neutral.wav",
+        "angry": "neutral_context_angry.wav",
+        "sad": "neutral_context_sad.wav",
+        "excited": "neutral_context_excited.wav",
+        "calm": "neutral_context_calm.wav"
+      },
+      "f0_values": {
+        "baseline": {
+          "mean": 184.81366838362885,
+          "std": 72.9481808613016
+        },
+        "neutral": {
+          "mean": 183.77902388031066,
+          "std": 75.83916024446344
+        },
+        "angry": {
+          "mean": 192.73108329591548,
+          "std": 76.50551871093504
+        },
+        "sad": {
+          "mean": 182.36670132444368,
+          "std": 77.02680829777705
+        },
+        "excited": {
+          "mean": 205.2243568278175,
+          "std": 86.67251621000509
+        },
+        "calm": {
+          "mean": 183.23563554344233,
+          "std": 77.19437413342534
+        }
+      },
+      "f0_diffs": {
+        "baseline": 0.0,
+        "neutral": -0.5598311598742345,
+        "angry": 4.283998570848113,
+        "sad": -1.324018445489569,
+        "excited": 11.043927985792132,
+        "calm": -0.8538507211008364
+      },
+      "transcriptions": {}
+    }
+  ],
+  "f0_summary": {
+    "neutral": {
+      "avg_f0_diff_pct": -0.03789651517293683,
+      "expected_pct": 0,
+      "status": "PASS"
+    },
+    "angry": {
+      "avg_f0_diff_pct": 4.328080256573026,
+      "expected_pct": 7,
+      "status": "PASS"
+    },
+    "sad": {
+      "avg_f0_diff_pct": -1.9095835121103146,
+      "expected_pct": -4,
+      "status": "PASS"
+    },
+    "excited": {
+      "avg_f0_diff_pct": 9.961778332256085,
+      "expected_pct": 15,
+      "status": "PASS"
+    },
+    "calm": {
+      "avg_f0_diff_pct": 0.645161827702699,
+      "expected_pct": 0,
+      "status": "PASS"
+    }
+  },
+  "transcription_check": [
+    {
+      "file": "neutral_context_baseline.wav",
+      "expected": "The weather today is partly cloudy with a chance of rain.",
+      "transcribed": "The weather today is partly cloudy with a chance of rain.",
+      "match": true
+    },
+    {
+      "file": "angry_context_angry.wav",
+      "expected": "How dare you say that to me after everything I have done for you!",
+      "transcribed": "How dare you say that to me after everything I have done for you.",
+      "match": true
+    },
+    {
+      "file": "sad_context_sad.wav",
+      "expected": "I just received terrible news about the test results.",
+      "transcribed": "I just received terrible news about the test results.",
+      "match": true
+    },
+    {
+      "file": "excited_context_excited.wav",
+      "expected": "We won the championship! This is the best day ever!",
+      "transcribed": "We won the championship. This is the best day ever.",
+      "match": true
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+diff --git a/aten/src/ATen/native/mps/operations/Indexing.mm b/aten/src/ATen/native/mps/operations/Indexing.mm
+index e445599b..0f9e6e8e 100644
+--- a/aten/src/ATen/native/mps/operations/Indexing.mm
++++ b/aten/src/ATen/native/mps/operations/Indexing.mm
+@@ -758,26 +758,36 @@ Tensor& masked_fill__mps(Tensor& self, const Tensor& mask, const Scalar& value)
+   const auto flavor = is_dense ? "dense" : is_dense_broadcast ? "broadcast" : "strided";
+   auto fillPSO = lib.getPipelineStateForFunc(
+       fmt::format("masked_fill_scalar_{}_{}", flavor, getBitSizeString(self.scalar_type())));
++
++  // FIX: Capture tensors by value to prevent use-after-free race condition.
++  // MaybeOwned from expand_inplace() may just borrow the original tensor.
++  // Python GC can free it while we're inside dispatch_sync_with_rethrow.
++  // Use __block to ensure Objective-C block owns the tensor objects.
++  Tensor b_mask_owned = b_mask->contiguous();
++  __block Tensor self_block = self;
++  __block Tensor b_mask_block = b_mask_owned;
++  __block Tensor mask_block = mask;  // For is_dense_broadcast case
++
+   dispatch_sync_with_rethrow(stream->queue(), ^() {
+     @autoreleasepool {
+       auto computeEncoder = stream->commandEncoder();
+-      auto mpsScalar = getMPSScalar(value, self.scalar_type());
++      auto mpsScalar = getMPSScalar(value, self_block.scalar_type());
+       [computeEncoder setComputePipelineState:fillPSO];
+       if (is_dense) {
+-        mtl_setArgs(computeEncoder, self, *b_mask, mpsScalar);
++        mtl_setArgs(computeEncoder, self_block, b_mask_block, mpsScalar);
+       } else if (is_dense_broadcast) {
+-        mtl_setArgs(computeEncoder, self, mask, mpsScalar, mask.numel());
++        mtl_setArgs(computeEncoder, self_block, mask_block, mpsScalar, mask_block.numel());
+       } else {
+         mtl_setArgs(computeEncoder,
+-                    self,
+-                    *b_mask,
++                    self_block,
++                    b_mask_block,
+                     mpsScalar,
+-                    self.sizes(),
+-                    self.strides(),
+-                    b_mask->strides(),
+-                    self.ndimension());
++                    self_block.sizes(),
++                    self_block.strides(),
++                    b_mask_block.strides(),
++                    self_block.ndimension());
+       }
+-      mtl_dispatch1DJob(computeEncoder, fillPSO, self.numel());
++      mtl_dispatch1DJob(computeEncoder, fillPSO, self_block.numel());
+     }
+   });
+ 

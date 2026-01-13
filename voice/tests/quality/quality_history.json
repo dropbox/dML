@@ -1,0 +1,4865 @@
+{
+  "description": "Historical quality scores for regression tracking",
+  "version": "1.0.0",
+  "schema_version": 1,
+  "runs": [
+    {
+      "timestamp": "2025-12-05T03:29:48.007503",
+      "commit": "c7826c5",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-05T03:29:51.066067",
+      "commit": "c7826c5",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-05T03:29:54.245795",
+      "commit": "c7826c5",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-05T03:30:26.198405",
+      "commit": "c7826c5",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-05T03:30:29.399827",
+      "commit": "c7826c5",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-05T03:30:32.803159",
+      "commit": "c7826c5",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-05T03:32:09.578107",
+      "commit": "c7826c5",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-05T03:32:12.822050",
+      "commit": "c7826c5",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-05T03:32:16.011267",
+      "commit": "c7826c5",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-05T03:47:40.962229",
+      "commit": "a438244",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-05T03:47:44.182552",
+      "commit": "a438244",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-05T03:47:47.548656",
+      "commit": "a438244",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-05T03:52:26.628584",
+      "commit": "2e6ef5b",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-05T03:52:29.907607",
+      "commit": "2e6ef5b",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-05T03:52:33.161155",
+      "commit": "2e6ef5b",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-05T03:59:39.657182",
+      "commit": "2e6ef5b",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-05T03:59:42.844258",
+      "commit": "2e6ef5b",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-05T03:59:46.092502",
+      "commit": "2e6ef5b",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-05T04:07:20.130829",
+      "commit": "b4b6c43",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-05T04:07:23.500538",
+      "commit": "b4b6c43",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-05T04:07:27.012595",
+      "commit": "b4b6c43",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-05T04:22:33.987724",
+      "commit": "b4b6c43",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-05T04:22:37.349214",
+      "commit": "b4b6c43",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-05T04:22:40.862297",
+      "commit": "b4b6c43",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-05T04:27:00.203578",
+      "commit": "fa55774",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-05T04:27:03.710138",
+      "commit": "fa55774",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-05T04:27:07.148472",
+      "commit": "fa55774",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-05T04:41:23.635131",
+      "commit": "fa55774",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Hello, world! This is test.",
+      "issues": "Missing 'a' before 'test'"
+    },
+    {
+      "timestamp": "2025-12-05T04:41:28.561487",
+      "commit": "fa55774",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 2,
+        "quality": 3
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "Somewhat robotic and slightly synthetic sounding, but accurate to the text."
+    },
+    {
+      "timestamp": "2025-12-05T04:41:33.502003",
+      "commit": "fa55774",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-05T13:45:25.714716",
+      "commit": "a026013",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-05T13:45:30.139634",
+      "commit": "a026013",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-05T13:45:34.909657",
+      "commit": "a026013",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-05T13:45:39.884028",
+      "commit": "a026013",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 3,
+        "naturalness": 2,
+        "quality": 2
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u9519\u662f\u4e00\u4e2a\u9519\u8bd5\u3002",
+      "issues": "Some pronunciation errors, clearly synthetic, and words were incorrectly articulated."
+    },
+    {
+      "timestamp": "2025-12-05T13:45:44.815029",
+      "commit": "a026013",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u00a1Hola, mundo! Esto es una prueba.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-05T13:45:49.257718",
+      "commit": "a026013",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-05T13:45:53.977958",
+      "commit": "a026013",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-05T13:45:58.420810",
+      "commit": "a026013",
+      "test_name": "test_french_technical_sentence",
+      "language": "fr",
+      "text": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-07T21:18:38.494490",
+      "commit": "7111b0e",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-07T21:18:46.783700",
+      "commit": "7111b0e",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "None"
+    },
+    {
+      "timestamp": "2025-12-07T21:18:55.079472",
+      "commit": "7111b0e",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-07T21:19:03.425839",
+      "commit": "7111b0e",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\u4e16\u754c \u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5",
+      "issues": "Missing pause between phrases and slight tonal unnaturalness"
+    },
+    {
+      "timestamp": "2025-12-07T21:19:11.072562",
+      "commit": "7111b0e",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u00a1Hola, mundo! Esto es una prueba.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-07T21:19:18.910495",
+      "commit": "7111b0e",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-07T21:19:26.895747",
+      "commit": "7111b0e",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-07T21:19:36.084839",
+      "commit": "7111b0e",
+      "test_name": "test_french_technical_sentence",
+      "language": "fr",
+      "text": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "issues": "None"
+    },
+    {
+      "timestamp": "2025-12-08T01:04:36.731312",
+      "commit": "291c4e39",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T01:04:44.801022",
+      "commit": "291c4e39",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T01:04:53.180979",
+      "commit": "291c4e39",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "None"
+    },
+    {
+      "timestamp": "2025-12-08T01:05:01.610647",
+      "commit": "291c4e39",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\u4e16\u754c\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "Missing minor pauses between phrases."
+    },
+    {
+      "timestamp": "2025-12-08T01:05:09.363359",
+      "commit": "291c4e39",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u00a1Hola, mundo! Esto es una prueba.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T01:05:17.274048",
+      "commit": "291c4e39",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T01:05:25.418820",
+      "commit": "291c4e39",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T01:05:33.918854",
+      "commit": "291c4e39",
+      "test_name": "test_french_technical_sentence",
+      "language": "fr",
+      "text": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T01:39:48.778834",
+      "commit": "4661a1ea",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "Minor synthetic tone"
+    },
+    {
+      "timestamp": "2025-12-08T01:39:56.958552",
+      "commit": "4661a1ea",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T01:40:05.313833",
+      "commit": "4661a1ea",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T01:40:13.730886",
+      "commit": "4661a1ea",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\u4e16\u754c\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5",
+      "issues": "Missing pauses between phrases, minor prosody issues"
+    },
+    {
+      "timestamp": "2025-12-08T01:40:21.667602",
+      "commit": "4661a1ea",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Hola mundo esto es una prueba",
+      "issues": "None"
+    },
+    {
+      "timestamp": "2025-12-08T01:40:29.514283",
+      "commit": "4661a1ea",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T01:40:37.756986",
+      "commit": "4661a1ea",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T01:40:46.183383",
+      "commit": "4661a1ea",
+      "test_name": "test_french_technical_sentence",
+      "language": "fr",
+      "text": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T02:25:55.462708",
+      "commit": "350a9c39",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T02:26:04.083399",
+      "commit": "350a9c39",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T02:26:13.195335",
+      "commit": "350a9c39",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T02:26:22.492681",
+      "commit": "350a9c39",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\u4e16\u754c\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5",
+      "issues": "Minor missing pause or punctuation after \u4f60\u597d and \u4e16\u754c"
+    },
+    {
+      "timestamp": "2025-12-08T02:26:30.941934",
+      "commit": "350a9c39",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u00a1Hola, mundo! Esto es una prueba.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T02:26:39.146716",
+      "commit": "350a9c39",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T02:26:48.883339",
+      "commit": "350a9c39",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T02:26:57.832735",
+      "commit": "350a9c39",
+      "test_name": "test_french_technical_sentence",
+      "language": "fr",
+      "text": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 5
+      },
+      "transcription": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T08:16:08.385435",
+      "commit": "bb554acc",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 3,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "Minor mispronunciation or slight robotic tone."
+    },
+    {
+      "timestamp": "2025-12-08T10:19:47.941404",
+      "commit": "d7cc4618",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T10:24:27.650185",
+      "commit": "f88489c1",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T10:33:39.126985",
+      "commit": "8614f6ab",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T10:44:32.920481",
+      "commit": "8614f6ab",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T10:50:29.907280",
+      "commit": "1e3ada7b",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T10:54:03.121328",
+      "commit": "1e3ada7b",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T11:03:01.187452",
+      "commit": "52ebd816",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T11:03:22.238723",
+      "commit": "52ebd816",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T11:03:37.546457",
+      "commit": "52ebd816",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u00a1Hola, mundo! Esto es una prueba.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T11:03:52.988736",
+      "commit": "52ebd816",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T11:04:10.453086",
+      "commit": "52ebd816",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T11:04:28.030504",
+      "commit": "52ebd816",
+      "test_name": "test_french_technical_sentence",
+      "language": "fr",
+      "text": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T12:19:08.708495",
+      "commit": "1ef601ce",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "Minor tone or pacing differences, but words are accurate."
+    },
+    {
+      "timestamp": "2025-12-08T12:20:48.537830",
+      "commit": "1ef601ce",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "Naturalness is good but slightly synthetic."
+    },
+    {
+      "timestamp": "2025-12-08T12:20:56.793371",
+      "commit": "1ef601ce",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 3,
+        "quality": 3
+      },
+      "transcription": "\u4f60\u597d\u4e16\u754c\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5",
+      "issues": "Missing pauses between phrases, slightly robotic tone"
+    },
+    {
+      "timestamp": "2025-12-08T12:21:05.265768",
+      "commit": "1ef601ce",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u00a1Hola, mundo! Esto es una prueba.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T12:21:13.164389",
+      "commit": "1ef601ce",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T12:21:21.092767",
+      "commit": "1ef601ce",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T12:21:29.256597",
+      "commit": "1ef601ce",
+      "test_name": "test_french_technical_sentence",
+      "language": "fr",
+      "text": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T12:22:27.066478",
+      "commit": "1ef601ce",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "Minor pronunciation inconsistency but mostly clear."
+    },
+    {
+      "timestamp": "2025-12-08T12:24:00.375320",
+      "commit": "1ef601ce",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 3,
+        "quality": 4
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "Minor unnatural prosody."
+    },
+    {
+      "timestamp": "2025-12-08T12:24:49.639626",
+      "commit": "e2acfcc0",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "Slightly mechanical tone but largely accurate."
+    },
+    {
+      "timestamp": "2025-12-08T12:24:57.544338",
+      "commit": "e2acfcc0",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T12:25:05.732904",
+      "commit": "e2acfcc0",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "Minor difference in pronunciation, but overall clear and accurate."
+    },
+    {
+      "timestamp": "2025-12-08T12:25:13.352934",
+      "commit": "e2acfcc0",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u00a1Hola, mundo! Esto es una prueba.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T12:25:21.300551",
+      "commit": "e2acfcc0",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T12:25:29.372616",
+      "commit": "e2acfcc0",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T12:25:37.719376",
+      "commit": "e2acfcc0",
+      "test_name": "test_french_technical_sentence",
+      "language": "fr",
+      "text": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T12:33:23.381024",
+      "commit": "3d82e106",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "slightly robotic tone"
+    },
+    {
+      "timestamp": "2025-12-08T12:33:54.682726",
+      "commit": "3d82e106",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T12:34:03.097977",
+      "commit": "3d82e106",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "slightly synthetic tone"
+    },
+    {
+      "timestamp": "2025-12-08T12:34:10.742510",
+      "commit": "3d82e106",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u00a1Hola, mundo! Esto es una prueba.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T12:34:18.438527",
+      "commit": "3d82e106",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T12:34:26.551499",
+      "commit": "3d82e106",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 5
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T12:37:05.719635",
+      "commit": "3d82e106",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T12:37:14.207440",
+      "commit": "3d82e106",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T12:37:26.870198",
+      "commit": "3d82e106",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T12:37:34.884601",
+      "commit": "3d82e106",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T12:37:43.061349",
+      "commit": "3d82e106",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T12:37:52.795158",
+      "commit": "3d82e106",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\u4e16\u754c \u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5",
+      "issues": "Missing punctuation, slight intonation unnaturalness"
+    },
+    {
+      "timestamp": "2025-12-08T12:38:00.643076",
+      "commit": "3d82e106",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u00a1Hola, mundo! Esto es una prueba.",
+      "issues": "minor robotic tone"
+    },
+    {
+      "timestamp": "2025-12-08T12:38:09.134485",
+      "commit": "3d82e106",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T12:38:17.467566",
+      "commit": "3d82e106",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T12:38:25.977554",
+      "commit": "3d82e106",
+      "test_name": "test_french_technical_sentence",
+      "language": "fr",
+      "text": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "issues": "slightly less natural intonation"
+    },
+    {
+      "timestamp": "2025-12-08T12:43:56.478161",
+      "commit": "57f68408",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T12:44:04.400929",
+      "commit": "57f68408",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "Slightly less natural in rhythm or tone but accurate."
+    },
+    {
+      "timestamp": "2025-12-08T12:44:12.832638",
+      "commit": "57f68408",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T12:44:23.580538",
+      "commit": "57f68408",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "Minor deviation in tone or slight robotic hint"
+    },
+    {
+      "timestamp": "2025-12-08T12:44:31.762461",
+      "commit": "57f68408",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 5
+      },
+      "transcription": "\u00a1Hola, mundo! Esto es una prueba.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T12:44:40.334134",
+      "commit": "57f68408",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T12:44:48.382850",
+      "commit": "57f68408",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T12:44:57.122127",
+      "commit": "57f68408",
+      "test_name": "test_french_technical_sentence",
+      "language": "fr",
+      "text": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "issues": "minor synthetic tone"
+    },
+    {
+      "timestamp": "2025-12-08T13:22:11.952777",
+      "commit": "55c9be38",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T13:22:19.551937",
+      "commit": "55c9be38",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T13:22:27.313175",
+      "commit": "55c9be38",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 5
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T13:22:37.089616",
+      "commit": "55c9be38",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "Minor tonal or pacing differences, slightly less natural than a human"
+    },
+    {
+      "timestamp": "2025-12-08T13:22:44.475539",
+      "commit": "55c9be38",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u00a1Hola, mundo! Esto es una prueba.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T13:22:52.029131",
+      "commit": "55c9be38",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T13:22:59.833349",
+      "commit": "55c9be38",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T13:23:07.588595",
+      "commit": "55c9be38",
+      "test_name": "test_french_technical_sentence",
+      "language": "fr",
+      "text": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T13:44:22.279539",
+      "commit": "c1ffcf8b",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "Slight tonal or pronunciation variation"
+    },
+    {
+      "timestamp": "2025-12-08T17:40:38.853426",
+      "commit": "77fc2db6",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "The function was successfully factored.",
+      "issues": "Missed the word 'refactored', said 'factored' instead."
+    },
+    {
+      "timestamp": "2025-12-08T19:07:37.144864",
+      "commit": "406254fd",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\u4e16\u754c\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "Missing punctuation and slight pauses between phrases."
+    },
+    {
+      "timestamp": "2025-12-08T20:13:02.238751",
+      "commit": "d70d1773",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "Slight tonal or pronunciation mismatch; overall very close but minor deviations from ideal human pronunciation."
+    },
+    {
+      "timestamp": "2025-12-08T22:20:42.520799",
+      "commit": "079299fe",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 5
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T22:20:50.823459",
+      "commit": "079299fe",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T22:21:01.773636",
+      "commit": "079299fe",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c \u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "Missing punctuation (comma after \u4e16\u754c) slightly affected accuracy."
+    },
+    {
+      "timestamp": "2025-12-08T22:21:12.655035",
+      "commit": "079299fe",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\u4e16\u754c\uff0c\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "Minor omission of punctuation (missing comma)"
+    },
+    {
+      "timestamp": "2025-12-08T22:21:20.616087",
+      "commit": "079299fe",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u00a1Hola, mundo! Esto es una prueba.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T22:21:28.524142",
+      "commit": "079299fe",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T22:21:36.871585",
+      "commit": "079299fe",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T23:08:02.441419",
+      "commit": "77739bd6",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "slightly robotic tone"
+    },
+    {
+      "timestamp": "2025-12-08T23:08:12.336686",
+      "commit": "77739bd6",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T23:08:26.651701",
+      "commit": "77739bd6",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "Minor variation in pacing, slightly mechanical tone"
+    },
+    {
+      "timestamp": "2025-12-08T23:08:39.342280",
+      "commit": "77739bd6",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "Minor variation in intonation"
+    },
+    {
+      "timestamp": "2025-12-08T23:08:48.927976",
+      "commit": "77739bd6",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 5
+      },
+      "transcription": "\u00a1Hola, mundo! Esto es una prueba.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T23:08:58.601730",
+      "commit": "77739bd6",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T23:09:08.613306",
+      "commit": "77739bd6",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-08T23:09:20.710062",
+      "commit": "77739bd6",
+      "test_name": "test_french_technical_sentence",
+      "language": "fr",
+      "text": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "issues": "slight robotic tone"
+    },
+    {
+      "timestamp": "2025-12-09T00:17:12.335158",
+      "commit": "cf8ab827",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T00:17:21.816538",
+      "commit": "cf8ab827",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T00:17:32.996324",
+      "commit": "cf8ab827",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "Minor discrepancy with punctuation or spacing."
+    },
+    {
+      "timestamp": "2025-12-09T00:17:44.836484",
+      "commit": "cf8ab827",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "Slight pronunciation nuance on final word, otherwise clear and natural."
+    },
+    {
+      "timestamp": "2025-12-09T00:17:53.603709",
+      "commit": "cf8ab827",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u00a1Hola, mundo! Esto es una prueba.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T00:18:02.380672",
+      "commit": "cf8ab827",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 5
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T00:18:11.613616",
+      "commit": "cf8ab827",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 5
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T00:18:21.875375",
+      "commit": "cf8ab827",
+      "test_name": "test_french_technical_sentence",
+      "language": "fr",
+      "text": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T01:43:47.642139",
+      "commit": "6172b95e",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T01:43:55.872331",
+      "commit": "6172b95e",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T01:44:06.737259",
+      "commit": "6172b95e",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "Minor intonation or slight pronunciation variations, otherwise clear."
+    },
+    {
+      "timestamp": "2025-12-09T01:44:17.988114",
+      "commit": "6172b95e",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "Minor pronunciation or slight unnaturalness."
+    },
+    {
+      "timestamp": "2025-12-09T01:44:26.042575",
+      "commit": "6172b95e",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 5
+      },
+      "transcription": "\u00a1Hola, mundo! Esto es una prueba.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T01:44:34.286427",
+      "commit": "6172b95e",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T01:44:42.681888",
+      "commit": "6172b95e",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T03:10:57.942515",
+      "commit": "4eeb6c6f",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "slightly synthetic tone, minor robotic quality"
+    },
+    {
+      "timestamp": "2025-12-09T03:11:06.238238",
+      "commit": "4eeb6c6f",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T03:11:16.381349",
+      "commit": "4eeb6c6f",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "Minor mismatch with punctuation or tone"
+    },
+    {
+      "timestamp": "2025-12-09T03:11:34.462728",
+      "commit": "4eeb6c6f",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "\u00a1Hola, mundo! Esto es una prueba.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T03:11:45.377497",
+      "commit": "4eeb6c6f",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T03:11:53.821250",
+      "commit": "4eeb6c6f",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T03:12:02.405956",
+      "commit": "4eeb6c6f",
+      "test_name": "test_french_technical_sentence",
+      "language": "fr",
+      "text": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "issues": "slightly synthetic tone"
+    },
+    {
+      "timestamp": "2025-12-09T04:36:31.364488",
+      "commit": "4eeb6c6f",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T04:36:39.742110",
+      "commit": "4eeb6c6f",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T04:36:50.389726",
+      "commit": "4eeb6c6f",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "Minor intonation and rhythm slightly off"
+    },
+    {
+      "timestamp": "2025-12-09T04:37:00.934374",
+      "commit": "4eeb6c6f",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "Minor pronunciation difference in last word"
+    },
+    {
+      "timestamp": "2025-12-09T04:37:08.838358",
+      "commit": "4eeb6c6f",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "\u00a1Hola, mundo! Esto es una prueba.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T04:37:17.724063",
+      "commit": "4eeb6c6f",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T04:37:26.356206",
+      "commit": "4eeb6c6f",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T08:39:12.523669",
+      "commit": "ef534278",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Hello, world. This is test.",
+      "issues": "Missed article 'a' before 'test', slight robotic tone"
+    },
+    {
+      "timestamp": "2025-12-09T08:39:22.516576",
+      "commit": "ef534278",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "Minor pronunciation or pacing issue"
+    },
+    {
+      "timestamp": "2025-12-09T08:39:33.049244",
+      "commit": "ef534278",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "Slightly less emphasis on punctuation and minor intonation differences"
+    },
+    {
+      "timestamp": "2025-12-09T08:39:43.544910",
+      "commit": "ef534278",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "Minor intonation or pronunciation differences, but overall good."
+    },
+    {
+      "timestamp": "2025-12-09T08:39:51.339981",
+      "commit": "ef534278",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u00a1Hola, mundo! Esto es una prueba.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T08:40:00.309502",
+      "commit": "ef534278",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T08:40:08.330237",
+      "commit": "ef534278",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T08:40:17.540100",
+      "commit": "ef534278",
+      "test_name": "test_french_technical_sentence",
+      "language": "fr",
+      "text": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T09:09:50.514640",
+      "commit": "fe96dd78",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Hello, world! This is test.",
+      "issues": "Missing 'a' before 'test'. Slight robotic tone, but overall good quality."
+    },
+    {
+      "timestamp": "2025-12-09T09:10:01.446935",
+      "commit": "fe96dd78",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 3,
+        "quality": 3
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "Slight mispronunciation or distortion in one or more words, reducing naturalness and overall quality."
+    },
+    {
+      "timestamp": "2025-12-09T09:10:12.402837",
+      "commit": "fe96dd78",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 3,
+        "quality": 3
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\u3001\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "Slight deviation in punctuation or pauses; slightly robotic tone"
+    },
+    {
+      "timestamp": "2025-12-09T09:10:23.709656",
+      "commit": "fe96dd78",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "Minor mispronunciation in tone"
+    },
+    {
+      "timestamp": "2025-12-09T09:10:32.155914",
+      "commit": "fe96dd78",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "\u00a1Hola, mundo! Esto es una prueba.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T09:10:40.444090",
+      "commit": "fe96dd78",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T09:10:52.284916",
+      "commit": "fe96dd78",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 5
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T09:11:02.485462",
+      "commit": "fe96dd78",
+      "test_name": "test_french_technical_sentence",
+      "language": "fr",
+      "text": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "issues": "slight synthetic tone"
+    },
+    {
+      "timestamp": "2025-12-09T10:19:43.785448",
+      "commit": "c8523e5f",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Hello, world! This is test.",
+      "issues": "Missing 'a' before 'test'"
+    },
+    {
+      "timestamp": "2025-12-09T10:19:54.218315",
+      "commit": "c8523e5f",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 3,
+        "quality": 3
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "Slight mispronunciation or robotic tone"
+    },
+    {
+      "timestamp": "2025-12-09T10:20:05.322133",
+      "commit": "c8523e5f",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u4e16\u754c\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059",
+      "issues": "Missing punctuation and slight intonation variations"
+    },
+    {
+      "timestamp": "2025-12-09T10:20:16.172968",
+      "commit": "c8523e5f",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "Minor pronunciation or intonation differences, slight unnaturalness"
+    },
+    {
+      "timestamp": "2025-12-09T10:20:23.966207",
+      "commit": "c8523e5f",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u00a1Hola, mundo! Esto es una prueba.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T10:20:31.792287",
+      "commit": "c8523e5f",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T10:20:40.298572",
+      "commit": "c8523e5f",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T10:20:49.210943",
+      "commit": "c8523e5f",
+      "test_name": "test_french_technical_sentence",
+      "language": "fr",
+      "text": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "issues": "minor synthetic tone"
+    },
+    {
+      "timestamp": "2025-12-09T11:59:25.731747",
+      "commit": "9ca21034",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T11:59:33.632152",
+      "commit": "9ca21034",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T11:59:41.724933",
+      "commit": "9ca21034",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T11:59:51.971696",
+      "commit": "9ca21034",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "Slight unnatural intonation on the last syllable."
+    },
+    {
+      "timestamp": "2025-12-09T11:59:59.800183",
+      "commit": "9ca21034",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "\u00a1Hola, mundo! Esto es una prueba.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T12:00:07.519365",
+      "commit": "9ca21034",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T12:00:15.516335",
+      "commit": "9ca21034",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T12:00:23.784635",
+      "commit": "9ca21034",
+      "test_name": "test_french_technical_sentence",
+      "language": "fr",
+      "text": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T12:24:43.479859",
+      "commit": "5d755ddf",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "slightly synthetic tone, minor robotic quality"
+    },
+    {
+      "timestamp": "2025-12-09T12:24:51.767234",
+      "commit": "5d755ddf",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T12:25:02.918905",
+      "commit": "5d755ddf",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "minor intonation or pacing differences"
+    },
+    {
+      "timestamp": "2025-12-09T12:25:13.881181",
+      "commit": "5d755ddf",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "Minor pronunciation or pacing discrepancies"
+    },
+    {
+      "timestamp": "2025-12-09T12:25:22.435261",
+      "commit": "5d755ddf",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 5
+      },
+      "transcription": "Hola mundo esto es una prueba",
+      "issues": "Missing exclamation marks and slight intonation difference"
+    },
+    {
+      "timestamp": "2025-12-09T12:25:31.179315",
+      "commit": "5d755ddf",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 5
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T12:25:40.054902",
+      "commit": "5d755ddf",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T12:25:50.052959",
+      "commit": "5d755ddf",
+      "test_name": "test_french_technical_sentence",
+      "language": "fr",
+      "text": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T12:33:16.679431",
+      "commit": "ff491afc",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T12:33:25.540522",
+      "commit": "ff491afc",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T12:33:36.352186",
+      "commit": "ff491afc",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "minor robotic intonation"
+    },
+    {
+      "timestamp": "2025-12-09T12:33:48.100952",
+      "commit": "ff491afc",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "Minor pronunciation variation on '\u6d4b\u8bd5' sounding slightly off."
+    },
+    {
+      "timestamp": "2025-12-09T12:33:56.844895",
+      "commit": "ff491afc",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 5
+      },
+      "transcription": "\u00a1Hola, mundo! Esto es una prueba.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T12:34:05.808647",
+      "commit": "ff491afc",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "Minor synthetic quality, slightly less natural tone."
+    },
+    {
+      "timestamp": "2025-12-09T12:34:14.879649",
+      "commit": "ff491afc",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T12:34:26.268909",
+      "commit": "ff491afc",
+      "test_name": "test_french_technical_sentence",
+      "language": "fr",
+      "text": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "issues": "Slightly different pronunciation of 'refactoris\u00e9e' but close match."
+    },
+    {
+      "timestamp": "2025-12-09T12:38:12.153125",
+      "commit": "3e7f7607",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 5
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T12:38:20.704578",
+      "commit": "3e7f7607",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T12:38:31.752628",
+      "commit": "3e7f7607",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "Slight intonation or rhythm could be improved for more naturalness."
+    },
+    {
+      "timestamp": "2025-12-09T12:38:42.794042",
+      "commit": "3e7f7607",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 3,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "Slight robotic tone in pronunciation, but accurate words."
+    },
+    {
+      "timestamp": "2025-12-09T12:38:50.719972",
+      "commit": "3e7f7607",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "\u00a1Hola, mundo! Esto es una prueba.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T12:38:58.692446",
+      "commit": "3e7f7607",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T12:39:07.179321",
+      "commit": "3e7f7607",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T12:39:15.818668",
+      "commit": "3e7f7607",
+      "test_name": "test_french_technical_sentence",
+      "language": "fr",
+      "text": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T12:45:36.861719",
+      "commit": "378e4ffa",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T12:45:46.061300",
+      "commit": "378e4ffa",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "slightly synthetic tone"
+    },
+    {
+      "timestamp": "2025-12-09T12:45:56.796158",
+      "commit": "378e4ffa",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "slight robotic tone but words correct"
+    },
+    {
+      "timestamp": "2025-12-09T12:46:07.688613",
+      "commit": "378e4ffa",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "Slight tonal or pronunciation inconsistency, but mostly accurate."
+    },
+    {
+      "timestamp": "2025-12-09T12:46:16.221470",
+      "commit": "378e4ffa",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u00a1Hola, mundo! Esto es una prueba.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T12:46:24.911380",
+      "commit": "378e4ffa",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T12:46:33.777930",
+      "commit": "378e4ffa",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "somewhat artificial intonation"
+    },
+    {
+      "timestamp": "2025-12-09T12:46:43.100508",
+      "commit": "378e4ffa",
+      "test_name": "test_french_technical_sentence",
+      "language": "fr",
+      "text": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T13:01:00.085666",
+      "commit": "f6faa55d",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T13:01:08.089354",
+      "commit": "f6faa55d",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T13:01:18.739119",
+      "commit": "f6faa55d",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "Slight unnaturalness and minimal deviation in pacing or tone."
+    },
+    {
+      "timestamp": "2025-12-09T13:01:29.118034",
+      "commit": "f6faa55d",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "Minor pronunciation variation in '\u4e16\u754c' as '\u4e16\u754c\uff1f' indicating slight intonation difference. Slight unnaturalness in flow."
+    },
+    {
+      "timestamp": "2025-12-09T13:01:36.851749",
+      "commit": "f6faa55d",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u00a1Hola, mundo! Esto es una prueba.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T13:01:44.515541",
+      "commit": "f6faa55d",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T13:01:52.582433",
+      "commit": "f6faa55d",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T13:02:02.264400",
+      "commit": "f6faa55d",
+      "test_name": "test_french_technical_sentence",
+      "language": "fr",
+      "text": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T13:19:29.479620",
+      "commit": "84b6026e",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T13:19:37.987494",
+      "commit": "84b6026e",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T13:19:48.943469",
+      "commit": "84b6026e",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "minor slight robotic tone"
+    },
+    {
+      "timestamp": "2025-12-09T13:19:59.745999",
+      "commit": "84b6026e",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "Minor pronunciation clarity issue on one character"
+    },
+    {
+      "timestamp": "2025-12-09T13:20:07.478507",
+      "commit": "84b6026e",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "\u00a1Hola, mundo! Esto es una prueba.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T13:20:15.234832",
+      "commit": "84b6026e",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T13:20:23.484591",
+      "commit": "84b6026e",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T13:20:31.722415",
+      "commit": "84b6026e",
+      "test_name": "test_french_technical_sentence",
+      "language": "fr",
+      "text": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T13:34:55.025229",
+      "commit": "3f6fa6b7",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T13:35:02.939172",
+      "commit": "3f6fa6b7",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T13:35:13.267573",
+      "commit": "3f6fa6b7",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "Minor intonation or pacing differences, otherwise quite accurate."
+    },
+    {
+      "timestamp": "2025-12-09T13:35:23.642223",
+      "commit": "3f6fa6b7",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "Minor pronunciation variation on '\u4e16\u754c' sounds slightly unnatural."
+    },
+    {
+      "timestamp": "2025-12-09T13:35:31.250568",
+      "commit": "3f6fa6b7",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u00a1Hola, mundo! Esto es una prueba.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T13:35:39.135506",
+      "commit": "3f6fa6b7",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T13:35:47.348494",
+      "commit": "3f6fa6b7",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 5
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T13:35:55.552527",
+      "commit": "3f6fa6b7",
+      "test_name": "test_french_technical_sentence",
+      "language": "fr",
+      "text": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T16:20:35.835244",
+      "commit": "8df9b70a",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T16:20:43.743001",
+      "commit": "8df9b70a",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T16:20:54.115194",
+      "commit": "8df9b70a",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "minor intonation slightly robotic"
+    },
+    {
+      "timestamp": "2025-12-09T16:21:04.699000",
+      "commit": "8df9b70a",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "Slight tonal or pacing differences, otherwise good."
+    },
+    {
+      "timestamp": "2025-12-09T16:21:12.227766",
+      "commit": "8df9b70a",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 5
+      },
+      "transcription": "\u00a1Hola, mundo! Esto es una prueba.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T16:21:19.970054",
+      "commit": "8df9b70a",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T16:21:28.018092",
+      "commit": "8df9b70a",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T16:21:37.714932",
+      "commit": "8df9b70a",
+      "test_name": "test_french_technical_sentence",
+      "language": "fr",
+      "text": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "issues": "slightly less natural intonation"
+    },
+    {
+      "timestamp": "2025-12-09T17:53:26.272444",
+      "commit": "cf1ee1dc",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T17:53:37.129472",
+      "commit": "cf1ee1dc",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T17:53:47.268663",
+      "commit": "cf1ee1dc",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "slightly less natural intonation"
+    },
+    {
+      "timestamp": "2025-12-09T17:53:58.355291",
+      "commit": "cf1ee1dc",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "Minor mispronunciation at the end, but overall close to expected."
+    },
+    {
+      "timestamp": "2025-12-09T17:54:06.637503",
+      "commit": "cf1ee1dc",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u00a1Hola, mundo! Esto es una prueba.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T17:54:14.953062",
+      "commit": "cf1ee1dc",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T17:54:24.599589",
+      "commit": "cf1ee1dc",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 5
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T17:54:36.330502",
+      "commit": "cf1ee1dc",
+      "test_name": "test_french_technical_sentence",
+      "language": "fr",
+      "text": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T21:22:06.855446",
+      "commit": "046445b0",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 5
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T21:22:14.983010",
+      "commit": "046445b0",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 5
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T21:22:25.348308",
+      "commit": "046445b0",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\u3001\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "Minor pause and intonation differences."
+    },
+    {
+      "timestamp": "2025-12-09T21:22:36.160705",
+      "commit": "046445b0",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\u4e16\u754c\uff0c\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "Missing a pause or slight intonation difference between '\u4f60\u597d\uff0c\u4e16\u754c\uff01' and '\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002' Also missing a pause after '\u4f60\u597d' that was in the expected text."
+    },
+    {
+      "timestamp": "2025-12-09T21:22:44.139951",
+      "commit": "046445b0",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "\u00a1Hola, mundo! Esto es una prueba.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T21:22:52.024568",
+      "commit": "046445b0",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T21:23:00.426894",
+      "commit": "046445b0",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T21:23:09.203403",
+      "commit": "4e6bc796",
+      "test_name": "test_french_technical_sentence",
+      "language": "fr",
+      "text": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T21:29:47.939170",
+      "commit": "4e6bc796",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T21:29:56.198488",
+      "commit": "4e6bc796",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T21:30:06.451600",
+      "commit": "4e6bc796",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "Minor deviation in spacing between phrases"
+    },
+    {
+      "timestamp": "2025-12-09T21:30:16.909341",
+      "commit": "4e6bc796",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "Slight mispronunciation in tone, some robotic intonation"
+    },
+    {
+      "timestamp": "2025-12-09T21:30:24.894235",
+      "commit": "4e6bc796",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 5
+      },
+      "transcription": "\u00a1Hola, mundo! Esto es una prueba.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T21:30:32.800225",
+      "commit": "4e6bc796",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T21:30:41.119835",
+      "commit": "4e6bc796",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T21:30:49.679919",
+      "commit": "4e6bc796",
+      "test_name": "test_french_technical_sentence",
+      "language": "fr",
+      "text": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T23:04:23.825735",
+      "commit": "c7a26038",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T23:04:32.041387",
+      "commit": "c7a26038",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T23:04:43.146108",
+      "commit": "c7a26038",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\u3001\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "Minor difference: extra pause or slight intonation shift."
+    },
+    {
+      "timestamp": "2025-12-09T23:04:54.123678",
+      "commit": "c7a26038",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "Minor pronunciation or tone inconsistencies"
+    },
+    {
+      "timestamp": "2025-12-09T23:05:04.318279",
+      "commit": "c7a26038",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u00a1Hola, mundo! Esto es una prueba.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T23:05:12.166936",
+      "commit": "c7a26038",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "Slightly synthetic tone, but accurate and clear."
+    },
+    {
+      "timestamp": "2025-12-09T23:05:20.333322",
+      "commit": "c7a26038",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-09T23:05:28.608969",
+      "commit": "c7a26038",
+      "test_name": "test_french_technical_sentence",
+      "language": "fr",
+      "text": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 5
+      },
+      "transcription": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-10T00:09:24.396867",
+      "commit": "1ad7644c",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-10T00:09:33.267285",
+      "commit": "1ad7644c",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-10T00:09:44.233045",
+      "commit": "1ad7644c",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "Minor intonation or rhythm differences, slightly less natural prosody."
+    },
+    {
+      "timestamp": "2025-12-10T00:09:55.558581",
+      "commit": "1ad7644c",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "Slight tonal or pacing variations, but mostly correct"
+    },
+    {
+      "timestamp": "2025-12-10T00:10:04.066252",
+      "commit": "1ad7644c",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "\u00a1Hola, mundo! Esto es una prueba.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-10T00:10:12.725999",
+      "commit": "1ad7644c",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-10T00:10:21.830294",
+      "commit": "1ad7644c",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-10T00:10:35.422080",
+      "commit": "1ad7644c",
+      "test_name": "test_french_technical_sentence",
+      "language": "fr",
+      "text": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "issues": "Minor pronunciation variation in 'refactoris\u00e9e' but overall close to expected."
+    },
+    {
+      "timestamp": "2025-12-10T00:24:17.883519",
+      "commit": "1ad7644c",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-10T00:24:26.772689",
+      "commit": "1ad7644c",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-10T00:24:37.949405",
+      "commit": "1ad7644c",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "Slight intonation or rhythm differences but mostly correct"
+    },
+    {
+      "timestamp": "2025-12-10T00:24:49.134243",
+      "commit": "1ad7644c",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "Minor difference in tone or pacing, otherwise accurate."
+    },
+    {
+      "timestamp": "2025-12-10T00:24:57.844237",
+      "commit": "1ad7644c",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 5
+      },
+      "transcription": "\u00a1Hola, mundo! Esto es una prueba.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-10T00:25:06.445986",
+      "commit": "1ad7644c",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "Minor synthetic tone"
+    },
+    {
+      "timestamp": "2025-12-10T00:25:15.353206",
+      "commit": "1ad7644c",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-10T00:25:25.379760",
+      "commit": "1ad7644c",
+      "test_name": "test_french_technical_sentence",
+      "language": "fr",
+      "text": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "issues": "Minor synthetic tone detected"
+    },
+    {
+      "timestamp": "2025-12-10T00:31:52.489617",
+      "commit": "1ad7644c",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-10T00:32:00.449504",
+      "commit": "1ad7644c",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "slightly synthetic tone"
+    },
+    {
+      "timestamp": "2025-12-10T00:32:11.018571",
+      "commit": "1ad7644c",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "minor robotic tone"
+    },
+    {
+      "timestamp": "2025-12-10T00:32:21.853695",
+      "commit": "1ad7644c",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff0c\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "Minor mispronunciation in tonal delivery."
+    },
+    {
+      "timestamp": "2025-12-10T00:32:29.658885",
+      "commit": "1ad7644c",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Hola mundo esto es una prueba",
+      "issues": "Punctuation slightly off, slight robotic tone"
+    },
+    {
+      "timestamp": "2025-12-10T00:32:37.470670",
+      "commit": "1ad7644c",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-10T00:32:45.628166",
+      "commit": "1ad7644c",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 5
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-10T00:32:54.548105",
+      "commit": "1ad7644c",
+      "test_name": "test_french_technical_sentence",
+      "language": "fr",
+      "text": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "issues": "Minor robotic tone, overall good quality."
+    },
+    {
+      "timestamp": "2025-12-10T05:50:47.653539",
+      "commit": "082ef603",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-10T05:50:56.244898",
+      "commit": "082ef603",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-10T05:51:07.385449",
+      "commit": "082ef603",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "minor intonation differences"
+    },
+    {
+      "timestamp": "2025-12-10T05:51:18.454147",
+      "commit": "082ef603",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "Minor mispronunciation or blending, but overall good."
+    },
+    {
+      "timestamp": "2025-12-10T05:51:26.941150",
+      "commit": "082ef603",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u00a1Hola, mundo! Esto es una prueba.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-10T05:51:35.425573",
+      "commit": "082ef603",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-10T05:51:44.432127",
+      "commit": "082ef603",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-10T05:51:56.156435",
+      "commit": "082ef603",
+      "test_name": "test_french_technical_sentence",
+      "language": "fr",
+      "text": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "issues": "Minor difference in pronunciation: 'refactoris\u00e9e' instead of 'refactoris\u00e9e' with exact expected tone, but overall very close."
+    },
+    {
+      "timestamp": "2025-12-10T07:29:31.917009",
+      "commit": "59ef28e3",
+      "test_name": "test_english_simple_sentence",
+      "language": "en",
+      "text": "Hello, world! This is a test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "Hello, world! This is a test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-10T07:29:40.173012",
+      "commit": "59ef28e3",
+      "test_name": "test_english_technical_sentence",
+      "language": "en",
+      "text": "The function was successfully refactored.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 5
+      },
+      "transcription": "The function was successfully refactored.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-10T07:29:50.987596",
+      "commit": "59ef28e3",
+      "test_name": "test_japanese_hiragana",
+      "language": "ja",
+      "text": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\uff01\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u3053\u3093\u306b\u3061\u306f\u3001\u4e16\u754c\u3001\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002",
+      "issues": "Minor deviation in punctuation and slight robotic tone"
+    },
+    {
+      "timestamp": "2025-12-10T07:30:01.625042",
+      "commit": "59ef28e3",
+      "test_name": "test_chinese_simple_sentence",
+      "language": "zh",
+      "text": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "scores": {
+        "accuracy": 4,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "\u4f60\u597d\uff0c\u4e16\u754c\uff01\u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u3002",
+      "issues": "Minor pronunciation or pacing differences, but overall very close."
+    },
+    {
+      "timestamp": "2025-12-10T07:30:09.308174",
+      "commit": "59ef28e3",
+      "test_name": "test_spanish_simple_sentence",
+      "language": "es",
+      "text": "\u00a1Hola, mundo! Esto es una prueba.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 4
+      },
+      "transcription": "Hola, mundo. Esto es una prueba.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-10T07:30:17.336353",
+      "commit": "59ef28e3",
+      "test_name": "test_spanish_technical_sentence",
+      "language": "es",
+      "text": "La funci\u00f3n fue refactorizada exitosamente.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "La funci\u00f3n fue refactorizada exitosamente.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-10T07:30:25.380544",
+      "commit": "59ef28e3",
+      "test_name": "test_french_simple_sentence",
+      "language": "fr",
+      "text": "Bonjour, le monde! Ceci est un test.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 4,
+        "quality": 5
+      },
+      "transcription": "Bonjour, le monde! Ceci est un test.",
+      "issues": "none"
+    },
+    {
+      "timestamp": "2025-12-10T07:30:33.706969",
+      "commit": "59ef28e3",
+      "test_name": "test_french_technical_sentence",
+      "language": "fr",
+      "text": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "scores": {
+        "accuracy": 5,
+        "naturalness": 5,
+        "quality": 5
+      },
+      "transcription": "La fonction a \u00e9t\u00e9 refactoris\u00e9e avec succ\u00e8s.",
+      "issues": "none"
+    }
+  ]
+}

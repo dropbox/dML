@@ -1,0 +1,122 @@
+diff --git a/aten/src/ATen/mps/MPSProfiler.h b/aten/src/ATen/mps/MPSProfiler.h
+index c1cb9090..56813ee9 100644
+--- a/aten/src/ATen/mps/MPSProfiler.h
++++ b/aten/src/ATen/mps/MPSProfiler.h
+@@ -24,6 +24,20 @@ namespace at::mps {
+ 
+ namespace Profiler {
+ 
++// THREAD SAFETY WARNING:
++// The MPS profiler uses shared unordered_maps (m_op_info_list, m_cpufallback_info_list,
++// m_copy_info_list, m_copystat_info_list) and non-atomic counters (runCount) without
++// mutex protection. When using multi-threaded MPS inference:
++//
++// 1. DISABLE profiling during parallel inference:
++//    - Do NOT enable signpost tracing (PYTORCH_MPS_LOG_LEVEL)
++//    - Do NOT enable operation profiling
++//    - Do NOT use Metal capture during parallel execution
++//
++// 2. Profiling is safe for single-threaded code or when all threads use the same stream.
++//
++// Future work: Add per-thread profiler structures or mutex protection for thread-safe profiling.
++
+ struct BaseInfo {
+   // profiling info types
+   enum class Type {
+diff --git a/aten/src/ATen/mps/MPSStream.mm b/aten/src/ATen/mps/MPSStream.mm
+index 3a822415..d63bc2c7 100644
+--- a/aten/src/ATen/mps/MPSStream.mm
++++ b/aten/src/ATen/mps/MPSStream.mm
+@@ -5,6 +5,8 @@
+ #include <ATen/mps/MPSStream.h>
+ #include <mutex>
+ #include <thread>
++#include <pthread.h>
++#include <algorithm>
+ 
+ @interface MPSGraphExecutionDescriptor ()
+ @property(readwrite, atomic) BOOL enableCommitAndContinue;
+@@ -385,9 +387,18 @@ MPSStream* MPSStreamPool::getStream(size_t index) {
+ 
+ void MPSStreamPool::synchronizeAllStreams() {
+   ensureInitialized();
++  // Collect streams under lock, then synchronize outside lock to avoid
++  // holding stream_creation_mutex_ during potentially long GPU waits.
++  std::array<MPSStream*, kMPSStreamsPerPool> streams_to_sync{};
++  {
++    std::lock_guard<std::mutex> lock(stream_creation_mutex_);
++    for (size_t i = 0; i < kMPSStreamsPerPool; ++i) {
++      streams_to_sync[i] = streams_[i].get();
++    }
++  }
+   for (size_t i = 0; i < kMPSStreamsPerPool; ++i) {
+-    if (streams_[i] != nullptr) {
+-      streams_[i]->synchronize(SyncType::COMMIT_AND_WAIT);
++    if (streams_to_sync[i] != nullptr) {
++      streams_to_sync[i]->synchronize(SyncType::COMMIT_AND_WAIT);
+     }
+   }
+ }
+@@ -409,6 +420,11 @@ void MPSStreamPool::releaseStreamSlot(size_t slot) {
+     return;  // Invalid or default stream slot
+   }
+   std::lock_guard<std::mutex> lock(slot_mutex_);
++  // Prevent double-release: check if slot is already in freelist
++  if (std::find(free_slots_.begin(), free_slots_.end(), slot) != free_slots_.end()) {
++    TORCH_WARN_ONCE("MPS stream slot ", slot, " released twice - ignoring duplicate release");
++    return;
++  }
+   free_slots_.push_back(slot);
+ }
+ 
+@@ -424,20 +440,15 @@ MPSStream* MPSStreamPool::acquireStream() {
+   return getStream(slot);
+ }
+ 
+-// Track which thread is the "main" thread (first to use MPS)
+-static std::once_flag main_thread_init_flag;
+-static std::thread::id main_thread_id;
+-
+ MPSStream* MPSStreamPool::getCurrentStream() {
+   if (tls_stream_slot.stream != nullptr) {
+     return tls_stream_slot.stream;
+   }
+ 
+-  std::call_once(main_thread_init_flag, []() {
+-    main_thread_id = std::this_thread::get_id();
+-  });
+-
+-  if (std::this_thread::get_id() == main_thread_id) {
++  // Use pthread_main_np() to detect the actual main thread (macOS-specific).
++  // This is more reliable than std::call_once which would mark the first
++  // thread to call this function as "main", even if it's a worker thread.
++  if (pthread_main_np() == 1) {
+     // Main thread uses default stream (slot 0, not recyclable)
+     tls_stream_slot.stream = MPSStreamPool::instance().getDefaultStream();
+   } else {
+@@ -451,16 +462,20 @@ MPSStream* MPSStreamPool::getCurrentStream() {
+ }
+ 
+ void MPSStreamPool::setCurrentStream(MPSStream* stream) {
+-  // Find slot index for this stream (or 0 if it's the default stream or not found)
++  // Find slot index for this stream under lock to avoid data race
+   size_t new_slot_index = 0;
+-  for (size_t i = 0; i < kMPSStreamsPerPool; ++i) {
+-    if (instance().streams_[i].get() == stream) {
+-      new_slot_index = i;
+-      break;
++  {
++    std::lock_guard<std::mutex> lock(instance().stream_creation_mutex_);
++    for (size_t i = 0; i < kMPSStreamsPerPool; ++i) {
++      if (instance().streams_[i].get() == stream) {
++        new_slot_index = i;
++        break;
++      }
+     }
+   }
+ 
+   // If previous slot was a worker slot (>0) and differs from new, release it
++  // Note: synchronize() is called outside lock to avoid holding lock during GPU wait
+   if (tls_stream_slot.slot_index > 0 && tls_stream_slot.slot_index != new_slot_index) {
+     // Sync old stream before releasing to avoid dirty state
+     if (tls_stream_slot.stream != nullptr && g_pool_alive.load(std::memory_order_acquire)) {

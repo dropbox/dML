@@ -1,0 +1,108 @@
+TLC2 Version 2.20 of Day Month 20?? (rev: bb62e53)
+Running breadth-first search Model-Checking with fp 31 and seed 8703490688117183449 with 16 workers on 16 cores with 109227MB heap and 64MB offheap memory [pid: 11420] (Mac OS X 15.7.3 aarch64, Homebrew 25.0.1 x86_64, MSBDiskFPSet, DiskStateQueue).
+Parsing file /Users/ayates/metal_mps_parallel/mps-verify/specs/AGXContextRace.tla
+Parsing file /private/var/folders/jw/79rkq4_54s71fhhbcy1gq5vr0000gn/T/tlc-14800385062821089556/Integers.tla (jar:file:/Users/ayates/metal_mps_parallel/mps-verify/tools/tla2tools.jar!/tla2sany/StandardModules/Integers.tla)
+Parsing file /private/var/folders/jw/79rkq4_54s71fhhbcy1gq5vr0000gn/T/tlc-14800385062821089556/Sequences.tla (jar:file:/Users/ayates/metal_mps_parallel/mps-verify/tools/tla2tools.jar!/tla2sany/StandardModules/Sequences.tla)
+Parsing file /private/var/folders/jw/79rkq4_54s71fhhbcy1gq5vr0000gn/T/tlc-14800385062821089556/FiniteSets.tla (jar:file:/Users/ayates/metal_mps_parallel/mps-verify/tools/tla2tools.jar!/tla2sany/StandardModules/FiniteSets.tla)
+Parsing file /private/var/folders/jw/79rkq4_54s71fhhbcy1gq5vr0000gn/T/tlc-14800385062821089556/TLC.tla (jar:file:/Users/ayates/metal_mps_parallel/mps-verify/tools/tla2tools.jar!/tla2sany/StandardModules/TLC.tla)
+Parsing file /private/var/folders/jw/79rkq4_54s71fhhbcy1gq5vr0000gn/T/tlc-14800385062821089556/_TLCTrace.tla (jar:file:/Users/ayates/metal_mps_parallel/mps-verify/tools/tla2tools.jar!/tla2sany/StandardModules/_TLCTrace.tla)
+Parsing file /private/var/folders/jw/79rkq4_54s71fhhbcy1gq5vr0000gn/T/tlc-14800385062821089556/Naturals.tla (jar:file:/Users/ayates/metal_mps_parallel/mps-verify/tools/tla2tools.jar!/tla2sany/StandardModules/Naturals.tla)
+Parsing file /private/var/folders/jw/79rkq4_54s71fhhbcy1gq5vr0000gn/T/tlc-14800385062821089556/TLCExt.tla (jar:file:/Users/ayates/metal_mps_parallel/mps-verify/tools/tla2tools.jar!/tla2sany/StandardModules/TLCExt.tla)
+Semantic processing of module Naturals
+Semantic processing of module Integers
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module TLCExt
+Semantic processing of module _TLCTrace
+Semantic processing of module AGXContextRace
+Linting of module TLCExt
+Linting of module _TLCTrace
+Linting of module AGXContextRace
+Starting... (2025-12-25 10:55:12)
+Implied-temporal checking--satisfiability problem has 1 branches.
+Computing initial states...
+Finished computing initial states: 1 distinct state generated at 2025-12-25 10:55:13.
+Error: Invariant NoNullDereferences is violated.
+Error: The behavior up to this point is:
+State 1: <Initial predicate>
+/\ null_deref_count = 0
+/\ context_registry = << "invalid",
+   "invalid",
+   "invalid",
+   "invalid",
+   "invalid",
+   "invalid",
+   "invalid",
+   "invalid" >>
+/\ thread_context = <<0, 0, 0, 0, 0, 0, 0, 0>>
+/\ thread_state = <<"idle", "idle", "idle", "idle", "idle", "idle", "idle", "idle">>
+/\ context_owner = <<0, 0, 0, 0, 0, 0, 0, 0>>
+/\ race_witnessed = FALSE
+
+State 2: <StartCreateContext(1) line 77, col 5 to line 85, col 71 of module AGXContextRace>
+/\ null_deref_count = 0
+/\ context_registry = << "invalid",
+   "invalid",
+   "invalid",
+   "invalid",
+   "invalid",
+   "invalid",
+   "invalid",
+   "invalid" >>
+/\ thread_context = <<1, 0, 0, 0, 0, 0, 0, 0>>
+/\ thread_state = <<"creating", "idle", "idle", "idle", "idle", "idle", "idle", "idle">>
+/\ context_owner = <<1, 0, 0, 0, 0, 0, 0, 0>>
+/\ race_witnessed = FALSE
+
+State 3: <FinishCreateContext(1) line 89, col 5 to line 94, col 84 of module AGXContextRace>
+/\ null_deref_count = 0
+/\ context_registry = << "valid",
+   "invalid",
+   "invalid",
+   "invalid",
+   "invalid",
+   "invalid",
+   "invalid",
+   "invalid" >>
+/\ thread_context = <<1, 0, 0, 0, 0, 0, 0, 0>>
+/\ thread_state = <<"encoding", "idle", "idle", "idle", "idle", "idle", "idle", "idle">>
+/\ context_owner = <<1, 0, 0, 0, 0, 0, 0, 0>>
+/\ race_witnessed = FALSE
+
+State 4: <DestroyOtherContext(2) line 125, col 5 to line 134, col 53 of module AGXContextRace>
+/\ null_deref_count = 0
+/\ context_registry = << "invalid",
+   "invalid",
+   "invalid",
+   "invalid",
+   "invalid",
+   "invalid",
+   "invalid",
+   "invalid" >>
+/\ thread_context = <<1, 0, 0, 0, 0, 0, 0, 0>>
+/\ thread_state = <<"encoding", "idle", "idle", "idle", "idle", "idle", "idle", "idle">>
+/\ context_owner = <<1, 0, 0, 0, 0, 0, 0, 0>>
+/\ race_witnessed = FALSE
+
+State 5: <UseContext(1) line 99, col 5 to line 108, col 68 of module AGXContextRace>
+/\ null_deref_count = 1
+/\ context_registry = << "invalid",
+   "invalid",
+   "invalid",
+   "invalid",
+   "invalid",
+   "invalid",
+   "invalid",
+   "invalid" >>
+/\ thread_context = <<1, 0, 0, 0, 0, 0, 0, 0>>
+/\ thread_state = <<"destroying", "idle", "idle", "idle", "idle", "idle", "idle", "idle">>
+/\ context_owner = <<1, 0, 0, 0, 0, 0, 0, 0>>
+/\ race_witnessed = TRUE
+
+6423 states generated, 5935 distinct states found, 5804 states left on queue.
+The depth of the complete state graph search is 6.
+Checkpointing of run states/25-12-25-10-55-12.012
+Checkpointing completed at (2025-12-25 10:55:13)
+Finished in 01s at (2025-12-25 10:55:13)
+Trace exploration spec path: ./AGXContextRace_TTrace_1766688912.tla

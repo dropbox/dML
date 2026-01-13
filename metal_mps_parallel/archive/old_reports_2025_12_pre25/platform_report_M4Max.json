@@ -1,0 +1,63 @@
+Running platform assumption checks...
+
+{
+  "platform": {
+    "chip_name": "Apple M4 Max",
+    "gpu_core_count": 40,
+    "memory_bytes": 137438953472,
+    "has_dynamic_caching": true,
+    "is_ultra_chip": false,
+    "macos_version": "15.7.3",
+    "metal_version": "Apple9 (M4)"
+  },
+  "results": [
+    {
+      "id": "A.001",
+      "name": "MTLSharedEvent atomicity",
+      "passed": true,
+      "duration_ms": 3.26,
+      "details": "All 8000 increments accounted for"
+    },
+    {
+      "id": "A.002",
+      "name": "MTLCommandQueue thread safety",
+      "passed": true,
+      "duration_ms": 6.81,
+      "details": "8 queues x 100 commands completed without errors"
+    },
+    {
+      "id": "A.003",
+      "name": "Sequential consistency memory ordering",
+      "passed": true,
+      "duration_ms": 1.09,
+      "details": "Dekker's algorithm passed 100000 critical section entries with no violations"
+    },
+    {
+      "id": "A.004",
+      "name": "CPU-GPU unified memory coherency",
+      "passed": true,
+      "duration_ms": 0.06,
+      "details": "CPU read-after-write coherent for 1024 elements"
+    },
+    {
+      "id": "A.005",
+      "name": "@autoreleasepool semantics",
+      "passed": true,
+      "duration_ms": 13.03,
+      "details": "100 autoreleasepool iterations completed without crash"
+    },
+    {
+      "id": "A.006",
+      "name": "Stream isolation (no cross-contamination)",
+      "passed": true,
+      "duration_ms": 2.23,
+      "details": "4 streams x 50 iterations isolated correctly"
+    }
+  ],
+  "summary": {
+    "total_checks": 6,
+    "passed_checks": 6,
+    "failed_checks": 0,
+    "all_passed": true
+  }
+}

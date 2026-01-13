@@ -1,0 +1,17 @@
+# Speaker Embedding Export Requirements
+# Isolated venv for reproducible ECAPA-TDNN model export
+#
+# Usage: Use with scripts/export_speaker_model.sh
+
+# PyTorch 2.5.1 for consistent TorchScript export
+torch==2.5.1
+torchaudio==2.5.1
+
+# SpeechBrain for ECAPA-TDNN
+speechbrain>=1.0.0
+
+# HuggingFace Hub for model download
+huggingface-hub>=0.20.0
+
+# NumPy for array operations
+numpy>=1.24.0

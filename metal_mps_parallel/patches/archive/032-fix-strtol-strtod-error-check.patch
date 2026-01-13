@@ -1,0 +1,68 @@
+diff --git a/aten/src/ATen/mps/MPSAllocator.mm b/aten/src/ATen/mps/MPSAllocator.mm
+index c3df3c7e..db5a88aa 100644
+--- a/aten/src/ATen/mps/MPSAllocator.mm
++++ b/aten/src/ATen/mps/MPSAllocator.mm
+@@ -17,6 +17,7 @@
+ 
+ #include <c10/util/ScopeExit.h>
+ #include <cctype>
++#include <cerrno>
+ #include <chrono>
+ #include <cstdlib>
+ #include <iostream>
+@@ -243,8 +244,18 @@ void MPSHeapAllocatorImpl::init_allocator() {
+   init_buffer_pools();
+ 
+   // debug verbosity flags (see DebugVerbosity enum)
++  // 32.28 fix: Add error checking for environment variable parsing
+   static const auto verbosity_str = c10::utils::get_env("PYTORCH_DEBUG_MPS_ALLOCATOR");
+-  m_debug_verbosity = verbosity_str ? strtol(verbosity_str->c_str(), nullptr, 0) : DebugVerbosity::SILENT;
++  if (verbosity_str) {
++    char* endptr = nullptr;
++    errno = 0;
++    long val = strtol(verbosity_str->c_str(), &endptr, 0);
++    TORCH_CHECK(errno == 0 && endptr != verbosity_str->c_str() && (*endptr == '\0' || std::isspace(*endptr)),
++                "PYTORCH_DEBUG_MPS_ALLOCATOR: invalid value '", *verbosity_str, "'");
++    m_debug_verbosity = static_cast<uint32_t>(val);
++  } else {
++    m_debug_verbosity = DebugVerbosity::SILENT;
++  }
+ 
+   static const auto alloc_conf_str = c10::utils::get_env("PYTORCH_MPS_ALLOC_CONF");
+   m_roundup_power2_divisions = alloc_conf_str ? parse_roundup_power2_divisions_conf(*alloc_conf_str) : 0;
+@@ -252,16 +263,31 @@ void MPSHeapAllocatorImpl::init_allocator() {
+     std::cerr << "MPS allocator size rounding: roundup_power2_divisions=" << m_roundup_power2_divisions << "\n";
+   }
+ 
++  // 32.28 fix: Add error checking for watermark ratio parsing
+   static const auto high_watermark_ratio_str = c10::utils::get_env("PYTORCH_MPS_HIGH_WATERMARK_RATIO");
+-  const double high_watermark_ratio =
+-      high_watermark_ratio_str ? strtod(high_watermark_ratio_str->c_str(), nullptr) : default_high_watermark_ratio;
++  double high_watermark_ratio = default_high_watermark_ratio;
++  if (high_watermark_ratio_str) {
++    char* endptr = nullptr;
++    errno = 0;
++    double val = strtod(high_watermark_ratio_str->c_str(), &endptr);
++    TORCH_CHECK(errno == 0 && endptr != high_watermark_ratio_str->c_str() && (*endptr == '\0' || std::isspace(*endptr)),
++                "PYTORCH_MPS_HIGH_WATERMARK_RATIO: invalid value '", *high_watermark_ratio_str, "'");
++    high_watermark_ratio = val;
++  }
+   setHighWatermarkRatio(high_watermark_ratio);
+ 
+   const double default_low_watermark_ratio =
+       m_device.hasUnifiedMemory ? default_low_watermark_ratio_unified : default_low_watermark_ratio_discrete;
+   static const auto low_watermark_ratio_str = c10::utils::get_env("PYTORCH_MPS_LOW_WATERMARK_RATIO");
+-  const double low_watermark_ratio =
+-      low_watermark_ratio_str ? strtod(low_watermark_ratio_str->c_str(), nullptr) : default_low_watermark_ratio;
++  double low_watermark_ratio = default_low_watermark_ratio;
++  if (low_watermark_ratio_str) {
++    char* endptr = nullptr;
++    errno = 0;
++    double val = strtod(low_watermark_ratio_str->c_str(), &endptr);
++    TORCH_CHECK(errno == 0 && endptr != low_watermark_ratio_str->c_str() && (*endptr == '\0' || std::isspace(*endptr)),
++                "PYTORCH_MPS_LOW_WATERMARK_RATIO: invalid value '", *low_watermark_ratio_str, "'");
++    low_watermark_ratio = val;
++  }
+   setLowWatermarkRatio(low_watermark_ratio);
+ }
+ 

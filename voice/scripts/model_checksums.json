@@ -1,0 +1,62 @@
+{
+  "cosyvoice/cosyvoice_qwen2_q8_0.gguf": {
+    "description": "CosyVoice LLM GGUF (~550MB)",
+    "sha256": "24ebdeda66a0f64df9a1344fb4aac65ed7b5f11b6405fca2c395d9a578b31d8b",
+    "size": 531065344
+  },
+  "kokoro/kokoro_mps.pt": {
+    "description": "Kokoro MPS TorchScript model (~328MB)",
+    "sha256": "195ca1e9d5cab584e43b0fa22db93cfab4b22dd1e37bbb63f1ea223addb279cc",
+    "size": 328178507
+  },
+  "kokoro/voice_af_heart.pt": {
+    "description": "Kokoro voice embedding",
+    "sha256": "97ce71c8f40b177caa6c8e49b5780589a99bfddabc0bd9b03b9f7da234fcad4a",
+    "size": 523866
+  },
+  "mms-tts/mms_tts_ar_cpu.pt": {
+    "description": "MMS-TTS Arabic (~140MB)",
+    "sha256": "def0f654262b98aa9944156ec075f99f4d93c2a5eb653c1d365cd676244b9a9a",
+    "size": 146278692
+  },
+  "mms-tts/mms_tts_fa_cpu.pt": {
+    "description": "MMS-TTS Persian (~140MB)",
+    "sha256": "b842336e41eadf9013911093652d64bb026726d62e1634545c3eff2054432da6",
+    "size": 146310758
+  },
+  "mms-tts/mms_tts_tr_cpu.pt": {
+    "description": "MMS-TTS Turkish (~140MB)",
+    "sha256": "9edd75f0df8570838a0596dd0ce205bde220dca5b18677c1957ab6d48328bf44",
+    "size": 146277275
+  },
+  "nllb/nllb-200-distilled-600m.pt": {
+    "description": "NLLB-600M full model (~2.4GB)",
+    "sha256": "5b564121c165eab4655f2ababa7301596118aa0f54273c87e2c41823c415f291",
+    "size": 2460490997
+  },
+  "nllb/nllb-decoder-mps.pt": {
+    "description": "NLLB decoder TorchScript (~1.8GB)",
+    "sha256": "7ceca1b9c378566255e5c8cf152748c9ae69d501d56f64d9944551259a770f86",
+    "size": 1860315440
+  },
+  "nllb/nllb-encoder-mps.pt": {
+    "description": "NLLB encoder TorchScript (~1.6GB)",
+    "sha256": "15dd5ad6a21857a0071b833128ff7dff575b92cdb65f6c803bc6a0d8d1aa7328",
+    "size": 1658517676
+  },
+  "nllb/sentencepiece.bpe.model": {
+    "description": "NLLB tokenizer (~4.8MB)",
+    "sha256": "14bb8dfb35c0ffdea7bc01e56cea38b9e3d5efcdcb9c251d6b40538e1aab555a",
+    "size": 4852054
+  },
+  "speaker/ecapa_tdnn.pt": {
+    "description": "ECAPA-TDNN speaker embedding (~85MB)",
+    "sha256": "09b4723b5ff1c8e9adf3030d0f7360c2096142816ee9d224b7f8aa56c8e701aa",
+    "size": 83356120
+  },
+  "whisper/ggml-large-v3.bin": {
+    "description": "Whisper large-v3 (~3GB)",
+    "sha256": "64d182b440b98d5203c4f9bd541544d84c605196c4f7b845dfa11fb23594d1e2",
+    "size": 3095033483
+  }
+}

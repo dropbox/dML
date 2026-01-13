@@ -1,0 +1,58 @@
+#!/bin/bash
+# Pre-push hook: Run full test suite before allowing push
+# Thorough validation (<5min) - blocks pushes on failure
+#
+# Install: make install-hooks
+# Skip: git push --no-verify
+# Created 2025-12-05: Worker #98
+
+set -e
+
+cd "$(git rev-parse --show-toplevel)"
+
+echo "=============================================="
+echo "  Pre-push Hook - Full Test Suite"
+echo "=============================================="
+echo ""
+
+# Run unit tests (Python + C++)
+echo "Running unit tests..."
+if make test-unit; then
+    echo "Unit tests passed"
+    echo ""
+else
+    echo ""
+    echo "Unit tests FAILED!"
+    echo ""
+    echo "Fix issues before pushing, or use 'git push --no-verify' to skip."
+    exit 1
+fi
+
+# Run integration tests
+echo "Running integration tests..."
+if make test-integration; then
+    echo "Integration tests passed"
+    echo ""
+else
+    echo ""
+    echo "Integration tests FAILED!"
+    echo ""
+    echo "Fix issues before pushing, or use 'git push --no-verify' to skip."
+    exit 1
+fi
+
+# Run C++ queue tests
+echo "Running C++ queue tests..."
+if make test-cpp; then
+    echo "C++ queue tests passed"
+    echo ""
+else
+    echo ""
+    echo "C++ queue tests FAILED!"
+    exit 1
+fi
+
+echo "=============================================="
+echo "  All pre-push tests passed - safe to push"
+echo "=============================================="
+exit 0

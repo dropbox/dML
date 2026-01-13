@@ -1,0 +1,34 @@
+TLC2 Version 2.20 of Day Month 20?? (rev: bb62e53)
+Running breadth-first search Model-Checking with fp 1 and seed -1255989853941415213 with 16 workers on 16 cores with 27300MB heap and 64MB offheap memory [pid: 13487] (Mac OS X 15.7.3 aarch64, Homebrew 25.0.1 x86_64, MSBDiskFPSet, DiskStateQueue).
+Parsing file /Users/ayates/metal_mps_parallel/mps-verify/specs/AGXV2_9_Expanded.tla
+Parsing file /private/var/folders/jw/79rkq4_54s71fhhbcy1gq5vr0000gn/T/tlc-3280211560313022437/Integers.tla (jar:file:/Users/ayates/metal_mps_parallel/mps-verify/tools/tla2tools.jar!/tla2sany/StandardModules/Integers.tla)
+Parsing file /private/var/folders/jw/79rkq4_54s71fhhbcy1gq5vr0000gn/T/tlc-3280211560313022437/FiniteSets.tla (jar:file:/Users/ayates/metal_mps_parallel/mps-verify/tools/tla2tools.jar!/tla2sany/StandardModules/FiniteSets.tla)
+Parsing file /private/var/folders/jw/79rkq4_54s71fhhbcy1gq5vr0000gn/T/tlc-3280211560313022437/_TLCTrace.tla (jar:file:/Users/ayates/metal_mps_parallel/mps-verify/tools/tla2tools.jar!/tla2sany/StandardModules/_TLCTrace.tla)
+Parsing file /private/var/folders/jw/79rkq4_54s71fhhbcy1gq5vr0000gn/T/tlc-3280211560313022437/Naturals.tla (jar:file:/Users/ayates/metal_mps_parallel/mps-verify/tools/tla2tools.jar!/tla2sany/StandardModules/Naturals.tla)
+Parsing file /private/var/folders/jw/79rkq4_54s71fhhbcy1gq5vr0000gn/T/tlc-3280211560313022437/Sequences.tla (jar:file:/Users/ayates/metal_mps_parallel/mps-verify/tools/tla2tools.jar!/tla2sany/StandardModules/Sequences.tla)
+Parsing file /private/var/folders/jw/79rkq4_54s71fhhbcy1gq5vr0000gn/T/tlc-3280211560313022437/TLC.tla (jar:file:/Users/ayates/metal_mps_parallel/mps-verify/tools/tla2tools.jar!/tla2sany/StandardModules/TLC.tla)
+Parsing file /private/var/folders/jw/79rkq4_54s71fhhbcy1gq5vr0000gn/T/tlc-3280211560313022437/TLCExt.tla (jar:file:/Users/ayates/metal_mps_parallel/mps-verify/tools/tla2tools.jar!/tla2sany/StandardModules/TLCExt.tla)
+Semantic processing of module Naturals
+Semantic processing of module Integers
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module TLCExt
+Semantic processing of module _TLCTrace
+Semantic processing of module AGXV2_9_Expanded
+Linting of module TLCExt
+Linting of module _TLCTrace
+Linting of module AGXV2_9_Expanded
+Starting... (2025-12-25 10:57:56)
+Computing initial states...
+Finished computing initial states: 1 distinct state generated at 2025-12-25 10:57:56.
+Progress(13) at 2025-12-25 10:57:59: 7,361,898 states generated (7,361,898 s/min), 2,609,087 distinct states found (2,609,087 ds/min), 1,768,855 states left on queue.
+Progress(16) at 2025-12-25 10:58:59: 231,743,523 states generated (224,381,625 s/min), 62,104,061 distinct states found (59,494,974 ds/min), 35,507,107 states left on queue.
+Progress(17) at 2025-12-25 10:59:59: 456,582,365 states generated (224,838,842 s/min), 114,829,904 distinct states found (52,725,843 ds/min), 59,871,643 states left on queue.
+Progress(18) at 2025-12-25 11:00:59: 669,080,599 states generated (212,498,234 s/min), 167,997,304 distinct states found (53,167,400 ds/min), 83,769,054 states left on queue.
+Progress(18) at 2025-12-25 11:01:59: 890,910,004 states generated (221,829,405 s/min), 222,252,773 distinct states found (54,255,469 ds/min), 111,342,671 states left on queue.
+Progress(19) at 2025-12-25 11:02:59: 1,115,263,135 states generated (224,353,131 s/min), 276,170,235 distinct states found (53,917,462 ds/min), 139,321,716 states left on queue.
+Progress(19) at 2025-12-25 11:03:59: 1,337,496,893 states generated (222,233,758 s/min), 329,683,981 distinct states found (53,513,746 ds/min), 167,329,021 states left on queue.
+Progress(19) at 2025-12-25 11:04:59: 1,562,567,448 states generated (225,070,555 s/min), 383,344,249 distinct states found (53,660,268 ds/min), 196,262,690 states left on queue.
+Progress(19) at 2025-12-25 11:05:59: 1,797,881,526 states generated (235,314,078 s/min), 432,213,653 distinct states found (48,869,404 ds/min), 220,782,708 states left on queue.
+Progress(19) at 2025-12-25 11:06:59: 2,037,749,915 states generated (239,868,389 s/min), 475,801,076 distinct states found (43,587,423 ds/min), 239,082,533 states left on queue.

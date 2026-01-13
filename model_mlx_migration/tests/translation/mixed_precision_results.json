@@ -1,0 +1,422 @@
+{
+  "8bit": {
+    "name": "8-bit Quantization (Baseline)",
+    "quantize_mode": "8",
+    "target_lang": "ja",
+    "load_time_s": 1.4632320404052734,
+    "avg_latency_ms": 189.60070610046387,
+    "median_latency_ms": 197.23010063171387,
+    "min_latency_ms": 46.22292518615723,
+    "max_latency_ms": 476.4130115509033,
+    "throughput_texts_per_sec": 5.274241961262155,
+    "num_sentences": 20,
+    "iterations": 2,
+    "translations": [
+      {
+        "source": "Hello, how are you today?",
+        "target": "こんにちは 今日はどうですか。",
+        "latency_ms": 128.79323959350586,
+        "tokens": 15
+      },
+      {
+        "source": "The weather is beautiful.",
+        "target": "天気はいい。",
+        "latency_ms": 54.67581748962402,
+        "tokens": 6
+      },
+      {
+        "source": "I would like to order coffee.",
+        "target": "コーヒーを注文したい。",
+        "latency_ms": 89.94603157043457,
+        "tokens": 10
+      },
+      {
+        "source": "The quick brown fox jumps over the lazy dog near the riverbank.",
+        "target": "速い褐色狐は川岸近くで怠け犬を飛び越える。",
+        "latency_ms": 205.3220272064209,
+        "tokens": 22
+      },
+      {
+        "source": "Could you please tell me where the nearest train station is located?",
+        "target": "最寄りの鉄道の停留所はどこですか。",
+        "latency_ms": 161.59510612487793,
+        "tokens": 17
+      },
+      {
+        "source": "Artificial intelligence is transforming how we work and live.",
+        "target": "人工知能は，私たちの仕事と生活の方法を変えている。",
+        "latency_ms": 213.4530544281006,
+        "tokens": 23
+      },
+      {
+        "source": "I love Japanese food, especially sushi and ramen.",
+        "target": "私は日本料理が好きで、特にスイーツとラーメンが好きです。",
+        "latency_ms": 230.0398349761963,
+        "tokens": 26
+      },
+      {
+        "source": "The Great Wall of China is a UNESCO World Heritage site.",
+        "target": "万里の長城はユネスコの世界遺産に登録された。",
+        "latency_ms": 188.81511688232422,
+        "tokens": 21
+      },
+      {
+        "source": "Korean culture has become popular worldwide through K-pop.",
+        "target": "韓国文化はK-POPを通じて世界的に人気となった。",
+        "latency_ms": 197.23010063171387,
+        "tokens": 22
+      },
+      {
+        "source": "Please find attached the quarterly financial report for your review.",
+        "target": "季節的な経営報告書をご覧ください。",
+        "latency_ms": 149.92594718933105,
+        "tokens": 16
+      },
+      {
+        "source": "The software development team will deploy the new feature next week.",
+        "target": "ソフトウェア開発チームは 来週新機能を配布する",
+        "latency_ms": 175.16112327575684,
+        "tokens": 19
+      },
+      {
+        "source": "The meeting is scheduled for March 15th at 2:30 PM.",
+        "target": "会議は３月１５日午後２時３０分に予定している。",
+        "latency_ms": 207.83591270446777,
+        "tokens": 22
+      },
+      {
+        "source": "Dr. Smith published her research paper in the Nature journal.",
+        "target": "博士はネイチャー誌に彼女の研究論文を発表した。",
+        "latency_ms": 199.1281509399414,
+        "tokens": 22
+      },
+      {
+        "source": "I am so excited to see you again after all these years!",
+        "target": "何年も後に また会えるなんて とても楽しみだわ！",
+        "latency_ms": 217.79727935791016,
+        "tokens": 24
+      },
+      {
+        "source": "This is absolutely unacceptable and must be addressed immediately.",
+        "target": "これは絶対に受け入れられないことであり、直ちに取り組まなければならない。",
+        "latency_ms": 275.8960723876953,
+        "tokens": 30
+      },
+      {
+        "source": "The scientific community has reached a consensus that climate change poses significant risks to ecosystems, economies, and human health around the world.",
+        "target": "気候変動は世界中の生態系，経済，人間の健康に対して重大なリスクをもたらすとの科学的共識に達した。",
+        "latency_ms": 429.4159412384033,
+        "tokens": 45
+      },
+      {
+        "source": "When planning your next vacation, consider visiting countries that offer a unique blend of historical landmarks, natural beauty, and cultural experiences.",
+        "target": "次の休暇を計画するとき、歴史的な地標、自然の美しさ、文化的な体験を独特に融合させた国を訪れるのを考えてみてください。",
+        "latency_ms": 475.79288482666016,
+        "tokens": 52
+      },
+      {
+        "source": "Yes, please.",
+        "target": "はい　お願いします",
+        "latency_ms": 75.45685768127441,
+        "tokens": 9
+      },
+      {
+        "source": "Thank you very much.",
+        "target": "ありがとうございます",
+        "latency_ms": 62.120914459228516,
+        "tokens": 7
+      },
+      {
+        "source": "Good morning everyone.",
+        "target": "おはようございます",
+        "latency_ms": 46.22292518615723,
+        "tokens": 5
+      }
+    ]
+  },
+  "mixed": {
+    "name": "Mixed Precision (8-bit attn, 4-bit FFN)",
+    "quantize_mode": "mixed",
+    "target_lang": "ja",
+    "load_time_s": 1.3080871105194092,
+    "avg_latency_ms": 185.19059419631958,
+    "median_latency_ms": 181.52403831481934,
+    "min_latency_ms": 42.906999588012695,
+    "max_latency_ms": 468.6141014099121,
+    "throughput_texts_per_sec": 5.399842277842174,
+    "num_sentences": 20,
+    "iterations": 2,
+    "translations": [
+      {
+        "source": "Hello, how are you today?",
+        "target": "こんにちは 今日はどうですか。",
+        "latency_ms": 125.42176246643066,
+        "tokens": 15
+      },
+      {
+        "source": "The weather is beautiful.",
+        "target": "天気は美しい。",
+        "latency_ms": 58.747053146362305,
+        "tokens": 7
+      },
+      {
+        "source": "I would like to order coffee.",
+        "target": "コーヒーを注文したい。",
+        "latency_ms": 87.46695518493652,
+        "tokens": 10
+      },
+      {
+        "source": "The quick brown fox jumps over the lazy dog near the riverbank.",
+        "target": "速い褐色狐は川岸近くで怠け犬を飛び越える。",
+        "latency_ms": 198.48203659057617,
+        "tokens": 22
+      },
+      {
+        "source": "Could you please tell me where the nearest train station is located?",
+        "target": "最寄りの鉄道の停留所はどこですか。",
+        "latency_ms": 155.70592880249023,
+        "tokens": 17
+      },
+      {
+        "source": "Artificial intelligence is transforming how we work and live.",
+        "target": "人工知能は，私たちの仕事と生活の方法を変えている。",
+        "latency_ms": 207.39197731018066,
+        "tokens": 23
+      },
+      {
+        "source": "I love Japanese food, especially sushi and ramen.",
+        "target": "私は日本料理、特にスシとラーメルが好きです。",
+        "latency_ms": 181.50615692138672,
+        "tokens": 21
+      },
+      {
+        "source": "The Great Wall of China is a UNESCO World Heritage site.",
+        "target": "万里の長城はユネスコの世界遺産に登録された。",
+        "latency_ms": 181.3948154449463,
+        "tokens": 21
+      },
+      {
+        "source": "Korean culture has become popular worldwide through K-pop.",
+        "target": "韓国文化はK-POPを通じて世界的に人気を博した。",
+        "latency_ms": 189.34297561645508,
+        "tokens": 22
+      },
+      {
+        "source": "Please find attached the quarterly financial report for your review.",
+        "target": "季節的な経営報告書をご覧ください。",
+        "latency_ms": 144.08016204833984,
+        "tokens": 16
+      },
+      {
+        "source": "The software development team will deploy the new feature next week.",
+        "target": "ソフトウェア開発チームは 来週新機能を配布する",
+        "latency_ms": 167.7548885345459,
+        "tokens": 19
+      },
+      {
+        "source": "The meeting is scheduled for March 15th at 2:30 PM.",
+        "target": "会議は３月１５日午後２時３０分に予定されます。",
+        "latency_ms": 206.01582527160645,
+        "tokens": 23
+      },
+      {
+        "source": "Dr. Smith published her research paper in the Nature journal.",
+        "target": "Ｓｍｉｔｈ博士は，ネイチャー誌に彼女の研究論文を発表した。",
+        "latency_ms": 238.47603797912598,
+        "tokens": 28
+      },
+      {
+        "source": "I am so excited to see you again after all these years!",
+        "target": "何年も後に また会えるなんて とても楽しい！",
+        "latency_ms": 185.1978302001953,
+        "tokens": 21
+      },
+      {
+        "source": "This is absolutely unacceptable and must be addressed immediately.",
+        "target": "これは絶対に受け入れられないことであり、直ちに取り組まなければならない。",
+        "latency_ms": 266.1252021789551,
+        "tokens": 30
+      },
+      {
+        "source": "The scientific community has reached a consensus that climate change poses significant risks to ecosystems, economies, and human health around the world.",
+        "target": "科学者のコミュニティは，気候変動が世界中の生態系，経済，人間の健康に対して重大なリスクをもたらすことに合意した。",
+        "latency_ms": 467.7469730377197,
+        "tokens": 51
+      },
+      {
+        "source": "When planning your next vacation, consider visiting countries that offer a unique blend of historical landmarks, natural beauty, and cultural experiences.",
+        "target": "次の旅行を計画するときは、歴史的な地標、自然の美しさ、文化的な体験を独特に融合させた国を訪れるのを考えてみてください。",
+        "latency_ms": 465.21687507629395,
+        "tokens": 53
+      },
+      {
+        "source": "Yes, please.",
+        "target": "はい　お願いします",
+        "latency_ms": 71.97380065917969,
+        "tokens": 9
+      },
+      {
+        "source": "Thank you very much.",
+        "target": "ありがとうございます",
+        "latency_ms": 58.69793891906738,
+        "tokens": 7
+      },
+      {
+        "source": "Good morning everyone.",
+        "target": "おはようございます",
+        "latency_ms": 43.329715728759766,
+        "tokens": 5
+      }
+    ]
+  },
+  "4bit": {
+    "name": "4-bit Quantization",
+    "quantize_mode": "4",
+    "target_lang": "ja",
+    "load_time_s": 1.3040058612823486,
+    "avg_latency_ms": 149.83085989952087,
+    "median_latency_ms": 140.37179946899414,
+    "min_latency_ms": 35.945892333984375,
+    "max_latency_ms": 402.35328674316406,
+    "throughput_texts_per_sec": 6.674192490589836,
+    "num_sentences": 20,
+    "iterations": 2,
+    "translations": [
+      {
+        "source": "Hello, how are you today?",
+        "target": "こんにちは 今日はどうですか。",
+        "latency_ms": 101.67884826660156,
+        "tokens": 15
+      },
+      {
+        "source": "The weather is beautiful.",
+        "target": "天気は美しい。",
+        "latency_ms": 48.02703857421875,
+        "tokens": 7
+      },
+      {
+        "source": "I would like to order coffee.",
+        "target": "コーヒーを注文したい。",
+        "latency_ms": 71.16389274597168,
+        "tokens": 10
+      },
+      {
+        "source": "The quick brown fox jumps over the lazy dog near the riverbank.",
+        "target": "速い褐色狐は河岸近くで怠け犬を飛び越える。",
+        "latency_ms": 169.3110466003418,
+        "tokens": 22
+      },
+      {
+        "source": "Could you please tell me where the nearest train station is located?",
+        "target": "最寄りの鉄道の停留所はどこですか。",
+        "latency_ms": 133.72111320495605,
+        "tokens": 17
+      },
+      {
+        "source": "Artificial intelligence is transforming how we work and live.",
+        "target": "人工知能は，私たちの仕事と生活の方法を変えている。",
+        "latency_ms": 176.26023292541504,
+        "tokens": 23
+      },
+      {
+        "source": "I love Japanese food, especially sushi and ramen.",
+        "target": "私は日本食、特にスシとラーメンが好きです。",
+        "latency_ms": 143.4180736541748,
+        "tokens": 20
+      },
+      {
+        "source": "The Great Wall of China is a UNESCO World Heritage site.",
+        "target": "万里の長城はユネスコの世界遺産に登録された。",
+        "latency_ms": 145.34521102905273,
+        "tokens": 21
+      },
+      {
+        "source": "Korean culture has become popular worldwide through K-pop.",
+        "target": "韓国文化はK-POPを通じて世界的に人気を博した。",
+        "latency_ms": 151.98993682861328,
+        "tokens": 22
+      },
+      {
+        "source": "Please find attached the quarterly financial report for your review.",
+        "target": "季節的な経営報告書をご覧ください。",
+        "latency_ms": 115.73505401611328,
+        "tokens": 16
+      },
+      {
+        "source": "The software development team will deploy the new feature next week.",
+        "target": "ソフトウェア開発チームは来週 新機能を配布する",
+        "latency_ms": 128.68809700012207,
+        "tokens": 18
+      },
+      {
+        "source": "The meeting is scheduled for March 15th at 2:30 PM.",
+        "target": "会議は３月１５日午後２時３０分に予定している。",
+        "latency_ms": 170.2117919921875,
+        "tokens": 22
+      },
+      {
+        "source": "Dr. Smith published her research paper in the Nature journal.",
+        "target": "ネイチャー誌に彼女の研究論文を発表した。",
+        "latency_ms": 134.18817520141602,
+        "tokens": 19
+      },
+      {
+        "source": "I am so excited to see you again after all these years!",
+        "target": "何年も経ってから また会えるのが楽しみだ！",
+        "latency_ms": 142.72475242614746,
+        "tokens": 20
+      },
+      {
+        "source": "This is absolutely unacceptable and must be addressed immediately.",
+        "target": "これは絶対に受け入れられないことであり、直ちに取り組まなければならない。",
+        "latency_ms": 227.0660400390625,
+        "tokens": 30
+      },
+      {
+        "source": "The scientific community has reached a consensus that climate change poses significant risks to ecosystems, economies, and human health around the world.",
+        "target": "気候変動は世界中の生態系，経済，人間の健康に対して重大なリスクをもたらすと科学者のコミュニティは合意している。",
+        "latency_ms": 390.15674591064453,
+        "tokens": 49
+      },
+      {
+        "source": "When planning your next vacation, consider visiting countries that offer a unique blend of historical landmarks, natural beauty, and cultural experiences.",
+        "target": "次の旅行を計画するとき、歴史的な地標、自然の美しさ、文化的な体験が独特な組み合わせを提供する国を訪問することを考慮してください。",
+        "latency_ms": 401.104211807251,
+        "tokens": 54
+      },
+      {
+        "source": "Yes, please.",
+        "target": "はい　お願いします",
+        "latency_ms": 58.03203582763672,
+        "tokens": 9
+      },
+      {
+        "source": "Thank you very much.",
+        "target": "ありがとうございます",
+        "latency_ms": 48.59519004821777,
+        "tokens": 7
+      },
+      {
+        "source": "Good morning everyone.",
+        "target": "おはようございます",
+        "latency_ms": 35.945892333984375,
+        "tokens": 5
+      }
+    ]
+  },
+  "quality_comparison": {
+    "mixed_exact_match": 12,
+    "mixed_exact_match_pct": 60.0,
+    "mixed_differences": 8,
+    "4bit_exact_match": 11,
+    "4bit_exact_match_pct": 55.0,
+    "4bit_differences": 9,
+    "total_sentences": 20
+  },
+  "summary": {
+    "speedup_mixed_vs_8bit": 1.0238139087100133,
+    "speedup_4bit_vs_8bit": 1.2654316088662465,
+    "mixed_quality_pct": 60.0,
+    "4bit_quality_pct": 55.0
+  }
+}

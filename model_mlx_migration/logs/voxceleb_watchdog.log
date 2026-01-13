@@ -1,0 +1,1306 @@
+[2026-01-05 18:11:07] Starting watchdog in background...
+[2026-01-05 18:11:08] === VoxCeleb Download Watchdog Started ===
+[2026-01-05 18:11:08] === VoxCeleb Download Watchdog Started ===
+[2026-01-05 18:11:08] Check interval: 60s
+[2026-01-05 18:11:08] Check interval: 60s
+[2026-01-05 18:11:08] Stall threshold: 300s
+[2026-01-05 18:11:08] Stall threshold: 300s
+[2026-01-05 18:11:08] Max restarts: 10
+[2026-01-05 18:11:08] Max restarts: 10
+[2026-01-05 18:12:28] Progress: 32138352KB (+31385MB)
+[2026-01-05 18:12:28] Progress: 32138352KB (+31385MB)
+[2026-01-05 18:12:28] Status: 30.64GB downloaded, restarts: 0
+[2026-01-05 18:12:28] Status: 30.64GB downloaded, restarts: 0
+[2026-01-05 18:13:29] No progress for 61s (threshold: 300s)
+[2026-01-05 18:13:29] No progress for 61s (threshold: 300s)
+[2026-01-05 18:13:29] Status: 30.64GB downloaded, restarts: 0
+[2026-01-05 18:13:29] Status: 30.64GB downloaded, restarts: 0
+[2026-01-05 18:14:29] No progress for 121s (threshold: 300s)
+[2026-01-05 18:14:29] No progress for 121s (threshold: 300s)
+[2026-01-05 18:14:29] Status: 30.64GB downloaded, restarts: 0
+[2026-01-05 18:14:29] Status: 30.64GB downloaded, restarts: 0
+[2026-01-05 18:15:29] No progress for 181s (threshold: 300s)
+[2026-01-05 18:15:29] No progress for 181s (threshold: 300s)
+[2026-01-05 18:15:29] Status: 30.64GB downloaded, restarts: 0
+[2026-01-05 18:15:29] Status: 30.64GB downloaded, restarts: 0
+[2026-01-05 18:16:29] No progress for 241s (threshold: 300s)
+[2026-01-05 18:16:29] No progress for 241s (threshold: 300s)
+[2026-01-05 18:16:29] Status: 30.64GB downloaded, restarts: 0
+[2026-01-05 18:16:29] Status: 30.64GB downloaded, restarts: 0
+[2026-01-05 18:17:29] WARNING: Download stalled for 301s
+[2026-01-05 18:17:29] WARNING: Download stalled for 301s
+[2026-01-05 18:17:29] Killing stalled download (PID: 47342)...
+[2026-01-05 18:17:29] Killing stalled download (PID: 47342)...
+[2026-01-05 18:17:31] Restart #1
+[2026-01-05 18:17:31] Restart #1
+[2026-01-05 18:17:31] Starting VoxCeleb download...
+[2026-01-05 18:17:31] Starting VoxCeleb download...
+[2026-01-05 18:17:31] Download started with PID: 49962
+[2026-01-05 18:17:31] Download started with PID: 49962
+[2026-01-05 18:17:36] Status: 30.64GB downloaded, restarts: 1
+[2026-01-05 18:17:36] Status: 30.64GB downloaded, restarts: 1
+[2026-01-05 18:18:36] No progress for 67s (threshold: 300s)
+[2026-01-05 18:18:36] No progress for 67s (threshold: 300s)
+[2026-01-05 18:18:36] Status: 25.36GB downloaded, restarts: 1
+[2026-01-05 18:18:36] Status: 25.36GB downloaded, restarts: 1
+[2026-01-05 18:19:36] Progress: 32920008KB (+763MB)
+[2026-01-05 18:19:36] Progress: 32920008KB (+763MB)
+[2026-01-05 18:19:36] Status: 31.39GB downloaded, restarts: 1
+[2026-01-05 18:19:36] Status: 31.39GB downloaded, restarts: 1
+[2026-01-05 18:20:36] Progress: 39045848KB (+5982MB)
+[2026-01-05 18:20:36] Progress: 39045848KB (+5982MB)
+[2026-01-05 18:20:36] Status: 37.23GB downloaded, restarts: 1
+[2026-01-05 18:20:36] Status: 37.23GB downloaded, restarts: 1
+[2026-01-05 18:21:36] Progress: 39180568KB (+131MB)
+[2026-01-05 18:21:36] Progress: 39180568KB (+131MB)
+[2026-01-05 18:21:36] Status: 37.36GB downloaded, restarts: 1
+[2026-01-05 18:21:36] Status: 37.36GB downloaded, restarts: 1
+[2026-01-05 18:22:36] Progress: 45343280KB (+6018MB)
+[2026-01-05 18:22:36] Progress: 45343280KB (+6018MB)
+[2026-01-05 18:22:36] Status: 43.24GB downloaded, restarts: 1
+[2026-01-05 18:22:36] Status: 43.24GB downloaded, restarts: 1
+[2026-01-05 18:23:36] Progress: 50360760KB (+4899MB)
+[2026-01-05 18:23:36] Progress: 50360760KB (+4899MB)
+[2026-01-05 18:23:36] Status: 48.02GB downloaded, restarts: 1
+[2026-01-05 18:23:36] Status: 48.02GB downloaded, restarts: 1
+[2026-01-05 18:24:36] Progress: 53536888KB (+3101MB)
+[2026-01-05 18:24:36] Progress: 53536888KB (+3101MB)
+[2026-01-05 18:24:36] Status: 51.05GB downloaded, restarts: 1
+[2026-01-05 18:24:36] Status: 51.05GB downloaded, restarts: 1
+[2026-01-05 18:25:36] Progress: 57930448KB (+4290MB)
+[2026-01-05 18:25:36] Progress: 57930448KB (+4290MB)
+[2026-01-05 18:25:37] Status: 55.24GB downloaded, restarts: 1
+[2026-01-05 18:25:37] Status: 55.24GB downloaded, restarts: 1
+[2026-01-05 18:26:37] Progress: 63166968KB (+5113MB)
+[2026-01-05 18:26:37] Progress: 63166968KB (+5113MB)
+[2026-01-05 18:26:37] Status: 60.24GB downloaded, restarts: 1
+[2026-01-05 18:26:37] Status: 60.24GB downloaded, restarts: 1
+[2026-01-05 18:27:37] Progress: 67529672KB (+4260MB)
+[2026-01-05 18:27:37] Progress: 67529672KB (+4260MB)
+[2026-01-05 18:27:37] Status: 64.40GB downloaded, restarts: 1
+[2026-01-05 18:27:37] Status: 64.40GB downloaded, restarts: 1
+[2026-01-05 18:28:37] Progress: 72507952KB (+4861MB)
+[2026-01-05 18:28:37] Progress: 72507952KB (+4861MB)
+[2026-01-05 18:28:37] Status: 69.14GB downloaded, restarts: 1
+[2026-01-05 18:28:37] Status: 69.14GB downloaded, restarts: 1
+[2026-01-05 18:29:37] Progress: 76989712KB (+4376MB)
+[2026-01-05 18:29:37] Progress: 76989712KB (+4376MB)
+[2026-01-05 18:29:37] Status: 73.42GB downloaded, restarts: 1
+[2026-01-05 18:29:37] Status: 73.42GB downloaded, restarts: 1
+[2026-01-05 18:30:37] Progress: 81679008KB (+4579MB)
+[2026-01-05 18:30:37] Progress: 81679008KB (+4579MB)
+[2026-01-05 18:30:37] Status: 77.89GB downloaded, restarts: 1
+[2026-01-05 18:30:37] Status: 77.89GB downloaded, restarts: 1
+[2026-01-05 18:31:37] Progress: 86151168KB (+4367MB)
+[2026-01-05 18:31:37] Progress: 86151168KB (+4367MB)
+[2026-01-05 18:31:37] Status: 82.16GB downloaded, restarts: 1
+[2026-01-05 18:31:37] Status: 82.16GB downloaded, restarts: 1
+[2026-01-05 18:32:37] Progress: 90998168KB (+4733MB)
+[2026-01-05 18:32:37] Progress: 90998168KB (+4733MB)
+[2026-01-05 18:32:37] Status: 86.78GB downloaded, restarts: 1
+[2026-01-05 18:32:37] Status: 86.78GB downloaded, restarts: 1
+[2026-01-05 18:33:37] Progress: 96590808KB (+5461MB)
+[2026-01-05 18:33:37] Progress: 96590808KB (+5461MB)
+[2026-01-05 18:33:37] Status: 92.11GB downloaded, restarts: 1
+[2026-01-05 18:33:37] Status: 92.11GB downloaded, restarts: 1
+[2026-01-05 18:34:37] Progress: 101429984KB (+4725MB)
+[2026-01-05 18:34:37] Progress: 101429984KB (+4725MB)
+[2026-01-05 18:34:37] Status: 96.73GB downloaded, restarts: 1
+[2026-01-05 18:34:37] Status: 96.73GB downloaded, restarts: 1
+[2026-01-05 18:35:37] Progress: 104576208KB (+3072MB)
+[2026-01-05 18:35:37] Progress: 104576208KB (+3072MB)
+[2026-01-05 18:35:37] Status: 99.73GB downloaded, restarts: 1
+[2026-01-05 18:35:37] Status: 99.73GB downloaded, restarts: 1
+[2026-01-05 18:36:37] Progress: 109727320KB (+5030MB)
+[2026-01-05 18:36:37] Progress: 109727320KB (+5030MB)
+[2026-01-05 18:36:37] Status: 104.64GB downloaded, restarts: 1
+[2026-01-05 18:36:37] Status: 104.64GB downloaded, restarts: 1
+[2026-01-05 18:37:37] Progress: 115204736KB (+5349MB)
+[2026-01-05 18:37:37] Progress: 115204736KB (+5349MB)
+[2026-01-05 18:37:37] Status: 109.86GB downloaded, restarts: 1
+[2026-01-05 18:37:37] Status: 109.86GB downloaded, restarts: 1
+[2026-01-05 18:38:37] Progress: 120454960KB (+5127MB)
+[2026-01-05 18:38:37] Progress: 120454960KB (+5127MB)
+[2026-01-05 18:38:37] Status: 114.87GB downloaded, restarts: 1
+[2026-01-05 18:38:37] Status: 114.87GB downloaded, restarts: 1
+[2026-01-05 18:39:37] Progress: 124730136KB (+4174MB)
+[2026-01-05 18:39:37] Progress: 124730136KB (+4174MB)
+[2026-01-05 18:39:37] Status: 118.95GB downloaded, restarts: 1
+[2026-01-05 18:39:37] Status: 118.95GB downloaded, restarts: 1
+[2026-01-05 18:40:37] Progress: 129020736KB (+4190MB)
+[2026-01-05 18:40:37] Progress: 129020736KB (+4190MB)
+[2026-01-05 18:40:37] Status: 123.04GB downloaded, restarts: 1
+[2026-01-05 18:40:37] Status: 123.04GB downloaded, restarts: 1
+[2026-01-05 18:41:37] Progress: 133923784KB (+4788MB)
+[2026-01-05 18:41:37] Progress: 133923784KB (+4788MB)
+[2026-01-05 18:41:37] Status: 127.71GB downloaded, restarts: 1
+[2026-01-05 18:41:37] Status: 127.71GB downloaded, restarts: 1
+[2026-01-05 18:42:37] Progress: 139242136KB (+5193MB)
+[2026-01-05 18:42:37] Progress: 139242136KB (+5193MB)
+[2026-01-05 18:42:37] Status: 132.79GB downloaded, restarts: 1
+[2026-01-05 18:42:37] Status: 132.79GB downloaded, restarts: 1
+[2026-01-05 18:43:37] Progress: 144452336KB (+5088MB)
+[2026-01-05 18:43:37] Progress: 144452336KB (+5088MB)
+[2026-01-05 18:43:37] Status: 137.76GB downloaded, restarts: 1
+[2026-01-05 18:43:37] Status: 137.76GB downloaded, restarts: 1
+[2026-01-05 18:44:37] Progress: 165700168KB (+20749MB)
+[2026-01-05 18:44:37] Progress: 165700168KB (+20749MB)
+[2026-01-05 18:44:37] Status: 158.02GB downloaded, restarts: 1
+[2026-01-05 18:44:37] Status: 158.02GB downloaded, restarts: 1
+[2026-01-05 18:45:38] Progress: 170298368KB (+4490MB)
+[2026-01-05 18:45:38] Progress: 170298368KB (+4490MB)
+[2026-01-05 18:45:38] Status: 162.40GB downloaded, restarts: 1
+[2026-01-05 18:45:38] Status: 162.40GB downloaded, restarts: 1
+[2026-01-05 18:46:38] Progress: 175290504KB (+4875MB)
+[2026-01-05 18:46:38] Progress: 175290504KB (+4875MB)
+[2026-01-05 18:46:38] Status: 167.17GB downloaded, restarts: 1
+[2026-01-05 18:46:38] Status: 167.17GB downloaded, restarts: 1
+[2026-01-05 18:47:38] Progress: 179345640KB (+3960MB)
+[2026-01-05 18:47:38] Progress: 179345640KB (+3960MB)
+[2026-01-05 18:47:38] Status: 171.03GB downloaded, restarts: 1
+[2026-01-05 18:47:38] Status: 171.03GB downloaded, restarts: 1
+[2026-01-05 18:48:38] Progress: 183439664KB (+3998MB)
+[2026-01-05 18:48:38] Progress: 183439664KB (+3998MB)
+[2026-01-05 18:48:38] Status: 174.94GB downloaded, restarts: 1
+[2026-01-05 18:48:38] Status: 174.94GB downloaded, restarts: 1
+[2026-01-05 18:49:38] Progress: 187515048KB (+3979MB)
+[2026-01-05 18:49:38] Progress: 187515048KB (+3979MB)
+[2026-01-05 18:49:38] Status: 178.82GB downloaded, restarts: 1
+[2026-01-05 18:49:38] Status: 178.82GB downloaded, restarts: 1
+[2026-01-05 18:50:38] Progress: 191149480KB (+3549MB)
+[2026-01-05 18:50:38] Progress: 191149480KB (+3549MB)
+[2026-01-05 18:50:38] Status: 182.29GB downloaded, restarts: 1
+[2026-01-05 18:50:38] Status: 182.29GB downloaded, restarts: 1
+[2026-01-05 18:51:38] Progress: 195609240KB (+4355MB)
+[2026-01-05 18:51:38] Progress: 195609240KB (+4355MB)
+[2026-01-05 18:51:38] Status: 186.54GB downloaded, restarts: 1
+[2026-01-05 18:51:38] Status: 186.54GB downloaded, restarts: 1
+[2026-01-05 18:52:38] Progress: 199937944KB (+4227MB)
+[2026-01-05 18:52:38] Progress: 199937944KB (+4227MB)
+[2026-01-05 18:52:38] Status: 190.67GB downloaded, restarts: 1
+[2026-01-05 18:52:38] Status: 190.67GB downloaded, restarts: 1
+[2026-01-05 18:53:38] Progress: 203770296KB (+3742MB)
+[2026-01-05 18:53:38] Progress: 203770296KB (+3742MB)
+[2026-01-05 18:53:38] Status: 194.33GB downloaded, restarts: 1
+[2026-01-05 18:53:38] Status: 194.33GB downloaded, restarts: 1
+[2026-01-05 18:54:38] Progress: 209143864KB (+5247MB)
+[2026-01-05 18:54:38] Progress: 209143864KB (+5247MB)
+[2026-01-05 18:54:38] Status: 199.45GB downloaded, restarts: 1
+[2026-01-05 18:54:38] Status: 199.45GB downloaded, restarts: 1
+[2026-01-05 18:55:38] Progress: 213859504KB (+4605MB)
+[2026-01-05 18:55:38] Progress: 213859504KB (+4605MB)
+[2026-01-05 18:55:38] Status: 203.95GB downloaded, restarts: 1
+[2026-01-05 18:55:38] Status: 203.95GB downloaded, restarts: 1
+[2026-01-05 18:56:38] Progress: 216872240KB (+2942MB)
+[2026-01-05 18:56:38] Progress: 216872240KB (+2942MB)
+[2026-01-05 18:56:38] Status: 206.82GB downloaded, restarts: 1
+[2026-01-05 18:56:38] Status: 206.82GB downloaded, restarts: 1
+[2026-01-05 18:57:38] Progress: 222418712KB (+5416MB)
+[2026-01-05 18:57:38] Progress: 222418712KB (+5416MB)
+[2026-01-05 18:57:38] Status: 212.11GB downloaded, restarts: 1
+[2026-01-05 18:57:38] Status: 212.11GB downloaded, restarts: 1
+[2026-01-05 18:58:38] Progress: 227635080KB (+5094MB)
+[2026-01-05 18:58:38] Progress: 227635080KB (+5094MB)
+[2026-01-05 18:58:38] Status: 217.08GB downloaded, restarts: 1
+[2026-01-05 18:58:38] Status: 217.08GB downloaded, restarts: 1
+[2026-01-05 18:59:38] Progress: 231957240KB (+4220MB)
+[2026-01-05 18:59:38] Progress: 231957240KB (+4220MB)
+[2026-01-05 18:59:38] Status: 221.21GB downloaded, restarts: 1
+[2026-01-05 18:59:38] Status: 221.21GB downloaded, restarts: 1
+[2026-01-05 19:00:38] Progress: 236673280KB (+4605MB)
+[2026-01-05 19:00:38] Progress: 236673280KB (+4605MB)
+[2026-01-05 19:00:38] Status: 225.70GB downloaded, restarts: 1
+[2026-01-05 19:00:38] Status: 225.70GB downloaded, restarts: 1
+[2026-01-05 19:01:38] Progress: 240942440KB (+4169MB)
+[2026-01-05 19:01:38] Progress: 240942440KB (+4169MB)
+[2026-01-05 19:01:38] Status: 229.78GB downloaded, restarts: 1
+[2026-01-05 19:01:38] Status: 229.78GB downloaded, restarts: 1
+[2026-01-05 19:02:38] Progress: 245516064KB (+4466MB)
+[2026-01-05 19:02:38] Progress: 245516064KB (+4466MB)
+[2026-01-05 19:02:38] Status: 234.14GB downloaded, restarts: 1
+[2026-01-05 19:02:38] Status: 234.14GB downloaded, restarts: 1
+[2026-01-05 19:03:38] Progress: 250453736KB (+4821MB)
+[2026-01-05 19:03:38] Progress: 250453736KB (+4821MB)
+[2026-01-05 19:03:38] Status: 238.85GB downloaded, restarts: 1
+[2026-01-05 19:03:38] Status: 238.85GB downloaded, restarts: 1
+[2026-01-05 19:04:39] Progress: 255038320KB (+4477MB)
+[2026-01-05 19:04:39] Progress: 255038320KB (+4477MB)
+[2026-01-05 19:04:39] Status: 243.22GB downloaded, restarts: 1
+[2026-01-05 19:04:39] Status: 243.22GB downloaded, restarts: 1
+[2026-01-05 19:05:39] Progress: 259611096KB (+4465MB)
+[2026-01-05 19:05:39] Progress: 259611096KB (+4465MB)
+[2026-01-05 19:05:39] Status: 247.58GB downloaded, restarts: 1
+[2026-01-05 19:05:39] Status: 247.58GB downloaded, restarts: 1
+[2026-01-05 19:06:39] Progress: 262885424KB (+3197MB)
+[2026-01-05 19:06:39] Progress: 262885424KB (+3197MB)
+[2026-01-05 19:06:39] Status: 250.70GB downloaded, restarts: 1
+[2026-01-05 19:06:39] Status: 250.70GB downloaded, restarts: 1
+[2026-01-05 19:07:39] Progress: 267767776KB (+4767MB)
+[2026-01-05 19:07:39] Progress: 267767776KB (+4767MB)
+[2026-01-05 19:07:39] Status: 255.36GB downloaded, restarts: 1
+[2026-01-05 19:07:39] Status: 255.36GB downloaded, restarts: 1
+[2026-01-05 19:08:39] Progress: 272397512KB (+4521MB)
+[2026-01-05 19:08:39] Progress: 272397512KB (+4521MB)
+[2026-01-05 19:08:39] Status: 259.77GB downloaded, restarts: 1
+[2026-01-05 19:08:39] Status: 259.77GB downloaded, restarts: 1
+[2026-01-05 19:09:39] Progress: 276333800KB (+3844MB)
+[2026-01-05 19:09:39] Progress: 276333800KB (+3844MB)
+[2026-01-05 19:09:39] Status: 263.53GB downloaded, restarts: 1
+[2026-01-05 19:09:39] Status: 263.53GB downloaded, restarts: 1
+[2026-01-05 19:10:39] Progress: 280984840KB (+4542MB)
+[2026-01-05 19:10:39] Progress: 280984840KB (+4542MB)
+[2026-01-05 19:10:39] Status: 267.96GB downloaded, restarts: 1
+[2026-01-05 19:10:39] Status: 267.96GB downloaded, restarts: 1
+[2026-01-05 19:11:39] Progress: 284152088KB (+3093MB)
+[2026-01-05 19:11:39] Progress: 284152088KB (+3093MB)
+[2026-01-05 19:11:39] Status: 270.98GB downloaded, restarts: 1
+[2026-01-05 19:11:39] Status: 270.98GB downloaded, restarts: 1
+[2026-01-05 19:12:39] Progress: 288865328KB (+4602MB)
+[2026-01-05 19:12:39] Progress: 288865328KB (+4602MB)
+[2026-01-05 19:12:39] Status: 275.48GB downloaded, restarts: 1
+[2026-01-05 19:12:39] Status: 275.48GB downloaded, restarts: 1
+[2026-01-05 19:13:39] Progress: 293711424KB (+4732MB)
+[2026-01-05 19:13:39] Progress: 293711424KB (+4732MB)
+[2026-01-05 19:13:39] Status: 280.10GB downloaded, restarts: 1
+[2026-01-05 19:13:39] Status: 280.10GB downloaded, restarts: 1
+[2026-01-05 19:14:39] Progress: 298156488KB (+4340MB)
+[2026-01-05 19:14:39] Progress: 298156488KB (+4340MB)
+[2026-01-05 19:14:39] Status: 284.34GB downloaded, restarts: 1
+[2026-01-05 19:14:39] Status: 284.34GB downloaded, restarts: 1
+[2026-01-05 19:15:39] Progress: 303042176KB (+4771MB)
+[2026-01-05 19:15:39] Progress: 303042176KB (+4771MB)
+[2026-01-05 19:15:39] Status: 289.00GB downloaded, restarts: 1
+[2026-01-05 19:15:39] Status: 289.00GB downloaded, restarts: 1
+[2026-01-05 19:16:39] Progress: 307115416KB (+3977MB)
+[2026-01-05 19:16:39] Progress: 307115416KB (+3977MB)
+[2026-01-05 19:16:39] Status: 292.88GB downloaded, restarts: 1
+[2026-01-05 19:16:39] Status: 292.88GB downloaded, restarts: 1
+[2026-01-05 19:17:39] Progress: 313108240KB (+5852MB)
+[2026-01-05 19:17:39] Progress: 313108240KB (+5852MB)
+[2026-01-05 19:17:39] Status: 298.60GB downloaded, restarts: 1
+[2026-01-05 19:17:39] Status: 298.60GB downloaded, restarts: 1
+[2026-01-05 19:18:39] Progress: 317837232KB (+4618MB)
+[2026-01-05 19:18:39] Progress: 317837232KB (+4618MB)
+[2026-01-05 19:18:39] Status: 303.11GB downloaded, restarts: 1
+[2026-01-05 19:18:39] Status: 303.11GB downloaded, restarts: 1
+[2026-01-05 19:19:39] Progress: 322149080KB (+4210MB)
+[2026-01-05 19:19:39] Progress: 322149080KB (+4210MB)
+[2026-01-05 19:19:39] Status: 307.22GB downloaded, restarts: 1
+[2026-01-05 19:19:39] Status: 307.22GB downloaded, restarts: 1
+[2026-01-05 19:20:39] Progress: 326448152KB (+4198MB)
+[2026-01-05 19:20:39] Progress: 326448152KB (+4198MB)
+[2026-01-05 19:20:39] Status: 311.32GB downloaded, restarts: 1
+[2026-01-05 19:20:39] Status: 311.32GB downloaded, restarts: 1
+[2026-01-05 19:21:39] Progress: 330777872KB (+4228MB)
+[2026-01-05 19:21:39] Progress: 330777872KB (+4228MB)
+[2026-01-05 19:21:39] Status: 315.45GB downloaded, restarts: 1
+[2026-01-05 19:21:39] Status: 315.45GB downloaded, restarts: 1
+[2026-01-05 19:22:39] Progress: 334565424KB (+3698MB)
+[2026-01-05 19:22:39] Progress: 334565424KB (+3698MB)
+[2026-01-05 19:22:39] Status: 319.06GB downloaded, restarts: 1
+[2026-01-05 19:22:39] Status: 319.06GB downloaded, restarts: 1
+[2026-01-05 19:23:40] Progress: 338135608KB (+3486MB)
+[2026-01-05 19:23:40] Progress: 338135608KB (+3486MB)
+[2026-01-05 19:23:40] Status: 322.47GB downloaded, restarts: 1
+[2026-01-05 19:23:40] Status: 322.47GB downloaded, restarts: 1
+[2026-01-05 19:24:40] Progress: 341679128KB (+3460MB)
+[2026-01-05 19:24:40] Progress: 341679128KB (+3460MB)
+[2026-01-05 19:24:40] Status: 325.85GB downloaded, restarts: 1
+[2026-01-05 19:24:40] Status: 325.85GB downloaded, restarts: 1
+[2026-01-05 19:25:40] Progress: 345488656KB (+3720MB)
+[2026-01-05 19:25:40] Progress: 345488656KB (+3720MB)
+[2026-01-05 19:25:40] Status: 329.48GB downloaded, restarts: 1
+[2026-01-05 19:25:40] Status: 329.48GB downloaded, restarts: 1
+[2026-01-05 19:26:40] Progress: 349540208KB (+3956MB)
+[2026-01-05 19:26:40] Progress: 349540208KB (+3956MB)
+[2026-01-05 19:26:40] Status: 333.34GB downloaded, restarts: 1
+[2026-01-05 19:26:40] Status: 333.34GB downloaded, restarts: 1
+[2026-01-05 19:27:40] Progress: 352436504KB (+2828MB)
+[2026-01-05 19:27:40] Progress: 352436504KB (+2828MB)
+[2026-01-05 19:27:40] Status: 336.10GB downloaded, restarts: 1
+[2026-01-05 19:27:40] Status: 336.10GB downloaded, restarts: 1
+[2026-01-05 19:28:40] Progress: 356640872KB (+4105MB)
+[2026-01-05 19:28:40] Progress: 356640872KB (+4105MB)
+[2026-01-05 19:28:40] Status: 340.11GB downloaded, restarts: 1
+[2026-01-05 19:28:40] Status: 340.11GB downloaded, restarts: 1
+[2026-01-05 19:29:40] Progress: 360180752KB (+3456MB)
+[2026-01-05 19:29:40] Progress: 360180752KB (+3456MB)
+[2026-01-05 19:29:40] Status: 343.49GB downloaded, restarts: 1
+[2026-01-05 19:29:40] Status: 343.49GB downloaded, restarts: 1
+[2026-01-05 19:30:40] Progress: 363318112KB (+3063MB)
+[2026-01-05 19:30:40] Progress: 363318112KB (+3063MB)
+[2026-01-05 19:30:40] Status: 346.48GB downloaded, restarts: 1
+[2026-01-05 19:30:40] Status: 346.48GB downloaded, restarts: 1
+[2026-01-05 19:31:40] Progress: 366967304KB (+3563MB)
+[2026-01-05 19:31:40] Progress: 366967304KB (+3563MB)
+[2026-01-05 19:31:40] Status: 349.96GB downloaded, restarts: 1
+[2026-01-05 19:31:40] Status: 349.96GB downloaded, restarts: 1
+[2026-01-05 19:32:40] Progress: 370034056KB (+2994MB)
+[2026-01-05 19:32:40] Progress: 370034056KB (+2994MB)
+[2026-01-05 19:32:40] Status: 352.89GB downloaded, restarts: 1
+[2026-01-05 19:32:40] Status: 352.89GB downloaded, restarts: 1
+[2026-01-05 19:33:40] Progress: 373774016KB (+3652MB)
+[2026-01-05 19:33:40] Progress: 373774016KB (+3652MB)
+[2026-01-05 19:33:40] Status: 356.45GB downloaded, restarts: 1
+[2026-01-05 19:33:40] Status: 356.45GB downloaded, restarts: 1
+[2026-01-05 19:34:40] Progress: 377704304KB (+3838MB)
+[2026-01-05 19:34:40] Progress: 377704304KB (+3838MB)
+[2026-01-05 19:34:40] Status: 360.20GB downloaded, restarts: 1
+[2026-01-05 19:34:40] Status: 360.20GB downloaded, restarts: 1
+[2026-01-05 19:35:40] Progress: 400729880KB (+22485MB)
+[2026-01-05 19:35:40] Progress: 400729880KB (+22485MB)
+[2026-01-05 19:35:40] Status: 382.16GB downloaded, restarts: 1
+[2026-01-05 19:35:40] Status: 382.16GB downloaded, restarts: 1
+[2026-01-05 19:36:40] Progress: 408312040KB (+7404MB)
+[2026-01-05 19:36:40] Progress: 408312040KB (+7404MB)
+[2026-01-05 19:36:40] Status: 389.39GB downloaded, restarts: 1
+[2026-01-05 19:36:40] Status: 389.39GB downloaded, restarts: 1
+[2026-01-05 19:37:40] Progress: 411533832KB (+3146MB)
+[2026-01-05 19:37:40] Progress: 411533832KB (+3146MB)
+[2026-01-05 19:37:40] Status: 392.46GB downloaded, restarts: 1
+[2026-01-05 19:37:40] Status: 392.46GB downloaded, restarts: 1
+[2026-01-05 19:38:40] Progress: 414142392KB (+2547MB)
+[2026-01-05 19:38:40] Progress: 414142392KB (+2547MB)
+[2026-01-05 19:38:40] Status: 394.95GB downloaded, restarts: 1
+[2026-01-05 19:38:40] Status: 394.95GB downloaded, restarts: 1
+[2026-01-05 19:39:40] Progress: 424920496KB (+10525MB)
+[2026-01-05 19:39:40] Progress: 424920496KB (+10525MB)
+[2026-01-05 19:39:40] Status: 405.23GB downloaded, restarts: 1
+[2026-01-05 19:39:40] Status: 405.23GB downloaded, restarts: 1
+[2026-01-05 19:40:40] Progress: 425847264KB (+905MB)
+[2026-01-05 19:40:40] Progress: 425847264KB (+905MB)
+[2026-01-05 19:40:40] Status: 406.11GB downloaded, restarts: 1
+[2026-01-05 19:40:40] Status: 406.11GB downloaded, restarts: 1
+[2026-01-05 19:41:40] Progress: 428273552KB (+2369MB)
+[2026-01-05 19:41:40] Progress: 428273552KB (+2369MB)
+[2026-01-05 19:41:40] Status: 408.43GB downloaded, restarts: 1
+[2026-01-05 19:41:40] Status: 408.43GB downloaded, restarts: 1
+[2026-01-05 19:42:41] Progress: 431092984KB (+2753MB)
+[2026-01-05 19:42:41] Progress: 431092984KB (+2753MB)
+[2026-01-05 19:42:41] Status: 411.12GB downloaded, restarts: 1
+[2026-01-05 19:42:41] Status: 411.12GB downloaded, restarts: 1
+[2026-01-05 19:43:41] Progress: 434108168KB (+2944MB)
+[2026-01-05 19:43:41] Progress: 434108168KB (+2944MB)
+[2026-01-05 19:43:41] Status: 413.99GB downloaded, restarts: 1
+[2026-01-05 19:43:41] Status: 413.99GB downloaded, restarts: 1
+[2026-01-05 19:44:41] Progress: 438084344KB (+3882MB)
+[2026-01-05 19:44:41] Progress: 438084344KB (+3882MB)
+[2026-01-05 19:44:41] Status: 417.78GB downloaded, restarts: 1
+[2026-01-05 19:44:41] Status: 417.78GB downloaded, restarts: 1
+[2026-01-05 19:45:41] Progress: 449347088KB (+10998MB)
+[2026-01-05 19:45:41] Progress: 449347088KB (+10998MB)
+[2026-01-05 19:45:41] Status: 428.53GB downloaded, restarts: 1
+[2026-01-05 19:45:41] Status: 428.53GB downloaded, restarts: 1
+[2026-01-05 19:46:41] Progress: 450994664KB (+1608MB)
+[2026-01-05 19:46:41] Progress: 450994664KB (+1608MB)
+[2026-01-05 19:46:41] Status: 430.10GB downloaded, restarts: 1
+[2026-01-05 19:46:41] Status: 430.10GB downloaded, restarts: 1
+[2026-01-05 19:47:41] Progress: 456153232KB (+5037MB)
+[2026-01-05 19:47:41] Progress: 456153232KB (+5037MB)
+[2026-01-05 19:47:41] Status: 435.02GB downloaded, restarts: 1
+[2026-01-05 19:47:41] Status: 435.02GB downloaded, restarts: 1
+[2026-01-05 19:48:41] Progress: 456771592KB (+603MB)
+[2026-01-05 19:48:41] Progress: 456771592KB (+603MB)
+[2026-01-05 19:48:41] Status: 435.61GB downloaded, restarts: 1
+[2026-01-05 19:48:41] Status: 435.61GB downloaded, restarts: 1
+[2026-01-05 19:49:41] Progress: 458221624KB (+1416MB)
+[2026-01-05 19:49:41] Progress: 458221624KB (+1416MB)
+[2026-01-05 19:49:41] Status: 436.99GB downloaded, restarts: 1
+[2026-01-05 19:49:41] Status: 436.99GB downloaded, restarts: 1
+[2026-01-05 19:50:41] Progress: 461233816KB (+2941MB)
+[2026-01-05 19:50:41] Progress: 461233816KB (+2941MB)
+[2026-01-05 19:50:41] Status: 439.86GB downloaded, restarts: 1
+[2026-01-05 19:50:41] Status: 439.86GB downloaded, restarts: 1
+[2026-01-05 19:51:41] Progress: 464272768KB (+2967MB)
+[2026-01-05 19:51:41] Progress: 464272768KB (+2967MB)
+[2026-01-05 19:51:41] Status: 442.76GB downloaded, restarts: 1
+[2026-01-05 19:51:41] Status: 442.76GB downloaded, restarts: 1
+[2026-01-05 19:52:41] Progress: 468336408KB (+3968MB)
+[2026-01-05 19:52:41] Progress: 468336408KB (+3968MB)
+[2026-01-05 19:52:41] Status: 446.64GB downloaded, restarts: 1
+[2026-01-05 19:52:41] Status: 446.64GB downloaded, restarts: 1
+[2026-01-05 19:53:41] Progress: 471422920KB (+3014MB)
+[2026-01-05 19:53:41] Progress: 471422920KB (+3014MB)
+[2026-01-05 19:53:41] Status: 449.58GB downloaded, restarts: 1
+[2026-01-05 19:53:41] Status: 449.58GB downloaded, restarts: 1
+[2026-01-05 19:54:41] Progress: 474797496KB (+3295MB)
+[2026-01-05 19:54:41] Progress: 474797496KB (+3295MB)
+[2026-01-05 19:54:41] Status: 452.80GB downloaded, restarts: 1
+[2026-01-05 19:54:41] Status: 452.80GB downloaded, restarts: 1
+[2026-01-05 19:55:41] Progress: 478602952KB (+3716MB)
+[2026-01-05 19:55:41] Progress: 478602952KB (+3716MB)
+[2026-01-05 19:55:41] Status: 456.43GB downloaded, restarts: 1
+[2026-01-05 19:55:41] Status: 456.43GB downloaded, restarts: 1
+[2026-01-05 19:56:41] Progress: 482666912KB (+3968MB)
+[2026-01-05 19:56:41] Progress: 482666912KB (+3968MB)
+[2026-01-05 19:56:41] Status: 460.30GB downloaded, restarts: 1
+[2026-01-05 19:56:41] Status: 460.30GB downloaded, restarts: 1
+[2026-01-05 19:57:41] Progress: 486489040KB (+3732MB)
+[2026-01-05 19:57:41] Progress: 486489040KB (+3732MB)
+[2026-01-05 19:57:41] Status: 463.95GB downloaded, restarts: 1
+[2026-01-05 19:57:41] Status: 463.95GB downloaded, restarts: 1
+[2026-01-05 19:58:41] Progress: 491321656KB (+4719MB)
+[2026-01-05 19:58:41] Progress: 491321656KB (+4719MB)
+[2026-01-05 19:58:41] Status: 468.56GB downloaded, restarts: 1
+[2026-01-05 19:58:41] Status: 468.56GB downloaded, restarts: 1
+[2026-01-05 19:59:41] Progress: 495514392KB (+4094MB)
+[2026-01-05 19:59:41] Progress: 495514392KB (+4094MB)
+[2026-01-05 19:59:42] Status: 472.55GB downloaded, restarts: 1
+[2026-01-05 19:59:42] Status: 472.55GB downloaded, restarts: 1
+[2026-01-05 20:00:42] Progress: 499287576KB (+3684MB)
+[2026-01-05 20:00:42] Progress: 499287576KB (+3684MB)
+[2026-01-05 20:00:42] Status: 476.15GB downloaded, restarts: 1
+[2026-01-05 20:00:42] Status: 476.15GB downloaded, restarts: 1
+[2026-01-05 20:01:42] Progress: 504004952KB (+4606MB)
+[2026-01-05 20:01:42] Progress: 504004952KB (+4606MB)
+[2026-01-05 20:01:42] Status: 480.65GB downloaded, restarts: 1
+[2026-01-05 20:01:42] Status: 480.65GB downloaded, restarts: 1
+[2026-01-05 20:02:42] Progress: 507777296KB (+3683MB)
+[2026-01-05 20:02:42] Progress: 507777296KB (+3683MB)
+[2026-01-05 20:02:42] Status: 484.25GB downloaded, restarts: 1
+[2026-01-05 20:02:42] Status: 484.25GB downloaded, restarts: 1
+[2026-01-05 20:03:42] Progress: 511949976KB (+4074MB)
+[2026-01-05 20:03:42] Progress: 511949976KB (+4074MB)
+[2026-01-05 20:03:42] Status: 488.23GB downloaded, restarts: 1
+[2026-01-05 20:03:42] Status: 488.23GB downloaded, restarts: 1
+[2026-01-05 20:04:42] Progress: 516143128KB (+4094MB)
+[2026-01-05 20:04:42] Progress: 516143128KB (+4094MB)
+[2026-01-05 20:04:42] Status: 492.23GB downloaded, restarts: 1
+[2026-01-05 20:04:42] Status: 492.23GB downloaded, restarts: 1
+[2026-01-05 20:05:42] Progress: 521033696KB (+4775MB)
+[2026-01-05 20:05:42] Progress: 521033696KB (+4775MB)
+[2026-01-05 20:05:42] Status: 496.89GB downloaded, restarts: 1
+[2026-01-05 20:05:42] Status: 496.89GB downloaded, restarts: 1
+[2026-01-05 20:06:42] Progress: 525489344KB (+4351MB)
+[2026-01-05 20:06:42] Progress: 525489344KB (+4351MB)
+[2026-01-05 20:06:42] Status: 501.14GB downloaded, restarts: 1
+[2026-01-05 20:06:42] Status: 501.14GB downloaded, restarts: 1
+[2026-01-05 20:07:42] Progress: 529679936KB (+4092MB)
+[2026-01-05 20:07:42] Progress: 529679936KB (+4092MB)
+[2026-01-05 20:07:42] Status: 505.14GB downloaded, restarts: 1
+[2026-01-05 20:07:42] Status: 505.14GB downloaded, restarts: 1
+[2026-01-05 20:08:42] Progress: 533781376KB (+4005MB)
+[2026-01-05 20:08:42] Progress: 533781376KB (+4005MB)
+[2026-01-05 20:08:42] Status: 509.05GB downloaded, restarts: 1
+[2026-01-05 20:08:42] Status: 509.05GB downloaded, restarts: 1
+[2026-01-05 20:09:42] Progress: 538346448KB (+4458MB)
+[2026-01-05 20:09:42] Progress: 538346448KB (+4458MB)
+[2026-01-05 20:09:42] Status: 513.40GB downloaded, restarts: 1
+[2026-01-05 20:09:42] Status: 513.40GB downloaded, restarts: 1
+[2026-01-05 20:10:42] Progress: 543319920KB (+4856MB)
+[2026-01-05 20:10:42] Progress: 543319920KB (+4856MB)
+[2026-01-05 20:10:42] Status: 518.15GB downloaded, restarts: 1
+[2026-01-05 20:10:42] Status: 518.15GB downloaded, restarts: 1
+[2026-01-05 20:11:42] Progress: 547487648KB (+4070MB)
+[2026-01-05 20:11:42] Progress: 547487648KB (+4070MB)
+[2026-01-05 20:11:42] Status: 522.12GB downloaded, restarts: 1
+[2026-01-05 20:11:42] Status: 522.12GB downloaded, restarts: 1
+[2026-01-05 20:12:42] Progress: 552334640KB (+4733MB)
+[2026-01-05 20:12:42] Progress: 552334640KB (+4733MB)
+[2026-01-05 20:12:42] Status: 526.74GB downloaded, restarts: 1
+[2026-01-05 20:12:42] Status: 526.74GB downloaded, restarts: 1
+[2026-01-05 20:13:43] Progress: 555874416KB (+3456MB)
+[2026-01-05 20:13:43] Progress: 555874416KB (+3456MB)
+[2026-01-05 20:13:43] Status: 530.12GB downloaded, restarts: 1
+[2026-01-05 20:13:43] Status: 530.12GB downloaded, restarts: 1
+[2026-01-05 20:14:43] Progress: 560201008KB (+4225MB)
+[2026-01-05 20:14:43] Progress: 560201008KB (+4225MB)
+[2026-01-05 20:14:43] Status: 534.24GB downloaded, restarts: 1
+[2026-01-05 20:14:43] Status: 534.24GB downloaded, restarts: 1
+[2026-01-05 20:15:43] Progress: 565690952KB (+5361MB)
+[2026-01-05 20:15:43] Progress: 565690952KB (+5361MB)
+[2026-01-05 20:15:43] Status: 539.48GB downloaded, restarts: 1
+[2026-01-05 20:15:43] Status: 539.48GB downloaded, restarts: 1
+[2026-01-05 20:16:43] Progress: 569651240KB (+3867MB)
+[2026-01-05 20:16:43] Progress: 569651240KB (+3867MB)
+[2026-01-05 20:16:43] Status: 543.26GB downloaded, restarts: 1
+[2026-01-05 20:16:43] Status: 543.26GB downloaded, restarts: 1
+[2026-01-05 20:17:43] Progress: 594634384KB (+24397MB)
+[2026-01-05 20:17:43] Progress: 594634384KB (+24397MB)
+[2026-01-05 20:17:43] Status: 567.08GB downloaded, restarts: 1
+[2026-01-05 20:17:43] Status: 567.08GB downloaded, restarts: 1
+[2026-01-05 20:18:43] Progress: 597130312KB (+2437MB)
+[2026-01-05 20:18:43] Progress: 597130312KB (+2437MB)
+[2026-01-05 20:18:43] Status: 569.46GB downloaded, restarts: 1
+[2026-01-05 20:18:43] Status: 569.46GB downloaded, restarts: 1
+[2026-01-05 20:19:43] Progress: 600474336KB (+3265MB)
+[2026-01-05 20:19:43] Progress: 600474336KB (+3265MB)
+[2026-01-05 20:19:43] Status: 572.65GB downloaded, restarts: 1
+[2026-01-05 20:19:43] Status: 572.65GB downloaded, restarts: 1
+[2026-01-05 20:20:43] Progress: 604832240KB (+4255MB)
+[2026-01-05 20:20:43] Progress: 604832240KB (+4255MB)
+[2026-01-05 20:20:43] Status: 576.81GB downloaded, restarts: 1
+[2026-01-05 20:20:43] Status: 576.81GB downloaded, restarts: 1
+[2026-01-05 20:21:43] Progress: 607938704KB (+3033MB)
+[2026-01-05 20:21:43] Progress: 607938704KB (+3033MB)
+[2026-01-05 20:21:43] Status: 579.77GB downloaded, restarts: 1
+[2026-01-05 20:21:43] Status: 579.77GB downloaded, restarts: 1
+[2026-01-05 20:22:43] Progress: 610944872KB (+2935MB)
+[2026-01-05 20:22:43] Progress: 610944872KB (+2935MB)
+[2026-01-05 20:22:43] Status: 582.64GB downloaded, restarts: 1
+[2026-01-05 20:22:43] Status: 582.64GB downloaded, restarts: 1
+[2026-01-05 20:23:43] Progress: 615169128KB (+4125MB)
+[2026-01-05 20:23:43] Progress: 615169128KB (+4125MB)
+[2026-01-05 20:23:43] Status: 586.67GB downloaded, restarts: 1
+[2026-01-05 20:23:43] Status: 586.67GB downloaded, restarts: 1
+[2026-01-05 20:24:43] Progress: 618705976KB (+3453MB)
+[2026-01-05 20:24:43] Progress: 618705976KB (+3453MB)
+[2026-01-05 20:24:43] Status: 590.04GB downloaded, restarts: 1
+[2026-01-05 20:24:43] Status: 590.04GB downloaded, restarts: 1
+[2026-01-05 20:25:43] Progress: 622111792KB (+3325MB)
+[2026-01-05 20:25:43] Progress: 622111792KB (+3325MB)
+[2026-01-05 20:25:43] Status: 593.29GB downloaded, restarts: 1
+[2026-01-05 20:25:43] Status: 593.29GB downloaded, restarts: 1
+[2026-01-05 20:26:43] Progress: 625654728KB (+3459MB)
+[2026-01-05 20:26:43] Progress: 625654728KB (+3459MB)
+[2026-01-05 20:26:43] Status: 596.67GB downloaded, restarts: 1
+[2026-01-05 20:26:43] Status: 596.67GB downloaded, restarts: 1
+[2026-01-05 20:27:43] Progress: 650010304KB (+23784MB)
+[2026-01-05 20:27:43] Progress: 650010304KB (+23784MB)
+[2026-01-05 20:27:43] Status: 619.89GB downloaded, restarts: 1
+[2026-01-05 20:27:43] Status: 619.89GB downloaded, restarts: 1
+[2026-01-05 20:28:43] Progress: 652892400KB (+2814MB)
+[2026-01-05 20:28:43] Progress: 652892400KB (+2814MB)
+[2026-01-05 20:28:43] Status: 622.64GB downloaded, restarts: 1
+[2026-01-05 20:28:43] Status: 622.64GB downloaded, restarts: 1
+[2026-01-05 20:29:43] Progress: 655659232KB (+2701MB)
+[2026-01-05 20:29:43] Progress: 655659232KB (+2701MB)
+[2026-01-05 20:29:43] Status: 625.28GB downloaded, restarts: 1
+[2026-01-05 20:29:43] Status: 625.28GB downloaded, restarts: 1
+[2026-01-05 20:30:44] Progress: 658410072KB (+2686MB)
+[2026-01-05 20:30:44] Progress: 658410072KB (+2686MB)
+[2026-01-05 20:30:44] Status: 627.90GB downloaded, restarts: 1
+[2026-01-05 20:30:44] Status: 627.90GB downloaded, restarts: 1
+[2026-01-05 20:31:44] Progress: 659982200KB (+1535MB)
+[2026-01-05 20:31:44] Progress: 659982200KB (+1535MB)
+[2026-01-05 20:31:44] Status: 629.40GB downloaded, restarts: 1
+[2026-01-05 20:31:44] Status: 629.40GB downloaded, restarts: 1
+[2026-01-05 20:32:44] Progress: 662863632KB (+2813MB)
+[2026-01-05 20:32:44] Progress: 662863632KB (+2813MB)
+[2026-01-05 20:32:44] Status: 632.15GB downloaded, restarts: 1
+[2026-01-05 20:32:44] Status: 632.15GB downloaded, restarts: 1
+[2026-01-05 20:33:44] Progress: 667840992KB (+4860MB)
+[2026-01-05 20:33:44] Progress: 667840992KB (+4860MB)
+[2026-01-05 20:33:44] Status: 636.90GB downloaded, restarts: 1
+[2026-01-05 20:33:44] Status: 636.90GB downloaded, restarts: 1
+[2026-01-05 20:34:44] Progress: 669061296KB (+1191MB)
+[2026-01-05 20:34:44] Progress: 669061296KB (+1191MB)
+[2026-01-05 20:34:44] Status: 638.06GB downloaded, restarts: 1
+[2026-01-05 20:34:44] Status: 638.06GB downloaded, restarts: 1
+[2026-01-05 20:35:44] Progress: 670894704KB (+1790MB)
+[2026-01-05 20:35:44] Progress: 670894704KB (+1790MB)
+[2026-01-05 20:35:44] Status: 639.81GB downloaded, restarts: 1
+[2026-01-05 20:35:44] Status: 639.81GB downloaded, restarts: 1
+[2026-01-05 20:36:44] Progress: 674691000KB (+3707MB)
+[2026-01-05 20:36:44] Progress: 674691000KB (+3707MB)
+[2026-01-05 20:36:44] Status: 643.43GB downloaded, restarts: 1
+[2026-01-05 20:36:44] Status: 643.43GB downloaded, restarts: 1
+[2026-01-05 20:37:44] Progress: 678635000KB (+3851MB)
+[2026-01-05 20:37:44] Progress: 678635000KB (+3851MB)
+[2026-01-05 20:37:44] Status: 647.19GB downloaded, restarts: 1
+[2026-01-05 20:37:44] Status: 647.19GB downloaded, restarts: 1
+[2026-01-05 20:38:44] Progress: 682696112KB (+3965MB)
+[2026-01-05 20:38:44] Progress: 682696112KB (+3965MB)
+[2026-01-05 20:38:44] Status: 651.06GB downloaded, restarts: 1
+[2026-01-05 20:38:44] Status: 651.06GB downloaded, restarts: 1
+[2026-01-05 20:39:44] Progress: 685970824KB (+3197MB)
+[2026-01-05 20:39:44] Progress: 685970824KB (+3197MB)
+[2026-01-05 20:39:44] Status: 654.19GB downloaded, restarts: 1
+[2026-01-05 20:39:44] Status: 654.19GB downloaded, restarts: 1
+[2026-01-05 20:40:44] Progress: 689081832KB (+3038MB)
+[2026-01-05 20:40:44] Progress: 689081832KB (+3038MB)
+[2026-01-05 20:40:44] Status: 657.15GB downloaded, restarts: 1
+[2026-01-05 20:40:44] Status: 657.15GB downloaded, restarts: 1
+[2026-01-05 20:41:44] Progress: 693142616KB (+3965MB)
+[2026-01-05 20:41:44] Progress: 693142616KB (+3965MB)
+[2026-01-05 20:41:44] Status: 661.03GB downloaded, restarts: 1
+[2026-01-05 20:41:44] Status: 661.03GB downloaded, restarts: 1
+[2026-01-05 20:42:44] Progress: 697072664KB (+3837MB)
+[2026-01-05 20:42:44] Progress: 697072664KB (+3837MB)
+[2026-01-05 20:42:44] Status: 664.78GB downloaded, restarts: 1
+[2026-01-05 20:42:44] Status: 664.78GB downloaded, restarts: 1
+[2026-01-05 20:43:44] Progress: 700870912KB (+3709MB)
+[2026-01-05 20:43:44] Progress: 700870912KB (+3709MB)
+[2026-01-05 20:43:44] Status: 668.40GB downloaded, restarts: 1
+[2026-01-05 20:43:44] Status: 668.40GB downloaded, restarts: 1
+[2026-01-05 20:44:44] Progress: 704531432KB (+3574MB)
+[2026-01-05 20:44:44] Progress: 704531432KB (+3574MB)
+[2026-01-05 20:44:44] Status: 671.89GB downloaded, restarts: 1
+[2026-01-05 20:44:44] Status: 671.89GB downloaded, restarts: 1
+[2026-01-05 20:45:44] Progress: 710951640KB (+6269MB)
+[2026-01-05 20:45:44] Progress: 710951640KB (+6269MB)
+[2026-01-05 20:45:44] Status: 678.01GB downloaded, restarts: 1
+[2026-01-05 20:45:44] Status: 678.01GB downloaded, restarts: 1
+[2026-01-05 20:46:44] Progress: 716455128KB (+5374MB)
+[2026-01-05 20:46:44] Progress: 716455128KB (+5374MB)
+[2026-01-05 20:46:44] Status: 683.26GB downloaded, restarts: 1
+[2026-01-05 20:46:44] Status: 683.26GB downloaded, restarts: 1
+[2026-01-05 20:47:44] Progress: 721303096KB (+4734MB)
+[2026-01-05 20:47:44] Progress: 721303096KB (+4734MB)
+[2026-01-05 20:47:44] Status: 687.88GB downloaded, restarts: 1
+[2026-01-05 20:47:44] Status: 687.88GB downloaded, restarts: 1
+[2026-01-05 20:48:45] Progress: 726442112KB (+5018MB)
+[2026-01-05 20:48:45] Progress: 726442112KB (+5018MB)
+[2026-01-05 20:48:45] Status: 692.78GB downloaded, restarts: 1
+[2026-01-05 20:48:45] Status: 692.78GB downloaded, restarts: 1
+[2026-01-05 20:49:45] Progress: 731453264KB (+4893MB)
+[2026-01-05 20:49:45] Progress: 731453264KB (+4893MB)
+[2026-01-05 20:49:45] Status: 697.56GB downloaded, restarts: 1
+[2026-01-05 20:49:45] Status: 697.56GB downloaded, restarts: 1
+[2026-01-05 20:50:45] Progress: 734728040KB (+3198MB)
+[2026-01-05 20:50:45] Progress: 734728040KB (+3198MB)
+[2026-01-05 20:50:45] Status: 700.69GB downloaded, restarts: 1
+[2026-01-05 20:50:45] Status: 700.69GB downloaded, restarts: 1
+[2026-01-05 20:51:45] Progress: 739808304KB (+4961MB)
+[2026-01-05 20:51:45] Progress: 739808304KB (+4961MB)
+[2026-01-05 20:51:45] Status: 705.53GB downloaded, restarts: 1
+[2026-01-05 20:51:45] Status: 705.53GB downloaded, restarts: 1
+[2026-01-05 20:52:45] Progress: 745060536KB (+5129MB)
+[2026-01-05 20:52:45] Progress: 745060536KB (+5129MB)
+[2026-01-05 20:52:45] Status: 710.54GB downloaded, restarts: 1
+[2026-01-05 20:52:45] Status: 710.54GB downloaded, restarts: 1
+[2026-01-05 20:53:45] Progress: 749911072KB (+4736MB)
+[2026-01-05 20:53:45] Progress: 749911072KB (+4736MB)
+[2026-01-05 20:53:45] Status: 715.17GB downloaded, restarts: 1
+[2026-01-05 20:53:45] Status: 715.17GB downloaded, restarts: 1
+[2026-01-05 20:54:45] Progress: 754235056KB (+4222MB)
+[2026-01-05 20:54:45] Progress: 754235056KB (+4222MB)
+[2026-01-05 20:54:45] Status: 719.29GB downloaded, restarts: 1
+[2026-01-05 20:54:45] Status: 719.29GB downloaded, restarts: 1
+[2026-01-05 20:55:45] Progress: 773724904KB (+19033MB)
+[2026-01-05 20:55:45] Progress: 773724904KB (+19033MB)
+[2026-01-05 20:55:45] Status: 737.88GB downloaded, restarts: 1
+[2026-01-05 20:55:45] Status: 737.88GB downloaded, restarts: 1
+[2026-01-05 20:56:45] Progress: 777522432KB (+3708MB)
+[2026-01-05 20:56:45] Progress: 777522432KB (+3708MB)
+[2026-01-05 20:56:45] Status: 741.50GB downloaded, restarts: 1
+[2026-01-05 20:56:45] Status: 741.50GB downloaded, restarts: 1
+[2026-01-05 20:57:45] Progress: 781715032KB (+4094MB)
+[2026-01-05 20:57:45] Progress: 781715032KB (+4094MB)
+[2026-01-05 20:57:45] Status: 745.50GB downloaded, restarts: 1
+[2026-01-05 20:57:45] Status: 745.50GB downloaded, restarts: 1
+[2026-01-05 20:58:45] Progress: 784728176KB (+2942MB)
+[2026-01-05 20:58:45] Progress: 784728176KB (+2942MB)
+[2026-01-05 20:58:45] Status: 748.37GB downloaded, restarts: 1
+[2026-01-05 20:58:45] Status: 748.37GB downloaded, restarts: 1
+[2026-01-05 20:59:45] Progress: 788262824KB (+3451MB)
+[2026-01-05 20:59:45] Progress: 788262824KB (+3451MB)
+[2026-01-05 20:59:45] Status: 751.74GB downloaded, restarts: 1
+[2026-01-05 20:59:45] Status: 751.74GB downloaded, restarts: 1
+[2026-01-05 21:00:45] Progress: 791711776KB (+3368MB)
+[2026-01-05 21:00:45] Progress: 791711776KB (+3368MB)
+[2026-01-05 21:00:45] Status: 755.03GB downloaded, restarts: 1
+[2026-01-05 21:00:45] Status: 755.03GB downloaded, restarts: 1
+[2026-01-05 21:01:45] Progress: 795247976KB (+3453MB)
+[2026-01-05 21:01:45] Progress: 795247976KB (+3453MB)
+[2026-01-05 21:01:45] Status: 758.40GB downloaded, restarts: 1
+[2026-01-05 21:01:45] Status: 758.40GB downloaded, restarts: 1
+[2026-01-05 21:02:45] Progress: 799069104KB (+3731MB)
+[2026-01-05 21:02:45] Progress: 799069104KB (+3731MB)
+[2026-01-05 21:02:45] Status: 762.05GB downloaded, restarts: 1
+[2026-01-05 21:02:45] Status: 762.05GB downloaded, restarts: 1
+[2026-01-05 21:03:45] Progress: 803137200KB (+3972MB)
+[2026-01-05 21:03:45] Progress: 803137200KB (+3972MB)
+[2026-01-05 21:03:45] Status: 765.93GB downloaded, restarts: 1
+[2026-01-05 21:03:45] Status: 765.93GB downloaded, restarts: 1
+[2026-01-05 21:04:46] Progress: 806557568KB (+3340MB)
+[2026-01-05 21:04:46] Progress: 806557568KB (+3340MB)
+[2026-01-05 21:04:46] Status: 769.19GB downloaded, restarts: 1
+[2026-01-05 21:04:46] Status: 769.19GB downloaded, restarts: 1
+[2026-01-05 21:05:46] Progress: 809438968KB (+2813MB)
+[2026-01-05 21:05:46] Progress: 809438968KB (+2813MB)
+[2026-01-05 21:05:46] Status: 771.94GB downloaded, restarts: 1
+[2026-01-05 21:05:46] Status: 771.94GB downloaded, restarts: 1
+[2026-01-05 21:06:46] Progress: 813761176KB (+4220MB)
+[2026-01-05 21:06:46] Progress: 813761176KB (+4220MB)
+[2026-01-05 21:06:46] Status: 776.06GB downloaded, restarts: 1
+[2026-01-05 21:06:46] Status: 776.06GB downloaded, restarts: 1
+[2026-01-05 21:07:46] Progress: 817952208KB (+4092MB)
+[2026-01-05 21:07:46] Progress: 817952208KB (+4092MB)
+[2026-01-05 21:07:46] Status: 780.06GB downloaded, restarts: 1
+[2026-01-05 21:07:46] Status: 780.06GB downloaded, restarts: 1
+[2026-01-05 21:08:46] Progress: 821460600KB (+3426MB)
+[2026-01-05 21:08:46] Progress: 821460600KB (+3426MB)
+[2026-01-05 21:08:46] Status: 783.40GB downloaded, restarts: 1
+[2026-01-05 21:08:46] Status: 783.40GB downloaded, restarts: 1
+[2026-01-05 21:09:46] Progress: 825652792KB (+4093MB)
+[2026-01-05 21:09:46] Progress: 825652792KB (+4093MB)
+[2026-01-05 21:09:46] Status: 787.40GB downloaded, restarts: 1
+[2026-01-05 21:09:46] Status: 787.40GB downloaded, restarts: 1
+[2026-01-05 21:10:46] Progress: 830004680KB (+4249MB)
+[2026-01-05 21:10:46] Progress: 830004680KB (+4249MB)
+[2026-01-05 21:10:46] Status: 791.55GB downloaded, restarts: 1
+[2026-01-05 21:10:46] Status: 791.55GB downloaded, restarts: 1
+[2026-01-05 21:11:46] Progress: 835635304KB (+5498MB)
+[2026-01-05 21:11:46] Progress: 835635304KB (+5498MB)
+[2026-01-05 21:11:46] Status: 796.92GB downloaded, restarts: 1
+[2026-01-05 21:11:46] Status: 796.92GB downloaded, restarts: 1
+[2026-01-05 21:12:46] Progress: 841158152KB (+5393MB)
+[2026-01-05 21:12:46] Progress: 841158152KB (+5393MB)
+[2026-01-05 21:12:46] Status: 802.19GB downloaded, restarts: 1
+[2026-01-05 21:12:46] Status: 802.19GB downloaded, restarts: 1
+[2026-01-05 21:13:46] Progress: 849251864KB (+7904MB)
+[2026-01-05 21:13:46] Progress: 849251864KB (+7904MB)
+[2026-01-05 21:13:46] Status: 809.90GB downloaded, restarts: 1
+[2026-01-05 21:13:46] Status: 809.90GB downloaded, restarts: 1
+[2026-01-05 21:14:46] Progress: 852264544KB (+2942MB)
+[2026-01-05 21:14:46] Progress: 852264544KB (+2942MB)
+[2026-01-05 21:14:46] Status: 812.78GB downloaded, restarts: 1
+[2026-01-05 21:14:46] Status: 812.78GB downloaded, restarts: 1
+[2026-01-05 21:15:46] Progress: 856326048KB (+3966MB)
+[2026-01-05 21:15:46] Progress: 856326048KB (+3966MB)
+[2026-01-05 21:15:46] Status: 816.65GB downloaded, restarts: 1
+[2026-01-05 21:15:46] Status: 816.65GB downloaded, restarts: 1
+[2026-01-05 21:16:46] Progress: 859993888KB (+3581MB)
+[2026-01-05 21:16:46] Progress: 859993888KB (+3581MB)
+[2026-01-05 21:16:46] Status: 820.15GB downloaded, restarts: 1
+[2026-01-05 21:16:46] Status: 820.15GB downloaded, restarts: 1
+[2026-01-05 21:17:46] Progress: 863669328KB (+3589MB)
+[2026-01-05 21:17:46] Progress: 863669328KB (+3589MB)
+[2026-01-05 21:17:46] Status: 823.65GB downloaded, restarts: 1
+[2026-01-05 21:17:46] Status: 823.65GB downloaded, restarts: 1
+[2026-01-05 21:18:46] Progress: 868056392KB (+4284MB)
+[2026-01-05 21:18:46] Progress: 868056392KB (+4284MB)
+[2026-01-05 21:18:46] Status: 827.84GB downloaded, restarts: 1
+[2026-01-05 21:18:46] Status: 827.84GB downloaded, restarts: 1
+[2026-01-05 21:19:46] Progress: 872769352KB (+4602MB)
+[2026-01-05 21:19:46] Progress: 872769352KB (+4602MB)
+[2026-01-05 21:19:46] Status: 832.33GB downloaded, restarts: 1
+[2026-01-05 21:19:46] Status: 832.33GB downloaded, restarts: 1
+[2026-01-05 21:20:46] Progress: 877747088KB (+4861MB)
+[2026-01-05 21:20:46] Progress: 877747088KB (+4861MB)
+[2026-01-05 21:20:46] Status: 837.08GB downloaded, restarts: 1
+[2026-01-05 21:20:46] Status: 837.08GB downloaded, restarts: 1
+[2026-01-05 21:21:46] Progress: 882462472KB (+4604MB)
+[2026-01-05 21:21:46] Progress: 882462472KB (+4604MB)
+[2026-01-05 21:21:47] Status: 841.58GB downloaded, restarts: 1
+[2026-01-05 21:21:47] Status: 841.58GB downloaded, restarts: 1
+[2026-01-05 21:22:47] Progress: 888844536KB (+6232MB)
+[2026-01-05 21:22:47] Progress: 888844536KB (+6232MB)
+[2026-01-05 21:22:47] Status: 847.66GB downloaded, restarts: 1
+[2026-01-05 21:22:47] Status: 847.66GB downloaded, restarts: 1
+[2026-01-05 21:23:47] Progress: 893552920KB (+4598MB)
+[2026-01-05 21:23:47] Progress: 893552920KB (+4598MB)
+[2026-01-05 21:23:47] Status: 852.15GB downloaded, restarts: 1
+[2026-01-05 21:23:47] Status: 852.15GB downloaded, restarts: 1
+[2026-01-05 21:24:47] Progress: 898993440KB (+5313MB)
+[2026-01-05 21:24:47] Progress: 898993440KB (+5313MB)
+[2026-01-05 21:24:47] Status: 857.34GB downloaded, restarts: 1
+[2026-01-05 21:24:47] Status: 857.34GB downloaded, restarts: 1
+[2026-01-05 21:25:47] Progress: 907220464KB (+8034MB)
+[2026-01-05 21:25:47] Progress: 907220464KB (+8034MB)
+[2026-01-05 21:25:47] Status: 865.19GB downloaded, restarts: 1
+[2026-01-05 21:25:47] Status: 865.19GB downloaded, restarts: 1
+[2026-01-05 21:26:47] Progress: 911807048KB (+4479MB)
+[2026-01-05 21:26:47] Progress: 911807048KB (+4479MB)
+[2026-01-05 21:26:47] Status: 869.56GB downloaded, restarts: 1
+[2026-01-05 21:26:47] Status: 869.56GB downloaded, restarts: 1
+[2026-01-05 21:27:47] Progress: 916522808KB (+4605MB)
+[2026-01-05 21:27:47] Progress: 916522808KB (+4605MB)
+[2026-01-05 21:27:47] Status: 874.06GB downloaded, restarts: 1
+[2026-01-05 21:27:47] Status: 874.06GB downloaded, restarts: 1
+[2026-01-05 21:28:47] Progress: 917570792KB (+1023MB)
+[2026-01-05 21:28:47] Progress: 917570792KB (+1023MB)
+[2026-01-05 21:28:47] Status: 875.06GB downloaded, restarts: 1
+[2026-01-05 21:28:47] Status: 875.06GB downloaded, restarts: 1
+[2026-01-05 21:29:47] No progress for 60s (threshold: 300s)
+[2026-01-05 21:29:47] No progress for 60s (threshold: 300s)
+[2026-01-05 21:29:47] Status: 875.06GB downloaded, restarts: 1
+[2026-01-05 21:29:47] Status: 875.06GB downloaded, restarts: 1
+[2026-01-05 21:30:47] No progress for 120s (threshold: 300s)
+[2026-01-05 21:30:47] No progress for 120s (threshold: 300s)
+[2026-01-05 21:30:47] Status: 875.06GB downloaded, restarts: 1
+[2026-01-05 21:30:47] Status: 875.06GB downloaded, restarts: 1
+[2026-01-05 21:31:47] No progress for 180s (threshold: 300s)
+[2026-01-05 21:31:47] No progress for 180s (threshold: 300s)
+[2026-01-05 21:31:47] Status: 875.06GB downloaded, restarts: 1
+[2026-01-05 21:31:47] Status: 875.06GB downloaded, restarts: 1
+[2026-01-05 21:32:47] No progress for 240s (threshold: 300s)
+[2026-01-05 21:32:47] No progress for 240s (threshold: 300s)
+[2026-01-05 21:32:47] Status: 875.06GB downloaded, restarts: 1
+[2026-01-05 21:32:47] Status: 875.06GB downloaded, restarts: 1
+[2026-01-05 21:33:47] No progress for 300s (threshold: 300s)
+[2026-01-05 21:33:47] No progress for 300s (threshold: 300s)
+[2026-01-05 21:33:47] Status: 875.06GB downloaded, restarts: 1
+[2026-01-05 21:33:47] Status: 875.06GB downloaded, restarts: 1
+[2026-01-05 21:34:47] WARNING: Download stalled for 360s
+[2026-01-05 21:34:47] WARNING: Download stalled for 360s
+[2026-01-05 21:34:47] Killing stalled download (PID: 49962)...
+[2026-01-05 21:34:47] Killing stalled download (PID: 49962)...
+/Users/ayates/model_mlx_migration/scripts/download_voxceleb_watchdog.sh: line 56: 49962 Killed: 9               nohup python3 "$DOWNLOAD_SCRIPT" --extract >> "$DOWNLOAD_LOG" 2>&1
+[2026-01-05 21:34:49] Restart #2
+[2026-01-05 21:34:49] Restart #2
+[2026-01-05 21:34:49] Starting VoxCeleb download...
+[2026-01-05 21:34:49] Starting VoxCeleb download...
+[2026-01-05 21:34:49] Download started with PID: 58002
+[2026-01-05 21:34:49] Download started with PID: 58002
+[2026-01-05 21:34:55] Status: 875.06GB downloaded, restarts: 2
+[2026-01-05 21:34:55] Status: 875.06GB downloaded, restarts: 2
+[2026-01-05 21:35:55] Progress: 917570800KB (+0MB)
+[2026-01-05 21:35:55] Progress: 917570800KB (+0MB)
+[2026-01-05 21:35:55] Status: 875.06GB downloaded, restarts: 2
+[2026-01-05 21:35:55] Status: 875.06GB downloaded, restarts: 2
+[2026-01-05 21:36:55] Progress: 917701872KB (+128MB)
+[2026-01-05 21:36:55] Progress: 917701872KB (+128MB)
+[2026-01-05 21:36:55] Status: 875.18GB downloaded, restarts: 2
+[2026-01-05 21:36:55] Status: 875.18GB downloaded, restarts: 2
+[2026-01-05 21:37:55] Progress: 919010448KB (+1277MB)
+[2026-01-05 21:37:55] Progress: 919010448KB (+1277MB)
+[2026-01-05 21:37:55] Status: 876.43GB downloaded, restarts: 2
+[2026-01-05 21:37:55] Status: 876.43GB downloaded, restarts: 2
+[2026-01-05 21:38:55] Progress: 920594304KB (+1546MB)
+[2026-01-05 21:38:55] Progress: 920594304KB (+1546MB)
+[2026-01-05 21:38:55] Status: 877.94GB downloaded, restarts: 2
+[2026-01-05 21:38:55] Status: 877.94GB downloaded, restarts: 2
+[2026-01-05 21:39:55] Progress: 921904232KB (+1279MB)
+[2026-01-05 21:39:55] Progress: 921904232KB (+1279MB)
+[2026-01-05 21:39:55] Status: 879.19GB downloaded, restarts: 2
+[2026-01-05 21:39:55] Status: 879.19GB downloaded, restarts: 2
+[2026-01-05 21:40:55] Progress: 923868904KB (+1918MB)
+[2026-01-05 21:40:55] Progress: 923868904KB (+1918MB)
+[2026-01-05 21:40:55] Status: 881.07GB downloaded, restarts: 2
+[2026-01-05 21:40:55] Status: 881.07GB downloaded, restarts: 2
+[2026-01-05 21:41:55] Progress: 925829608KB (+1914MB)
+[2026-01-05 21:41:55] Progress: 925829608KB (+1914MB)
+[2026-01-05 21:41:55] Status: 882.93GB downloaded, restarts: 2
+[2026-01-05 21:41:55] Status: 882.93GB downloaded, restarts: 2
+[2026-01-05 21:42:55] Progress: 928050544KB (+2168MB)
+[2026-01-05 21:42:55] Progress: 928050544KB (+2168MB)
+[2026-01-05 21:42:55] Status: 885.05GB downloaded, restarts: 2
+[2026-01-05 21:42:55] Status: 885.05GB downloaded, restarts: 2
+[2026-01-05 21:43:55] Progress: 930945720KB (+2827MB)
+[2026-01-05 21:43:55] Progress: 930945720KB (+2827MB)
+[2026-01-05 21:43:55] Status: 887.81GB downloaded, restarts: 2
+[2026-01-05 21:43:55] Status: 887.81GB downloaded, restarts: 2
+[2026-01-05 21:44:55] Progress: 933446648KB (+2442MB)
+[2026-01-05 21:44:55] Progress: 933446648KB (+2442MB)
+[2026-01-05 21:44:55] Status: 890.20GB downloaded, restarts: 2
+[2026-01-05 21:44:55] Status: 890.20GB downloaded, restarts: 2
+[2026-01-05 21:45:55] Progress: 935804520KB (+2302MB)
+[2026-01-05 21:45:55] Progress: 935804520KB (+2302MB)
+[2026-01-05 21:45:55] Status: 892.45GB downloaded, restarts: 2
+[2026-01-05 21:45:55] Status: 892.45GB downloaded, restarts: 2
+[2026-01-05 21:46:55] Progress: 938287056KB (+2424MB)
+[2026-01-05 21:46:55] Progress: 938287056KB (+2424MB)
+[2026-01-05 21:46:55] Status: 894.82GB downloaded, restarts: 2
+[2026-01-05 21:46:55] Status: 894.82GB downloaded, restarts: 2
+[2026-01-05 21:47:55] Progress: 940120488KB (+1790MB)
+[2026-01-05 21:47:55] Progress: 940120488KB (+1790MB)
+[2026-01-05 21:47:55] Status: 896.56GB downloaded, restarts: 2
+[2026-01-05 21:47:55] Status: 896.56GB downloaded, restarts: 2
+[2026-01-05 21:48:55] No progress for 60s (threshold: 300s)
+[2026-01-05 21:48:55] No progress for 60s (threshold: 300s)
+[2026-01-05 21:48:55] Status: 896.56GB downloaded, restarts: 2
+[2026-01-05 21:48:55] Status: 896.56GB downloaded, restarts: 2
+[2026-01-05 21:49:55] No progress for 120s (threshold: 300s)
+[2026-01-05 21:49:55] No progress for 120s (threshold: 300s)
+[2026-01-05 21:49:55] Status: 896.56GB downloaded, restarts: 2
+[2026-01-05 21:49:55] Status: 896.56GB downloaded, restarts: 2
+[2026-01-05 21:50:56] No progress for 180s (threshold: 300s)
+[2026-01-05 21:50:56] No progress for 180s (threshold: 300s)
+[2026-01-05 21:50:56] Status: 896.56GB downloaded, restarts: 2
+[2026-01-05 21:50:56] Status: 896.56GB downloaded, restarts: 2
+[2026-01-05 21:51:56] No progress for 241s (threshold: 300s)
+[2026-01-05 21:51:56] No progress for 241s (threshold: 300s)
+[2026-01-05 21:51:56] Status: 896.56GB downloaded, restarts: 2
+[2026-01-05 21:51:56] Status: 896.56GB downloaded, restarts: 2
+[2026-01-05 21:52:56] Progress: 940644104KB (+511MB)
+[2026-01-05 21:52:56] Progress: 940644104KB (+511MB)
+[2026-01-05 21:52:56] Status: 897.06GB downloaded, restarts: 2
+[2026-01-05 21:52:56] Status: 897.06GB downloaded, restarts: 2
+[2026-01-05 21:53:56] Progress: 942863216KB (+2167MB)
+[2026-01-05 21:53:56] Progress: 942863216KB (+2167MB)
+[2026-01-05 21:53:56] Status: 899.18GB downloaded, restarts: 2
+[2026-01-05 21:53:56] Status: 899.18GB downloaded, restarts: 2
+[2026-01-05 21:54:56] Progress: 945483536KB (+2558MB)
+[2026-01-05 21:54:56] Progress: 945483536KB (+2558MB)
+[2026-01-05 21:54:56] Status: 901.68GB downloaded, restarts: 2
+[2026-01-05 21:54:56] Status: 901.68GB downloaded, restarts: 2
+[2026-01-05 21:55:56] Progress: 948103408KB (+2558MB)
+[2026-01-05 21:55:56] Progress: 948103408KB (+2558MB)
+[2026-01-05 21:55:56] Status: 904.18GB downloaded, restarts: 2
+[2026-01-05 21:55:56] Status: 904.18GB downloaded, restarts: 2
+[2026-01-05 21:56:56] Progress: 950842328KB (+2674MB)
+[2026-01-05 21:56:56] Progress: 950842328KB (+2674MB)
+[2026-01-05 21:56:56] Status: 906.79GB downloaded, restarts: 2
+[2026-01-05 21:56:56] Status: 906.79GB downloaded, restarts: 2
+[2026-01-05 21:57:56] Progress: 953318496KB (+2418MB)
+[2026-01-05 21:57:56] Progress: 953318496KB (+2418MB)
+[2026-01-05 21:57:56] Status: 909.15GB downloaded, restarts: 2
+[2026-01-05 21:57:56] Status: 909.15GB downloaded, restarts: 2
+[2026-01-05 21:58:56] Progress: 955839992KB (+2462MB)
+[2026-01-05 21:58:56] Progress: 955839992KB (+2462MB)
+[2026-01-05 21:58:56] Status: 911.56GB downloaded, restarts: 2
+[2026-01-05 21:58:56] Status: 911.56GB downloaded, restarts: 2
+[2026-01-05 21:59:56] Progress: 958785400KB (+2876MB)
+[2026-01-05 21:59:56] Progress: 958785400KB (+2876MB)
+[2026-01-05 21:59:56] Status: 914.36GB downloaded, restarts: 2
+[2026-01-05 21:59:56] Status: 914.36GB downloaded, restarts: 2
+[2026-01-05 22:00:56] Progress: 961667504KB (+2814MB)
+[2026-01-05 22:00:56] Progress: 961667504KB (+2814MB)
+[2026-01-05 22:00:56] Status: 917.11GB downloaded, restarts: 2
+[2026-01-05 22:00:56] Status: 917.11GB downloaded, restarts: 2
+[2026-01-05 22:01:56] Progress: 964680080KB (+2941MB)
+[2026-01-05 22:01:56] Progress: 964680080KB (+2941MB)
+[2026-01-05 22:01:56] Status: 919.99GB downloaded, restarts: 2
+[2026-01-05 22:01:56] Status: 919.99GB downloaded, restarts: 2
+[2026-01-05 22:02:56] Progress: 967431128KB (+2686MB)
+[2026-01-05 22:02:56] Progress: 967431128KB (+2686MB)
+[2026-01-05 22:02:56] Status: 922.61GB downloaded, restarts: 2
+[2026-01-05 22:02:56] Status: 922.61GB downloaded, restarts: 2
+[2026-01-05 22:03:56] Progress: 970443480KB (+2941MB)
+[2026-01-05 22:03:56] Progress: 970443480KB (+2941MB)
+[2026-01-05 22:03:56] Status: 925.48GB downloaded, restarts: 2
+[2026-01-05 22:03:56] Status: 925.48GB downloaded, restarts: 2
+[2026-01-05 22:04:56] Progress: 973194440KB (+2686MB)
+[2026-01-05 22:04:56] Progress: 973194440KB (+2686MB)
+[2026-01-05 22:04:56] Status: 928.11GB downloaded, restarts: 2
+[2026-01-05 22:04:56] Status: 928.11GB downloaded, restarts: 2
+[2026-01-05 22:05:56] Progress: 975552408KB (+2302MB)
+[2026-01-05 22:05:56] Progress: 975552408KB (+2302MB)
+[2026-01-05 22:05:56] Status: 930.35GB downloaded, restarts: 2
+[2026-01-05 22:05:56] Status: 930.35GB downloaded, restarts: 2
+[2026-01-05 22:06:57] Progress: 978433624KB (+2813MB)
+[2026-01-05 22:06:57] Progress: 978433624KB (+2813MB)
+[2026-01-05 22:06:57] Status: 933.10GB downloaded, restarts: 2
+[2026-01-05 22:06:57] Status: 933.10GB downloaded, restarts: 2
+[2026-01-05 22:07:57] Progress: 980659552KB (+2173MB)
+[2026-01-05 22:07:57] Progress: 980659552KB (+2173MB)
+[2026-01-05 22:07:57] Status: 935.22GB downloaded, restarts: 2
+[2026-01-05 22:07:57] Status: 935.22GB downloaded, restarts: 2
+[2026-01-05 22:08:57] Progress: 983410344KB (+2686MB)
+[2026-01-05 22:08:57] Progress: 983410344KB (+2686MB)
+[2026-01-05 22:08:57] Status: 937.85GB downloaded, restarts: 2
+[2026-01-05 22:08:57] Status: 937.85GB downloaded, restarts: 2
+[2026-01-05 22:09:57] Progress: 986685168KB (+3198MB)
+[2026-01-05 22:09:57] Progress: 986685168KB (+3198MB)
+[2026-01-05 22:09:57] Status: 940.97GB downloaded, restarts: 2
+[2026-01-05 22:09:57] Status: 940.97GB downloaded, restarts: 2
+[2026-01-05 22:10:57] Progress: 989267656KB (+2521MB)
+[2026-01-05 22:10:57] Progress: 989267656KB (+2521MB)
+[2026-01-05 22:10:57] Status: 943.43GB downloaded, restarts: 2
+[2026-01-05 22:10:57] Status: 943.43GB downloaded, restarts: 2
+[2026-01-05 22:11:57] Progress: 991783144KB (+2456MB)
+[2026-01-05 22:11:57] Progress: 991783144KB (+2456MB)
+[2026-01-05 22:11:57] Status: 945.83GB downloaded, restarts: 2
+[2026-01-05 22:11:57] Status: 945.83GB downloaded, restarts: 2
+[2026-01-05 22:12:57] Progress: 997775008KB (+5851MB)
+[2026-01-05 22:12:57] Progress: 997775008KB (+5851MB)
+[2026-01-05 22:12:57] Status: 951.55GB downloaded, restarts: 2
+[2026-01-05 22:12:57] Status: 951.55GB downloaded, restarts: 2
+[2026-01-05 22:13:57] Progress: 1000525944KB (+2686MB)
+[2026-01-05 22:13:57] Progress: 1000525944KB (+2686MB)
+[2026-01-05 22:13:57] Status: 954.17GB downloaded, restarts: 2
+[2026-01-05 22:13:57] Status: 954.17GB downloaded, restarts: 2
+[2026-01-05 22:14:57] Progress: 1003538792KB (+2942MB)
+[2026-01-05 22:14:57] Progress: 1003538792KB (+2942MB)
+[2026-01-05 22:14:57] Status: 957.04GB downloaded, restarts: 2
+[2026-01-05 22:14:57] Status: 957.04GB downloaded, restarts: 2
+[2026-01-05 22:15:57] Progress: 1006159560KB (+2559MB)
+[2026-01-05 22:15:57] Progress: 1006159560KB (+2559MB)
+[2026-01-05 22:15:57] Status: 959.54GB downloaded, restarts: 2
+[2026-01-05 22:15:57] Status: 959.54GB downloaded, restarts: 2
+[2026-01-05 22:16:57] Progress: 1008911288KB (+2687MB)
+[2026-01-05 22:16:57] Progress: 1008911288KB (+2687MB)
+[2026-01-05 22:16:57] Status: 962.17GB downloaded, restarts: 2
+[2026-01-05 22:16:57] Status: 962.17GB downloaded, restarts: 2
+[2026-01-05 22:17:57] Progress: 1011531712KB (+2559MB)
+[2026-01-05 22:17:57] Progress: 1011531712KB (+2559MB)
+[2026-01-05 22:17:57] Status: 964.67GB downloaded, restarts: 2
+[2026-01-05 22:17:57] Status: 964.67GB downloaded, restarts: 2
+[2026-01-05 22:18:57] Progress: 1013627704KB (+2046MB)
+[2026-01-05 22:18:57] Progress: 1013627704KB (+2046MB)
+[2026-01-05 22:18:57] Status: 966.67GB downloaded, restarts: 2
+[2026-01-05 22:18:57] Status: 966.67GB downloaded, restarts: 2
+[2026-01-05 22:19:57] Progress: 1015858432KB (+2178MB)
+[2026-01-05 22:19:57] Progress: 1015858432KB (+2178MB)
+[2026-01-05 22:19:58] Status: 968.79GB downloaded, restarts: 2
+[2026-01-05 22:19:58] Status: 968.79GB downloaded, restarts: 2
+[2026-01-05 22:20:58] Progress: 1018408928KB (+2490MB)
+[2026-01-05 22:20:58] Progress: 1018408928KB (+2490MB)
+[2026-01-05 22:20:58] Status: 971.23GB downloaded, restarts: 2
+[2026-01-05 22:20:58] Status: 971.23GB downloaded, restarts: 2
+[2026-01-05 22:21:58] Progress: 1021029000KB (+2558MB)
+[2026-01-05 22:21:58] Progress: 1021029000KB (+2558MB)
+[2026-01-05 22:21:58] Status: 973.72GB downloaded, restarts: 2
+[2026-01-05 22:21:58] Status: 973.72GB downloaded, restarts: 2
+[2026-01-05 22:22:58] Progress: 1023125808KB (+2047MB)
+[2026-01-05 22:22:58] Progress: 1023125808KB (+2047MB)
+[2026-01-05 22:22:58] Status: 975.72GB downloaded, restarts: 2
+[2026-01-05 22:22:58] Status: 975.72GB downloaded, restarts: 2
+[2026-01-05 22:23:58] Progress: 1024697824KB (+1535MB)
+[2026-01-05 22:23:58] Progress: 1024697824KB (+1535MB)
+[2026-01-05 22:23:58] Status: 977.22GB downloaded, restarts: 2
+[2026-01-05 22:23:58] Status: 977.22GB downloaded, restarts: 2
+[2026-01-05 22:24:58] Progress: 1027883856KB (+3111MB)
+[2026-01-05 22:24:58] Progress: 1027883856KB (+3111MB)
+[2026-01-05 22:24:58] Status: 980.26GB downloaded, restarts: 2
+[2026-01-05 22:24:58] Status: 980.26GB downloaded, restarts: 2
+[2026-01-05 22:25:58] Progress: 1031093168KB (+3134MB)
+[2026-01-05 22:25:58] Progress: 1031093168KB (+3134MB)
+[2026-01-05 22:25:58] Status: 983.32GB downloaded, restarts: 2
+[2026-01-05 22:25:58] Status: 983.32GB downloaded, restarts: 2
+[2026-01-05 22:26:58] Progress: 1033975416KB (+2814MB)
+[2026-01-05 22:26:58] Progress: 1033975416KB (+2814MB)
+[2026-01-05 22:26:58] Status: 986.07GB downloaded, restarts: 2
+[2026-01-05 22:26:58] Status: 986.07GB downloaded, restarts: 2
+[2026-01-05 22:27:58] Progress: 1035940936KB (+1919MB)
+[2026-01-05 22:27:58] Progress: 1035940936KB (+1919MB)
+[2026-01-05 22:27:58] Status: 987.95GB downloaded, restarts: 2
+[2026-01-05 22:27:58] Status: 987.95GB downloaded, restarts: 2
+[2026-01-05 22:28:58] Progress: 1036333752KB (+383MB)
+[2026-01-05 22:28:58] Progress: 1036333752KB (+383MB)
+[2026-01-05 22:28:58] Status: 988.32GB downloaded, restarts: 2
+[2026-01-05 22:28:58] Status: 988.32GB downloaded, restarts: 2
+[2026-01-05 22:29:58] No progress for 60s (threshold: 300s)
+[2026-01-05 22:29:58] No progress for 60s (threshold: 300s)
+[2026-01-05 22:29:58] Status: 988.32GB downloaded, restarts: 2
+[2026-01-05 22:29:58] Status: 988.32GB downloaded, restarts: 2
+[2026-01-05 22:30:58] No progress for 120s (threshold: 300s)
+[2026-01-05 22:30:58] No progress for 120s (threshold: 300s)
+[2026-01-05 22:30:58] Status: 988.32GB downloaded, restarts: 2
+[2026-01-05 22:30:58] Status: 988.32GB downloaded, restarts: 2
+[2026-01-05 22:31:58] No progress for 180s (threshold: 300s)
+[2026-01-05 22:31:58] No progress for 180s (threshold: 300s)
+[2026-01-05 22:31:58] Status: 988.32GB downloaded, restarts: 2
+[2026-01-05 22:31:58] Status: 988.32GB downloaded, restarts: 2
+[2026-01-05 22:32:58] No progress for 240s (threshold: 300s)
+[2026-01-05 22:32:58] No progress for 240s (threshold: 300s)
+[2026-01-05 22:32:58] Status: 988.32GB downloaded, restarts: 2
+[2026-01-05 22:32:58] Status: 988.32GB downloaded, restarts: 2
+[2026-01-05 22:33:59] WARNING: Download stalled for 301s
+[2026-01-05 22:33:59] WARNING: Download stalled for 301s
+[2026-01-05 22:33:59] Killing stalled download (PID: 58002)...
+[2026-01-05 22:33:59] Killing stalled download (PID: 58002)...
+/Users/ayates/model_mlx_migration/scripts/download_voxceleb_watchdog.sh: line 56: 58002 Killed: 9               nohup python3 "$DOWNLOAD_SCRIPT" --extract >> "$DOWNLOAD_LOG" 2>&1
+[2026-01-05 22:34:01] Restart #3
+[2026-01-05 22:34:01] Restart #3
+[2026-01-05 22:34:01] Starting VoxCeleb download...
+[2026-01-05 22:34:01] Starting VoxCeleb download...
+[2026-01-05 22:34:01] Download started with PID: 60035
+[2026-01-05 22:34:01] Download started with PID: 60035
+[2026-01-05 22:34:06] Status: 988.32GB downloaded, restarts: 3
+[2026-01-05 22:34:06] Status: 988.32GB downloaded, restarts: 3
+[2026-01-05 22:35:06] No progress for 67s (threshold: 300s)
+[2026-01-05 22:35:06] No progress for 67s (threshold: 300s)
+[2026-01-05 22:35:06] Status: 988.32GB downloaded, restarts: 3
+[2026-01-05 22:35:06] Status: 988.32GB downloaded, restarts: 3
+[2026-01-05 22:36:06] No progress for 127s (threshold: 300s)
+[2026-01-05 22:36:06] No progress for 127s (threshold: 300s)
+[2026-01-05 22:36:06] Status: 988.32GB downloaded, restarts: 3
+[2026-01-05 22:36:06] Status: 988.32GB downloaded, restarts: 3
+[2026-01-05 22:37:06] No progress for 187s (threshold: 300s)
+[2026-01-05 22:37:06] No progress for 187s (threshold: 300s)
+[2026-01-05 22:37:06] Status: 988.32GB downloaded, restarts: 3
+[2026-01-05 22:37:06] Status: 988.32GB downloaded, restarts: 3
+[2026-01-05 22:38:06] No progress for 247s (threshold: 300s)
+[2026-01-05 22:38:06] No progress for 247s (threshold: 300s)
+[2026-01-05 22:38:06] Status: 988.32GB downloaded, restarts: 3
+[2026-01-05 22:38:06] Status: 988.32GB downloaded, restarts: 3
+[2026-01-05 22:39:06] WARNING: Download stalled for 307s
+[2026-01-05 22:39:06] WARNING: Download stalled for 307s
+[2026-01-05 22:39:06] Killing stalled download (PID: 60035)...
+[2026-01-05 22:39:06] Killing stalled download (PID: 60035)...
+/Users/ayates/model_mlx_migration/scripts/download_voxceleb_watchdog.sh: line 56: 60035 Killed: 9               nohup python3 "$DOWNLOAD_SCRIPT" --extract >> "$DOWNLOAD_LOG" 2>&1
+[2026-01-05 22:39:08] Restart #4
+[2026-01-05 22:39:08] Restart #4
+[2026-01-05 22:39:08] Starting VoxCeleb download...
+[2026-01-05 22:39:08] Starting VoxCeleb download...
+[2026-01-05 22:39:08] Download started with PID: 60191
+[2026-01-05 22:39:08] Download started with PID: 60191
+[2026-01-05 22:39:13] Status: 988.32GB downloaded, restarts: 4
+[2026-01-05 22:39:13] Status: 988.32GB downloaded, restarts: 4
+[2026-01-05 22:40:13] No progress for 67s (threshold: 300s)
+[2026-01-05 22:40:13] No progress for 67s (threshold: 300s)
+[2026-01-05 22:40:13] Status: 988.32GB downloaded, restarts: 4
+[2026-01-05 22:40:13] Status: 988.32GB downloaded, restarts: 4
+[2026-01-05 22:41:13] No progress for 127s (threshold: 300s)
+[2026-01-05 22:41:13] No progress for 127s (threshold: 300s)
+[2026-01-05 22:41:13] Status: 988.32GB downloaded, restarts: 4
+[2026-01-05 22:41:13] Status: 988.32GB downloaded, restarts: 4
+[2026-01-05 22:42:13] No progress for 187s (threshold: 300s)
+[2026-01-05 22:42:13] No progress for 187s (threshold: 300s)
+[2026-01-05 22:42:13] Status: 988.32GB downloaded, restarts: 4
+[2026-01-05 22:42:13] Status: 988.32GB downloaded, restarts: 4
+[2026-01-05 22:43:13] No progress for 247s (threshold: 300s)
+[2026-01-05 22:43:13] No progress for 247s (threshold: 300s)
+[2026-01-05 22:43:13] Status: 988.32GB downloaded, restarts: 4
+[2026-01-05 22:43:13] Status: 988.32GB downloaded, restarts: 4
+[2026-01-05 22:44:13] WARNING: Download stalled for 307s
+[2026-01-05 22:44:13] WARNING: Download stalled for 307s
+[2026-01-05 22:44:13] Killing stalled download (PID: 60191)...
+[2026-01-05 22:44:13] Killing stalled download (PID: 60191)...
+/Users/ayates/model_mlx_migration/scripts/download_voxceleb_watchdog.sh: line 56: 60191 Killed: 9               nohup python3 "$DOWNLOAD_SCRIPT" --extract >> "$DOWNLOAD_LOG" 2>&1
+[2026-01-05 22:44:15] Restart #5
+[2026-01-05 22:44:15] Restart #5
+[2026-01-05 22:44:15] Starting VoxCeleb download...
+[2026-01-05 22:44:15] Starting VoxCeleb download...
+[2026-01-05 22:44:16] Download started with PID: 60458
+[2026-01-05 22:44:16] Download started with PID: 60458
+[2026-01-05 22:44:21] Status: 988.32GB downloaded, restarts: 5
+[2026-01-05 22:44:21] Status: 988.32GB downloaded, restarts: 5
+[2026-01-05 22:45:21] No progress for 68s (threshold: 300s)
+[2026-01-05 22:45:21] No progress for 68s (threshold: 300s)
+[2026-01-05 22:45:21] Status: 988.32GB downloaded, restarts: 5
+[2026-01-05 22:45:21] Status: 988.32GB downloaded, restarts: 5
+[2026-01-05 22:46:21] No progress for 128s (threshold: 300s)
+[2026-01-05 22:46:21] No progress for 128s (threshold: 300s)
+[2026-01-05 22:46:21] Status: 988.32GB downloaded, restarts: 5
+[2026-01-05 22:46:21] Status: 988.32GB downloaded, restarts: 5
+[2026-01-05 22:47:21] No progress for 188s (threshold: 300s)
+[2026-01-05 22:47:21] No progress for 188s (threshold: 300s)
+[2026-01-05 22:47:21] Status: 988.32GB downloaded, restarts: 5
+[2026-01-05 22:47:21] Status: 988.32GB downloaded, restarts: 5
+[2026-01-05 22:48:21] No progress for 248s (threshold: 300s)
+[2026-01-05 22:48:21] No progress for 248s (threshold: 300s)
+[2026-01-05 22:48:21] Status: 988.32GB downloaded, restarts: 5
+[2026-01-05 22:48:21] Status: 988.32GB downloaded, restarts: 5
+[2026-01-05 22:49:21] WARNING: Download stalled for 308s
+[2026-01-05 22:49:21] WARNING: Download stalled for 308s
+[2026-01-05 22:49:21] Killing stalled download (PID: 60458)...
+[2026-01-05 22:49:21] Killing stalled download (PID: 60458)...
+/Users/ayates/model_mlx_migration/scripts/download_voxceleb_watchdog.sh: line 56: 60458 Killed: 9               nohup python3 "$DOWNLOAD_SCRIPT" --extract >> "$DOWNLOAD_LOG" 2>&1
+[2026-01-05 22:49:23] Restart #6
+[2026-01-05 22:49:23] Restart #6
+[2026-01-05 22:49:23] Starting VoxCeleb download...
+[2026-01-05 22:49:23] Starting VoxCeleb download...
+[2026-01-05 22:49:23] Download started with PID: 60605
+[2026-01-05 22:49:23] Download started with PID: 60605
+[2026-01-05 22:49:28] Status: 988.32GB downloaded, restarts: 6
+[2026-01-05 22:49:28] Status: 988.32GB downloaded, restarts: 6
+[2026-01-05 22:50:28] No progress for 67s (threshold: 300s)
+[2026-01-05 22:50:28] No progress for 67s (threshold: 300s)
+[2026-01-05 22:50:28] Status: 988.32GB downloaded, restarts: 6
+[2026-01-05 22:50:28] Status: 988.32GB downloaded, restarts: 6
+[2026-01-05 22:51:28] No progress for 127s (threshold: 300s)
+[2026-01-05 22:51:28] No progress for 127s (threshold: 300s)
+[2026-01-05 22:51:28] Status: 988.32GB downloaded, restarts: 6
+[2026-01-05 22:51:28] Status: 988.32GB downloaded, restarts: 6
+[2026-01-05 22:52:28] No progress for 187s (threshold: 300s)
+[2026-01-05 22:52:28] No progress for 187s (threshold: 300s)
+[2026-01-05 22:52:28] Status: 988.32GB downloaded, restarts: 6
+[2026-01-05 22:52:28] Status: 988.32GB downloaded, restarts: 6
+[2026-01-05 22:53:28] No progress for 247s (threshold: 300s)
+[2026-01-05 22:53:28] No progress for 247s (threshold: 300s)
+[2026-01-05 22:53:28] Status: 988.32GB downloaded, restarts: 6
+[2026-01-05 22:53:28] Status: 988.32GB downloaded, restarts: 6
+[2026-01-05 22:54:28] WARNING: Download stalled for 307s
+[2026-01-05 22:54:28] WARNING: Download stalled for 307s
+[2026-01-05 22:54:28] Killing stalled download (PID: 60605)...
+[2026-01-05 22:54:28] Killing stalled download (PID: 60605)...
+/Users/ayates/model_mlx_migration/scripts/download_voxceleb_watchdog.sh: line 56: 60605 Killed: 9               nohup python3 "$DOWNLOAD_SCRIPT" --extract >> "$DOWNLOAD_LOG" 2>&1
+[2026-01-05 22:54:30] Restart #7
+[2026-01-05 22:54:30] Restart #7
+[2026-01-05 22:54:30] Starting VoxCeleb download...
+[2026-01-05 22:54:30] Starting VoxCeleb download...
+[2026-01-05 22:54:30] Download started with PID: 60762
+[2026-01-05 22:54:30] Download started with PID: 60762
+[2026-01-05 22:54:35] Status: 988.32GB downloaded, restarts: 7
+[2026-01-05 22:54:35] Status: 988.32GB downloaded, restarts: 7
+[2026-01-05 22:55:36] No progress for 67s (threshold: 300s)
+[2026-01-05 22:55:36] No progress for 67s (threshold: 300s)
+[2026-01-05 22:55:36] Status: 988.32GB downloaded, restarts: 7
+[2026-01-05 22:55:36] Status: 988.32GB downloaded, restarts: 7
+[2026-01-05 22:56:36] No progress for 128s (threshold: 300s)
+[2026-01-05 22:56:36] No progress for 128s (threshold: 300s)
+[2026-01-05 22:56:36] Status: 988.32GB downloaded, restarts: 7
+[2026-01-05 22:56:36] Status: 988.32GB downloaded, restarts: 7
+[2026-01-05 22:57:36] No progress for 188s (threshold: 300s)
+[2026-01-05 22:57:36] No progress for 188s (threshold: 300s)
+[2026-01-05 22:57:36] Status: 988.32GB downloaded, restarts: 7
+[2026-01-05 22:57:36] Status: 988.32GB downloaded, restarts: 7
+[2026-01-05 22:58:36] No progress for 248s (threshold: 300s)
+[2026-01-05 22:58:36] No progress for 248s (threshold: 300s)
+[2026-01-05 22:58:36] Status: 988.32GB downloaded, restarts: 7
+[2026-01-05 22:58:36] Status: 988.32GB downloaded, restarts: 7
+[2026-01-05 22:59:36] WARNING: Download stalled for 308s
+[2026-01-05 22:59:36] WARNING: Download stalled for 308s
+[2026-01-05 22:59:36] Killing stalled download (PID: 60762)...
+[2026-01-05 22:59:36] Killing stalled download (PID: 60762)...
+/Users/ayates/model_mlx_migration/scripts/download_voxceleb_watchdog.sh: line 56: 60762 Killed: 9               nohup python3 "$DOWNLOAD_SCRIPT" --extract >> "$DOWNLOAD_LOG" 2>&1
+[2026-01-05 22:59:38] Restart #8
+[2026-01-05 22:59:38] Restart #8
+[2026-01-05 22:59:38] Starting VoxCeleb download...
+[2026-01-05 22:59:38] Starting VoxCeleb download...
+[2026-01-05 22:59:38] Download started with PID: 61031
+[2026-01-05 22:59:38] Download started with PID: 61031
+[2026-01-05 22:59:43] Status: 988.32GB downloaded, restarts: 8
+[2026-01-05 22:59:43] Status: 988.32GB downloaded, restarts: 8
+[2026-01-05 23:00:43] No progress for 67s (threshold: 300s)
+[2026-01-05 23:00:43] No progress for 67s (threshold: 300s)
+[2026-01-05 23:00:43] Status: 988.32GB downloaded, restarts: 8
+[2026-01-05 23:00:43] Status: 988.32GB downloaded, restarts: 8
+[2026-01-05 23:01:43] No progress for 127s (threshold: 300s)
+[2026-01-05 23:01:43] No progress for 127s (threshold: 300s)
+[2026-01-05 23:01:43] Status: 988.32GB downloaded, restarts: 8
+[2026-01-05 23:01:43] Status: 988.32GB downloaded, restarts: 8
+[2026-01-05 23:02:43] No progress for 187s (threshold: 300s)
+[2026-01-05 23:02:43] No progress for 187s (threshold: 300s)
+[2026-01-05 23:02:43] Status: 988.32GB downloaded, restarts: 8
+[2026-01-05 23:02:43] Status: 988.32GB downloaded, restarts: 8
+[2026-01-05 23:03:43] No progress for 247s (threshold: 300s)
+[2026-01-05 23:03:43] No progress for 247s (threshold: 300s)
+[2026-01-05 23:03:43] Status: 988.32GB downloaded, restarts: 8
+[2026-01-05 23:03:43] Status: 988.32GB downloaded, restarts: 8
+[2026-01-05 23:04:43] WARNING: Download stalled for 307s
+[2026-01-05 23:04:43] WARNING: Download stalled for 307s
+[2026-01-05 23:04:43] Killing stalled download (PID: 61031)...
+[2026-01-05 23:04:43] Killing stalled download (PID: 61031)...
+/Users/ayates/model_mlx_migration/scripts/download_voxceleb_watchdog.sh: line 56: 61031 Killed: 9               nohup python3 "$DOWNLOAD_SCRIPT" --extract >> "$DOWNLOAD_LOG" 2>&1
+[2026-01-05 23:04:45] Restart #9
+[2026-01-05 23:04:45] Restart #9
+[2026-01-05 23:04:45] Starting VoxCeleb download...
+[2026-01-05 23:04:45] Starting VoxCeleb download...
+[2026-01-05 23:04:45] Download started with PID: 61184
+[2026-01-05 23:04:45] Download started with PID: 61184
+[2026-01-05 23:04:50] Status: 988.32GB downloaded, restarts: 9
+[2026-01-05 23:04:50] Status: 988.32GB downloaded, restarts: 9
+[2026-01-05 23:05:50] No progress for 67s (threshold: 300s)
+[2026-01-05 23:05:50] No progress for 67s (threshold: 300s)
+[2026-01-05 23:05:50] Status: 988.32GB downloaded, restarts: 9
+[2026-01-05 23:05:50] Status: 988.32GB downloaded, restarts: 9
+[2026-01-05 23:06:50] No progress for 127s (threshold: 300s)
+[2026-01-05 23:06:50] No progress for 127s (threshold: 300s)
+[2026-01-05 23:06:50] Status: 988.32GB downloaded, restarts: 9
+[2026-01-05 23:06:50] Status: 988.32GB downloaded, restarts: 9
+[2026-01-05 23:07:50] No progress for 187s (threshold: 300s)
+[2026-01-05 23:07:50] No progress for 187s (threshold: 300s)
+[2026-01-05 23:07:50] Status: 988.32GB downloaded, restarts: 9
+[2026-01-05 23:07:50] Status: 988.32GB downloaded, restarts: 9
+[2026-01-05 23:08:50] No progress for 247s (threshold: 300s)
+[2026-01-05 23:08:50] No progress for 247s (threshold: 300s)
+[2026-01-05 23:08:50] Status: 988.32GB downloaded, restarts: 9
+[2026-01-05 23:08:50] Status: 988.32GB downloaded, restarts: 9
+[2026-01-05 23:09:50] WARNING: Download stalled for 307s
+[2026-01-05 23:09:50] WARNING: Download stalled for 307s
+[2026-01-05 23:09:50] Killing stalled download (PID: 61184)...
+[2026-01-05 23:09:50] Killing stalled download (PID: 61184)...
+/Users/ayates/model_mlx_migration/scripts/download_voxceleb_watchdog.sh: line 56: 61184 Killed: 9               nohup python3 "$DOWNLOAD_SCRIPT" --extract >> "$DOWNLOAD_LOG" 2>&1
+[2026-01-05 23:09:53] Restart #10
+[2026-01-05 23:09:53] Restart #10
+[2026-01-05 23:09:53] Starting VoxCeleb download...
+[2026-01-05 23:09:53] Starting VoxCeleb download...
+[2026-01-05 23:09:53] Download started with PID: 61337
+[2026-01-05 23:09:53] Download started with PID: 61337
+[2026-01-05 23:09:58] Status: 988.32GB downloaded, restarts: 10
+[2026-01-05 23:09:58] Status: 988.32GB downloaded, restarts: 10
+[2026-01-05 23:10:58] No progress for 68s (threshold: 300s)
+[2026-01-05 23:10:58] No progress for 68s (threshold: 300s)
+[2026-01-05 23:10:58] Status: 988.32GB downloaded, restarts: 10
+[2026-01-05 23:10:58] Status: 988.32GB downloaded, restarts: 10
+[2026-01-05 23:11:58] No progress for 128s (threshold: 300s)
+[2026-01-05 23:11:58] No progress for 128s (threshold: 300s)
+[2026-01-05 23:11:58] Status: 988.32GB downloaded, restarts: 10
+[2026-01-05 23:11:58] Status: 988.32GB downloaded, restarts: 10
+[2026-01-05 23:12:58] No progress for 188s (threshold: 300s)
+[2026-01-05 23:12:58] No progress for 188s (threshold: 300s)
+[2026-01-05 23:12:58] Status: 988.32GB downloaded, restarts: 10
+[2026-01-05 23:12:58] Status: 988.32GB downloaded, restarts: 10
+[2026-01-05 23:13:58] No progress for 248s (threshold: 300s)
+[2026-01-05 23:13:58] No progress for 248s (threshold: 300s)
+[2026-01-05 23:13:58] Status: 988.32GB downloaded, restarts: 10
+[2026-01-05 23:13:58] Status: 988.32GB downloaded, restarts: 10
+[2026-01-05 23:14:58] WARNING: Download stalled for 308s
+[2026-01-05 23:14:58] WARNING: Download stalled for 308s
+[2026-01-05 23:14:58] ERROR: Exceeded max restarts (10)
+[2026-01-05 23:14:58] ERROR: Exceeded max restarts (10)

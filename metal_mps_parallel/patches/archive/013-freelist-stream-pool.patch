@@ -1,0 +1,275 @@
+diff --git a/aten/src/ATen/mps/MPSStream.h b/aten/src/ATen/mps/MPSStream.h
+index 9536aef2..7f096ae9 100644
+--- a/aten/src/ATen/mps/MPSStream.h
++++ b/aten/src/ATen/mps/MPSStream.h
+@@ -8,6 +8,7 @@
+ #include <atomic>
+ #include <memory>
+ #include <mutex>
++#include <vector>
+ 
+ #include <ATen/mps/MPSDevice.h>
+ #include <c10/core/DeviceGuard.h>
+@@ -146,17 +147,11 @@ TORCH_API MPSStream* getCurrentMPSStream();
+ TORCH_API MPSStream* getDefaultMPSStream();
+ 
+ /**
+- * Get a stream from the MPS stream pool using round-robin allocation.
++ * Get a stream from the MPS stream pool.
+  *
+- * WARNING: This function increments an internal counter that never resets.
+- * Each call allocates a new stream slot (up to 31 worker streams).
+- * For thread-local stream assignment, use getCurrentMPSStream() instead,
+- * which caches the stream per thread and avoids pool exhaustion.
+- *
+- * Thread churn limitation: If >31 distinct threads call getCurrentMPSStream()
+- * over the process lifetime, a RuntimeError will be thrown. This is a design
+- * limitation of the fixed-size pool. For workloads with high thread churn,
+- * consider reusing threads or using a thread pool.
++ * This allocates a stream slot from the freelist. Slots are recycled
++ * when worker threads exit, allowing unlimited thread churn as long as
++ * concurrent thread count stays below 31.
+  *
+  * Typical usage: Call getCurrentMPSStream() from worker threads, which
+  * automatically acquires and caches a stream per thread.
+@@ -177,8 +172,8 @@ TORCH_API void setCurrentMPSStream(MPSStream* stream);
+ //
+ // Key design principles:
+ // - 32 streams per pool (matching CUDA's kStreamsPerPool)
+-// - Round-robin allocation via atomic counter
+-// - Thread-local current stream tracking
++// - Freelist-based allocation with slot recycling on thread exit
++// - Thread-local current stream tracking with RAII cleanup
+ // - Lazy initialization on first use
+ // - Default stream (index 0) always available for backward compatibility
+ 
+@@ -194,11 +189,24 @@ class TORCH_API MPSStreamPool {
+   static MPSStreamPool& instance();
+ 
+   /**
+-   * Get a stream from the pool using round-robin allocation.
++   * Acquire a stream slot from the freelist.
+    * Returns streams 1 through kMPSStreamsPerPool-1 (stream 0 is default).
++   * Slots are recycled when threads exit via TLS destructor.
+    */
+   MPSStream* acquireStream();
+ 
++  /**
++   * Release a stream slot back to the freelist.
++   * Called automatically by TLS destructor when worker threads exit.
++   */
++  void releaseStreamSlot(size_t slot);
++
++  /**
++   * Safely release a stream slot if the pool is still alive.
++   * Used by TLS destructor to handle static destruction order.
++   */
++  static void releaseSlotIfPoolAlive(size_t slot);
++
+   /**
+    * Get the default stream (stream 0).
+    * This is always the same stream, used for single-threaded code.
+@@ -247,8 +255,9 @@ class TORCH_API MPSStreamPool {
+   // Stream storage - lazily initialized
+   std::array<std::unique_ptr<MPSStream>, kMPSStreamsPerPool> streams_;
+ 
+-  // Atomic counter for round-robin allocation (starts at 1 to skip default stream)
+-  std::atomic<uint32_t> next_stream_idx_{1};
++  // Freelist of available worker stream slots [1, kMPSStreamsPerPool-1]
++  std::vector<size_t> free_slots_;
++  std::mutex slot_mutex_;
+ 
+   // Initialization flag for lazy stream creation
+   std::atomic<bool> initialized_{false};
+@@ -258,6 +267,7 @@ class TORCH_API MPSStreamPool {
+ 
+   void ensureInitialized();
+   MPSStream* createStream(size_t index);
++  size_t acquireSlot();  // Internal: get slot from freelist
+ };
+ 
+ //-----------------------------------------------------------------
+diff --git a/aten/src/ATen/mps/MPSStream.mm b/aten/src/ATen/mps/MPSStream.mm
+index 88f5a854..19633837 100644
+--- a/aten/src/ATen/mps/MPSStream.mm
++++ b/aten/src/ATen/mps/MPSStream.mm
+@@ -276,32 +276,45 @@ void MPSStream::executeMPSGraph(MPSGraph* mpsGraph, NSDictionary* feeds, NSDicti
+ //  MPSStreamPool
+ //-----------------------------------------------------------------
+ 
+-// Thread-local storage for current stream per thread
+-// nullptr means use the default stream (stream 0)
+-static thread_local MPSStream* tls_current_stream = nullptr;
++// Global flag to track if pool is still alive (for safe TLS destruction)
++static std::atomic<bool> g_pool_alive{false};
++
++// TLS RAII wrapper that returns stream slot to freelist on thread exit
++struct ThreadStreamSlot {
++  size_t slot_index = 0;  // 0 = default stream (not recyclable), >0 = worker slot
++  MPSStream* stream = nullptr;
++
++  ~ThreadStreamSlot() {
++    if (slot_index > 0) {
++      MPSStreamPool::releaseSlotIfPoolAlive(slot_index);
++    }
++  }
++};
++
++static thread_local ThreadStreamSlot tls_stream_slot;
+ 
+ MPSStreamPool& MPSStreamPool::instance() {
+-  // Thread-safe singleton via static local variable (C++11 guarantee)
+   static MPSStreamPool pool;
+   return pool;
+ }
+ 
+ MPSStreamPool::MPSStreamPool() {
+-  // Streams are lazily initialized on first access
++  // Initialize freelist with all worker stream slots [1, 31]
++  free_slots_.reserve(kMPSStreamsPerPool - 1);
++  for (size_t i = 1; i < kMPSStreamsPerPool; ++i) {
++    free_slots_.push_back(i);
++  }
++  g_pool_alive.store(true, std::memory_order_release);
+ }
+ 
+ MPSStreamPool::~MPSStreamPool() {
+-  // Streams are cleaned up automatically via unique_ptr
++  g_pool_alive.store(false, std::memory_order_release);
+ }
+ 
+ void MPSStreamPool::ensureInitialized() {
+-  // Double-checked locking pattern for lazy initialization
+   if (!initialized_.load(std::memory_order_acquire)) {
+     std::lock_guard<std::mutex> lock(stream_creation_mutex_);
+-    // Re-check under lock
+     if (!initialized_.load(std::memory_order_relaxed)) {
+-      // Only stream 0 (default) needs to exist initially
+-      // Other streams are created on-demand
+       if (streams_[0] == nullptr) {
+         streams_[0] = std::unique_ptr<MPSStream>(
+             new MPSStream(Stream(Stream::UNSAFE, c10::Device(DeviceType::MPS, 0), 0)));
+@@ -315,13 +328,9 @@ MPSStream* MPSStreamPool::createStream(size_t index) {
+   TORCH_CHECK(index < kMPSStreamsPerPool,
+               "Stream index ", index, " out of range [0, ", kMPSStreamsPerPool, ")");
+ 
+-  // Thread-safe stream creation with double-checked locking
+   if (streams_[index] == nullptr) {
+     std::lock_guard<std::mutex> lock(stream_creation_mutex_);
+-    // Re-check under lock to avoid double creation
+     if (streams_[index] == nullptr) {
+-      // Create a new stream with unique stream ID
+-      // Stream IDs are index values for simplicity
+       streams_[index] = std::unique_ptr<MPSStream>(
+           new MPSStream(Stream(Stream::UNSAFE, c10::Device(DeviceType::MPS, 0),
+                               static_cast<StreamId>(index))));
+@@ -348,9 +357,6 @@ MPSStream* MPSStreamPool::getStream(size_t index) {
+ 
+ void MPSStreamPool::synchronizeAllStreams() {
+   ensureInitialized();
+-
+-  // Synchronize all active (non-null) streams
+-  // This implements true device-wide sync matching CUDA semantics
+   for (size_t i = 0; i < kMPSStreamsPerPool; ++i) {
+     if (streams_[i] != nullptr) {
+       streams_[i]->synchronize(SyncType::COMMIT_AND_WAIT);
+@@ -358,61 +364,67 @@ void MPSStreamPool::synchronizeAllStreams() {
+   }
+ }
+ 
+-MPSStream* MPSStreamPool::acquireStream() {
+-  ensureInitialized();
+-
+-  // Round-robin allocation starting from stream 1
+-  // (stream 0 is reserved as the default stream)
+-  uint32_t idx = next_stream_idx_.fetch_add(1, std::memory_order_relaxed);
++size_t MPSStreamPool::acquireSlot() {
++  std::lock_guard<std::mutex> lock(slot_mutex_);
++  TORCH_CHECK(!free_slots_.empty(),
++              "MPS stream pool exhausted: all ", kMPSStreamsPerPool - 1,
++              " worker streams are in use. Maximum concurrent MPS threads is ",
++              kMPSStreamsPerPool, " (1 main + ", kMPSStreamsPerPool - 1,
++              " workers). Wait for threads to exit or use a thread pool.");
++  size_t slot = free_slots_.back();
++  free_slots_.pop_back();
++  return slot;
++}
+ 
+-  // Detect pool exhaustion: we have 31 worker streams (1 through 31)
+-  // If idx >= kMPSStreamsPerPool, we've exceeded capacity and would reuse streams
+-  // This causes Metal assertion failures, so we fail with a clear error message
+-  TORCH_CHECK(idx < kMPSStreamsPerPool,
+-              "MPS stream pool exhausted: ", idx, " worker threads requested streams, "
+-              "but pool only has ", kMPSStreamsPerPool - 1, " worker streams available. "
+-              "Maximum supported concurrent MPS threads is ", kMPSStreamsPerPool,
+-              " (1 main + ", kMPSStreamsPerPool - 1, " workers). "
+-              "Consider reducing thread count or batching work.");
++void MPSStreamPool::releaseStreamSlot(size_t slot) {
++  if (slot == 0 || slot >= kMPSStreamsPerPool) {
++    return;  // Invalid or default stream slot
++  }
++  std::lock_guard<std::mutex> lock(slot_mutex_);
++  free_slots_.push_back(slot);
++}
+ 
+-  // Map to range [1, kMPSStreamsPerPool-1]
+-  // This ensures we never return stream 0 from acquireStream()
+-  size_t stream_idx = 1 + (idx % (kMPSStreamsPerPool - 1));
++void MPSStreamPool::releaseSlotIfPoolAlive(size_t slot) {
++  if (g_pool_alive.load(std::memory_order_acquire)) {
++    instance().releaseStreamSlot(slot);
++  }
++}
+ 
+-  return getStream(stream_idx);
++MPSStream* MPSStreamPool::acquireStream() {
++  ensureInitialized();
++  size_t slot = acquireSlot();
++  return getStream(slot);
+ }
+ 
+ // Track which thread is the "main" thread (first to use MPS)
+-// Uses std::call_once to safely initialize main_thread_id exactly once
+-// This prevents data race between write (Thread A) and read (Thread B)
+ static std::once_flag main_thread_init_flag;
+ static std::thread::id main_thread_id;
+ 
+ MPSStream* MPSStreamPool::getCurrentStream() {
+-  if (tls_current_stream != nullptr) {
+-    return tls_current_stream;
++  if (tls_stream_slot.stream != nullptr) {
++    return tls_stream_slot.stream;
+   }
+ 
+-  // First thread to use MPS becomes the "main thread" and gets the default stream
+-  // std::call_once ensures main_thread_id is fully written before any thread reads it
+   std::call_once(main_thread_init_flag, []() {
+     main_thread_id = std::this_thread::get_id();
+   });
+ 
+   if (std::this_thread::get_id() == main_thread_id) {
+-    // Main thread - use default stream for backward compatibility
+-    tls_current_stream = MPSStreamPool::instance().getDefaultStream();
++    // Main thread uses default stream (slot 0, not recyclable)
++    tls_stream_slot.stream = MPSStreamPool::instance().getDefaultStream();
+   } else {
+-    // Non-main thread: auto-acquire a stream from the pool
+-    // This enables parallel execution without explicit stream management
+-    tls_current_stream = MPSStreamPool::instance().acquireStream();
++    // Worker thread: acquire slot from freelist (recycled on thread exit)
++    size_t slot = MPSStreamPool::instance().acquireSlot();
++    tls_stream_slot.slot_index = slot;
++    tls_stream_slot.stream = MPSStreamPool::instance().getStream(slot);
+   }
+ 
+-  return tls_current_stream;
++  return tls_stream_slot.stream;
+ }
+ 
+ void MPSStreamPool::setCurrentStream(MPSStream* stream) {
+-  tls_current_stream = stream;
++  tls_stream_slot.stream = stream;
++  // Note: slot_index is not updated - manual setCurrentStream bypasses slot tracking
+ }
+ 
+ //-----------------------------------------------------------------

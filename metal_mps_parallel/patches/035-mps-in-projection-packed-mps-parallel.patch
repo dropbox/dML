@@ -1,0 +1,29 @@
+diff --git a/torch/nn/functional.py b/torch/nn/functional.py
+index 92142fd4..c435c8f4 100644
+--- a/torch/nn/functional.py
++++ b/torch/nn/functional.py
+@@ -5697,6 +5697,13 @@ def _in_projection_packed(
+         if q is k:
+             # self-attention
+             proj = linear(q, w, b)
++            # WORKAROUND (MPS parallel streams):
++            # The transpose+contiguous packing below can produce corrupted results
++            # when executed concurrently on multiple MPS streams. Use a safer
++            # chunk+contiguous formulation for MPS.
++            if proj.is_mps:
++                q_proj, k_proj, v_proj = proj.chunk(3, dim=-1)
++                return q_proj.contiguous(), k_proj.contiguous(), v_proj.contiguous()
+             # reshape to 3, E and not E, 3 is deliberate for better memory coalescing and keeping same order as chunk()
+             proj = (
+                 proj.unflatten(-1, (3, E))
+@@ -5715,6 +5722,10 @@ def _in_projection_packed(
+                 b_q, b_kv = b.split([E, E * 2])
+             q_proj = linear(q, w_q, b_q)
+             kv_proj = linear(k, w_kv, b_kv)
++            # WORKAROUND (MPS parallel streams): see self-attention case above.
++            if kv_proj.is_mps:
++                k_proj, v_proj = kv_proj.chunk(2, dim=-1)
++                return (q_proj, k_proj.contiguous(), v_proj.contiguous())
+             # reshape to 2, E and not E, 2 is deliberate for better memory coalescing and keeping same order as chunk()
+             kv_proj = (
+                 kv_proj.unflatten(-1, (2, E))

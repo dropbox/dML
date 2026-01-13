@@ -1,0 +1,44 @@
+{
+  "verification_type": "parallel_critical_section_exists",
+  "timestamp": "2025-12-19T11:34:38Z",
+  "worker_iteration": 1302,
+  "spec_file": "specs/MPSStreamPoolParallel.tla",
+  "config_file": "specs/MPSStreamPoolParallel.cfg",
+  "constants": {
+    "NumStreams": 4,
+    "NumThreads": 3,
+    "MaxOperations": 15
+  },
+  "result": {
+    "status": "PARALLEL_PROGRESS_VERIFIED",
+    "invariant_checked": "NoParallelEver",
+    "invariant_violated": true,
+    "violation_is_success": true,
+    "explanation": "NoParallelEver invariant was violated, proving parallel execution is possible",
+    "counterexample_depth": 7,
+    "counterexample_state": {
+      "parallel_witnessed": true,
+      "max_parallel": 2,
+      "parallel_count": 1,
+      "streams": ["in_use", "in_use", "free", "free"],
+      "thread_bindings": [1, 2, 0],
+      "description": "Threads 1 and 2 both have streams in 'in_use' state simultaneously"
+    }
+  },
+  "tlc_stats": {
+    "states_generated": 246,
+    "distinct_states": 138,
+    "states_on_queue": 66,
+    "search_depth": 8
+  },
+  "safety_invariants_checked": [
+    "TypeOK",
+    "SafetyInvariant",
+    "ParallelProgressInvariant",
+    "MaxParallelBounded"
+  ],
+  "evidence": {
+    "trace_path": "specs/MPSStreamPoolParallel_TTrace_1766172878.tla",
+    "trace_summary": "7-state trace showing T1 UseStream -> T2 AcquireStream -> T2 UseStream reaching parallel execution"
+  }
+}

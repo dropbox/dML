@@ -1,0 +1,89 @@
+2026-01-07 23:09:04,529 [INFO] Loading encoder from checkpoints/zipformer/en-streaming/exp/pretrained.pt
+2026-01-07 23:09:04,605 [INFO] Encoder loaded: output_dim=512
+2026-01-07 23:09:04,627 [INFO] Loaded fine-tuned encoder weights from checkpoints/emotion_v13_higher_lr/encoder_best.npz (254 arrays)
+2026-01-07 23:09:05,050 [INFO] Test set batches: 475
+2026-01-07 23:09:05,052 [INFO] Loaded head checkpoint from checkpoints/emotion_v13_higher_lr/head_best.npz
+2026-01-07 23:09:05,052 [INFO] Starting evaluation...
+2026-01-07 23:09:06,552 [INFO] Processed 10 batches (160 samples)
+2026-01-07 23:09:07,695 [INFO] Processed 20 batches (320 samples)
+2026-01-07 23:09:08,789 [INFO] Processed 30 batches (480 samples)
+2026-01-07 23:09:09,948 [INFO] Processed 40 batches (640 samples)
+2026-01-07 23:09:11,198 [INFO] Processed 50 batches (800 samples)
+2026-01-07 23:09:12,306 [INFO] Processed 60 batches (960 samples)
+2026-01-07 23:09:13,394 [INFO] Processed 70 batches (1120 samples)
+2026-01-07 23:09:14,483 [INFO] Processed 80 batches (1280 samples)
+2026-01-07 23:09:15,489 [INFO] Processed 90 batches (1440 samples)
+2026-01-07 23:09:16,608 [INFO] Processed 100 batches (1600 samples)
+2026-01-07 23:09:17,700 [INFO] Processed 110 batches (1760 samples)
+2026-01-07 23:09:18,846 [INFO] Processed 120 batches (1920 samples)
+2026-01-07 23:09:19,965 [INFO] Processed 130 batches (2080 samples)
+2026-01-07 23:09:21,072 [INFO] Processed 140 batches (2240 samples)
+2026-01-07 23:09:22,131 [INFO] Processed 150 batches (2400 samples)
+2026-01-07 23:09:23,245 [INFO] Processed 160 batches (2560 samples)
+2026-01-07 23:09:24,357 [INFO] Processed 170 batches (2720 samples)
+2026-01-07 23:09:25,406 [INFO] Processed 180 batches (2880 samples)
+2026-01-07 23:09:26,460 [INFO] Processed 190 batches (3040 samples)
+2026-01-07 23:09:27,452 [INFO] Processed 200 batches (3200 samples)
+2026-01-07 23:09:28,532 [INFO] Processed 210 batches (3360 samples)
+2026-01-07 23:09:29,633 [INFO] Processed 220 batches (3520 samples)
+2026-01-07 23:09:30,756 [INFO] Processed 230 batches (3680 samples)
+2026-01-07 23:09:31,897 [INFO] Processed 240 batches (3840 samples)
+2026-01-07 23:09:32,916 [INFO] Processed 250 batches (4000 samples)
+2026-01-07 23:09:33,990 [INFO] Processed 260 batches (4160 samples)
+2026-01-07 23:09:35,029 [INFO] Processed 270 batches (4320 samples)
+2026-01-07 23:09:36,109 [INFO] Processed 280 batches (4480 samples)
+2026-01-07 23:09:37,169 [INFO] Processed 290 batches (4640 samples)
+2026-01-07 23:09:38,255 [INFO] Processed 300 batches (4800 samples)
+2026-01-07 23:09:39,242 [INFO] Processed 310 batches (4960 samples)
+2026-01-07 23:09:40,296 [INFO] Processed 320 batches (5120 samples)
+2026-01-07 23:09:41,403 [INFO] Processed 330 batches (5280 samples)
+2026-01-07 23:09:42,510 [INFO] Processed 340 batches (5440 samples)
+2026-01-07 23:09:43,566 [INFO] Processed 350 batches (5600 samples)
+2026-01-07 23:09:44,612 [INFO] Processed 360 batches (5760 samples)
+2026-01-07 23:09:45,648 [INFO] Processed 370 batches (5920 samples)
+2026-01-07 23:09:46,681 [INFO] Processed 380 batches (6080 samples)
+2026-01-07 23:09:47,784 [INFO] Processed 390 batches (6240 samples)
+2026-01-07 23:09:48,796 [INFO] Processed 400 batches (6400 samples)
+2026-01-07 23:09:49,949 [INFO] Processed 410 batches (6560 samples)
+2026-01-07 23:09:51,033 [INFO] Processed 420 batches (6720 samples)
+2026-01-07 23:09:52,097 [INFO] Processed 430 batches (6880 samples)
+2026-01-07 23:09:53,194 [INFO] Processed 440 batches (7040 samples)
+2026-01-07 23:09:54,328 [INFO] Processed 450 batches (7200 samples)
+2026-01-07 23:09:55,376 [INFO] Processed 460 batches (7360 samples)
+2026-01-07 23:09:56,476 [INFO] Processed 470 batches (7520 samples)
+
+============================================================
+EVALUATION RESULTS
+============================================================
+
+Overall Accuracy: 0.5689 (56.89%)
+Total Samples: 7600
+Correct: 4324
+
+Macro-averaged Metrics:
+  Precision: 0.5750
+  Recall: 0.5688
+  F1-Score: 0.5682
+
+Per-Class Metrics:
+------------------------------------------------------------
+Class                Prec     Recall   F1       Support 
+------------------------------------------------------------
+anger                0.6641   0.7155   0.6888   1304    
+disgust              0.6310   0.5309   0.5766   1134    
+fear                 0.4836   0.5278   0.5047   1315    
+happy                0.4996   0.5015   0.5006   1294    
+neutral              0.5419   0.6589   0.5947   1246    
+sad                  0.6300   0.4782   0.5437   1307    
+
+Confusion Matrix:
+------------------------------------------------------------
+True\Pred       anger   disgus  fear    happy   neutra  sad     
+------------------------------------------------------------
+anger           933     59      53      191     60      8       
+disgust         108     602     148     80      86      110     
+fear            87      74      694     144     136     180     
+happy           221     52      235     649     126     11      
+neutral         40      41      86      200     821     58      
+sad             16      126     219     35      286     625     
+============================================================

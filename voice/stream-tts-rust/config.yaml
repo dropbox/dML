@@ -1,0 +1,13 @@
+# TTS Configuration
+# Copyright 2025 Andrew Yates. All rights reserved.
+
+tts:
+  engine: "macos_say"
+  voice: "Otoya"       # Natural male Japanese voice (excellent quality)
+  rate: 185            # Comfortable natural pace
+
+translation:
+  model: "facebook/nllb-200-distilled-600M"
+  source_lang: "eng_Latn"
+  target_lang: "jpn_Jpan"
+  device: "mps"  # Metal GPU

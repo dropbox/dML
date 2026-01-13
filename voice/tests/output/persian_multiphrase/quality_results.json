@@ -1,0 +1,98 @@
+{
+  "timestamp": "2025-12-10 15:07:07",
+  "engine": "MMS-TTS-FAS",
+  "target": "8/10",
+  "results": [
+    {
+      "name": "simple_hello",
+      "text": "سلام",
+      "duration": 0.688,
+      "rtf": 0.471396848212841,
+      "pronunciation": 9,
+      "intonation": 9,
+      "quality": 9,
+      "overall": 9,
+      "issues": "The pronunciation, intonation, and clarity all sound natural and accurate for a native Persian speaker, with no evident issues."
+    },
+    {
+      "name": "greeting_formal",
+      "text": "سلام خدمت شما",
+      "duration": 1.856,
+      "rtf": 0.1388605812500263,
+      "pronunciation": 8,
+      "intonation": 8,
+      "quality": 8,
+      "overall": 8,
+      "issues": "Pronunciation was accurate with correct use of ezafe and consonant clarity. The intonation was natural and smooth. Overall, it sounds natural to native Persian speakers."
+    },
+    {
+      "name": "sentence_weather",
+      "text": "امروز هوا خیلی خوب است",
+      "duration": 2.512,
+      "rtf": 0.14545811209709023,
+      "error": "Parse failed: Let's break down the analysis carefully.\n\n1. Persian pronunciation accuracy: \n   - Evaluating how we",
+      "overall": 0
+    },
+    {
+      "name": "sentence_good_day",
+      "text": "امیدوارم روز خوبی داشته باشید",
+      "duration": 2.912,
+      "rtf": 0.11605654771511371,
+      "pronunciation": 9,
+      "intonation": 9,
+      "quality": 9,
+      "overall": 9,
+      "issues": "The pronunciation is accurate especially with ezafe and consonant clusters, and the intonation sounds natural and fluid. Minor, if any, noticeable issues."
+    },
+    {
+      "name": "technical",
+      "text": "سیستم با موفقیت به‌روزرسانی شد",
+      "duration": 3.184,
+      "rtf": 0.05616487270623595,
+      "pronunciation": 9,
+      "intonation": 9,
+      "quality": 9,
+      "overall": 9,
+      "issues": "Very natural pronunciation and flow, accurate ezafe construction and clear consonant clusters. Native Persian speakers would find this natural."
+    },
+    {
+      "name": "common_phrase",
+      "text": "خوش آمدید به ایران",
+      "duration": 2.128,
+      "rtf": 0.123921977846246,
+      "pronunciation": 9,
+      "intonation": 9,
+      "quality": 9,
+      "overall": 9,
+      "issues": "The pronunciation is very accurate, including proper handling of ezafe and natural consonant clusters. The intonation flows naturally, and the clarity is excellent. Native Persian speakers would find this natural."
+    },
+    {
+      "name": "poetry_simple",
+      "text": "دل من برای تو میتپد",
+      "duration": 2.176,
+      "rtf": 0.15950213898630702,
+      "pronunciation": 7,
+      "intonation": 7,
+      "quality": 7,
+      "overall": 7,
+      "issues": "Pronunciation is mostly accurate but 'میتپد' sounded slightly less fluid or clear. Intonation is overall natural but minor unnatural pauses or emphasis. Clarity is decent but could be improved for native-like smoothness."
+    },
+    {
+      "name": "original",
+      "text": "سلام، امروز هوا بسیار خوب است. امیدوارم روز خوبی داشته باشید.",
+      "duration": 6.368,
+      "rtf": 0.0521506196889446,
+      "pronunciation": 9,
+      "intonation": 8,
+      "quality": 8,
+      "overall": 8,
+      "issues": "Minor rhythm inconsistency, but accurate pronunciation and natural intonation."
+    }
+  ],
+  "summary": {
+    "min": 0,
+    "max": 9,
+    "avg": 7.375,
+    "passing_8plus": 6
+  }
+}

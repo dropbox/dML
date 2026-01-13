@@ -1,0 +1,432 @@
+{
+  "timestamp": "2025-12-17 09:38:52",
+  "prosody_embeddings": "models/prosody_embeddings_orthogonal/final.safetensors",
+  "fc_prosody_weights": "models/prosody_f0_conditioning_v5/fc_prosody_weights.safetensors",
+  "num_sentences": 5,
+  "emotions_tested": [
+    "NEUTRAL",
+    "ANGRY",
+    "SAD",
+    "EXCITED",
+    "CALM"
+  ],
+  "results": [
+    {
+      "sentence": "Hello, this is a test of the prosody system.",
+      "comparisons": [
+        {
+          "emotion": "NEUTRAL",
+          "prosody_id": 0,
+          "baseline_f0": 188.53873411824335,
+          "prosody_f0": 192.7756407373547,
+          "f0_diff_hz": 4.236906619111352,
+          "f0_diff_pct": 2.2472340439361105,
+          "pred_f0_mean": 160.836669921875,
+          "baseline_duration": 3.175,
+          "prosody_duration": 3.175,
+          "dur_diff_s": 0.0,
+          "dur_diff_pct": 0.0,
+          "baseline_path": "tests/prosody/phase_c_comparison_output/sent0_baseline.wav",
+          "prosody_path": "tests/prosody/phase_c_comparison_output/sent0_neutral_phase_c.wav"
+        },
+        {
+          "emotion": "ANGRY",
+          "prosody_id": 40,
+          "baseline_f0": 188.53873411824335,
+          "prosody_f0": 195.24941734176195,
+          "f0_diff_hz": 6.7106832235186005,
+          "f0_diff_pct": 3.5593127613288997,
+          "pred_f0_mean": 178.06649780273438,
+          "baseline_duration": 3.175,
+          "prosody_duration": 3.175,
+          "dur_diff_s": 0.0,
+          "dur_diff_pct": 0.0,
+          "baseline_path": "tests/prosody/phase_c_comparison_output/sent0_baseline.wav",
+          "prosody_path": "tests/prosody/phase_c_comparison_output/sent0_angry_phase_c.wav"
+        },
+        {
+          "emotion": "SAD",
+          "prosody_id": 41,
+          "baseline_f0": 188.53873411824335,
+          "prosody_f0": 184.34427712692678,
+          "f0_diff_hz": -4.194456991316571,
+          "f0_diff_pct": -2.2247189740257767,
+          "pred_f0_mean": 158.79698181152344,
+          "baseline_duration": 3.175,
+          "prosody_duration": 3.175,
+          "dur_diff_s": 0.0,
+          "dur_diff_pct": 0.0,
+          "baseline_path": "tests/prosody/phase_c_comparison_output/sent0_baseline.wav",
+          "prosody_path": "tests/prosody/phase_c_comparison_output/sent0_sad_phase_c.wav"
+        },
+        {
+          "emotion": "EXCITED",
+          "prosody_id": 42,
+          "baseline_f0": 188.53873411824335,
+          "prosody_f0": 208.6460176498885,
+          "f0_diff_hz": 20.10728353164515,
+          "f0_diff_pct": 10.664802447986489,
+          "pred_f0_mean": 191.05934143066406,
+          "baseline_duration": 3.175,
+          "prosody_duration": 3.175,
+          "dur_diff_s": 0.0,
+          "dur_diff_pct": 0.0,
+          "baseline_path": "tests/prosody/phase_c_comparison_output/sent0_baseline.wav",
+          "prosody_path": "tests/prosody/phase_c_comparison_output/sent0_excited_phase_c.wav"
+        },
+        {
+          "emotion": "CALM",
+          "prosody_id": 45,
+          "baseline_f0": 188.53873411824335,
+          "prosody_f0": 192.81571227476607,
+          "f0_diff_hz": 4.276978156522716,
+          "f0_diff_pct": 2.2684877866212787,
+          "pred_f0_mean": 163.16677856445312,
+          "baseline_duration": 3.175,
+          "prosody_duration": 3.175,
+          "dur_diff_s": 0.0,
+          "dur_diff_pct": 0.0,
+          "baseline_path": "tests/prosody/phase_c_comparison_output/sent0_baseline.wav",
+          "prosody_path": "tests/prosody/phase_c_comparison_output/sent0_calm_phase_c.wav"
+        }
+      ]
+    },
+    {
+      "sentence": "I am very happy to see you today!",
+      "comparisons": [
+        {
+          "emotion": "NEUTRAL",
+          "prosody_id": 0,
+          "baseline_f0": 183.07917442904994,
+          "prosody_f0": 186.10759800454287,
+          "f0_diff_hz": 3.0284235754929227,
+          "f0_diff_pct": 1.6541606028852562,
+          "pred_f0_mean": 191.0208740234375,
+          "baseline_duration": 2.45,
+          "prosody_duration": 2.45,
+          "dur_diff_s": 0.0,
+          "dur_diff_pct": 0.0,
+          "baseline_path": "tests/prosody/phase_c_comparison_output/sent1_baseline.wav",
+          "prosody_path": "tests/prosody/phase_c_comparison_output/sent1_neutral_phase_c.wav"
+        },
+        {
+          "emotion": "ANGRY",
+          "prosody_id": 40,
+          "baseline_f0": 183.07917442904994,
+          "prosody_f0": 195.79810531219903,
+          "f0_diff_hz": 12.718930883149085,
+          "f0_diff_pct": 6.947229756095578,
+          "pred_f0_mean": 206.06210327148438,
+          "baseline_duration": 2.45,
+          "prosody_duration": 2.45,
+          "dur_diff_s": 0.0,
+          "dur_diff_pct": 0.0,
+          "baseline_path": "tests/prosody/phase_c_comparison_output/sent1_baseline.wav",
+          "prosody_path": "tests/prosody/phase_c_comparison_output/sent1_angry_phase_c.wav"
+        },
+        {
+          "emotion": "SAD",
+          "prosody_id": 41,
+          "baseline_f0": 183.07917442904994,
+          "prosody_f0": 175.45145123643618,
+          "f0_diff_hz": -7.627723192613757,
+          "f0_diff_pct": -4.166352189647756,
+          "pred_f0_mean": 184.51036071777344,
+          "baseline_duration": 2.45,
+          "prosody_duration": 2.45,
+          "dur_diff_s": 0.0,
+          "dur_diff_pct": 0.0,
+          "baseline_path": "tests/prosody/phase_c_comparison_output/sent1_baseline.wav",
+          "prosody_path": "tests/prosody/phase_c_comparison_output/sent1_sad_phase_c.wav"
+        },
+        {
+          "emotion": "EXCITED",
+          "prosody_id": 42,
+          "baseline_f0": 183.07917442904994,
+          "prosody_f0": 200.4625537568569,
+          "f0_diff_hz": 17.38337932780695,
+          "f0_diff_pct": 9.495006399290741,
+          "pred_f0_mean": 222.3016815185547,
+          "baseline_duration": 2.45,
+          "prosody_duration": 2.45,
+          "dur_diff_s": 0.0,
+          "dur_diff_pct": 0.0,
+          "baseline_path": "tests/prosody/phase_c_comparison_output/sent1_baseline.wav",
+          "prosody_path": "tests/prosody/phase_c_comparison_output/sent1_excited_phase_c.wav"
+        },
+        {
+          "emotion": "CALM",
+          "prosody_id": 45,
+          "baseline_f0": 183.07917442904994,
+          "prosody_f0": 182.58192203938054,
+          "f0_diff_hz": -0.49725238966939855,
+          "f0_diff_pct": -0.2716051081288345,
+          "pred_f0_mean": 192.43666076660156,
+          "baseline_duration": 2.45,
+          "prosody_duration": 2.45,
+          "dur_diff_s": 0.0,
+          "dur_diff_pct": 0.0,
+          "baseline_path": "tests/prosody/phase_c_comparison_output/sent1_baseline.wav",
+          "prosody_path": "tests/prosody/phase_c_comparison_output/sent1_calm_phase_c.wav"
+        }
+      ]
+    },
+    {
+      "sentence": "This is absolutely terrible news.",
+      "comparisons": [
+        {
+          "emotion": "NEUTRAL",
+          "prosody_id": 0,
+          "baseline_f0": 176.4607005214639,
+          "prosody_f0": 181.17000864229283,
+          "f0_diff_hz": 4.709308120828922,
+          "f0_diff_pct": 2.6687574666270253,
+          "pred_f0_mean": 184.27145385742188,
+          "baseline_duration": 2.575,
+          "prosody_duration": 2.575,
+          "dur_diff_s": 0.0,
+          "dur_diff_pct": 0.0,
+          "baseline_path": "tests/prosody/phase_c_comparison_output/sent2_baseline.wav",
+          "prosody_path": "tests/prosody/phase_c_comparison_output/sent2_neutral_phase_c.wav"
+        },
+        {
+          "emotion": "ANGRY",
+          "prosody_id": 40,
+          "baseline_f0": 176.4607005214639,
+          "prosody_f0": 187.26532482637285,
+          "f0_diff_hz": 10.804624304908941,
+          "f0_diff_pct": 6.122963511410697,
+          "pred_f0_mean": 198.6460723876953,
+          "baseline_duration": 2.575,
+          "prosody_duration": 2.575,
+          "dur_diff_s": 0.0,
+          "dur_diff_pct": 0.0,
+          "baseline_path": "tests/prosody/phase_c_comparison_output/sent2_baseline.wav",
+          "prosody_path": "tests/prosody/phase_c_comparison_output/sent2_angry_phase_c.wav"
+        },
+        {
+          "emotion": "SAD",
+          "prosody_id": 41,
+          "baseline_f0": 176.4607005214639,
+          "prosody_f0": 168.76094921729623,
+          "f0_diff_hz": -7.699751304167677,
+          "f0_diff_pct": -4.363436890715002,
+          "pred_f0_mean": 177.8755645751953,
+          "baseline_duration": 2.575,
+          "prosody_duration": 2.575,
+          "dur_diff_s": 0.0,
+          "dur_diff_pct": 0.0,
+          "baseline_path": "tests/prosody/phase_c_comparison_output/sent2_baseline.wav",
+          "prosody_path": "tests/prosody/phase_c_comparison_output/sent2_sad_phase_c.wav"
+        },
+        {
+          "emotion": "EXCITED",
+          "prosody_id": 42,
+          "baseline_f0": 176.4607005214639,
+          "prosody_f0": 203.00480629796323,
+          "f0_diff_hz": 26.544105776499322,
+          "f0_diff_pct": 15.042502777138536,
+          "pred_f0_mean": 214.54510498046875,
+          "baseline_duration": 2.575,
+          "prosody_duration": 2.575,
+          "dur_diff_s": 0.0,
+          "dur_diff_pct": 0.0,
+          "baseline_path": "tests/prosody/phase_c_comparison_output/sent2_baseline.wav",
+          "prosody_path": "tests/prosody/phase_c_comparison_output/sent2_excited_phase_c.wav"
+        },
+        {
+          "emotion": "CALM",
+          "prosody_id": 45,
+          "baseline_f0": 176.4607005214639,
+          "prosody_f0": 177.83728008436836,
+          "f0_diff_hz": 1.3765795629044533,
+          "f0_diff_pct": 0.7801054619167241,
+          "pred_f0_mean": 185.57577514648438,
+          "baseline_duration": 2.575,
+          "prosody_duration": 2.575,
+          "dur_diff_s": 0.0,
+          "dur_diff_pct": 0.0,
+          "baseline_path": "tests/prosody/phase_c_comparison_output/sent2_baseline.wav",
+          "prosody_path": "tests/prosody/phase_c_comparison_output/sent2_calm_phase_c.wav"
+        }
+      ]
+    },
+    {
+      "sentence": "Please stay calm, everything will be fine.",
+      "comparisons": [
+        {
+          "emotion": "NEUTRAL",
+          "prosody_id": 0,
+          "baseline_f0": 180.34096933006904,
+          "prosody_f0": 185.7614160082412,
+          "f0_diff_hz": 5.420446678172169,
+          "f0_diff_pct": 3.005665711073892,
+          "pred_f0_mean": 139.8440704345703,
+          "baseline_duration": 2.9,
+          "prosody_duration": 2.9,
+          "dur_diff_s": 0.0,
+          "dur_diff_pct": 0.0,
+          "baseline_path": "tests/prosody/phase_c_comparison_output/sent3_baseline.wav",
+          "prosody_path": "tests/prosody/phase_c_comparison_output/sent3_neutral_phase_c.wav"
+        },
+        {
+          "emotion": "ANGRY",
+          "prosody_id": 40,
+          "baseline_f0": 180.34096933006904,
+          "prosody_f0": 186.81769465389613,
+          "f0_diff_hz": 6.4767253238270825,
+          "f0_diff_pct": 3.591377681891604,
+          "pred_f0_mean": 159.44557189941406,
+          "baseline_duration": 2.9,
+          "prosody_duration": 2.9,
+          "dur_diff_s": 0.0,
+          "dur_diff_pct": 0.0,
+          "baseline_path": "tests/prosody/phase_c_comparison_output/sent3_baseline.wav",
+          "prosody_path": "tests/prosody/phase_c_comparison_output/sent3_angry_phase_c.wav"
+        },
+        {
+          "emotion": "SAD",
+          "prosody_id": 41,
+          "baseline_f0": 180.34096933006904,
+          "prosody_f0": 176.1901294758091,
+          "f0_diff_hz": -4.150839854259942,
+          "f0_diff_pct": -2.3016621623358735,
+          "pred_f0_mean": 171.4146728515625,
+          "baseline_duration": 2.9,
+          "prosody_duration": 2.9,
+          "dur_diff_s": 0.0,
+          "dur_diff_pct": 0.0,
+          "baseline_path": "tests/prosody/phase_c_comparison_output/sent3_baseline.wav",
+          "prosody_path": "tests/prosody/phase_c_comparison_output/sent3_sad_phase_c.wav"
+        },
+        {
+          "emotion": "EXCITED",
+          "prosody_id": 42,
+          "baseline_f0": 180.34096933006904,
+          "prosody_f0": 196.9515482263887,
+          "f0_diff_hz": 16.61057889631965,
+          "f0_diff_pct": 9.210651887934649,
+          "pred_f0_mean": 159.07664489746094,
+          "baseline_duration": 2.9,
+          "prosody_duration": 2.9,
+          "dur_diff_s": 0.0,
+          "dur_diff_pct": 0.0,
+          "baseline_path": "tests/prosody/phase_c_comparison_output/sent3_baseline.wav",
+          "prosody_path": "tests/prosody/phase_c_comparison_output/sent3_excited_phase_c.wav"
+        },
+        {
+          "emotion": "CALM",
+          "prosody_id": 45,
+          "baseline_f0": 180.34096933006904,
+          "prosody_f0": 181.34528653880358,
+          "f0_diff_hz": 1.004317208734534,
+          "f0_diff_pct": 0.5568990853633389,
+          "pred_f0_mean": 154.4628448486328,
+          "baseline_duration": 2.9,
+          "prosody_duration": 2.9,
+          "dur_diff_s": 0.0,
+          "dur_diff_pct": 0.0,
+          "baseline_path": "tests/prosody/phase_c_comparison_output/sent3_baseline.wav",
+          "prosody_path": "tests/prosody/phase_c_comparison_output/sent3_calm_phase_c.wav"
+        }
+      ]
+    },
+    {
+      "sentence": "I cannot believe this is happening right now!",
+      "comparisons": [
+        {
+          "emotion": "NEUTRAL",
+          "prosody_id": 0,
+          "baseline_f0": 182.4759381638316,
+          "prosody_f0": 182.08441806875723,
+          "f0_diff_hz": -0.39152009507435537,
+          "f0_diff_pct": -0.21455984773336997,
+          "pred_f0_mean": 181.8965606689453,
+          "baseline_duration": 2.925,
+          "prosody_duration": 2.925,
+          "dur_diff_s": 0.0,
+          "dur_diff_pct": 0.0,
+          "baseline_path": "tests/prosody/phase_c_comparison_output/sent4_baseline.wav",
+          "prosody_path": "tests/prosody/phase_c_comparison_output/sent4_neutral_phase_c.wav"
+        },
+        {
+          "emotion": "ANGRY",
+          "prosody_id": 40,
+          "baseline_f0": 182.4759381638316,
+          "prosody_f0": 190.3169874044693,
+          "f0_diff_hz": 7.841049240637716,
+          "f0_diff_pct": 4.297031882416092,
+          "pred_f0_mean": 196.80722045898438,
+          "baseline_duration": 2.925,
+          "prosody_duration": 2.925,
+          "dur_diff_s": 0.0,
+          "dur_diff_pct": 0.0,
+          "baseline_path": "tests/prosody/phase_c_comparison_output/sent4_baseline.wav",
+          "prosody_path": "tests/prosody/phase_c_comparison_output/sent4_angry_phase_c.wav"
+        },
+        {
+          "emotion": "SAD",
+          "prosody_id": 41,
+          "baseline_f0": 182.4759381638316,
+          "prosody_f0": 170.41328376123116,
+          "f0_diff_hz": -12.06265440260043,
+          "f0_diff_pct": -6.610545217074193,
+          "pred_f0_mean": 175.3262939453125,
+          "baseline_duration": 2.925,
+          "prosody_duration": 2.925,
+          "dur_diff_s": 0.0,
+          "dur_diff_pct": 0.0,
+          "baseline_path": "tests/prosody/phase_c_comparison_output/sent4_baseline.wav",
+          "prosody_path": "tests/prosody/phase_c_comparison_output/sent4_sad_phase_c.wav"
+        },
+        {
+          "emotion": "EXCITED",
+          "prosody_id": 42,
+          "baseline_f0": 182.4759381638316,
+          "prosody_f0": 201.10104874604903,
+          "f0_diff_hz": 18.625110582217445,
+          "f0_diff_pct": 10.206885778822707,
+          "pred_f0_mean": 212.22813415527344,
+          "baseline_duration": 2.925,
+          "prosody_duration": 2.925,
+          "dur_diff_s": 0.0,
+          "dur_diff_pct": 0.0,
+          "baseline_path": "tests/prosody/phase_c_comparison_output/sent4_baseline.wav",
+          "prosody_path": "tests/prosody/phase_c_comparison_output/sent4_excited_phase_c.wav"
+        },
+        {
+          "emotion": "CALM",
+          "prosody_id": 45,
+          "baseline_f0": 182.4759381638316,
+          "prosody_f0": 180.88822629011005,
+          "f0_diff_hz": -1.5877118737215312,
+          "f0_diff_pct": -0.870093826998737,
+          "pred_f0_mean": 182.8955078125,
+          "baseline_duration": 2.925,
+          "prosody_duration": 2.925,
+          "dur_diff_s": 0.0,
+          "dur_diff_pct": 0.0,
+          "baseline_path": "tests/prosody/phase_c_comparison_output/sent4_baseline.wav",
+          "prosody_path": "tests/prosody/phase_c_comparison_output/sent4_calm_phase_c.wav"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "NEUTRAL": {
+      "mean_f0_diff_pct": 1.872251595357783
+    },
+    "ANGRY": {
+      "mean_f0_diff_pct": 4.903583118628574
+    },
+    "SAD": {
+      "mean_f0_diff_pct": -3.93334308675972
+    },
+    "EXCITED": {
+      "mean_f0_diff_pct": 10.923969858234624
+    },
+    "CALM": {
+      "mean_f0_diff_pct": 0.49275867975475407
+    }
+  }
+}

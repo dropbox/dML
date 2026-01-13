@@ -1,0 +1,133 @@
+diff --git a/aten/src/ATen/mps/MPSStream.h b/aten/src/ATen/mps/MPSStream.h
+index dbc2c930..b5ff644d 100644
+--- a/aten/src/ATen/mps/MPSStream.h
++++ b/aten/src/ATen/mps/MPSStream.h
+@@ -442,4 +442,39 @@ class TORCH_API MPSStreamImpl {
+   MPSStreamImpl();
+ };
+ 
++//-----------------------------------------------------------------
++//  Global Metal Encoding Lock (Apple AGX Race Workaround)
++//-----------------------------------------------------------------
++// Apple's AGX driver has an internal race condition when multiple threads
++// encode to different command buffers concurrently. This causes ~20% SIGSEGV.
++// See: apple_feedback/APPLE_FEEDBACK_BUG_REPORT.md
++//
++// Use MPSEncodingLock to serialize Metal encoding operations across all threads.
++// Environment variable MPS_DISABLE_ENCODING_MUTEX=1 disables this (unsafe).
++
++/**
++ * Get the global Metal encoding mutex.
++ * This is a recursive_mutex to allow nested calls.
++ */
++TORCH_API std::recursive_mutex& getGlobalMetalEncodingMutex();
++
++/**
++ * Check if the global encoding mutex is still alive (for shutdown safety).
++ */
++TORCH_API bool isGlobalMetalEncodingMutexAlive();
++
++/**
++ * RAII lock for global Metal encoding operations.
++ * Automatically handles shutdown safety.
++ */
++class TORCH_API MPSEncodingLock {
++public:
++  MPSEncodingLock();
++  ~MPSEncodingLock();
++  MPSEncodingLock(const MPSEncodingLock&) = delete;
++  MPSEncodingLock& operator=(const MPSEncodingLock&) = delete;
++private:
++  bool locked_;
++};
++
+ } // namespace at::mps
+diff --git a/aten/src/ATen/mps/MPSStream.mm b/aten/src/ATen/mps/MPSStream.mm
+index 7e8297cb..d8a41919 100644
+--- a/aten/src/ATen/mps/MPSStream.mm
++++ b/aten/src/ATen/mps/MPSStream.mm
+@@ -19,10 +19,55 @@
+ namespace at::mps {
+ 
+ // NOTE: Global mutex g_mpsgraph_encode_mutex was REMOVED in N=109.
+-// With thread-local MPSGraphCache, each thread has its own MPSGraph objects.
+-// Testing confirmed that concurrent encoding to different graphs on different
+-// streams is safe. This enables true parallel MPSGraph execution.
+-// See MPS_PARALLEL_INFERENCE_PLAN.md Phase 21 for details.
++// However, testing in N=1068 revealed that Apple's AGX driver has an internal
++// race condition when multiple threads create/use command encoders concurrently.
++// This causes ~20% SIGSEGV crash rate. Re-adding global mutex as workaround.
++// See: apple_feedback/APPLE_FEEDBACK_BUG_REPORT.md
++
++// Global mutex for Metal command encoder operations (Apple AGX race workaround)
++// This serializes all Metal encoding operations across all threads.
++// Environment variable MPS_DISABLE_ENCODING_MUTEX=1 disables this (unsafe).
++
++// Flag to track if mutex is still valid (not destroyed during shutdown)
++static std::atomic<bool> s_metalMutexAlive{true};
++
++// Wrapper struct that marks mutex as destroyed in destructor
++struct EncodingMutexWrapper {
++  std::recursive_mutex mutex;
++  ~EncodingMutexWrapper() { s_metalMutexAlive.store(false, std::memory_order_release); }
++};
++
++static bool isMetalMutexDisabled() {
++  static bool disabled = []() {
++    const char* env = std::getenv("MPS_DISABLE_ENCODING_MUTEX");
++    return env && std::string(env) == "1";
++  }();
++  return disabled;
++}
++
++// Implementation of the exported API from MPSStream.h
++std::recursive_mutex& getGlobalMetalEncodingMutex() {
++  static EncodingMutexWrapper wrapper;
++  return wrapper.mutex;
++}
++
++bool isGlobalMetalEncodingMutexAlive() {
++  return s_metalMutexAlive.load(std::memory_order_acquire);
++}
++
++MPSEncodingLock::MPSEncodingLock() : locked_(false) {
++  // Don't try to lock if mutex is disabled or destroyed
++  if (!isMetalMutexDisabled() && s_metalMutexAlive.load(std::memory_order_acquire)) {
++    getGlobalMetalEncodingMutex().lock();
++    locked_ = true;
++  }
++}
++
++MPSEncodingLock::~MPSEncodingLock() {
++  if (locked_ && s_metalMutexAlive.load(std::memory_order_acquire)) {
++    getGlobalMetalEncodingMutex().unlock();
++  }
++}
+ 
+ // Queue-specific key for detecting re-entrant dispatch_sync on the same stream queue.
+ static char kMPSStreamQueueSpecificKey;
+@@ -128,6 +173,8 @@ id<MTLComputeCommandEncoder> MPSStream::commandEncoder() {
+ }
+ 
+ void MPSStream::synchronize(SyncType syncType) {
++  // Acquire global encoding lock to serialize Metal operations (AGX race workaround)
++  MPSEncodingLock encodingLock;
+   std::lock_guard<std::recursive_mutex> lock(_streamMutex);
+   endKernelCoalescing();
+   switch (syncType) {
+diff --git a/aten/src/ATen/native/mps/OperationUtils.mm b/aten/src/ATen/native/mps/OperationUtils.mm
+index cf6827e5..0dcff287 100644
+--- a/aten/src/ATen/native/mps/OperationUtils.mm
++++ b/aten/src/ATen/native/mps/OperationUtils.mm
+@@ -73,6 +73,11 @@ namespace at::native::mps {
+ void dispatch_sync_with_rethrow(dispatch_queue_t queue, void (^block)()) {
+   __block std::optional<std::exception_ptr> block_exception;
+   dispatch_sync(queue, ^() {
++    // Acquire global mutex INSIDE the dispatch block to serialize Metal encoding
++    // This is the Apple AGX race condition workaround - must hold mutex during
++    // the entire encoding operation, not just around dispatch_sync call
++    // See MPSStream.h for MPSEncodingLock documentation
++    at::mps::MPSEncodingLock encodingLock;
+     try {
+       block();
+     } catch (...) {

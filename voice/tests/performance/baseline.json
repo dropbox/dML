@@ -1,0 +1,13 @@
+{
+  "timestamp": "2025-12-09 17:42:31",
+  "platform": "M4 Max (MPS)",
+  "cold_latency_ms": 8658.327291486785,
+  "warm_latency_p50_ms": 289.4593750825152,
+  "warm_latency_p95_ms": 297.1627910155803,
+  "warm_latency_p99_ms": 301.0859159985557,
+  "sequential_throughput_req_per_sec": 3.4370177523949774,
+  "concurrent_throughput_req_per_sec": 15.881338163031348,
+  "daemon_memory_mb": 1681.0625,
+  "warm_success_rate": 1.0,
+  "notes": "Baseline captured by test_perf_baseline.py. Cold latency includes process spawn + model load (~12s). Warm latency is daemon mode synthesis + playback."
+}

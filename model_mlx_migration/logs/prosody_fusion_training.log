@@ -1,0 +1,140 @@
+/opt/homebrew/lib/python3.14/site-packages/webrtcvad.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+============================================================
+Prosody-Punctuation Fusion Training
+============================================================
+Prosody JSON: data/prosody/esd.json
+Output dir: checkpoints/prosody_punct_fusion_v1
+Epochs: 10
+Batch size: 64
+Learning rate: 0.0001
+============================================================
+
+Loading dataset...
+Loading prosody data from: data/prosody/esd.json
+Loaded 17500 samples
+Valid samples: 17500
+Class distribution: {0: 13650, 1: 0, 2: 1548, 3: 2302}
+Skipped (no punct or missing audio): 0
+Train: 15750, Val: 1750
+Training distribution:
+  PERIOD: 12267 (77.9%)
+  COMMA: 0 (0.0%)
+  QUESTION: 1382 (8.8%)
+  EXCLAIM: 2101 (13.3%)
+
+Creating model...
+Parameters: 12,276
+
+Starting training...
+Step    50 | Loss: 1.9654 | Acc: 0.776 | Boost: 0.0559 | LR: 5.01e-06 | Time: 0s
+Step   100 | Loss: 1.9360 | Acc: 0.784 | Boost: 0.0659 | LR: 1.00e-05 | Time: 0s
+Step   150 | Loss: 1.9454 | Acc: 0.778 | Boost: 0.0806 | LR: 1.50e-05 | Time: 1s
+Step   200 | Loss: 1.9308 | Acc: 0.779 | Boost: 0.1098 | LR: 2.00e-05 | Time: 1s
+
+Epoch 1/10 complete (1s)
+  Train Loss: 1.9168, Train Acc: 0.778
+  Val Loss: 1.7880, Val Acc: 0.790
+  Per-class recall: PERIOD=1.000 COMMA=0.000 QUESTION=0.000 EXCLAIM=0.000 
+  New best! Saved to checkpoints/prosody_punct_fusion_v1/best.npz
+Step   250 | Loss: 1.6784 | Acc: 0.823 | Boost: 0.1585 | LR: 2.50e-05 | Time: 1s
+Step   300 | Loss: 1.8025 | Acc: 0.774 | Boost: 0.2280 | LR: 3.00e-05 | Time: 1s
+Step   350 | Loss: 1.7534 | Acc: 0.777 | Boost: 0.3474 | LR: 3.50e-05 | Time: 2s
+Step   400 | Loss: 1.7098 | Acc: 0.778 | Boost: 0.4976 | LR: 4.00e-05 | Time: 2s
+Step   450 | Loss: 1.6705 | Acc: 0.779 | Boost: 0.6484 | LR: 4.50e-05 | Time: 2s
+
+Epoch 2/10 complete (1s)
+  Train Loss: 1.6539, Train Acc: 0.778
+  Val Loss: 1.4962, Val Acc: 0.790
+  Per-class recall: PERIOD=1.000 COMMA=0.000 QUESTION=0.000 EXCLAIM=0.000 
+Step   500 | Loss: 1.5525 | Acc: 0.776 | Boost: 0.7533 | LR: 5.00e-05 | Time: 3s
+Saved checkpoint: checkpoints/prosody_punct_fusion_v1/step_500.npz
+Step   550 | Loss: 1.5260 | Acc: 0.778 | Boost: 0.8705 | LR: 5.50e-05 | Time: 3s
+Step   600 | Loss: 1.5103 | Acc: 0.779 | Boost: 1.0310 | LR: 6.00e-05 | Time: 3s
+Step   650 | Loss: 1.5059 | Acc: 0.778 | Boost: 1.1301 | LR: 6.50e-05 | Time: 3s
+Step   700 | Loss: 1.5033 | Acc: 0.777 | Boost: 1.2422 | LR: 7.00e-05 | Time: 3s
+
+Epoch 3/10 complete (1s)
+  Train Loss: 1.5000, Train Acc: 0.778
+  Val Loss: 1.4563, Val Acc: 0.790
+  Per-class recall: PERIOD=1.000 COMMA=0.000 QUESTION=0.000 EXCLAIM=0.000 
+Step   750 | Loss: 1.4742 | Acc: 0.781 | Boost: 1.3022 | LR: 7.50e-05 | Time: 4s
+Step   800 | Loss: 1.4947 | Acc: 0.775 | Boost: 1.3549 | LR: 8.00e-05 | Time: 4s
+Step   850 | Loss: 1.4929 | Acc: 0.775 | Boost: 1.3635 | LR: 8.50e-05 | Time: 4s
+Step   900 | Loss: 1.4900 | Acc: 0.776 | Boost: 1.3998 | LR: 9.00e-05 | Time: 5s
+Step   950 | Loss: 1.4844 | Acc: 0.778 | Boost: 1.3910 | LR: 9.50e-05 | Time: 5s
+
+Epoch 4/10 complete (1s)
+  Train Loss: 1.4822, Train Acc: 0.778
+  Val Loss: 1.4548, Val Acc: 0.790
+  Per-class recall: PERIOD=1.000 COMMA=0.000 QUESTION=0.000 EXCLAIM=0.000 
+Step  1000 | Loss: 1.3979 | Acc: 0.799 | Boost: 1.3932 | LR: 1.00e-04 | Time: 5s
+Saved checkpoint: checkpoints/prosody_punct_fusion_v1/step_1000.npz
+Step  1050 | Loss: 1.4867 | Acc: 0.776 | Boost: 1.4106 | LR: 9.97e-05 | Time: 6s
+Step  1100 | Loss: 1.4980 | Acc: 0.774 | Boost: 1.3503 | LR: 9.88e-05 | Time: 6s
+Step  1150 | Loss: 1.4754 | Acc: 0.779 | Boost: 1.4180 | LR: 9.74e-05 | Time: 6s
+Step  1200 | Loss: 1.4763 | Acc: 0.779 | Boost: 1.3694 | LR: 9.54e-05 | Time: 6s
+
+Epoch 5/10 complete (1s)
+  Train Loss: 1.4785, Train Acc: 0.779
+  Val Loss: 1.4472, Val Acc: 0.790
+  Per-class recall: PERIOD=1.000 COMMA=0.000 QUESTION=0.000 EXCLAIM=0.000 
+Step  1250 | Loss: 1.4779 | Acc: 0.779 | Boost: 1.3347 | LR: 9.29e-05 | Time: 6s
+Step  1300 | Loss: 1.4960 | Acc: 0.775 | Boost: 1.3285 | LR: 8.99e-05 | Time: 6s
+Step  1350 | Loss: 1.4890 | Acc: 0.777 | Boost: 1.3533 | LR: 8.65e-05 | Time: 7s
+Step  1400 | Loss: 1.4881 | Acc: 0.777 | Boost: 1.3890 | LR: 8.26e-05 | Time: 7s
+Step  1450 | Loss: 1.4766 | Acc: 0.779 | Boost: 1.4027 | LR: 7.83e-05 | Time: 7s
+
+Epoch 6/10 complete (1s)
+  Train Loss: 1.4780, Train Acc: 0.779
+  Val Loss: 1.4493, Val Acc: 0.790
+  Per-class recall: PERIOD=1.000 COMMA=0.000 QUESTION=0.000 EXCLAIM=0.000 
+Step  1500 | Loss: 1.4003 | Acc: 0.797 | Boost: 1.3710 | LR: 7.37e-05 | Time: 7s
+Saved checkpoint: checkpoints/prosody_punct_fusion_v1/step_1500.npz
+Step  1550 | Loss: 1.4853 | Acc: 0.776 | Boost: 1.3531 | LR: 6.89e-05 | Time: 8s
+Step  1600 | Loss: 1.4588 | Acc: 0.783 | Boost: 1.3835 | LR: 6.38e-05 | Time: 8s
+Step  1650 | Loss: 1.4783 | Acc: 0.778 | Boost: 1.3261 | LR: 5.86e-05 | Time: 8s
+Step  1700 | Loss: 1.4766 | Acc: 0.779 | Boost: 1.3968 | LR: 5.32e-05 | Time: 8s
+
+Epoch 7/10 complete (1s)
+  Train Loss: 1.4772, Train Acc: 0.779
+  Val Loss: 1.4466, Val Acc: 0.790
+  Per-class recall: PERIOD=1.000 COMMA=0.000 QUESTION=0.000 EXCLAIM=0.000 
+Step  1750 | Loss: 1.5522 | Acc: 0.760 | Boost: 1.3453 | LR: 4.78e-05 | Time: 8s
+Step  1800 | Loss: 1.4824 | Acc: 0.777 | Boost: 1.3693 | LR: 4.25e-05 | Time: 9s
+Step  1850 | Loss: 1.4878 | Acc: 0.776 | Boost: 1.3523 | LR: 3.72e-05 | Time: 9s
+Step  1900 | Loss: 1.4806 | Acc: 0.778 | Boost: 1.3600 | LR: 3.21e-05 | Time: 9s
+Step  1950 | Loss: 1.4804 | Acc: 0.778 | Boost: 1.3483 | LR: 2.72e-05 | Time: 9s
+
+Epoch 8/10 complete (1s)
+  Train Loss: 1.4757, Train Acc: 0.779
+  Val Loss: 1.4460, Val Acc: 0.790
+  Per-class recall: PERIOD=1.000 COMMA=0.000 QUESTION=0.000 EXCLAIM=0.000 
+Step  2000 | Loss: 1.4187 | Acc: 0.794 | Boost: 1.3721 | LR: 2.26e-05 | Time: 9s
+Saved checkpoint: checkpoints/prosody_punct_fusion_v1/step_2000.npz
+Step  2050 | Loss: 1.4699 | Acc: 0.782 | Boost: 1.3685 | LR: 1.82e-05 | Time: 9s
+Step  2100 | Loss: 1.4854 | Acc: 0.777 | Boost: 1.3722 | LR: 1.43e-05 | Time: 10s
+Step  2150 | Loss: 1.4795 | Acc: 0.778 | Boost: 1.3834 | LR: 1.07e-05 | Time: 11s
+Step  2200 | Loss: 1.4843 | Acc: 0.777 | Boost: 1.3827 | LR: 7.62e-06 | Time: 11s
+
+Epoch 9/10 complete (2s)
+  Train Loss: 1.4737, Train Acc: 0.780
+  Val Loss: 1.4474, Val Acc: 0.790
+  Per-class recall: PERIOD=1.000 COMMA=0.000 QUESTION=0.000 EXCLAIM=0.000 
+Step  2250 | Loss: 1.4863 | Acc: 0.775 | Boost: 1.3733 | LR: 5.02e-06 | Time: 11s
+Step  2300 | Loss: 1.4686 | Acc: 0.782 | Boost: 1.3370 | LR: 2.93e-06 | Time: 11s
+Step  2350 | Loss: 1.4704 | Acc: 0.780 | Boost: 1.4040 | LR: 1.39e-06 | Time: 12s
+Step  2400 | Loss: 1.4733 | Acc: 0.780 | Boost: 1.3196 | LR: 4.16e-07 | Time: 13s
+Step  2450 | Loss: 1.4760 | Acc: 0.779 | Boost: 1.3678 | LR: 1.16e-08 | Time: 14s
+
+Epoch 10/10 complete (3s)
+  Train Loss: 1.4759, Train Acc: 0.779
+  Val Loss: 1.4478, Val Acc: 0.790
+  Per-class recall: PERIOD=1.000 COMMA=0.000 QUESTION=0.000 EXCLAIM=0.000 
+
+============================================================
+Training complete!
+Total time: 0.2 minutes
+Best validation accuracy: 0.790
+Checkpoints saved to: checkpoints/prosody_punct_fusion_v1
+============================================================

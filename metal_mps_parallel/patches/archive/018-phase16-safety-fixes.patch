@@ -1,0 +1,95 @@
+diff --git a/aten/src/ATen/mps/MPSEvent.mm b/aten/src/ATen/mps/MPSEvent.mm
+index ac464614..3f518dbd 100644
+--- a/aten/src/ATen/mps/MPSEvent.mm
++++ b/aten/src/ATen/mps/MPSEvent.mm
+@@ -160,7 +160,8 @@ MPSEventPool::~MPSEventPool() {
+ 
+ MPSEventPtr MPSEventPool::acquireEvent(bool enable_timing, MPSStream* stream) {
+   if (!stream) {
+-    stream = m_default_stream;
++    // Use thread's current stream, not default stream, for proper multi-thread support
++    stream = getCurrentMPSStream();
+   }
+   {
+     std::lock_guard<std::recursive_mutex> lock(m_mutex);
+diff --git a/aten/src/ATen/mps/MPSStream.mm b/aten/src/ATen/mps/MPSStream.mm
+index 2a3a41e7..3a822415 100644
+--- a/aten/src/ATen/mps/MPSStream.mm
++++ b/aten/src/ATen/mps/MPSStream.mm
+@@ -371,11 +371,14 @@ MPSStream* MPSStreamPool::getDefaultStream() {
+ 
+ MPSStream* MPSStreamPool::getStream(size_t index) {
+   ensureInitialized();
+-  if (index >= kMPSStreamsPerPool) {
+-    return getDefaultStream();
+-  }
++  TORCH_CHECK(index < kMPSStreamsPerPool,
++              "Invalid MPS stream index ", index, " >= ", kMPSStreamsPerPool);
++  // Always lock to avoid data race on unique_ptr read/write
++  std::lock_guard<std::mutex> lock(stream_creation_mutex_);
+   if (streams_[index] == nullptr) {
+-    return createStream(index);
++    streams_[index] = std::unique_ptr<MPSStream>(
++        new MPSStream(Stream(Stream::UNSAFE, c10::Device(DeviceType::MPS, 0),
++                            static_cast<StreamId>(index))));
+   }
+   return streams_[index].get();
+ }
+@@ -448,8 +451,26 @@ MPSStream* MPSStreamPool::getCurrentStream() {
+ }
+ 
+ void MPSStreamPool::setCurrentStream(MPSStream* stream) {
++  // Find slot index for this stream (or 0 if it's the default stream or not found)
++  size_t new_slot_index = 0;
++  for (size_t i = 0; i < kMPSStreamsPerPool; ++i) {
++    if (instance().streams_[i].get() == stream) {
++      new_slot_index = i;
++      break;
++    }
++  }
++
++  // If previous slot was a worker slot (>0) and differs from new, release it
++  if (tls_stream_slot.slot_index > 0 && tls_stream_slot.slot_index != new_slot_index) {
++    // Sync old stream before releasing to avoid dirty state
++    if (tls_stream_slot.stream != nullptr && g_pool_alive.load(std::memory_order_acquire)) {
++      tls_stream_slot.stream->synchronize(SyncType::COMMIT_AND_WAIT);
++    }
++    instance().releaseStreamSlot(tls_stream_slot.slot_index);
++  }
++
+   tls_stream_slot.stream = stream;
+-  // Note: slot_index is not updated - manual setCurrentStream bypasses slot tracking
++  tls_stream_slot.slot_index = new_slot_index;
+ }
+ 
+ //-----------------------------------------------------------------
+diff --git a/aten/src/ATen/native/mps/OperationUtils.mm b/aten/src/ATen/native/mps/OperationUtils.mm
+index 6f46fb82..518f5a1b 100644
+--- a/aten/src/ATen/native/mps/OperationUtils.mm
++++ b/aten/src/ATen/native/mps/OperationUtils.mm
+@@ -952,12 +952,15 @@ class BundledShaderLibary : public MetalShaderLibrary {
+ 
+  protected:
+   id<MTLLibrary> getLibrary() override {
+-    if (C10_UNLIKELY(!library)) {
++    // THREAD-SAFETY FIX: Use std::call_once for proper thread-safe initialization.
++    // The previous double-checked locking pattern had a race condition:
++    // multiple threads could see !library and race to initialize it.
++    std::call_once(bundledLibraryOnceFlag_, [this]() {
+       auto device = MPSDevice::getInstance()->device();
+       NSError* error = nil;
+       library = [device newLibraryWithData:getSectionData("metal_basic") error:&error];
+       TORCH_CHECK(library, "Failed to create metal library, error: ", [[error description] UTF8String]);
+-    }
++    });
+     return library;
+   }
+ 
+@@ -966,6 +969,7 @@ class BundledShaderLibary : public MetalShaderLibrary {
+   }
+ 
+  private:
++  std::once_flag bundledLibraryOnceFlag_;
+   static dispatch_data_t getSectionData(const std::string& name) {
+     uint32_t idx = 0;
+     for (const auto cnt : c10::irange(_dyld_image_count())) {

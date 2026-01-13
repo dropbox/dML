@@ -1,0 +1,75 @@
+2026-01-07 09:28:04,385 [INFO] Acquired training lock
+2026-01-07 09:28:04,385 [INFO] Loading encoder from checkpoints/zipformer/en-streaming/exp/pretrained.pt
+2026-01-07 09:28:04,511 [INFO] Encoder loaded: output_dim=512
+2026-01-07 09:28:04,511 [INFO] Loading data from data/emotion/combined_emotion_hf (dataset=combined)
+2026-01-07 09:28:05,617 [INFO] Train batches: 237
+2026-01-07 09:28:05,617 [INFO] Val batches: 26
+2026-01-07 09:28:05,652 [INFO] Head num_classes: 6
+2026-01-07 09:28:05,654 [INFO] Created emotion head with 988,166 parameters
+2026-01-07 09:28:05,654 [INFO] Stage 4: 11,754,487 params (UNFROZEN)
+2026-01-07 09:28:05,654 [INFO] Stage 5: 3,906,660 params (UNFROZEN)
+2026-01-07 09:28:05,654 [INFO] Total unfrozen encoder params: 15,661,147
+2026-01-07 09:28:05,654 [INFO] Total trainable parameters: 16,649,313
+2026-01-07 09:28:05,654 [INFO] Fine-tuning with encoder unfreezing: lr=4e-05 (encoder_lr parameter is ignored - both encoder and head use same lr)
+2026-01-07 09:28:05,654 [INFO] ============================================================
+2026-01-07 09:28:05,654 [INFO] Training Configuration
+2026-01-07 09:28:05,654 [INFO] ============================================================
+2026-01-07 09:28:05,654 [INFO] Head type: emotion
+2026-01-07 09:28:05,654 [INFO] Encoder dim: 512
+2026-01-07 09:28:05,654 [INFO] Batch size: 32
+2026-01-07 09:28:05,654 [INFO] Head learning rate: 4e-05
+2026-01-07 09:28:05,654 [INFO] Encoder learning rate: 1e-05
+2026-01-07 09:28:05,654 [INFO] Unfrozen encoder stages: 2
+2026-01-07 09:28:05,654 [INFO] Gradient clipping: 1.0
+2026-01-07 09:28:05,654 [INFO] Cache clearing: every 100 steps
+2026-01-07 09:28:05,654 [INFO] Label smoothing: 0.1
+2026-01-07 09:28:05,654 [INFO] Loss function: Focal Loss (gamma=2.0)
+2026-01-07 09:28:05,654 [INFO] SpecAugment: True
+2026-01-07 09:28:05,654 [INFO] Param dtype: float32
+2026-01-07 09:28:05,654 [INFO] Epochs: 10
+2026-01-07 09:28:05,654 [INFO] Max steps: 2370
+2026-01-07 09:28:05,654 [INFO] Label key: emotion_labels
+2026-01-07 09:28:05,654 [INFO] ============================================================
+2026-01-07 09:28:05,655 [INFO] Created EncoderHeadModel for fine-tuning (reused across all steps)
+2026-01-07 09:28:05,655 [INFO] Epoch 1/10
+2026-01-07 09:28:23,141 [INFO] Step 10/2370 | Loss: 1.2377 | Acc: 0.1875 | LR: 7.20e-07
+2026-01-07 09:28:48,634 [INFO] Step 20/2370 | Loss: 1.2462 | Acc: 0.1562 | LR: 1.52e-06
+2026-01-07 09:29:34,371 [INFO] Step 30/2370 | Loss: 1.2508 | Acc: 0.0625 | LR: 2.32e-06
+2026-01-07 09:30:34,497 [INFO] Step 40/2370 | Loss: 1.2448 | Acc: 0.1250 | LR: 3.12e-06
+2026-01-07 09:32:09,988 [INFO] Step 50/2370 | Loss: 1.2441 | Acc: 0.1250 | LR: 3.92e-06
+2026-01-07 09:34:26,976 [INFO] Step 60/2370 | Loss: 1.2361 | Acc: 0.2500 | LR: 4.72e-06
+2026-01-07 09:34:54,239 [INFO] Step 70/2370 | Loss: 1.2482 | Acc: 0.1875 | LR: 5.52e-06
+2026-01-07 09:35:02,069 [INFO] Step 80/2370 | Loss: 1.2495 | Acc: 0.1250 | LR: 6.32e-06
+2026-01-07 09:35:09,104 [INFO] Step 90/2370 | Loss: 1.2269 | Acc: 0.1875 | LR: 7.12e-06
+2026-01-07 09:35:17,231 [INFO] Step 100/2370 | Loss: 1.2450 | Acc: 0.1875 | LR: 7.92e-06
+2026-01-07 09:35:28,209 [INFO] [EVAL] Step 100 | Val Loss: 1.7785 | Val Acc: 0.2488
+2026-01-07 09:35:28,226 [INFO] New best validation accuracy: 0.2488
+2026-01-07 09:35:38,913 [INFO] Step 110/2370 | Loss: 1.2383 | Acc: 0.0938 | LR: 8.72e-06
+2026-01-07 09:35:52,052 [INFO] Step 120/2370 | Loss: 1.2186 | Acc: 0.2812 | LR: 9.52e-06
+2026-01-07 09:35:59,321 [INFO] Step 130/2370 | Loss: 1.2301 | Acc: 0.2812 | LR: 1.03e-05
+2026-01-07 09:36:07,606 [INFO] Step 140/2370 | Loss: 1.1927 | Acc: 0.3125 | LR: 1.11e-05
+2026-01-07 09:36:16,315 [INFO] Step 150/2370 | Loss: 1.2063 | Acc: 0.3438 | LR: 1.19e-05
+2026-01-07 09:36:25,552 [INFO] Step 160/2370 | Loss: 1.1940 | Acc: 0.3438 | LR: 1.27e-05
+2026-01-07 09:36:34,452 [INFO] Step 170/2370 | Loss: 1.1845 | Acc: 0.3125 | LR: 1.35e-05
+2026-01-07 09:36:43,004 [INFO] Step 180/2370 | Loss: 1.3358 | Acc: 0.0938 | LR: 1.43e-05
+2026-01-07 09:36:51,419 [INFO] Step 190/2370 | Loss: 1.2023 | Acc: 0.1250 | LR: 1.51e-05
+2026-01-07 09:37:03,499 [INFO] Step 200/2370 | Loss: 1.2598 | Acc: 0.3438 | LR: 1.59e-05
+2026-01-07 09:37:13,693 [INFO] [EVAL] Step 200 | Val Loss: 1.7908 | Val Acc: 0.1947
+2026-01-07 09:37:20,994 [INFO] Step 210/2370 | Loss: 1.2497 | Acc: 0.1875 | LR: 1.67e-05
+2026-01-07 09:37:28,347 [INFO] Step 220/2370 | Loss: 1.2104 | Acc: 0.1250 | LR: 1.75e-05
+2026-01-07 09:37:35,659 [INFO] Step 230/2370 | Loss: 1.1722 | Acc: 0.2500 | LR: 1.83e-05
+2026-01-07 09:37:40,706 [INFO] Epoch 1 complete | Avg Loss: 1.2222 | Avg Acc: 0.2160 | Updates: 237 | Micro-batches: 237 | Skipped: 0 (loss=0, logits=0, grads=0)
+2026-01-07 09:37:40,706 [INFO] Epoch 2/10
+2026-01-07 09:37:43,099 [INFO] Step 240/2370 | Loss: 1.1500 | Acc: 0.2812 | LR: 1.91e-05
+2026-01-07 09:37:50,475 [INFO] Step 250/2370 | Loss: 1.0860 | Acc: 0.4062 | LR: 1.99e-05
+2026-01-07 09:37:57,896 [INFO] Step 260/2370 | Loss: 1.2732 | Acc: 0.1875 | LR: 2.07e-05
+2026-01-07 09:38:05,124 [INFO] Step 270/2370 | Loss: 1.1915 | Acc: 0.2188 | LR: 2.15e-05
+2026-01-07 09:38:12,321 [INFO] Step 280/2370 | Loss: 1.2460 | Acc: 0.1875 | LR: 2.23e-05
+2026-01-07 09:38:19,443 [INFO] Step 290/2370 | Loss: 1.1833 | Acc: 0.2812 | LR: 2.31e-05
+2026-01-07 09:38:28,254 [INFO] Step 300/2370 | Loss: 1.2240 | Acc: 0.2188 | LR: 2.39e-05
+2026-01-07 09:38:39,697 [INFO] [EVAL] Step 300 | Val Loss: 1.7569 | Val Acc: 0.2512
+2026-01-07 09:38:39,702 [INFO] New best validation accuracy: 0.2512
+2026-01-07 09:38:47,081 [INFO] Step 310/2370 | Loss: 1.2094 | Acc: 0.2812 | LR: 2.47e-05
+2026-01-07 09:38:54,535 [INFO] Step 320/2370 | Loss: 1.1448 | Acc: 0.2500 | LR: 2.55e-05
+2026-01-07 09:39:01,944 [INFO] Step 330/2370 | Loss: 1.1523 | Acc: 0.2812 | LR: 2.63e-05
+2026-01-07 09:39:09,374 [INFO] Step 340/2370 | Loss: 1.1184 | Acc: 0.3750 | LR: 2.71e-05
