@@ -5,7 +5,7 @@
 
 ML and NN training and inference optimized for Apple Silicon via MLX. Currently focused on voice.
 
-*All d* projects are entirely AI generated.*
+All d* projects are entirely AI generated.
 
 ## Structure
 
